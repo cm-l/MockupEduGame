@@ -24,14 +24,27 @@ public class Card : MonoBehaviour
     //Deck of cards
     public DeckAvailable deckAvailable;
 
+    //Pile of discarded (and already played) cards
+    public DiscardPile discardPile;
+
     //Which card is it? (leftmost = 0, rightmost = 4)
     public int whichCard;
+
+    //Is it the first turn? has it been played?
+    public bool firstTurn = true;
+    public bool hasBeenPlayed = false;
+    public int turnNumber;
 
 
     private void Awake()
     {
         // Refer to the Deck of available cards
         deckAvailable = GameObject.Find("Deck Object").GetComponent<DeckAvailable>();
+
+        // Refer to the discard pile (graveyard)
+        discardPile = GameObject.Find("Graveyard").GetComponent<DiscardPile>();
+
+        //Refer to where the card position starts (ju¿ nie pamiêtam po co)
         initialPos = transform.position;
 
         // Refer to animation script of card
@@ -91,16 +104,10 @@ public class Card : MonoBehaviour
         //transform.position = initialPos;
         //dnPos = initialPos;
 
-        // A dealt hand resets the ENTIRE hand (you dont get to keep cards between turns)
-        // Like in: Slay the Spire
-        gameObject.GetComponent<Destroyable>().RemoveMe();
-
-        // A dealt hand resets the MISSING cards or a SET NUMBER of cards - not implemented
-        // Like in: Hearthstone or Magic: The Gathering
-        // jak ktoœ chce to mo¿e spróbowaæ to napisaæ, mi siê troszkê ju¿ nie chce :(
-
-
         cardAnimation.drawCardAnimation(whichCard);
+
+        //Reset card's played state
+        hasBeenPlayed = false;
 
         //Set Card SO based on what you draw from the Deck
         try
@@ -124,5 +131,18 @@ public class Card : MonoBehaviour
         gameObject.GetComponent<MeshRenderer>().material = cardScriptableObject.cardImage;
         // to set equation displayed on card:
         transform.GetChild(0).GetComponent<TextMeshPro>().SetText(cardScriptableObject.equationDisplayed);
+    }
+
+    public void addToDiscardPile()
+    {
+        discardPile.discardedCards.Add(cardScriptableObject);
+    }
+
+    public void discardHand()
+    {
+        // A dealt hand resets the ENTIRE hand (you dont get to keep cards between turns)
+        // Like in: Slay the Spire
+        gameObject.GetComponent<Destroyable>().RemoveMe();
+        firstTurn = false;
     }
 }

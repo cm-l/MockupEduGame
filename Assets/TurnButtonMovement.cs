@@ -19,12 +19,12 @@ public class TurnButtonMovement : MonoBehaviour
         }
     }
 
-    void clickedOnAnimation()
+    public void clickedOnAnimation()
     {
         LeanTween.scale(gameObject, new Vector3(0.5f, 0.5f, 0.5f), 0.08f).setEaseInCubic().setOnComplete(popBackUp);
     }
 
-    void popBackUp()
+    public void popBackUp()
     {
         LeanTween.scale(gameObject, new Vector3(1f, 1f, 1f), 0.95f).setEaseOutElastic();
     }

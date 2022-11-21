@@ -2,9 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//TODO zmieniæ nazwê na coœ w stylu Playable, bo u¿ywamy tego do grania kart (co j¹ de facto "niszczy" wiêc wsm nie wiem)
 public class Destroyable : MonoBehaviour
 {
+    public Card card;
     public ParticleSystem ps;
+
+    public void Awake()
+    {
+        card = gameObject.GetComponent<Card>();
+    }
+
+
+    //TODO mo¿e byæ na PlayMe() albo DiscardMe()
     public void RemoveMe() {
         Debug.Log("Destroyable's remove function is called on " + name);
         GameObject go = Instantiate(ps.gameObject, transform.position, Quaternion.identity);
@@ -14,9 +24,23 @@ public class Destroyable : MonoBehaviour
 
         // "soft" destroy
         // Not actually deleting anything, just move it away
-        gameObject.GetComponent<Card>().dnPos = new Vector3(100, 100, 100);
+        card.dnPos = new Vector3(100, 100, 100);
         transform.position = new Vector3(0, -75, 0);
-
     }
 
+    public void playThisCard()
+    {
+        card.hasBeenPlayed = true;
+        RemoveMe();
+        card.addToDiscardPile();
+    }
+
+    public void discardThisCard()
+    {
+        if (card.hasBeenPlayed == false)
+        {
+            RemoveMe();
+            card.addToDiscardPile();
+        }
+    }
 }
