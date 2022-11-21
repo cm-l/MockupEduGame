@@ -20,9 +20,9 @@ public class Camera : MonoBehaviour
         yaw += speedHorizontal * Input.GetAxis("Mouse X");
         pitch -= speedVertical * Input.GetAxis("Mouse Y");
         
-        yaw = Mathf.Clamp(yaw, -30f, 30f);
+        yaw = Mathf.Clamp(yaw, -15f, 15f);
 
-        pitch = Mathf.Clamp(pitch, -6f, 30f);
+        pitch = Mathf.Clamp(pitch, -6f, 19f);
 
 
 
