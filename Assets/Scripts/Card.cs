@@ -113,16 +113,18 @@ public class Card : MonoBehaviour
         try
         {
             //Get a card from the deck
-            cardScriptableObject = deckAvailable.availableCards[whichCard];
+            cardScriptableObject = deckAvailable.availableCards[whichCard];            
 
             //Remove card from available cards
-            //TODO add a discard pile (maybe it gets reshuffled like in slay the spire?)
             deckAvailable.availableCards.RemoveAt(whichCard);
         }
         catch
         {
-            //Or if there's no more cards in the deck, give the player a "burned" card
-            cardScriptableObject = DeckTracker.Instance.burnedCard;
+                //TODO zrobiæ coœ z tym!!!!!!!!!! ktoœ m¹drzejszy musi to naprawiæ :(
+                Debug.Log("Card needed at index: " + whichCard);
+                Debug.Log("Largest remaining index: (none if -1) " + (deckAvailable.availableCards.Count-1) + ". Inserting burned card.");
+                //Or if there's no more cards in the deck, give the player a "burned" card
+                cardScriptableObject = DeckTracker.Instance.burnedCard;
         }
 
 

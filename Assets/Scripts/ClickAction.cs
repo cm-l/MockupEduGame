@@ -6,9 +6,12 @@ public class ClickAction : MonoBehaviour
 {
     public List<GameObject> cardSlots;
 
+    // Refer to deck
+    [HideInInspector] public DeckAvailable deck;
+
     private void Awake()
     {
-        
+        deck = GameObject.Find("Deck Object").GetComponent<DeckAvailable>();
     }
 
     //TODO przenieœæ klikanie z tej klasy do poszczególnych klas (czyli np. logika klikania w destroyable jest w klasie Destroyable)
@@ -47,6 +50,12 @@ public class ClickAction : MonoBehaviour
                     {
                         cardSlots[i].GetComponent<Destroyable>().discardThisCard();
                         cardSlots[i].GetComponent<Card>().dealHand();
+                    }
+
+                    //IF DECK IS EMPTY -> REFILL USING CARDS FROM DISCARD PILE
+                    if (deck.availableCards.Count == 0)
+                    {
+                        deck.Refill();
                     }
                 }
 

@@ -17,4 +17,4 @@ MonoBehaviour:
   equationDisplayed: + 1
   cardImage: {fileID: 2100000, guid: ef5f513f21b51f34eaab7845524998f9, type: 2}
   cost: 0
-  rarity: 0
+  rarity: 2
