@@ -9,12 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3038d3c357a08aa4380b013ce8e33d20, type: 3}
-  m_Name: x 0
+  m_Script: {fileID: 11500000, guid: c2ad3e46a6545d847820c5ef4761cfd3, type: 3}
+  m_Name: Test Imp
   m_EditorClassIdentifier: 
-  number: 0
-  operation: 1
-  equationDisplayed: x 0
-  cardImage: {fileID: 2100000, guid: 9b5639ea8c3a8c944a0a8ef0f8ff1c78, type: 2}
-  cost: 0
-  rarity: 0
+  startingNumber: 64
+  goalNumber: 20
+  damage: 5
+  enemySpriteMaterial: {fileID: 2100000, guid: b76ababd1ff1ff844a9694b2f822756d, type: 2}

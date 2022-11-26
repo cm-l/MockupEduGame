@@ -7,10 +7,12 @@ public class Destroyable : MonoBehaviour
 {
     public Card card;
     public ParticleSystem ps;
+    public EnemyBehaviuur enemy;
 
     public void Awake()
     {
         card = gameObject.GetComponent<Card>();
+        enemy = GameObject.Find("Enemy").GetComponent<EnemyBehaviuur>();
     }
 
 
@@ -31,6 +33,10 @@ public class Destroyable : MonoBehaviour
     public void playThisCard()
     {
         card.hasBeenPlayed = true;
+        //Zmiana wartoœci liczby przeciwnika
+        enemy.changeValueByCard(card.cardScriptableObject.number, card.cardScriptableObject.operation);
+
+        //Usuwanie karty
         RemoveMe();
         card.addToDiscardPile();
     }

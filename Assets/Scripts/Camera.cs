@@ -17,12 +17,14 @@ public class Camera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        //TODO Smooth the movement of the camera out a lot / reduce how much it moves even more
         yaw += speedHorizontal * Input.GetAxis("Mouse X");
         pitch -= speedVertical * Input.GetAxis("Mouse Y");
         
-        yaw = Mathf.Clamp(yaw, -15f, 15f);
+        yaw = Mathf.Clamp(yaw, -2f, 2f);
 
-        pitch = Mathf.Clamp(pitch, -6f, 19f);
+        pitch = Mathf.Clamp(pitch, -3f, 3f);
 
 
 

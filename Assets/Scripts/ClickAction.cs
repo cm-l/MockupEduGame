@@ -8,10 +8,12 @@ public class ClickAction : MonoBehaviour
 
     // Refer to deck
     [HideInInspector] public DeckAvailable deck;
+    [HideInInspector] public EnemyBehaviuur enemy;
 
     private void Awake()
     {
         deck = GameObject.Find("Deck Object").GetComponent<DeckAvailable>();
+        enemy = GameObject.Find("Enemy").GetComponent<EnemyBehaviuur>();
     }
 
     //TODO przenieœæ klikanie z tej klasy do poszczególnych klas (czyli np. logika klikania w destroyable jest w klasie Destroyable)
@@ -38,8 +40,11 @@ public class ClickAction : MonoBehaviour
                     destScript.playThisCard();
                 }
 
+
+                // ----------- TURN LOGIC ---------
                 //ON ENDING TURN
                 //TODO zmieniæ to co napisa³em bo to nie wygl¹da jak najlepsza metoda na robienie tego
+                // to na pewno nie jest najlepsza metoda
                 if (turnButtonAnimation)
                 {
                     //BUTTON ANIMATION
@@ -56,6 +61,13 @@ public class ClickAction : MonoBehaviour
                     if (deck.availableCards.Count == 0)
                     {
                         deck.Refill();
+                    }
+
+                    // Engage enemy action
+                    // If it is alive
+                    if (!enemy.isEnemyDead)
+                    {
+                        enemy.enemyActionAttack();
                     }
                 }
 

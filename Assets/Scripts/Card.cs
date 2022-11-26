@@ -147,4 +147,25 @@ public class Card : MonoBehaviour
         gameObject.GetComponent<Destroyable>().RemoveMe();
         firstTurn = false;
     }
+
+    public void showSolutionToEquation()
+    {
+        var explainerPrefix = "";
+        var explainerSuffix = "";
+
+        switch (cardScriptableObject.operation)
+        {
+            case (Operation.addNumber):
+                explainerPrefix = "+ ";
+                break;
+            case (Operation.multiplyByNumber):
+                explainerPrefix = "x ";
+                break;
+            case (Operation.raiseToPowerOfNumber):
+                explainerSuffix = " ^ ";
+                break;
+        }
+
+        transform.GetChild(0).GetComponent<TextMeshPro>().SetText(explainerPrefix + "(" + cardScriptableObject.number.ToString() + ")" + explainerSuffix);
+    }
 }
