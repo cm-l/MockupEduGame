@@ -16,7 +16,7 @@ public class ManagerSingleton : MonoBehaviour
 
     public static ManagerSingleton Instance { get; private set; }
 
-    private void Awake()
+    private void Awake()        
     {
         // start of singleton pattern
         if (Instance != null && Instance != this)

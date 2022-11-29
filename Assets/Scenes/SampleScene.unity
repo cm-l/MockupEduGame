@@ -141,6 +141,7 @@ GameObject:
   - component: {fileID: 25074472}
   - component: {fileID: 25074471}
   - component: {fileID: 25074475}
+  - component: {fileID: 25074476}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -244,6 +245,21 @@ MonoBehaviour:
   currentNumber: 0
   displayedNumber: {fileID: 0}
   isEnemyDead: 0
+--- !u!114 &25074476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 25074470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4affe626ef633f54daf980f44e7fa27c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Enemy
+  content: A formidable foe stands in your way! Make the Enemy Number match the Goal
+    Number to win.
 --- !u!4 &55173999 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4733772755456769034, guid: 3ad7a1cffb2556547a8b7e60fd320431, type: 3}
@@ -1074,6 +1090,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67ba1e84916c17342842291fcf46cd0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &490256887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490256873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4affe626ef633f54daf980f44e7fa27c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Next Turn Button
+  content: Press this to end your turn! Ending your turn will make the enemy will
+    carry out their planned action. It will also make you recieve a fresh hand of
+    cards!
 --- !u!1 &505732318 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7735600616804263042, guid: 4107b8b0af837e1499026a9010c85b8f, type: 3}
@@ -1114,6 +1146,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 887518bc2b3b2aa44a37cdd1d2749f25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &505732335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 505732318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4affe626ef633f54daf980f44e7fa27c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Your Hand of Cards
+  content: Those are the cards you have in your hand! Clicking on any will modify
+    the Enemy's Number by the equation displayed on it and move that card to the
+    Discard Pile.
 --- !u!1 &511478061
 GameObject:
   m_ObjectHideFlags: 0
@@ -1580,6 +1628,8 @@ GameObject:
   - component: {fileID: 689943589}
   - component: {fileID: 689943588}
   - component: {fileID: 689943591}
+  - component: {fileID: 689943592}
+  - component: {fileID: 689943593}
   m_Layer: 0
   m_Name: Heart
   m_TagString: Untagged
@@ -1665,6 +1715,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb3ffc255efc0454c83f7bb8083f5b14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &689943592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 689943587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4affe626ef633f54daf980f44e7fa27c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Your Health Points
+  content: Once this number reaches 0, you will lose! Watch out for enemy attacks.
+--- !u!65 &689943593
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 689943587}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.86888766, y: 0.9252793, z: 0}
+  m_Center: {x: 0.06555585, y: 0.018942218, z: 0.000000074581294}
 --- !u!1 &695715450
 GameObject:
   m_ObjectHideFlags: 0
@@ -2317,6 +2394,165 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minIntensity: 0.5
   maxIntensity: 1.5
+--- !u!1 &759948382
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 759948383}
+  - component: {fileID: 759948385}
+  - component: {fileID: 759948384}
+  - component: {fileID: 759948389}
+  - component: {fileID: 759948388}
+  - component: {fileID: 759948387}
+  - component: {fileID: 759948386}
+  m_Layer: 5
+  m_Name: Tooltip
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &759948383
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759948382}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 842325446}
+  - {fileID: 1688332657}
+  m_Father: {fileID: 2073271448}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -2369.8823, y: 762.4531}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 1}
+--- !u!114 &759948384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759948382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.9339623, g: 0.7798726, b: 0.629984, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 3b3753b9400e16246964f5b1d709c277, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 0
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 0.78
+--- !u!222 &759948385
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759948382}
+  m_CullTransparentMesh: 1
+--- !u!114 &759948386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759948382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a103fd9d50879e54181ba0c73b1d82fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  headerText: {fileID: 842325447}
+  contentText: {fileID: 1688332658}
+  layoutElement: {fileID: 759948387}
+  wrapLimit: 40
+  reTrans: {fileID: 0}
+--- !u!114 &759948387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759948382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: 460
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
+--- !u!114 &759948388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759948382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 2
+  m_VerticalFit: 2
+--- !u!114 &759948389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759948382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 5
+    m_Right: 5
+    m_Top: 32
+    m_Bottom: 30
+  m_ChildAlignment: 4
+  m_Spacing: 5
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 1
+  m_ChildControlHeight: 1
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!4 &794466648 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4733772755456769034, guid: 3ad7a1cffb2556547a8b7e60fd320431, type: 3}
@@ -2333,6 +2569,8 @@ GameObject:
   - component: {fileID: 807853020}
   - component: {fileID: 807853019}
   - component: {fileID: 807853018}
+  - component: {fileID: 807853022}
+  - component: {fileID: 807853021}
   m_Layer: 0
   m_Name: Discard Pile
   m_TagString: Untagged
@@ -2495,6 +2733,35 @@ RectTransform:
   m_AnchoredPosition: {x: 0.592, y: 1.248}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &807853021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807853017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4affe626ef633f54daf980f44e7fa27c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Discard Pile
+  content: This is the pile of cards that you have already played! If you run out
+    of cards in your Deck, then every card from this pile will be reshuffled back
+    into your deck.
+--- !u!65 &807853022
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807853017}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 21.29477, y: 5.021123, z: 0.000000035295592}
+  m_Center: {x: 3.003503, y: -0.26297042, z: -0.000005696081}
 --- !u!1001 &814988098
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2609,6 +2876,141 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e348e7143b6247b488737e4be26fb038, type: 3}
+--- !u!1 &842325445
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 842325446}
+  - component: {fileID: 842325448}
+  - component: {fileID: 842325447}
+  m_Layer: 5
+  m_Name: Head
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &842325446
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 842325445}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 759948383}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &842325447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 842325445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: New Custom Tooltip
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: dd4c7f9d5065db34ca47dd45394c4253, type: 2}
+  m_sharedMaterial: {fileID: -886318798660886104, guid: dd4c7f9d5065db34ca47dd45394c4253, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278520849
+  m_fontColor: {r: 0.066037714, g: 0.04525037, b: 0.021493407, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 18
+  m_fontStyle: 1
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: -0.5
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &842325448
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 842325445}
+  m_CullTransparentMesh: 1
 --- !u!1001 &848891515
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3425,7 +3827,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1138172647
 GameObject:
@@ -3858,6 +4260,7 @@ GameObject:
   - component: {fileID: 1248198520}
   - component: {fileID: 1248198519}
   - component: {fileID: 1248198518}
+  - component: {fileID: 1248198521}
   m_Layer: 5
   m_Name: Happy Potion
   m_TagString: Untagged
@@ -3979,6 +4382,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1248198516}
   m_CullTransparentMesh: 1
+--- !u!114 &1248198521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248198516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4affe626ef633f54daf980f44e7fa27c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Half-Way Potion
+  content: When used, sets the enemy number to half of what it needs to be for you
+    to win! Tastes like bubblegum and energy drinks.
 --- !u!1 &1267619580
 GameObject:
   m_ObjectHideFlags: 0
@@ -4299,10 +4717,10 @@ RectTransform:
   m_Father: {fileID: 1758865961}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 431, y: -228}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchorMin: {x: 0.118750006, y: 0.8631481}
+  m_AnchorMax: {x: 0.118750006, y: 0.8631481}
+  m_AnchoredPosition: {x: 316, y: 7.791107}
+  m_SizeDelta: {x: 442.4891, y: 228.5179}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1298590209
 MonoBehaviour:
@@ -4359,7 +4777,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 1024
   m_textAlignment: 65535
   m_characterSpacing: 6.05
   m_wordSpacing: 0
@@ -4400,7 +4818,7 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1298590207}
-  m_CullTransparentMesh: 1
+  m_CullTransparentMesh: 0
 --- !u!114 &1298590211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5092,6 +5510,7 @@ GameObject:
   - component: {fileID: 1610796600}
   - component: {fileID: 1610796601}
   - component: {fileID: 1610796602}
+  - component: {fileID: 1610796603}
   m_Layer: 0
   m_Name: Card Slot 4
   m_TagString: Card
@@ -5249,6 +5668,22 @@ MonoBehaviour:
   wentUp: 0
   drawingSpeed: 0.72
   easingDrawing: 10
+--- !u!114 &1610796603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610796594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4affe626ef633f54daf980f44e7fa27c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Your Hand of Cards
+  content: Those are the cards you have in your hand! Clicking on any will modify
+    the Enemy's Number by the equation displayed on it and move that card to the
+    Discard Pile.
 --- !u!1 &1632220674
 GameObject:
   m_ObjectHideFlags: 0
@@ -5304,6 +5739,7 @@ GameObject:
   - component: {fileID: 1648784678}
   - component: {fileID: 1648784679}
   - component: {fileID: 1648784680}
+  - component: {fileID: 1648784681}
   m_Layer: 0
   m_Name: Card Slot 2
   m_TagString: Card
@@ -5461,6 +5897,22 @@ MonoBehaviour:
   wentUp: 0
   drawingSpeed: 0.72
   easingDrawing: 10
+--- !u!114 &1648784681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1648784672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4affe626ef633f54daf980f44e7fa27c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Your Hand of Cards
+  content: Those are the cards you have in your hand! Clicking on any will modify
+    the Enemy's Number by the equation displayed on it and move that card to the
+    Discard Pile.
 --- !u!1 &1662922138
 GameObject:
   m_ObjectHideFlags: 0
@@ -5595,6 +6047,144 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ad7a1cffb2556547a8b7e60fd320431, type: 3}
+--- !u!1 &1688332656
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1688332657}
+  - component: {fileID: 1688332659}
+  - component: {fileID: 1688332658}
+  m_Layer: 5
+  m_Name: Content
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1688332657
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688332656}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.90183514, y: 0.85531646, z: 0.9132508}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 759948383}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1688332658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688332656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Lorem ipsum dolor sit amet lorem lorem dolorem worem stworem lorem lorem
+    dolor sit amet lorem lorem dolorem worem stworem lorem lorem dolor sit amet lorem
+    lorem dolorem worem stworem lorem lorem dolor sit amet lorem lorem dolorem worem
+    stworem lorem lorem dolor sit amet lorem lorem dolorem worem stworem lorem lorem
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 82ff781fe2640e34e999c1246f76d941, type: 2}
+  m_sharedMaterial: {fileID: -8400460994763694938, guid: 82ff781fe2640e34e999c1246f76d941, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4280500325
+  m_fontColor: {r: 0.3962264, g: 0.24990791, b: 0.13643645, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 37.5
+  m_fontSizeBase: 37.5
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 8
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1688332659
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688332656}
+  m_CullTransparentMesh: 1
 --- !u!1001 &1692179739
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5668,6 +6258,7 @@ GameObject:
   - component: {fileID: 1693060213}
   - component: {fileID: 1693060214}
   - component: {fileID: 1693060215}
+  - component: {fileID: 1693060216}
   m_Layer: 0
   m_Name: Card Slot 1
   m_TagString: Card
@@ -5825,6 +6416,22 @@ MonoBehaviour:
   wentUp: 0
   drawingSpeed: 0.72
   easingDrawing: 10
+--- !u!114 &1693060216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693060207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4affe626ef633f54daf980f44e7fa27c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Your Hand of Cards
+  content: Those are the cards you have in your hand! Clicking on any will modify
+    the Enemy's Number by the equation displayed on it and move that card to the
+    Discard Pile.
 --- !u!1 &1696170480
 GameObject:
   m_ObjectHideFlags: 0
@@ -6316,6 +6923,8 @@ GameObject:
   - component: {fileID: 1809877300}
   - component: {fileID: 1809877302}
   - component: {fileID: 1809877301}
+  - component: {fileID: 1809877304}
+  - component: {fileID: 1809877303}
   m_Layer: 0
   m_Name: Deck Object
   m_TagString: Untagged
@@ -6407,6 +7016,34 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1809877303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1809877298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4affe626ef633f54daf980f44e7fa27c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Deck of Cards
+  content: The number on your deck shows how many cards are left in it. Don't worry,
+    if you run out, it will be reshuffled with the cards you've already played!
+--- !u!65 &1809877304
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1809877298}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 1.0000001, z: 0.000000059604645}
+  m_Center: {x: -0.00000011920929, y: 0, z: 0}
 --- !u!1 &1846955432
 GameObject:
   m_ObjectHideFlags: 0
@@ -6419,6 +7056,7 @@ GameObject:
   - component: {fileID: 1846955435}
   - component: {fileID: 1846955434}
   - component: {fileID: 1846955436}
+  - component: {fileID: 1846955437}
   m_Layer: 5
   m_Name: Guidance Potion
   m_TagString: Untagged
@@ -6576,6 +7214,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1846955437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846955432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4affe626ef633f54daf980f44e7fa27c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Guidance Potion
+  content: When used, solves all the equations displayed on the cards you're currently
+    holding in your hand! Tastes like coffe and cinnamon.
 --- !u!1 &2034544621
 GameObject:
   m_ObjectHideFlags: 0
@@ -6588,6 +7241,7 @@ GameObject:
   - component: {fileID: 2034544625}
   - component: {fileID: 2034544624}
   - component: {fileID: 2034544623}
+  - component: {fileID: 2034544626}
   m_Layer: 5
   m_Name: Healthy Potion
   m_TagString: Untagged
@@ -6709,6 +7363,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2034544621}
   m_CullTransparentMesh: 1
+--- !u!114 &2034544626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2034544621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4affe626ef633f54daf980f44e7fa27c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Healthy Potion
+  content: When used, restores 5 Health Points to you! Tastes like mint and lemonade.
 --- !u!1 &2057103759
 GameObject:
   m_ObjectHideFlags: 0
@@ -6752,6 +7420,121 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2073271444
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2073271448}
+  - component: {fileID: 2073271447}
+  - component: {fileID: 2073271446}
+  - component: {fileID: 2073271445}
+  - component: {fileID: 2073271449}
+  m_Layer: 5
+  m_Name: Tooltip Canvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2073271445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073271444}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &2073271446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073271444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
+--- !u!223 &2073271447
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073271444}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 25
+  m_SortingLayerID: 0
+  m_SortingOrder: 9999
+  m_TargetDisplay: 0
+--- !u!224 &2073271448
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073271444}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 759948383}
+  m_Father: {fileID: 0}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
+--- !u!114 &2073271449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073271444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e492f6822b7b34542a645d2e439c7119, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltip: {fileID: 0}
 --- !u!1 &2094336698
 GameObject:
   m_ObjectHideFlags: 0
@@ -6763,6 +7546,8 @@ GameObject:
   - component: {fileID: 2094336699}
   - component: {fileID: 2094336701}
   - component: {fileID: 2094336700}
+  - component: {fileID: 2094336702}
+  - component: {fileID: 2094336703}
   m_Layer: 0
   m_Name: Enemy Number
   m_TagString: Untagged
@@ -6924,6 +7709,34 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2094336702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094336698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4affe626ef633f54daf980f44e7fa27c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Enemy Number
+  content: Once this number reaches the Goal Number (in the top left corner) you
+    win!
+--- !u!65 &2094336703
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094336698}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.5803013, y: 2.6112733, z: 0}
+  m_Center: {x: -0.024837852, y: -0.10911828, z: 0}
 --- !u!1001 &2110703442
 PrefabInstance:
   m_ObjectHideFlags: 0
