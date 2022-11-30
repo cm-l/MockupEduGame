@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardImage: {fileID: 2100000, guid: 9e689b34592d85846a8f32b488afa4ca, type: 2}
   uniqueActionDescriptor: 
-  damageNumber: 4
-  offensiveAction: 0
-  healAmount: 0
-  blockAmount: 3
+  playSound: {fileID: 8300000, guid: 97880d3abdeb7dc47a6695d419b829b8, type: 3}
+  damageNumber: 0
+  offensiveAction: 3
+  healAmount: 5
+  blockAmount: 2
   barricadeAmount: 0
   drawAmount: 0
   sacrificeAmount: 0

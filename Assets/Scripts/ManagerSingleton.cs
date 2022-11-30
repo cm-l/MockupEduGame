@@ -21,6 +21,8 @@ public class ManagerSingleton : MonoBehaviour
 
     //PLACEHOLDER
     [SerializeField] private GameObject deathMessage;
+    [SerializeField] private AudioClip deathSfx;
+    public bool hasDied = false;
 
 
     public static ManagerSingleton Instance { get; private set; }
@@ -57,7 +59,7 @@ public class ManagerSingleton : MonoBehaviour
     {
 
         //Dying logic
-        if (playerCurrentHealth <= 0)
+        if (playerCurrentHealth <= 0 && !hasDied)
         {
             playerDeath();
         }
@@ -66,9 +68,18 @@ public class ManagerSingleton : MonoBehaviour
 
     public void playerDeath()
     {
+        //Kill player
+        hasDied = true;
+
         //PLACEHOLDER
         //Display the death screen and message
         deathMessage.SetActive(true);
+
+        //Play death sound effect
+        SoundSystemSingleton.Instance.PlaySfxSound(deathSfx);
+
+        //Make the music go down in pitch maybe?
+        SoundSystemSingleton.Instance.ChangeMusicPitch(0.55f);
     }
 
     public void Heal(int healedAmount)

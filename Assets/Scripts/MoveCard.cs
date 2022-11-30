@@ -16,6 +16,7 @@ public class MoveCard : MonoBehaviour
     [Header("\nDrawing card")]
     [SerializeField] private float drawingSpeed = 0.8f;
     [SerializeField] private LeanTweenType easingDrawing;
+    [SerializeField] private AudioClip cardSwish;
 
     // Start is called before the first frame update
     void Awake()
@@ -43,6 +44,13 @@ public class MoveCard : MonoBehaviour
 
     public void drawCardAnimation(int delayedBy)
     {
-        LeanTween.move(gameObject, initialPosition, drawingSpeed).setEase(easingDrawing).setDelay((float) delayedBy/12);
+        LeanTween.move(gameObject, initialPosition, drawingSpeed).setEase(easingDrawing).setDelay((float)delayedBy / 8).setOnComplete(SwishCard);
+        SoundSystemSingleton.Instance.PlaySfxSound(cardSwish); 
+    }
+
+    private void SwishCard()
+    {
+        // shhwwwsh sound
+        SoundSystemSingleton.Instance.PlaySfxSound(cardSwish);
     }
 }

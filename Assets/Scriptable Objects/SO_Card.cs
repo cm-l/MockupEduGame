@@ -1,13 +1,14 @@
 using UnityEngine;
 
-// DEPRECATED
+
 public enum OffensiveAction { dealDamage, multiplyByNumber, raiseToPowerOfNumber, none }
-// END DEPRECATED
+
 public enum Rarity { common, rare, special }
 
 public enum DefensiveAction {heal, block, barricade, none}
 
 public enum SpecialAction {draw, sacrifice, none}
+
 
 [CreateAssetMenu(fileName = "New Card", menuName = "ScriptableObjects/Card", order = 1)]
 public class SO_Card : ScriptableObject
@@ -16,6 +17,7 @@ public class SO_Card : ScriptableObject
     //public string equationDisplayed = ""; // what the card displays: e.g., a card that adds 3 might show + (2 + 5 - 4)
     public Material cardImage; // visuals of card 
     public string uniqueActionDescriptor; //for very special cards
+    public AudioClip playSound; //sound when played
 
     [Header("\nOffense")]
     public int damageNumber = 0; // n-value

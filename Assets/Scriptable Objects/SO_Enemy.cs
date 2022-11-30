@@ -10,4 +10,9 @@ public class SO_Enemy : ScriptableObject
 
     [Header("\nVisuals")]
     public Material enemySpriteMaterial;
+
+    [Header("\nSounds")]
+    public AudioClip enemyMusicTrack;
+    public AudioClip enemyAttackSound;
+    public AudioClip enemyDeathNoise;
 }

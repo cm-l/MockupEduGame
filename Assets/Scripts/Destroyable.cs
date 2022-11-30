@@ -32,6 +32,10 @@ public class Destroyable : MonoBehaviour
 
     public void playThisCard()
     {
+
+        //Odg³os
+        SoundSystemSingleton.Instance.PlaySfxSound(card.cardScriptableObject.playSound);
+
         card.hasBeenPlayed = true;
         //Zmiana wartoœci zdrowia przeciwnika (jeœli przewiduje j¹ karta)
         if (card.cardScriptableObject.offensiveAction != OffensiveAction.none)

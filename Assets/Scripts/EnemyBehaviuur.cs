@@ -20,6 +20,15 @@ public class EnemyBehaviuur : MonoBehaviour
     //Has the battle been won by the player?
     public bool isEnemyDead = false;
 
+    //Music theme
+    private AudioClip musicTheme;
+
+    //Win noise
+    [SerializeField] private AudioClip victorySfx;
+
+    //Damage noise
+    private AudioClip damageSfx;
+
     private void Awake()
     {
         displayedNumber = transform.GetChild(0).GetComponent<TextMeshPro>();
@@ -34,6 +43,13 @@ public class EnemyBehaviuur : MonoBehaviour
         //Set to starting damageNumber once encounter starts
         currentNumber = enemyScriptableObject.startingNumber;
 
+        //Set music theme and play it immidietly
+        musicTheme = enemyScriptableObject.enemyMusicTrack;
+        playEnemyMusicTheme(musicTheme);
+
+        //Set attack sound
+        damageSfx = enemyScriptableObject.enemyAttackSound;
+
         //Set the sprite to scriptable object sprite
         gameObject.GetComponent<MeshRenderer>().material = enemyScriptableObject.enemySpriteMaterial;
     }
@@ -42,7 +58,7 @@ public class EnemyBehaviuur : MonoBehaviour
     void Update()
     {
         //Set display to what is the actual value
-        displayedNumber.SetText(currentNumber.ToString());
+        displayedNumber.SetText(currentNumber.ToString() + "/" + enemyScriptableObject.startingNumber);
 
         //For testing
         if (Input.GetKeyDown(KeyCode.L)) {
@@ -56,8 +72,10 @@ public class EnemyBehaviuur : MonoBehaviour
 
     public void enemyDeath()
     {
-        if (currentNumber <= 0)
+        if (currentNumber <= 0 && !isEnemyDead)
         {
+            SoundSystemSingleton.Instance.StopTheMusic();
+            SoundSystemSingleton.Instance.PlaySfxSound(victorySfx);
             isEnemyDead = true;
         }
     }
@@ -94,10 +112,16 @@ public class EnemyBehaviuur : MonoBehaviour
     public void enemyActionAttack()
     {
         ManagerSingleton.Instance.playerCurrentHealth -= damageCapability;
+        SoundSystemSingleton.Instance.PlaySfxSound(damageSfx);
     }
 
     public void halfWayThere()
     {
         currentNumber = Mathf.RoundToInt(currentNumber / 2);
+    }
+
+    public void playEnemyMusicTheme(AudioClip theme)
+    {
+        SoundSystemSingleton.Instance.PlayMusicSound(theme);
     }
 }

@@ -47,6 +47,19 @@ public class SoundSystemSingleton : MonoBehaviour
 
     public void PlayMusicSound(AudioClip clip)
     {
-        musicSource.PlayOneShot(clip);
+        musicSource.clip = clip;
+        musicSource.mute = false;
+        musicSource.loop = true;
+        musicSource.Play();
+    }
+
+    public void ChangeMusicPitch(float pitch)
+    {
+        musicSource.pitch = pitch;
+    }
+
+    public void StopTheMusic()
+    {
+        musicSource.mute = true;
     }
 }
