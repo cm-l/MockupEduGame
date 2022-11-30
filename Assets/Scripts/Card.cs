@@ -132,7 +132,45 @@ public class Card : MonoBehaviour
         // to set material:
         gameObject.GetComponent<MeshRenderer>().material = cardScriptableObject.cardImage;
         // to set equation displayed on card:
-        transform.GetChild(0).GetComponent<TextMeshPro>().SetText(cardScriptableObject.equationDisplayed);
+        //transform.GetChild(0).GetComponent<TextMeshPro>().SetText(cardScriptableObject.equationDisplayed);
+        transform.GetChild(0).GetComponent<TextMeshPro>().SetText(operationTextSetter());
+    }
+
+    public string operationTextSetter()
+    {
+        string result = "";
+
+        if (cardScriptableObject.uniqueActionDescriptor == "")
+        {
+            if (cardScriptableObject.damageNumber != 0)
+            {
+                result += $"Deal {cardScriptableObject.damageNumber} damage points. ";
+            }
+            if (cardScriptableObject.barricadeAmount != 0)
+            {
+                result += $"Barricade for {cardScriptableObject.barricadeAmount} points. ";
+            }
+            if (cardScriptableObject.blockAmount != 0)
+            {
+                result += $"Block for {cardScriptableObject.blockAmount} points. ";
+            }
+            if (cardScriptableObject.drawAmount != 0)
+            {
+                result += $"Draw {cardScriptableObject.drawAmount} new cards. ";
+            }
+            if (cardScriptableObject.healAmount != 0)
+            {
+                result += $"Heal yourself for {cardScriptableObject.healAmount} points. ";
+            }
+            if (cardScriptableObject.sacrificeAmount != 0)
+            {
+                result += $"Take {cardScriptableObject.sacrificeAmount} damage points. ";
+            }
+            return result;
+        } else
+        {
+            return cardScriptableObject.uniqueActionDescriptor;
+        }
     }
 
     public void addToDiscardPile()
@@ -148,24 +186,25 @@ public class Card : MonoBehaviour
         firstTurn = false;
     }
 
+    // Potion effect
     public void showSolutionToEquation()
     {
         var explainerPrefix = "";
         var explainerSuffix = "";
 
-        switch (cardScriptableObject.operation)
+        switch (cardScriptableObject.offensiveAction)
         {
-            case (Operation.addNumber):
+            case (OffensiveAction.dealDamage):
                 explainerPrefix = "+ ";
                 break;
-            case (Operation.multiplyByNumber):
+            case (OffensiveAction.multiplyByNumber):
                 explainerPrefix = "x ";
                 break;
-            case (Operation.raiseToPowerOfNumber):
+            case (OffensiveAction.raiseToPowerOfNumber):
                 explainerSuffix = " ^ ";
                 break;
         }
 
-        transform.GetChild(0).GetComponent<TextMeshPro>().SetText(explainerPrefix + "(" + cardScriptableObject.number.ToString() + ")" + explainerSuffix);
+        transform.GetChild(0).GetComponent<TextMeshPro>().SetText(explainerPrefix + "(" + cardScriptableObject.damageNumber.ToString() + ")" + explainerSuffix);
     }
 }

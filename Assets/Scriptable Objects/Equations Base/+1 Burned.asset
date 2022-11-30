@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3038d3c357a08aa4380b013ce8e33d20, type: 3}
   m_Name: +1 Burned
   m_EditorClassIdentifier: 
-  number: 1
+  damageNumber: 1
   operation: 0
   equationDisplayed: + 1
   cardImage: {fileID: 2100000, guid: ef5f513f21b51f34eaab7845524998f9, type: 2}

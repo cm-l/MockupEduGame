@@ -5,7 +5,6 @@ public class SO_Enemy : ScriptableObject
 {
     [Header("\nNumber stats")]
     public int startingNumber;
-    public int goalNumber;
     public int damage;
 
 

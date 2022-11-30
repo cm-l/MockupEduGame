@@ -10,11 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3038d3c357a08aa4380b013ce8e33d20, type: 3}
-  m_Name: '- 5'
+  m_Name: Instakill
   m_EditorClassIdentifier: 
-  damageNumber: 5
-  operation: 0
-  equationDisplayed: '(15 : 3)'
-  cardImage: {fileID: 2100000, guid: 9e689b34592d85846a8f32b488afa4ca, type: 2}
+  cardImage: {fileID: 2100000, guid: 9b5639ea8c3a8c944a0a8ef0f8ff1c78, type: 2}
+  uniqueActionDescriptor: Debug Instakill!
+  damageNumber: 0
+  offensiveAction: 1
+  healAmount: 0
+  blockAmount: 0
+  barricadeAmount: 0
+  drawAmount: 0
+  sacrificeAmount: 0
   cost: 0
   rarity: 0

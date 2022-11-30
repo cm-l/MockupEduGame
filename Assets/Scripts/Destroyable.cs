@@ -33,8 +33,15 @@ public class Destroyable : MonoBehaviour
     public void playThisCard()
     {
         card.hasBeenPlayed = true;
-        //Zmiana wartoœci liczby przeciwnika
-        enemy.changeValueByCard(card.cardScriptableObject.number, card.cardScriptableObject.operation);
+        //Zmiana wartoœci zdrowia przeciwnika (jeœli przewiduje j¹ karta)
+        if (card.cardScriptableObject.offensiveAction != OffensiveAction.none)
+        {
+            enemy.changeValueByCard(card.cardScriptableObject.damageNumber, card.cardScriptableObject.offensiveAction);
+        }
+
+        //Zmiana stanu defensywy gracza (jeœli przewiduje j¹ karta)
+        ManagerSingleton.Instance.ActivateDefensiveActionFromCard(card.cardScriptableObject.barricadeAmount, card.cardScriptableObject.blockAmount, card.cardScriptableObject.healAmount);
+
 
         //Usuwanie karty
         RemoveMe();

@@ -10,6 +10,9 @@ public class ClickAction : MonoBehaviour
     [HideInInspector] public DeckAvailable deck;
     [HideInInspector] public EnemyBehaviuur enemy;
 
+    // Refer to enemy's attack/action
+    [HideInInspector] public bool hasTheEnemyActed;
+
     private void Awake()
     {
         deck = GameObject.Find("Deck Object").GetComponent<DeckAvailable>();
@@ -63,12 +66,36 @@ public class ClickAction : MonoBehaviour
                         deck.Refill();
                     }
 
+                    //Check just how much HP the player ends the turn with
+                    ManagerSingleton.Instance.endedTurnWithHealth = ManagerSingleton.Instance.playerCurrentHealth - ManagerSingleton.Instance.playerBlockade;
+
                     // Engage enemy action
                     // If it is alive
-                    if (!enemy.isEnemyDead)
+                    if (!enemy.isEnemyDead && hasTheEnemyActed == false)
                     {
                         enemy.enemyActionAttack();
+                        hasTheEnemyActed = true;
                     }
+
+                    //BETWEEN TURNS (AFTER ENEMY ATTACK, BUT BEFORE BEING ABLE TO DO ANYTHING)
+                    enemy.damageCapability = enemy.enemyScriptableObject.damage;
+
+                        //reset blockade and players HP back
+                        ManagerSingleton.Instance.playerBlockade = 0;
+
+
+                        // check how much starting HP the player has
+                        ManagerSingleton.Instance.startedTurnWithHealth = ManagerSingleton.Instance.playerCurrentHealth;
+                    }
+
+                    
+
+                    //Reset has acted state of enemy
+                    hasTheEnemyActed = false;
+
+                    //Reset blocking state
+                    ManagerSingleton.Instance.hasBlockedAlready = false;
+                    
                 }
 
             } else {
@@ -76,4 +103,3 @@ public class ClickAction : MonoBehaviour
             }
         }
     }
-}

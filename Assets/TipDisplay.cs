@@ -19,6 +19,6 @@ public class TipDisplay : MonoBehaviour
     void Update()
     {
         //TODO consider moving this out of update to save a tiny bit of performance maybe
-        tipText.SetText(enemy.enemyScriptableObject.goalNumber + " needed to win!");
+        tipText.SetText("Reduce the enemy's points to 0 to win!");
     }
 }

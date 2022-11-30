@@ -8,10 +8,13 @@ public class EnemyBehaviuur : MonoBehaviour
     //SO reference
     public SO_Enemy enemyScriptableObject;
 
+    //Damage via SO ref
+    public int damageCapability;
+
     //Updated value of enemy
     public int currentNumber;
 
-    //Display number
+    //Display damageNumber
     public TextMeshPro displayedNumber;
 
     //Has the battle been won by the player?
@@ -25,7 +28,10 @@ public class EnemyBehaviuur : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Set to starting number once encounter starts
+        //Set damage to damage (very smart)
+        damageCapability = enemyScriptableObject.damage;
+
+        //Set to starting damageNumber once encounter starts
         currentNumber = enemyScriptableObject.startingNumber;
 
         //Set the sprite to scriptable object sprite
@@ -40,7 +46,7 @@ public class EnemyBehaviuur : MonoBehaviour
 
         //For testing
         if (Input.GetKeyDown(KeyCode.L)) {
-            changeValueByCard(2f, Operation.multiplyByNumber);
+            changeValueByCard(2f, OffensiveAction.multiplyByNumber);
         }
 
         //Victory
@@ -50,28 +56,28 @@ public class EnemyBehaviuur : MonoBehaviour
 
     public void enemyDeath()
     {
-        if (currentNumber == enemyScriptableObject.goalNumber)
+        if (currentNumber <= 0)
         {
             isEnemyDead = true;
         }
     }
 
-    public void changeValueByCard(float amount, Operation operand)
+    public void changeValueByCard(float amount, OffensiveAction operand)
     {
         //Dodawanie/odejmowanie
-        if (operand == Operation.addNumber)
+        if (operand == OffensiveAction.dealDamage)
         {
-            currentNumber =   Mathf.RoundToInt(currentNumber + amount);
+            currentNumber =   Mathf.RoundToInt(currentNumber - amount);
         }
 
         //Mno¿enie/dzielenie
-        if (operand == Operation.multiplyByNumber)
+        if (operand == OffensiveAction.multiplyByNumber)
         {
             currentNumber = Mathf.RoundToInt(currentNumber * amount);
         }
 
         //Potêgowanie/pierwiastkowanie
-        if (operand == Operation.raiseToPowerOfNumber)
+        if (operand == OffensiveAction.raiseToPowerOfNumber)
         {
             currentNumber = Mathf.RoundToInt(Mathf.Pow(currentNumber, amount));
         }
@@ -87,11 +93,11 @@ public class EnemyBehaviuur : MonoBehaviour
 
     public void enemyActionAttack()
     {
-        ManagerSingleton.Instance.playerCurrentHealth -= enemyScriptableObject.damage;
+        ManagerSingleton.Instance.playerCurrentHealth -= damageCapability;
     }
 
     public void halfWayThere()
     {
-        currentNumber = Mathf.RoundToInt(enemyScriptableObject.goalNumber / 2);
+        currentNumber = Mathf.RoundToInt(currentNumber / 2);
     }
 }

@@ -12,9 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3038d3c357a08aa4380b013ce8e33d20, type: 3}
   m_Name: -6
   m_EditorClassIdentifier: 
-  number: -6
-  operation: 0
-  equationDisplayed: '- (3 x 2)'
   cardImage: {fileID: 2100000, guid: 9e689b34592d85846a8f32b488afa4ca, type: 2}
+  uniqueActionDescriptor: 
+  damageNumber: 4
+  offensiveAction: 0
+  healAmount: 0
+  blockAmount: 3
+  barricadeAmount: 0
+  drawAmount: 0
+  sacrificeAmount: 0
   cost: 0
   rarity: 0
