@@ -1296,7 +1296,7 @@ GameObject:
   - component: {fileID: 529832973}
   - component: {fileID: 529832972}
   m_Layer: 0
-  m_Name: interactiveParticles
+  m_Name: bg_part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7659,7 +7659,7 @@ GameObject:
   - component: {fileID: 1069637510}
   - component: {fileID: 1069637509}
   m_Layer: 0
-  m_Name: particles_bg
+  m_Name: inter_part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8312,7 +8312,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.01
+      scalar: 0.005
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -8366,13 +8366,13 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 46.47534
+    angle: 44.83593
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
     donutRadius: 0.2
-    m_Position: {x: -0.006169319, y: 0.002199173, z: -0.016350985}
-    m_Rotation: {x: 7.196879, y: 20.673433, z: 1.0889875}
+    m_Position: {x: 0.096385956, y: -0.04122734, z: 0.30942678}
+    m_Rotation: {x: 7.245884, y: 17.474089, z: 0.68664104}
     m_Scale: {x: 2.1248574, y: 2.2732918, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0
@@ -8571,7 +8571,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.8
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -11316,7 +11316,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 4
     type: 0
     collisionMode: 0
@@ -14440,7 +14440,7 @@ GameObject:
   m_Layer: 0
   m_Name: particle_colllider
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
