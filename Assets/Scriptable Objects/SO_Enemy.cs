@@ -5,10 +5,14 @@ public class SO_Enemy : ScriptableObject
 {
     [Header("\nNumber stats")]
     public int startingNumber;
-    public int goalNumber;
     public int damage;
 
 
     [Header("\nVisuals")]
     public Material enemySpriteMaterial;
+
+    [Header("\nSounds")]
+    public AudioClip enemyMusicTrack;
+    public AudioClip enemyAttackSound;
+    public AudioClip enemyDeathNoise;
 }

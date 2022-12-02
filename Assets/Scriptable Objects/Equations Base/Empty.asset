@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3038d3c357a08aa4380b013ce8e33d20, type: 3}
-  m_Name: +12
+  m_Name: Empty
   m_EditorClassIdentifier: 
-  number: 12
+  damageNumber: 5
   operation: 0
-  equationDisplayed: + (16 - 4)
-  cardImage: {fileID: 2100000, guid: 63625c2440d95024599483028c582671, type: 2}
+  equationDisplayed: '(15 : 3)'
+  cardImage: {fileID: 2100000, guid: 9e689b34592d85846a8f32b488afa4ca, type: 2}
   cost: 0
   rarity: 0

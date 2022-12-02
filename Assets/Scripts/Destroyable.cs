@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//TODO zmieniæ nazwê na coœ w stylu Playable, bo u¿ywamy tego do grania kart (co j¹ de facto "niszczy" wiêc wsm nie wiem)
+//TODO zmieniæ nazwê na coœ w stylu Playable, bo u¿ywamy tego do grania kart (co j¹ de facto "niszczy" ale mo¿e siê myliæ)
 public class Destroyable : MonoBehaviour
 {
     public Card card;
@@ -32,9 +32,30 @@ public class Destroyable : MonoBehaviour
 
     public void playThisCard()
     {
+
+        //Odg³os
+        SoundSystemSingleton.Instance.PlaySfxSound(card.cardScriptableObject.playSound);
+
         card.hasBeenPlayed = true;
-        //Zmiana wartoœci liczby przeciwnika
-        enemy.changeValueByCard(card.cardScriptableObject.number, card.cardScriptableObject.operation);
+        //Zmiana wartoœci zdrowia przeciwnika (jeœli przewiduje j¹ karta)
+        if (card.cardScriptableObject.offensiveAction != OffensiveAction.none)
+        {
+            enemy.changeValueByCard(card.cardScriptableObject.damageNumber, card.cardScriptableObject.offensiveAction);
+        }
+
+        //Zmniejsz iloœæ many gracza o iloœæ many wymaganej do zagrania karty
+        ManagerSingleton.Instance.consumeMana(card.cardScriptableObject.cost);
+
+        //Zmiana stanu defensywy gracza (jeœli przewiduje j¹ karta)
+        ManagerSingleton.Instance.ActivateDefensiveActionFromCard(card.cardScriptableObject.barricadeAmount, card.cardScriptableObject.blockAmount, card.cardScriptableObject.healAmount);
+
+        //Wywo³anie funkcji specjalnej akcji (jeœli przewiduje j¹ karta)
+        ManagerSingleton.Instance.ActivateSpecialActionFromCardOnPlayer(card.cardScriptableObject.drawAmount, card.cardScriptableObject.sacrificeAmount);
+
+        //Wywo³anie funkcji unikatowej akcji (jeœli przewiduje j¹ karta)
+        //ManagerSingleton.Instance.funkcjaoileistniejetojestwywolywanawtymmiejscu();
+
+
 
         //Usuwanie karty
         RemoveMe();

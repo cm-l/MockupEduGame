@@ -55,7 +55,7 @@ public class Card : MonoBehaviour
     {
         //For animations
         dnPos = transform.position;
-        upPos = transform.position + Vector3.up*upAmount;
+        upPos = transform.position + Vector3.up * upAmount;
         currPos = dnPos;
 
         //Dealing hands
@@ -78,14 +78,16 @@ public class Card : MonoBehaviour
         }
     }
 
-    private void OnMouseEnter() {
+    private void OnMouseEnter()
+    {
         // First way of doing  this
         //currPos=upPos;
 
         // Different way of doing this with plugin:
         cardAnimation.highlightUp();
     }
-    private void OnMouseExit() {
+    private void OnMouseExit()
+    {
         // First way of doing this
         //currPos=dnPos;
 
@@ -113,18 +115,18 @@ public class Card : MonoBehaviour
         try
         {
             //Get a card from the deck
-            cardScriptableObject = deckAvailable.availableCards[whichCard];            
+            cardScriptableObject = deckAvailable.availableCards[whichCard];
 
             //Remove card from available cards
             deckAvailable.availableCards.RemoveAt(whichCard);
         }
         catch
         {
-                //TODO zrobiæ coœ z tym!!!!!!!!!! ktoœ m¹drzejszy musi to naprawiæ :(
-                Debug.Log("Card needed at index: " + whichCard);
-                Debug.Log("Largest remaining index: (none if -1) " + (deckAvailable.availableCards.Count-1) + ". Inserting burned card.");
-                //Or if there's no more cards in the deck, give the player a "burned" card
-                cardScriptableObject = DeckTracker.Instance.burnedCard;
+            //TODO zrobiæ coœ z tym!!!!!!!!!! ktoœ m¹drzejszy musi to naprawiæ :(
+            Debug.Log("Card needed at index: " + whichCard);
+            Debug.Log("Largest remaining index: (none if -1) " + (deckAvailable.availableCards.Count - 1) + ". Inserting burned card.");
+            //Or if there's no more cards in the deck, give the player a "burned" card
+            cardScriptableObject = DeckTracker.Instance.burnedCard;
         }
 
 
@@ -132,7 +134,50 @@ public class Card : MonoBehaviour
         // to set material:
         gameObject.GetComponent<MeshRenderer>().material = cardScriptableObject.cardImage;
         // to set equation displayed on card:
-        transform.GetChild(0).GetComponent<TextMeshPro>().SetText(cardScriptableObject.equationDisplayed);
+        //transform.GetChild(0).GetComponent<TextMeshPro>().SetText(cardScriptableObject.equationDisplayed);
+        transform.GetChild(0).GetComponent<TextMeshPro>().SetText(operationTextSetter(cardScriptableObject));
+
+        //Set mana/whatever cost on card display
+        transform.GetChild(1).GetComponent<TextMeshPro>().SetText(cardScriptableObject.cost.ToString());
+    }
+
+    //TODO watch out for that STATIC declaration and possible remove in the future
+    public static string operationTextSetter(SO_Card cardScriptableObject)
+    {
+        string result = "";
+
+        if (cardScriptableObject.uniqueActionDescriptor == "")
+        {
+            if (cardScriptableObject.damageNumber != 0 && cardScriptableObject.offensiveAction == OffensiveAction.dealDamage)
+            {
+                result += $"Deal {cardScriptableObject.damageNumber} damage points. \n";
+            }
+            if (cardScriptableObject.barricadeAmount != 0)
+            {
+                result += $"Barricade for {cardScriptableObject.barricadeAmount} points. \n";
+            }
+            if (cardScriptableObject.blockAmount != 0)
+            {
+                result += $"Block for {cardScriptableObject.blockAmount} points. \n";
+            }
+            if (cardScriptableObject.drawAmount != 0)
+            {
+                result += $"Draw {cardScriptableObject.drawAmount} new cards. \n";
+            }
+            if (cardScriptableObject.healAmount != 0)
+            {
+                result += $"Heal yourself for {cardScriptableObject.healAmount} points. \n";
+            }
+            if (cardScriptableObject.sacrificeAmount != 0)
+            {
+                result += $"Take {cardScriptableObject.sacrificeAmount} damage points. \n";
+            }
+            return result + cardScriptableObject.uniqueActionSuffix;
+        }
+        else
+        {
+            return cardScriptableObject.uniqueActionDescriptor + cardScriptableObject.uniqueActionSuffix;
+        }
     }
 
     public void addToDiscardPile()
@@ -148,24 +193,25 @@ public class Card : MonoBehaviour
         firstTurn = false;
     }
 
+    // Potion effect
     public void showSolutionToEquation()
     {
         var explainerPrefix = "";
         var explainerSuffix = "";
 
-        switch (cardScriptableObject.operation)
+        switch (cardScriptableObject.offensiveAction)
         {
-            case (Operation.addNumber):
+            case (OffensiveAction.dealDamage):
                 explainerPrefix = "+ ";
                 break;
-            case (Operation.multiplyByNumber):
+            case (OffensiveAction.multiplyByNumber):
                 explainerPrefix = "x ";
                 break;
-            case (Operation.raiseToPowerOfNumber):
+            case (OffensiveAction.raiseToPowerOfNumber):
                 explainerSuffix = " ^ ";
                 break;
         }
 
-        transform.GetChild(0).GetComponent<TextMeshPro>().SetText(explainerPrefix + "(" + cardScriptableObject.number.ToString() + ")" + explainerSuffix);
+        transform.GetChild(0).GetComponent<TextMeshPro>().SetText(explainerPrefix + "(" + cardScriptableObject.damageNumber.ToString() + ")" + explainerSuffix);
     }
 }

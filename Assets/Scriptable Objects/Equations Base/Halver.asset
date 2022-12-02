@@ -10,11 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3038d3c357a08aa4380b013ce8e33d20, type: 3}
-  m_Name: x 0
+  m_Name: Halver
   m_EditorClassIdentifier: 
-  number: 0
-  operation: 1
-  equationDisplayed: x 0
   cardImage: {fileID: 2100000, guid: 9b5639ea8c3a8c944a0a8ef0f8ff1c78, type: 2}
-  cost: 0
+  uniqueActionDescriptor: 
+  uniqueActionSuffix: Halve the enemy's Health points.
+  playSound: {fileID: 8300000, guid: ed79c0ef0dc34254e9eda55f95e22744, type: 3}
+  damageNumber: 0.5
+  offensiveAction: 1
+  healAmount: 0
+  blockAmount: 0
+  barricadeAmount: 0
+  drawAmount: 0
+  sacrificeAmount: 15
+  cost: 1
   rarity: 0

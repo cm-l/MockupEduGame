@@ -17,7 +17,7 @@ public class TooltipDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     //Using UI Event Systems (for UI canvas elements)
     public void OnPointerEnter(PointerEventData eventData)
     {
-        delay = LeanTween.delayedCall(0.5f, () =>
+        delay = LeanTween.delayedCall(TooltipSystem.Instance.timeToPopUp, () =>
         {
             TooltipSystem.Show(content, header);
         });

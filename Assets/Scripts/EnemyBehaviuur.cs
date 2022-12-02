@@ -8,14 +8,27 @@ public class EnemyBehaviuur : MonoBehaviour
     //SO reference
     public SO_Enemy enemyScriptableObject;
 
+    //Damage via SO ref
+    public int damageCapability;
+
     //Updated value of enemy
     public int currentNumber;
 
-    //Display number
+    //Display damageNumber
     public TextMeshPro displayedNumber;
 
     //Has the battle been won by the player?
     public bool isEnemyDead = false;
+
+    //Music theme
+    private AudioClip musicTheme;
+
+    //Win noise and screen
+    [SerializeField] private AudioClip victorySfx;
+    public GameObject winScreen;
+
+    //Damage noise
+    private AudioClip damageSfx;
 
     private void Awake()
     {
@@ -25,8 +38,18 @@ public class EnemyBehaviuur : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Set to starting number once encounter starts
+        //Set damage to damage (very smart)
+        damageCapability = enemyScriptableObject.damage;
+
+        //Set to starting damageNumber once encounter starts
         currentNumber = enemyScriptableObject.startingNumber;
+
+        //Set music theme and play it immidietly
+        musicTheme = enemyScriptableObject.enemyMusicTrack;
+        playEnemyMusicTheme(musicTheme);
+
+        //Set attack sound
+        damageSfx = enemyScriptableObject.enemyAttackSound;
 
         //Set the sprite to scriptable object sprite
         gameObject.GetComponent<MeshRenderer>().material = enemyScriptableObject.enemySpriteMaterial;
@@ -36,42 +59,50 @@ public class EnemyBehaviuur : MonoBehaviour
     void Update()
     {
         //Set display to what is the actual value
-        displayedNumber.SetText(currentNumber.ToString());
+        displayedNumber.SetText(currentNumber.ToString() + "/" + enemyScriptableObject.startingNumber);
 
         //For testing
-        if (Input.GetKeyDown(KeyCode.L)) {
-            changeValueByCard(2f, Operation.multiplyByNumber);
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            changeValueByCard(2f, OffensiveAction.multiplyByNumber);
         }
 
         //Victory
         enemyDeath();
+
+
     }
 
 
     public void enemyDeath()
     {
-        if (currentNumber == enemyScriptableObject.goalNumber)
+        if (currentNumber <= 0 && !isEnemyDead)
         {
+            SoundSystemSingleton.Instance.StopTheMusic();
+            SoundSystemSingleton.Instance.PlaySfxSound(victorySfx);
             isEnemyDead = true;
+
+            //Rewards show
+            winScreen.SetActive(true);
         }
     }
 
-    public void changeValueByCard(float amount, Operation operand)
+    public void changeValueByCard(float amount, OffensiveAction operand)
     {
         //Dodawanie/odejmowanie
-        if (operand == Operation.addNumber)
+        if (operand == OffensiveAction.dealDamage)
         {
-            currentNumber =   Mathf.RoundToInt(currentNumber + amount);
+            currentNumber = Mathf.RoundToInt(currentNumber - amount);
         }
 
         //Mno¿enie/dzielenie
-        if (operand == Operation.multiplyByNumber)
+        if (operand == OffensiveAction.multiplyByNumber)
         {
             currentNumber = Mathf.RoundToInt(currentNumber * amount);
         }
 
         //Potêgowanie/pierwiastkowanie
-        if (operand == Operation.raiseToPowerOfNumber)
+        if (operand == OffensiveAction.raiseToPowerOfNumber)
         {
             currentNumber = Mathf.RoundToInt(Mathf.Pow(currentNumber, amount));
         }
@@ -87,11 +118,17 @@ public class EnemyBehaviuur : MonoBehaviour
 
     public void enemyActionAttack()
     {
-        ManagerSingleton.Instance.playerCurrentHealth -= enemyScriptableObject.damage;
+        ManagerSingleton.Instance.playerCurrentHealth -= damageCapability;
+        SoundSystemSingleton.Instance.PlaySfxSound(damageSfx);
     }
 
     public void halfWayThere()
     {
-        currentNumber = Mathf.RoundToInt(enemyScriptableObject.goalNumber / 2);
+        currentNumber = Mathf.RoundToInt(currentNumber / 2);
+    }
+
+    public void playEnemyMusicTheme(AudioClip theme)
+    {
+        SoundSystemSingleton.Instance.PlayMusicSound(theme);
     }
 }

@@ -10,11 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3038d3c357a08aa4380b013ce8e33d20, type: 3}
-  m_Name: '- 5'
+  m_Name: Deal 12
   m_EditorClassIdentifier: 
-  number: -5
-  operation: 0
-  equationDisplayed: '- (15 : 3)'
-  cardImage: {fileID: 2100000, guid: 9e689b34592d85846a8f32b488afa4ca, type: 2}
-  cost: 0
+  cardImage: {fileID: 2100000, guid: 63625c2440d95024599483028c582671, type: 2}
+  uniqueActionDescriptor: 
+  uniqueActionSuffix: 
+  playSound: {fileID: 8300000, guid: b50885ccad89ce742a6bfd55a07a35de, type: 3}
+  damageNumber: 12
+  offensiveAction: 0
+  healAmount: 0
+  blockAmount: 0
+  barricadeAmount: 0
+  drawAmount: 0
+  sacrificeAmount: 0
+  cost: 2
   rarity: 0
