@@ -5,7 +5,10 @@ using UnityEngine;
 public class bubbleInteract : MonoBehaviour
 {
     public GameObject bubble;
-    
+    Rigidbody bubbleInstantiatedRigidbody;
+    public float speed;
+
+
 
     void Start()
     {
@@ -14,14 +17,7 @@ public class bubbleInteract : MonoBehaviour
 
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.X))
-        //{
-        //    Vector3 mousePos = Input.mousePosition;
-        //    {
-        //        Debug.Log(mousePos.x);
-        //        Debug.Log(mousePos.y);
-        //    }
-        //}
+    
     }
 
     public void createBubble ()
@@ -30,8 +26,11 @@ public class bubbleInteract : MonoBehaviour
         float y = Random.Range(1.75f, 2.6f);
         float z = Random.Range(7.5f, 9.1f);
 
-        bubble.transform.position = new Vector3(x, y, z);
-        Instantiate(bubble);
+        var bubbleInstantiated = Instantiate(bubble);
+        bubbleInstantiated.transform.position = new Vector3(x, y, z);
+        bubbleInstantiatedRigidbody = bubbleInstantiated.GetComponent<Rigidbody>();
+        float randDirectionModifier = Random.Range(10f, 20f);
+        bubbleInstantiatedRigidbody.AddForce(new Vector3(0, 0, 0) * speed);
     }
 
     IEnumerator bubbleCoolDown()

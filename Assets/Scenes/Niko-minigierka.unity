@@ -10309,6 +10309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubble: {fileID: 8365176776012153165, guid: 87f16b77b88b64bb283820ad7529a064, type: 3}
+  speed: 100
 --- !u!1 &1946514369
 GameObject:
   m_ObjectHideFlags: 0
