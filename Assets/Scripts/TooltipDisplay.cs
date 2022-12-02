@@ -14,6 +14,9 @@ public class TooltipDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     //Pls dont use delay() anywhere in the game
     private static LTDescr delay;
 
+    //Delay time
+    public float hoverDelayTime = 0.99f;
+
     //Using UI Event Systems (for UI canvas elements)
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -32,7 +35,7 @@ public class TooltipDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     //Using normal rays (for everything else)
     public void OnMouseEnter()
     {
-        delay = LeanTween.delayedCall(0.99f, () =>
+        delay = LeanTween.delayedCall(hoverDelayTime, () =>
         {
             TooltipSystem.Show(content, header);
         });
