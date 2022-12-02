@@ -23,8 +23,9 @@ public class EnemyBehaviuur : MonoBehaviour
     //Music theme
     private AudioClip musicTheme;
 
-    //Win noise
+    //Win noise and screen
     [SerializeField] private AudioClip victorySfx;
+    public GameObject winScreen;
 
     //Damage noise
     private AudioClip damageSfx;
@@ -61,12 +62,15 @@ public class EnemyBehaviuur : MonoBehaviour
         displayedNumber.SetText(currentNumber.ToString() + "/" + enemyScriptableObject.startingNumber);
 
         //For testing
-        if (Input.GetKeyDown(KeyCode.L)) {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
             changeValueByCard(2f, OffensiveAction.multiplyByNumber);
         }
 
         //Victory
         enemyDeath();
+
+
     }
 
 
@@ -77,6 +81,9 @@ public class EnemyBehaviuur : MonoBehaviour
             SoundSystemSingleton.Instance.StopTheMusic();
             SoundSystemSingleton.Instance.PlaySfxSound(victorySfx);
             isEnemyDead = true;
+
+            //Rewards show
+            winScreen.SetActive(true);
         }
     }
 
@@ -85,7 +92,7 @@ public class EnemyBehaviuur : MonoBehaviour
         //Dodawanie/odejmowanie
         if (operand == OffensiveAction.dealDamage)
         {
-            currentNumber =   Mathf.RoundToInt(currentNumber - amount);
+            currentNumber = Mathf.RoundToInt(currentNumber - amount);
         }
 
         //Mno¿enie/dzielenie

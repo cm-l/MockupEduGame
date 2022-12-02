@@ -19,6 +19,10 @@ public class ManagerSingleton : MonoBehaviour
     //Blockade
     public int playerBlockade = 0;
 
+    //Mana/resource to play cards
+    public int manaCurrentPoints;
+    public int manaMaxPoints = 3;
+
     //PLACEHOLDER
     [SerializeField] private GameObject deathMessage;
     [SerializeField] private AudioClip deathSfx;
@@ -27,7 +31,7 @@ public class ManagerSingleton : MonoBehaviour
 
     public static ManagerSingleton Instance { get; private set; }
 
-    private void Awake()        
+    private void Awake()
     {
         // start of singleton pattern
         if (Instance != null && Instance != this)
@@ -52,6 +56,9 @@ public class ManagerSingleton : MonoBehaviour
         startedTurnWithHealth = playerCurrentHealth;
 
         preBlockHealth = playerCurrentHealth;
+
+        //And at full mana
+        manaCurrentPoints = manaMaxPoints;
     }
 
     // Update is called once per frame
@@ -66,6 +73,11 @@ public class ManagerSingleton : MonoBehaviour
     }
 
 
+    public void takeDamage(int damage)
+    {
+        playerCurrentHealth -= damage;
+    }
+
     public void playerDeath()
     {
         //Kill player
@@ -79,7 +91,7 @@ public class ManagerSingleton : MonoBehaviour
         SoundSystemSingleton.Instance.PlaySfxSound(deathSfx);
 
         //Make the music go down in pitch maybe?
-        SoundSystemSingleton.Instance.ChangeMusicPitch(0.55f);
+        SoundSystemSingleton.Instance.ChangeMusicPitch(0.36f);
     }
 
     public void Heal(int healedAmount)
@@ -88,7 +100,8 @@ public class ManagerSingleton : MonoBehaviour
         playerCurrentHealth += healedAmount;
 
         //Do not allow overheal
-        if (playerCurrentHealth > playerMaxHealth) {
+        if (playerCurrentHealth > playerMaxHealth)
+        {
             playerCurrentHealth = playerMaxHealth;
         }
     }
@@ -120,5 +133,23 @@ public class ManagerSingleton : MonoBehaviour
         {
             Heal(heal);
         }
+    }
+
+    public void ActivateSpecialActionFromCardOnPlayer(int draw, int sacrifice)
+    {
+        if (draw != 0)
+        {
+            Debug.Log($"Drawn {draw} cards!");
+        }
+
+        if (sacrifice != 0)
+        {
+            takeDamage(sacrifice);
+        }
+    }
+
+    public void consumeMana(int amount)
+    {
+        manaCurrentPoints -= amount;
     }
 }

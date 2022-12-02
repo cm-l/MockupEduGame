@@ -12,6 +12,9 @@ public class TooltipSystem : MonoBehaviour
     public static float showSpeed = 0.72f;
     public static LeanTweenType easingCurve = LeanTweenType.easeInOutQuart;
 
+    //Animation
+    public float timeToPopUp = 1.1f;
+
     public static TooltipSystem Instance { get; private set; }
 
     private void Awake()
@@ -39,7 +42,7 @@ public class TooltipSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public static void Show(string content, string header = "")
@@ -59,6 +62,6 @@ public class TooltipSystem : MonoBehaviour
 
     public static void easyIn()
     {
-        LeanTween.scale(Instance.tooltip.gameObject, new Vector2(1,1), showSpeed).setEase(easingCurve);
+        LeanTween.scale(Instance.tooltip.gameObject, new Vector2(1, 1), showSpeed).setEase(easingCurve);
     }
 }

@@ -28,7 +28,7 @@ public class MoveCard : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void highlightUp()
@@ -36,7 +36,8 @@ public class MoveCard : MonoBehaviour
         if (!wentUp)
         {
             LeanTween.moveLocalY(gameObject, selectedHeight, selectionSpeed).setEase(easingUp).setOnCompleteParam(wentUp = true);
-        } else
+        }
+        else
         {
             LeanTween.moveY(gameObject, initialPosition.y, selectionSpeed).setEase(easingDown).setOnCompleteParam(wentUp = false);
         }
@@ -45,7 +46,7 @@ public class MoveCard : MonoBehaviour
     public void drawCardAnimation(int delayedBy)
     {
         LeanTween.move(gameObject, initialPosition, drawingSpeed).setEase(easingDrawing).setDelay((float)delayedBy / 8).setOnComplete(SwishCard);
-        SoundSystemSingleton.Instance.PlaySfxSound(cardSwish); 
+        SoundSystemSingleton.Instance.PlaySfxSound(cardSwish);
     }
 
     private void SwishCard()
