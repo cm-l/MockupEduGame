@@ -18,3 +18,5 @@ MonoBehaviour:
   enemyMusicTrack: {fileID: 8300000, guid: 7252e6aa55d5a2d4ab5bea1082df5708, type: 3}
   enemyAttackSound: {fileID: 8300000, guid: 76133e6a1bc04d641869b2c4875082ea, type: 3}
   enemyDeathNoise: {fileID: 0}
+  lowerGoldRange: 45
+  upperGoldRange: 130

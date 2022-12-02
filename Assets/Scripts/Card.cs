@@ -15,6 +15,7 @@ public class Card : MonoBehaviour
     [HideInInspector] public Vector3 currPos;
     [HideInInspector] public Vector3 initialPos;
 
+
     // Float-up animation (second version with plugin)
     private MoveCard cardAnimation;
 
@@ -60,9 +61,6 @@ public class Card : MonoBehaviour
 
         //Dealing hands
         dealHand();
-
-
-
     }
 
     // Update is called once per frame
@@ -172,7 +170,12 @@ public class Card : MonoBehaviour
             {
                 result += $"Take {cardScriptableObject.sacrificeAmount} damage points. \n";
             }
+            if (cardScriptableObject.payAmount != 0)
+            {
+                result += $"Spend {cardScriptableObject.payAmount} gold. \n";
+            }
             return result + cardScriptableObject.uniqueActionSuffix;
+
         }
         else
         {

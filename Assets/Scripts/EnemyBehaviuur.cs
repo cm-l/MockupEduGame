@@ -84,6 +84,9 @@ public class EnemyBehaviuur : MonoBehaviour
 
             //Rewards show
             winScreen.SetActive(true);
+
+            //Gain gold
+            ManagerSingleton.Instance.gainGold(Random.Range(enemyScriptableObject.lowerGoldRange, enemyScriptableObject.upperGoldRange));
         }
     }
 

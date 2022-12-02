@@ -15,4 +15,8 @@ public class SO_Enemy : ScriptableObject
     public AudioClip enemyMusicTrack;
     public AudioClip enemyAttackSound;
     public AudioClip enemyDeathNoise;
+
+    [Header("\nRewards")]
+    public int lowerGoldRange = 20;
+    public int upperGoldRange = 70;
 }

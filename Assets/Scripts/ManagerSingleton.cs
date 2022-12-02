@@ -23,6 +23,9 @@ public class ManagerSingleton : MonoBehaviour
     public int manaCurrentPoints;
     public int manaMaxPoints = 3;
 
+    //Gold
+    public int playerGold = 40;
+
     //PLACEHOLDER
     [SerializeField] private GameObject deathMessage;
     [SerializeField] private AudioClip deathSfx;
@@ -135,7 +138,7 @@ public class ManagerSingleton : MonoBehaviour
         }
     }
 
-    public void ActivateSpecialActionFromCardOnPlayer(int draw, int sacrifice)
+    public void ActivateSpecialActionFromCardOnPlayer(int draw, int sacrifice, int pay)
     {
         if (draw != 0)
         {
@@ -146,10 +149,25 @@ public class ManagerSingleton : MonoBehaviour
         {
             takeDamage(sacrifice);
         }
+
+        if (pay != 0)
+        {
+                spendGold(pay);
+        }
     }
 
     public void consumeMana(int amount)
     {
         manaCurrentPoints -= amount;
+    }
+
+    public void gainGold(int amount)
+    {
+        playerGold += amount;
+    }
+
+    public void spendGold(int amount)
+    {
+        playerGold -= amount;
     }
 }
