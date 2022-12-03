@@ -50,7 +50,7 @@ public class Destroyable : MonoBehaviour
         ManagerSingleton.Instance.ActivateDefensiveActionFromCard(card.cardScriptableObject.barricadeAmount, card.cardScriptableObject.blockAmount, card.cardScriptableObject.healAmount);
 
         //Wywo³anie funkcji specjalnej akcji (jeœli przewiduje j¹ karta)
-        ManagerSingleton.Instance.ActivateSpecialActionFromCardOnPlayer(card.cardScriptableObject.drawAmount, card.cardScriptableObject.sacrificeAmount);
+        ManagerSingleton.Instance.ActivateSpecialActionFromCardOnPlayer(card.cardScriptableObject.drawAmount, card.cardScriptableObject.sacrificeAmount, card.cardScriptableObject.payAmount);
 
         //Wywo³anie funkcji unikatowej akcji (jeœli przewiduje j¹ karta)
         //ManagerSingleton.Instance.funkcjaoileistniejetojestwywolywanawtymmiejscu();

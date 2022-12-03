@@ -7,7 +7,7 @@ public enum Rarity { common, rare, special }
 
 public enum DefensiveAction { heal, block, barricade, none }
 
-public enum SpecialAction { draw, sacrifice, none }
+public enum SpecialAction { draw, sacrifice, pay, none }
 
 public enum UniqueAction { discard, none}
 
@@ -36,6 +36,7 @@ public class SO_Card : ScriptableObject
     //public SpecialAction specialAction = SpecialAction.none; // op
     public int drawAmount = 0;
     public int sacrificeAmount = 0;
+    public int payAmount = 0;
 
 
     [Header("\nNOT YET IMPLEMENTED\nMaybe will be featured later, maybe not")]

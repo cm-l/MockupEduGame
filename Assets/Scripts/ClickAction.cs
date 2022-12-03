@@ -44,7 +44,7 @@ public class ClickAction : MonoBehaviour
                 //check if you have the mana
                 if (destScript)
                 {
-                    if (destScript.card.cardScriptableObject.cost <= ManagerSingleton.Instance.manaCurrentPoints)
+                    if ((destScript.card.cardScriptableObject.cost <= ManagerSingleton.Instance.manaCurrentPoints) && destScript.card.cardScriptableObject.payAmount <= ManagerSingleton.Instance.playerGold)
                     {
                         destScript.playThisCard();
                     }

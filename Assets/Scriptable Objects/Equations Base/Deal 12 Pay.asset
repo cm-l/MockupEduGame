@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3038d3c357a08aa4380b013ce8e33d20, type: 3}
-  m_Name: Deal 12
+  m_Name: Deal 12 Pay
   m_EditorClassIdentifier: 
   cardImage: {fileID: 2100000, guid: 63625c2440d95024599483028c582671, type: 2}
   uniqueActionDescriptor: 
@@ -23,5 +23,6 @@ MonoBehaviour:
   barricadeAmount: 0
   drawAmount: 0
   sacrificeAmount: 0
+  payAmount: 25
   cost: 2
   rarity: 0
