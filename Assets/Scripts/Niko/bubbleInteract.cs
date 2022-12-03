@@ -29,8 +29,17 @@ public class bubbleInteract : MonoBehaviour
         var bubbleInstantiated = Instantiate(bubble);
         bubbleInstantiated.transform.position = new Vector3(x, y, z);
         bubbleInstantiatedRigidbody = bubbleInstantiated.GetComponent<Rigidbody>();
-        float randDirectionModifier = Random.Range(10f, 20f);
-        bubbleInstantiatedRigidbody.AddForce(new Vector3(0, 0, 0) * speed);
+        float randDirectionModifierX = Random.Range(-10f, 10f);
+        float randDirectionModifierY = Random.Range(-10f, 10f);
+        float randDirectionModifierZ = Random.Range(-10f, 10f);
+        //Freeze all rotations
+        //bubbleInstantiatedRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
+
+        bubbleInstantiatedRigidbody.AddForce(new Vector3(0 + randDirectionModifierX, 0+ randDirectionModifierY, 0+randDirectionModifierZ) * speed);
+        //Debug.Log("X:" + randDirectionModifierX);
+        //Debug.Log("Y:" + randDirectionModifierY);
+        //Debug.Log("Z:" + randDirectionModifierZ);
+
     }
 
     IEnumerator bubbleCoolDown()
