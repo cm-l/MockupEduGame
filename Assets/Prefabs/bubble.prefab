@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3163933520836308061}
   - component: {fileID: 2477662968399442138}
   - component: {fileID: 6446260542308284749}
+  - component: {fileID: 2214994077404680850}
   m_Layer: 0
   m_Name: bubble
   m_TagString: Untagged
@@ -31,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 8365176776012153165}
   m_LocalRotation: {x: -0, y: -0.82824713, z: -0, w: 0.5603631}
   m_LocalPosition: {x: 12.711719, y: 2.145672, z: 8.411256}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -96,7 +97,7 @@ MeshCollider:
   m_GameObject: {fileID: 8365176776012153165}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
@@ -150,3 +151,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ps: {fileID: 8435480755830404877, guid: a742b1bcb2f588a43ac5d1f095f196a9, type: 3}
+--- !u!65 &2214994077404680850
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8365176776012153165}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7, y: 0.7, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0.00000047683716}
