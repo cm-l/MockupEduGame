@@ -45,7 +45,7 @@ public class bubbleInteract : MonoBehaviour
         {
             createBubble();
 
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(100f);
 
         }
     }
