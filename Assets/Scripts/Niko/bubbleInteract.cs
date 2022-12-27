@@ -5,7 +5,6 @@ using UnityEngine;
 public class bubbleInteract : MonoBehaviour
 {
     public GameObject bubble;
-    //Rigidbody bubbleInstantiatedRigidbody;
     public float speed;
 
 
@@ -13,10 +12,6 @@ public class bubbleInteract : MonoBehaviour
     void Start()
     {
         StartCoroutine(bubbleCoolDown());
-    }
-
-    void Update()
-    {
     }
 
     public void createBubble ()
@@ -27,16 +22,8 @@ public class bubbleInteract : MonoBehaviour
 
         var bubbleInstantiated = Instantiate(bubble);
         bubbleInstantiated.AddComponent(typeof(bubbleChangeVelocity));
+        bubbleInstantiated.AddComponent(typeof(bubbleMath));
         bubbleInstantiated.transform.position = new Vector3(x, y, z);
-        //bubbleInstantiatedRigidbody = bubbleInstantiated.GetComponent<Rigidbody>();
-        //float randDirectionModifierX = Random.Range(-10f, 10f);
-        //float randDirectionModifierY = Random.Range(-10f, 10f);
-        //float randDirectionModifierZ = Random.Range(-10f, 10f);
-
-
-        //bubbleInstantiatedRigidbody.AddForce(new Vector3(0 + randDirectionModifierX, 7+ randDirectionModifierY, 0+randDirectionModifierZ) * speed);
-        
-
     }
 
     IEnumerator bubbleCoolDown()
@@ -45,7 +32,7 @@ public class bubbleInteract : MonoBehaviour
         {
             createBubble();
 
-            yield return new WaitForSeconds(100f);
+            yield return new WaitForSeconds(5f);
 
         }
     }

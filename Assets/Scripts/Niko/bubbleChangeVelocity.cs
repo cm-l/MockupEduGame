@@ -46,13 +46,10 @@ public class bubbleChangeVelocity : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log(rb.velocity);
         if (rb.velocity == Vector3.zero)
         {
             direction = -direction;
-            Debug.Log("Direction changed");
             rb.AddForce(direction * Time.deltaTime * speed);
-            Debug.Log("Force added");
         }
     }
 }
