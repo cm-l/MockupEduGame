@@ -5,16 +5,14 @@ using UnityEngine;
 
 public class bubbleMath : MonoBehaviour
 {
+    public static int rValue;
     public TextMeshPro bubbleValue;
     GameObject gmText;
     void Start()
     {
-        int rValue = Random.Range(-400, 400);
-        Debug.Log(rValue);
+        rValue = Random.Range(0, 400);
         gmText = gameObject.transform.GetChild(0).gameObject;
-        Debug.Log(gmText);
         bubbleValue = gmText.GetComponent<TextMeshPro>();
-        Debug.Log(bubbleValue);
         bubbleValue.text = "" + rValue;
     }
 }

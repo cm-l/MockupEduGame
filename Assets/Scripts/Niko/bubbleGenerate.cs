@@ -2,12 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class bubbleInteract : MonoBehaviour
+public class bubbleGenerate : MonoBehaviour
 {
     public GameObject bubble;
     public float speed;
-
-
 
     void Start()
     {
@@ -16,9 +14,9 @@ public class bubbleInteract : MonoBehaviour
 
     public void createBubble ()
     {
-        float x = Random.Range(11.4f, 13.3f);
+        float x = 12.25f;
         float y = 3f;
-        float z = Random.Range(7.5f, 9.1f);
+        float z = 8.5f;
 
         var bubbleInstantiated = Instantiate(bubble);
         bubbleInstantiated.AddComponent(typeof(bubbleChangeVelocity));

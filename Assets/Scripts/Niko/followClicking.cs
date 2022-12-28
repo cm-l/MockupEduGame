@@ -5,15 +5,13 @@ using UnityEngine;
 public class followClicking : MonoBehaviour
 {
 
-
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
             Ray toMouse = UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit rhInfo;
-            bool didHit = Physics.Raycast(toMouse, out rhInfo, 500.0f);
+            bool didHit = Physics.Raycast(toMouse, out rhInfo, 10f);
 
             if (didHit)
             {
@@ -24,7 +22,6 @@ public class followClicking : MonoBehaviour
                 {
                     destScript.RemoveMe();
                 }
-
             }
             else
             {
