@@ -10,7 +10,7 @@ public class bubbleMath : MonoBehaviour
     GameObject gmText;
     void Start()
     {
-        rValue = Random.Range(0, 400);
+        rValue = Random.Range(0, 20);
         gmText = gameObject.transform.GetChild(0).gameObject;
         bubbleValue = gmText.GetComponent<TextMeshPro>();
         bubbleValue.text = "" + rValue;

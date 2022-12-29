@@ -12,7 +12,7 @@ public class bottleChange : MonoBehaviour
     public Material bottle4;
     public Material bottle5;
     public Material bottle6;
-    int bottleMaterialNumber = 0;
+    int bottleMaterialNumber;
 
 
     void Start()
@@ -20,34 +20,59 @@ public class bottleChange : MonoBehaviour
         gm = this.gameObject;
         mr = gm.GetComponent<MeshRenderer>();
         bottle = mr.material;
+        bottleMaterialNumber = 1;
     }
 
-    public void changeMaterial()
+    public void checkMaterial()
     {
         switch (bottleMaterialNumber)
         {
-            case 0:
-                Debug.Log("bottle");
-                break;
             case 1:
-                Debug.Log("Bottle1");
+                mr.material = bottle;
                 break;
             case 2:
-                Debug.Log("Bottle2");
+                mr.material = bottle2;
                 break;
             case 3:
-                Debug.Log("Bottle3");
+                mr.material = bottle3;
                 break;
             case 4:
-                Debug.Log("Bottle 4");
+                mr.material = bottle4;
                 break;
             case 5:
-                Debug.Log("Bottle 5");
+                mr.material = bottle5;
                 break;
             case 6:
-                Debug.Log("Bottle6");
+                mr.material = bottle6;
                 break;
+            default:
+                Debug.Log("Error in Switch-Case instruction in bottleChange " +
+                    "script in changeMaterial() method");break;
         }
         
+    }
+
+
+    public void changeMaterialUp()
+    {
+        bottleMaterialNumber++;
+    }
+
+    public void changeMaterialDown()
+    {
+        if (bottleMaterialNumber > 1)
+        {
+            bottleMaterialNumber--;
+        }
+    }
+
+    public int getBottleMaterialNumber()
+    {
+        return bottleMaterialNumber;
+    }
+
+    private void Update()
+    {
+        checkMaterial();
     }
 }

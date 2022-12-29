@@ -6,7 +6,13 @@ public class bubbleDestroy : MonoBehaviour
 {
     bool evenScript = true;
     public ParticleSystem ps;
-    bottleChange bChange = new bottleChange();
+    bottleChange bChange; 
+
+    public void Start()
+    {
+        bChange = GameObject.FindGameObjectWithTag("Bottle").
+            GetComponent<bottleChange>();
+    }
 
     public void RemoveMe()
     {
@@ -14,15 +20,19 @@ public class bubbleDestroy : MonoBehaviour
         {
             int rValue = bubbleMath.rValue;
             if (rValue % 2 == 0)
-            {
-                Debug.Log("Destroyable's remove function is called on " + name);
-                bChange.changeMaterial();
-                GameObject go = Instantiate(ps.gameObject, transform.position, Quaternion.identity);
+            { 
+                bChange.changeMaterialUp();
+                GameObject go = Instantiate(ps.gameObject, transform.position,
+                    Quaternion.identity);
                 Destroy(go, 2.0f);
                 Destroy(this.gameObject);
             } else
             {
-                Debug.Log("MISTAKE");
+                bChange.changeMaterialDown();
+                GameObject go = Instantiate(ps.gameObject, transform.position,
+                Quaternion.identity);
+                Destroy(go, 2.0f);
+                Destroy(this.gameObject);
             }
         } else
         {

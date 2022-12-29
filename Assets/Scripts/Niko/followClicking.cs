@@ -15,7 +15,7 @@ public class followClicking : MonoBehaviour
 
             if (didHit)
             {
-                Debug.Log(rhInfo.collider.name + " " + rhInfo.point);
+                //Debug.Log(rhInfo.collider.name + " " + rhInfo.point);
                 bubbleDestroy destScript = rhInfo.collider.GetComponent<bubbleDestroy>();
 
                 if (destScript)
@@ -25,7 +25,7 @@ public class followClicking : MonoBehaviour
             }
             else
             {
-                Debug.Log("clicked on empty space");
+                //Debug.Log("clicked on empty space");
             }
         }
     }

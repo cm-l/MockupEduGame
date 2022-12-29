@@ -19,7 +19,7 @@ public class bubbleGenerate : MonoBehaviour
         float z = 8.5f;
 
         var bubbleInstantiated = Instantiate(bubble);
-        bubbleInstantiated.AddComponent(typeof(bubbleChangeVelocity));
+        bubbleInstantiated.AddComponent(typeof(bubbleChange));
         bubbleInstantiated.AddComponent(typeof(bubbleMath));
         bubbleInstantiated.transform.position = new Vector3(x, y, z);
     }
@@ -30,7 +30,7 @@ public class bubbleGenerate : MonoBehaviour
         {
             createBubble();
 
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(2f);
 
         }
     }
