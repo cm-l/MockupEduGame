@@ -6,6 +6,7 @@ public class bubbleDestroy : MonoBehaviour
 {
     bool evenScript = true;
     public ParticleSystem ps;
+    bottleChange bChange = new bottleChange();
 
     public void RemoveMe()
     {
@@ -15,10 +16,10 @@ public class bubbleDestroy : MonoBehaviour
             if (rValue % 2 == 0)
             {
                 Debug.Log("Destroyable's remove function is called on " + name);
+                bChange.changeMaterial();
                 GameObject go = Instantiate(ps.gameObject, transform.position, Quaternion.identity);
                 Destroy(go, 2.0f);
                 Destroy(this.gameObject);
-                //Debug.Log(rValue);
             } else
             {
                 Debug.Log("MISTAKE");
