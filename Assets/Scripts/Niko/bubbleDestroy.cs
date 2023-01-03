@@ -19,8 +19,9 @@ public class bubbleDestroy : MonoBehaviour
         if (evenScript)
         {
             int rValue = bubbleMath.rValue;
-            if (rValue % 2 == 0)
-            { 
+            if (rValue % 2 == 0 && rValue != 0)
+            {
+                Debug.Log("OK " + rValue);
                 bChange.changeMaterialUp();
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                     Quaternion.identity);
@@ -28,6 +29,7 @@ public class bubbleDestroy : MonoBehaviour
                 Destroy(this.gameObject);
             } else
             {
+                Debug.Log("MISTAKE " + rValue);
                 bChange.changeMaterialDown();
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                 Quaternion.identity);

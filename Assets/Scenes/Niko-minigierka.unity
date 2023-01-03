@@ -383,6 +383,11 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &93746915 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8860165540864917540, guid: a519d78b6d9b146bca24c75041603534, type: 3}
+  m_PrefabInstance: {fileID: 458019568}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &132104836
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8581,18 +8586,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 471058, guid: 3ae87325551afc646a8927b8ba7d04c1, type: 3}
   m_PrefabInstance: {fileID: 1313261182}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1324583146 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8860165540864917540, guid: a519d78b6d9b146bca24c75041603534, type: 3}
-  m_PrefabInstance: {fileID: 458019568}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1324583147
+--- !u!114 &1324583153
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1324583146}
+  m_GameObject: {fileID: 93746915}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9b2dc65591cce4126aa440810bacbe5b, type: 3}
@@ -8603,6 +8603,18 @@ MonoBehaviour:
   bottle4: {fileID: 2100000, guid: 2efa20e5c232a4136b352d0dd40fb6b9, type: 2}
   bottle5: {fileID: 2100000, guid: 26cd07abe1a024f8f9c6f35ac164e3b3, type: 2}
   bottle6: {fileID: 2100000, guid: 88424682f1d3643f98c8f2656ca1a95f, type: 2}
+--- !u!114 &1324583154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93746915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 592b1320c32364e52a6e7ca7d9807741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1347516143
 PrefabInstance:
   m_ObjectHideFlags: 0
