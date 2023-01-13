@@ -6,7 +6,8 @@ public class bubbleDestroy : MonoBehaviour
 {
     bool evenScript = true;
     public ParticleSystem ps;
-    bottleChange bChange; 
+    bottleChange bChange;
+    bubbleMath bM;
 
     public void Start()
     {
@@ -18,7 +19,8 @@ public class bubbleDestroy : MonoBehaviour
     {
         if (evenScript)
         {
-            int rValue = bubbleMath.rValue;
+            bM = this.GetComponent<bubbleMath>();
+            int rValue = bM.getrVal();
             if (rValue % 2 == 0 && rValue != 0)
             {
                 Debug.Log("OK " + rValue);
