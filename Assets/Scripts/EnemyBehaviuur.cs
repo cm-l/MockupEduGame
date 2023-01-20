@@ -38,6 +38,9 @@ public class EnemyBehaviuur : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Set enemy to enemy meant to be encountered from game manager
+        enemyScriptableObject = ManagerSingleton.Instance.nextEncounteredEnemy;
+
         //Set damage to damage (very smart)
         damageCapability = enemyScriptableObject.damage;
 

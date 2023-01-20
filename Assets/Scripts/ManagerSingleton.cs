@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ManagerSingleton : MonoBehaviour
 {
+
+    [Header("Player Stats")]
     //Player variables - how much health
     public int playerCurrentHealth;
 
@@ -26,6 +28,13 @@ public class ManagerSingleton : MonoBehaviour
     //Gold
     public int playerGold = 40;
 
+    [Header("\nLevel status and scenes")]
+    // Next enemy encounter
+    public SO_Enemy nextEncounteredEnemy;
+
+    // Next encounter (minigame?)
+
+    [Header("\nGame Over Settings")]
     //PLACEHOLDER
     [SerializeField] private GameObject deathMessage;
     [SerializeField] private AudioClip deathSfx;
