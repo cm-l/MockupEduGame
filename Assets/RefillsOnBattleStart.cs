@@ -26,6 +26,12 @@ public class RefillsOnBattleStart : MonoBehaviour
         {
             HealthRefill(4);
         }
+
+        //Delete overheals
+        if (ManagerSingleton.Instance.playerCurrentHealth > ManagerSingleton.Instance.playerMaxHealth)
+        {
+            ManagerSingleton.Instance.playerCurrentHealth = ManagerSingleton.Instance.playerMaxHealth;
+        }
     }
 
     // Update is called once per frame

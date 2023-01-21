@@ -33,6 +33,7 @@ public class ManagerSingleton : MonoBehaviour
     public SO_Enemy nextEncounteredEnemy;
 
     // Next encounter (minigame?)
+    //encounter int in build order???
 
     [Header("\nGame Over Settings")]
     //PLACEHOLDER
