@@ -36,10 +36,9 @@ public class ManagerSingleton : MonoBehaviour
 
     [Header("\nGame Over Settings")]
     //PLACEHOLDER
-    [SerializeField] private GameObject deathMessage;
+    public GameObject deathMessage;
     [SerializeField] private AudioClip deathSfx;
     public bool hasDied = false;
-
 
     public static ManagerSingleton Instance { get; private set; }
 
@@ -55,6 +54,9 @@ public class ManagerSingleton : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
         // end of singleton pattern
+
+        // Grab death message panel
+        deathMessage = GameObject.FindGameObjectWithTag("Death Screen");
     }
 
 
@@ -62,15 +64,22 @@ public class ManagerSingleton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //And at full mana
+        //DEPRECATED this is now handled by the refiller object
+        //manaCurrentPoints = manaMaxPoints; 
+
+
+        //Ten obiekt zachowuje siê miêdzy scenami: jego "Start" to pierwsza scena
+        //Wiêc ¿eby resetowaæ manê co ka¿dy pojedynek, u¿ywam do tego innego obiektu z metod¹ w starcie
+        //TODO kiedyœ to poprawiæ
+
+
         //Player starts at full health
         playerCurrentHealth = playerMaxHealth;
 
         startedTurnWithHealth = playerCurrentHealth;
 
         preBlockHealth = playerCurrentHealth;
-
-        //And at full mana
-        manaCurrentPoints = manaMaxPoints;
     }
 
     // Update is called once per frame
@@ -96,8 +105,10 @@ public class ManagerSingleton : MonoBehaviour
         hasDied = true;
 
         //PLACEHOLDER
+        // TO TRZEBA ZMIENIÆ ¯EBY ROBI£O INSTANTIATE(UI JAKIŒ TAM GAME OVER SCREEN)!!!!!!!!!
         //Display the death screen and message
-        deathMessage.SetActive(true);
+        //deathMessage.SetActive(true);
+        //deathMessage.transform.localScale = new Vector3(4, 4, 4);
 
         //Play death sound effect
         SoundSystemSingleton.Instance.PlaySfxSound(deathSfx);

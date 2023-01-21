@@ -13,7 +13,7 @@ public class TooltipSystem : MonoBehaviour
     public static LeanTweenType easingCurve = LeanTweenType.easeInOutQuart;
 
     //Animation
-    public float timeToPopUp = 1.1f;
+    public float timeToPopUp = 0.9f;
 
     public static TooltipSystem Instance { get; private set; }
 

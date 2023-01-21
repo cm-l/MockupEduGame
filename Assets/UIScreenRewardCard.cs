@@ -57,7 +57,8 @@ public class UIScreenRewardCard : MonoBehaviour
         //Make an animation of fading out happen - fading in happens on start of other scene
 
         //Actually load in the selected scene
-        int indexScene = Random.Range(0, 2); //TODO fix based on number in build order
+        //lower bound inclusive - upper bound EXCLUSIVE
+        int indexScene = Random.Range(0, 3); //TODO fix based on number in build order
         SceneManager.LoadScene(indexScene);
     }
 }
