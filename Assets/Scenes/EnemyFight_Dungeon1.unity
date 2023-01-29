@@ -8210,7 +8210,6 @@ MonoBehaviour:
   deathMessage: {fileID: 1662922138}
   deathSfx: {fileID: 8300000, guid: fa56e739488186a4782181bad1cfa431, type: 3}
   hasDied: 0
-  healthyThing: {fileID: 11400000, guid: a07fbe7feb5896a489733b3f1ba6fbcc, type: 2}
 --- !u!4 &1501111499
 Transform:
   m_ObjectHideFlags: 0
@@ -10405,7 +10404,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1804935372}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: -0.75245845, y: 0.6354697, z: 3.3883915}
+  m_LocalPosition: {x: 0.023, y: 0.6354697, z: 3.836}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
