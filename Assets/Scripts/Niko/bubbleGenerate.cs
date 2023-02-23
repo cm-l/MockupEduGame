@@ -7,6 +7,7 @@ public class bubbleGenerate : MonoBehaviour
     public GameObject bubble;
     public int speedModifier;
     float secoundToWait = 3f;
+    Vector3 direction;
 
     void Start()
     {
@@ -16,20 +17,26 @@ public class bubbleGenerate : MonoBehaviour
 
     public void createBubble()
     {
+
         float x = 12.25f;
         float y = 3f;
         float z = 8.5f;
 
+        // Make position a bit random
 
-        float randDirectionModifierX = Random.Range(-10f, 10f);
-        float randDirectionModifierY = Random.Range(10f, 20f);
-        float randDirectionModifierZ = Random.Range(-10f, 10f);
-        Vector3 direction = (new Vector3(0 + randDirectionModifierX, 0 + randDirectionModifierY, 0 + randDirectionModifierZ));
+        x = x + Random.Range(-1f, 1f);
+        z = z + Random.Range(-1f, 1f);
 
+
+        float randDirectionModifierX = Random.Range(-20f, 20f);
+        float randDirectionModifierY = Random.Range(0f, 20f);
+        float randDirectionModifierZ = Random.Range(-20f, 20f);
+        direction = (new Vector3(0 + randDirectionModifierX, 0 +
+            randDirectionModifierY, 0 + randDirectionModifierZ));
         GameObject bubbleInstantiated = Instantiate(bubble);
         bubbleInstantiated.AddComponent(typeof(bubbleChange));
         Rigidbody rb = bubbleInstantiated.GetComponent<Rigidbody>();
-        rb.AddForce(direction * Time.deltaTime * speedModifier);
+        rb.AddForce(rb.position + direction * Time.deltaTime * speedModifier);
         bubbleInstantiated.AddComponent(typeof(bubbleMath));
         bubbleInstantiated.transform.position = new Vector3(x, y, z);
     }
@@ -44,4 +51,10 @@ public class bubbleGenerate : MonoBehaviour
         }
 
     }
+
+    public Vector3 getVector3()
+    {
+        return direction;
+    }
+
 }

@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
         textUI = gmTextUI.GetComponent<TextMeshProUGUI>();
         cauldron = GameObject.Find("SD_Prop_Cauldron_01");
         fClicking = cauldron.GetComponent<followClicking>();
-        scenarioNumber = fClicking.scenarioNumber;
+        scenarioNumber = fClicking.getScenarioNumber();
         Debug.Log("Scenario: " + scenarioNumber);
 
         // Choose the right intoduction text for given scenario
@@ -85,13 +85,13 @@ public class GameManager : MonoBehaviour
     {
         if (readyForChangingScenario)
         {
-            if (scenarioNumber <= maxNumOfScenarios)
+            if (scenarioNumber < maxNumOfScenarios)
             {
                 fClicking.changeScenario();
             }
             else
             {
-                scenarioNumber = 0;
+                fClicking.setBaseScenario();
             }
             readyForChangingScenario = false;
         }

@@ -6,11 +6,11 @@ public class bubbleChange : MonoBehaviour
 {
     Rigidbody rb;
     Vector3 direction;
-    float speed = 35;
+    int speedModifier;
     Vector3 limit = new Vector3(1, 1, 1);
     bool isBubbleDead;
     public ParticleSystem ps;
-
+    //int timeToWait;
 
 
     void Start()
@@ -18,25 +18,26 @@ public class bubbleChange : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody>();
         StartCoroutine(bubbleLifeIndicator());
         isBubbleDead = false;
-
+        direction = GameObject.Find("SD_Prop_Cauldron_01").
+            GetComponent<bubbleGenerate>().getVector3();
+        speedModifier = GameObject.Find("SD_Prop_Cauldron_01").
+            GetComponent<bubbleGenerate>().speedModifier;
+        speedModifier = speedModifier / 4;
+        //timeToWait = 1;
     }
 
     void Update()
     {
         if (isBubbleDead)
         {
-            Debug.Log("Bubble ended its life");
             Destroy(this.gameObject);
         }
     }
 
     private void FixedUpdate()
     {
-        if (rb.velocity == Vector3.zero)
-        {
-            direction = -direction;
-            rb.AddForce(direction * Time.deltaTime * speed);
-        }
+        //Invoke("checkVelocity", timeToWait);
+        //Debug.Log(rb.velocity);
     }
 
     IEnumerator bubbleLifeIndicator()
@@ -45,15 +46,28 @@ public class bubbleChange : MonoBehaviour
         isBubbleDead = true;
     }
 
-    //IEnumerator addForceCor()
+    void OnCollisionEnter(Collision collision)
+    {
+        if (!(collision.gameObject == GameObject.Find("SD_Prop_Cauldron_01")))
+        {
+            float bounce = 10f; //amount of force to apply
+            Debug.Log(collision.contacts[0].normal);
+            rb.AddForce(collision.contacts[0].normal * bounce);
+            //Debug.Log(collision.gameObject);
+        }
+     
+    }
+
+
+    //void checkVelocity()
     //{
-    //    while (true)
+    //    if (rb.velocity == Vector3.zero)
     //    {
-    //        createBubble();
-
-    //        yield return new WaitForSeconds(2f);
-
+    //        Debug.Log("My Vector3 equals to zero!");
+    //        direction = -direction;
+    //        rb.AddForce(direction * Time.deltaTime * speedModifier);
     //    }
+    //    timeToWait = 0;
     //}
 
 }

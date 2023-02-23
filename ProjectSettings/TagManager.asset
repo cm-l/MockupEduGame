@@ -6,11 +6,12 @@ TagManager:
   tags:
   - Card
   - Bottle
+  - Bubble
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Bubble
   - Water
   - UI
   - 

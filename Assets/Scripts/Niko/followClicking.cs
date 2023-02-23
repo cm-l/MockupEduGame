@@ -1,6 +1,7 @@
 ﻿/* 
  * Scenario 0 -> check if the number is even
  * Scenario 1 -> check if the number is uneven
+ * Scenario 2 -> check if the number is prime number
  */
 
 using System.Collections;
@@ -9,11 +10,11 @@ using UnityEngine;
 
 public class followClicking : MonoBehaviour
 {
-    public int scenarioNumber;
+    static int scenarioNumber = 0;
 
     private void Start()
     {
-        scenarioNumber = 0;
+
     }
 
     void Update()
@@ -44,7 +45,7 @@ public class followClicking : MonoBehaviour
                     }
                     else
                     {
-                        Debug.Log("Any scenario has been loaded");
+                        Debug.Log("No scenario has been loaded");
                     }
                 }
             }
@@ -56,5 +57,16 @@ public class followClicking : MonoBehaviour
     {
         scenarioNumber++;
         Debug.Log("Scenario changed");
+        Debug.Log("Number of scenario: " + scenarioNumber);
+    }
+
+    public int getScenarioNumber()
+    {
+        return scenarioNumber;
+    }
+
+    public void setBaseScenario()
+    {
+        scenarioNumber = 0;
     }
 }
