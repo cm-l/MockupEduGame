@@ -15,15 +15,9 @@ public class bubbleChange : MonoBehaviour
 
     void Start()
     {
-        //float randDirectionModifierX = Random.Range(-10f, 10f);
-        //float randDirectionModifierY = Random.Range(-10f, 10f);
-        //float randDirectionModifierZ = Random.Range(-10f, 10f);
-        //direction = (new Vector3(0 + randDirectionModifierX, 0 + randDirectionModifierY, 0 + randDirectionModifierZ));
         rb = gameObject.GetComponent<Rigidbody>();
-        //rb.AddForce(direction * Time.deltaTime * speed);
         StartCoroutine(bubbleLifeIndicator());
         isBubbleDead = false;
-        //StartCoroutine(addForceCor());
 
     }
 
