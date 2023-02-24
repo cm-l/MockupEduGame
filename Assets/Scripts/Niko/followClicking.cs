@@ -10,7 +10,7 @@ using UnityEngine;
 
 public class followClicking : MonoBehaviour
 {
-    static int scenarioNumber = 0;
+    public static int scenarioNumber = 0;
 
     private void Start()
     {

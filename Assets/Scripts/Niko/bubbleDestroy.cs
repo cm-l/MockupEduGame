@@ -121,4 +121,100 @@ public class bubbleDestroy : MonoBehaviour
                 return false;
         return true;
     }
+
+    //AUTO-REMOVE
+
+    public void AutoRemoveScenario0()
+    {
+        if (evenScript)
+        {
+            bM = this.GetComponent<bubbleMath>();
+            int rValue = bM.getrVal();
+            if (rValue % 2 == 0)
+            {
+                Debug.Log("AUTO-REMOVE FOR: " + rValue + " (PENALTY)");
+                bChange.changeMaterialDown();
+                GameObject go = Instantiate(ps.gameObject, transform.position,
+                    Quaternion.identity);
+                Destroy(go, 2.0f);
+                Destroy(this.gameObject);
+            }
+            else
+            {
+                Debug.Log("AUTO-REMOVE FOR: " + rValue + " (OK)");
+                GameObject go = Instantiate(ps.gameObject, transform.position,
+                Quaternion.identity);
+                Destroy(go, 2.0f);
+                Destroy(this.gameObject);
+            }
+        }
+        else
+        {
+            Debug.Log("Even Script not activated");
+        }
+    }
+
+    public void AutoRemoveScenario1()
+    {
+        if (evenScript)
+        {
+            bM = this.GetComponent<bubbleMath>();
+            int rValue = bM.getrVal();
+            if (rValue % 2 != 0)
+            {
+                Debug.Log("AUTO-REMOVE FOR: " + rValue + " (PENALTY)");
+                bChange.changeMaterialDown();
+                GameObject go = Instantiate(ps.gameObject, transform.position,
+                    Quaternion.identity);
+                Destroy(go, 2.0f);
+                Destroy(this.gameObject);
+            }
+            else
+            {
+                Debug.Log("AUTO-REMOVE FOR: " + rValue + " (OK)");
+                GameObject go = Instantiate(ps.gameObject, transform.position,
+                Quaternion.identity);
+                Destroy(go, 2.0f);
+                Destroy(this.gameObject);
+            }
+        }
+        else
+        {
+            Debug.Log("Even Script not activated");
+        }
+    }
+
+    public void AutoRemoveScenario2()
+    {
+        if (evenScript)
+        {
+            bM = this.GetComponent<bubbleMath>();
+            int rValue = bM.getrVal();
+            if (checkIfPrime(rValue))
+            {
+                Debug.Log("AUTO-REMOVE FOR: " + rValue + " (PENALTY)");
+                bChange.changeMaterialDown();
+                GameObject go = Instantiate(ps.gameObject, transform.position,
+                    Quaternion.identity);
+                Destroy(go, 2.0f);
+                Destroy(this.gameObject);
+            }
+            else
+            {
+                Debug.Log("AUTO-REMOVE FOR: " + rValue + " (OK)");
+                GameObject go = Instantiate(ps.gameObject, transform.position,
+                Quaternion.identity);
+                Destroy(go, 2.0f);
+                Destroy(this.gameObject);
+            }
+        }
+        else
+        {
+            Debug.Log("Even Script not activated");
+        }
+    }
+
+
+
+
 }
