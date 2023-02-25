@@ -10898,7 +10898,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bubble: {fileID: 8365176776012153165, guid: 87f16b77b88b64bb283820ad7529a064, type: 3}
   speedModifier: 900
-  dirRangeXY: 15
+  dirRangeZ: 15
   dirMaxY: 16
 --- !u!114 &1908896969
 MonoBehaviour:

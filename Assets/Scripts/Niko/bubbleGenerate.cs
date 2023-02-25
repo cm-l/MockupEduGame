@@ -8,7 +8,7 @@ public class bubbleGenerate : MonoBehaviour
     public int speedModifier;
     float secoundToWait = 3f;
     Vector3 direction;
-    public float dirRangeXY;
+    public float dirRangeZ;
     public float dirMaxY;
 
     void Start()
@@ -33,7 +33,7 @@ public class bubbleGenerate : MonoBehaviour
 
         //float randDirectionModifierX = Random.Range(-dirRangeXY, dirRangeXY);
         float randDirectionModifierY = Random.Range(4f, dirMaxY);
-        float randDirectionModifierZ = Random.Range(-dirRangeXY, dirRangeXY);
+        float randDirectionModifierZ = Random.Range(-dirRangeZ, dirRangeZ);
         direction = (new Vector3(0, 0 +
             randDirectionModifierY, 0 + randDirectionModifierZ));
         //direction = (new Vector3(0, 0 +

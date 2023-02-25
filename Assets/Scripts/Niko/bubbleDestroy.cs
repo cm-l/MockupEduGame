@@ -111,6 +111,38 @@ public class bubbleDestroy : MonoBehaviour
         }
     }
 
+    //Scenario 3
+    public void RemoveMeScenario3()
+    {
+        if (evenScript)
+        {
+            bM = this.GetComponent<bubbleMath>();
+            int rValue = bM.getrVal();
+            if (((rValue % 3 == 0) || (rValue % 5 == 0)) && (rValue != 0))
+            {
+                Debug.Log("OK " + rValue);
+                bChange.changeMaterialUp();
+                GameObject go = Instantiate(ps.gameObject, transform.position,
+                    Quaternion.identity);
+                Destroy(go, 2.0f);
+                Destroy(this.gameObject);
+            }
+            else
+            {
+                Debug.Log("MISTAKE " + rValue);
+                bChange.changeMaterialDown();
+                GameObject go = Instantiate(ps.gameObject, transform.position,
+                Quaternion.identity);
+                Destroy(go, 2.0f);
+                Destroy(this.gameObject);
+            }
+        }
+        else
+        {
+            Debug.Log("Even Script not activated");
+        }
+    }
+
     bool checkIfPrime(int number)
     {
         if (number <= 1) return false;
@@ -202,6 +234,36 @@ public class bubbleDestroy : MonoBehaviour
             else
             {
                 //Debug.Log("AUTO-REMOVE FOR: " + rValue + " (OK)");
+                GameObject go = Instantiate(ps.gameObject, transform.position,
+                Quaternion.identity);
+                Destroy(go, 2.0f);
+                Destroy(this.gameObject);
+            }
+        }
+        else
+        {
+            Debug.Log("Even Script not activated");
+        }
+    }
+
+    public void AutoRemoveScenario3()
+    {
+        if (evenScript)
+        {
+            bM = this.GetComponent<bubbleMath>();
+            int rValue = bM.getrVal();
+            if (((rValue % 3 == 0) || (rValue % 5 == 0)) && (rValue != 0))
+            {
+                Debug.Log("AUTO-REMOVE FOR: " + rValue + " (PENALTY)");
+                bChange.changeMaterialDown();
+                GameObject go = Instantiate(ps.gameObject, transform.position,
+                    Quaternion.identity);
+                Destroy(go, 2.0f);
+                Destroy(this.gameObject);
+            }
+            else
+            {
+                Debug.Log("AUTO-REMOVE FOR: " + rValue + " (OK)");
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                 Quaternion.identity);
                 Destroy(go, 2.0f);

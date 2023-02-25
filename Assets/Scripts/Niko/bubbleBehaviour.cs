@@ -5,7 +5,6 @@ using UnityEngine;
 public class bubbleBehaviour : MonoBehaviour
 {
     Rigidbody rb;
-    Vector3 direction;
     int speedModifier;
     bool isBubbleDead;
     public ParticleSystem ps;
@@ -17,13 +16,13 @@ public class bubbleBehaviour : MonoBehaviour
     {
         rb = gameObject.GetComponent<Rigidbody>();
         StartCoroutine(bubbleLifeIndicator());
-        isBubbleDead = false;
-        direction = GameObject.Find("SD_Prop_Cauldron_01").
-            GetComponent<bubbleGenerate>().getVector3();
+        isBubbleDead = false;        
         speedModifier = GameObject.Find("SD_Prop_Cauldron_01").
             GetComponent<bubbleGenerate>().speedModifier;
         speedModifier = speedModifier / 4;
         bDestroy = gameObject.GetComponent<bubbleDestroy>();
+        Invoke("getBubbleStats", 0.5f);
+
     }
 
     void Update()
@@ -36,6 +35,8 @@ public class bubbleBehaviour : MonoBehaviour
                 bDestroy.AutoRemoveScenario1();
             else if (scenarioNumber == 2)
                 bDestroy.AutoRemoveScenario2();
+            else if (scenarioNumber == 3)
+                bDestroy.AutoRemoveScenario3();
             else
                 Debug.Log("Can't activate auto-remove " +
                     "function for given scenario in bubbleBahaviour script");
@@ -77,6 +78,26 @@ public class bubbleBehaviour : MonoBehaviour
     //        Debug.Log("Force added for bubble number: " + gameObject.GetComponent<bubbleMath>().getrVal());
     //    }
     //}
+
+    void getBubbleStats()
+    {
+        Vector3 direction;
+        direction = GameObject.Find("SD_Prop_Cauldron_01").
+            GetComponent<bubbleGenerate>().getVector3();
+        float directionY = direction.y;
+        float directionZ = direction.z;
+        float directionIndicator = directionY * directionZ;
+
+        if (directionY >= 15 || directionZ >= 14 || directionZ <= -14)
+        {
+            Debug.Log("======================================================");
+            Debug.Log("Bubble number " + gameObject.GetComponent<bubbleMath>().getrVal() + " has direction idicator: " + directionIndicator);
+            Debug.Log("Its Y direction is " + directionY + " and Z direction is " + directionZ);
+            Debug.Log("======================================================");
+        }
+
+
+    }
 
 }
 

@@ -2,6 +2,10 @@
  * Scenario 0 -> check if the number is even
  * Scenario 1 -> check if the number is uneven
  * Scenario 2 -> check if the number is prime number
+ * Scenario 3 -> check if the number can be divided by 3 or 5
+ * 
+ * All scenario controls cen be found in GameManager, followClicking, 
+ * bubbleDestroy and bubbleBehaviour scripts
  */
 
 using System;
@@ -21,7 +25,7 @@ public class GameManager : MonoBehaviour
     TextMeshProUGUI textUI;
     GameObject cauldron;
     followClicking fClicking;
-    int maxNumOfScenarios = 2;
+    int maxNumOfScenarios = 3;
     bool readyForChangingScenario;
 
     void Start()
@@ -40,14 +44,23 @@ public class GameManager : MonoBehaviour
         {
             textUI.text = "Przebijaj bańki z liczbami parzystymi";
         }
-        if (scenarioNumber == 1)
+        else if (scenarioNumber == 1)
         {
             textUI.text = "Przebijaj bańki z liczbami nieparzystymi";
         }
-        if (scenarioNumber == 2)
+        else if (scenarioNumber == 2)
         {
             textUI.text = "Przebijaj bańki z liczbami pierwszymi";
         }
+        else if (scenarioNumber == 3)
+        {
+            textUI.text = "Przebijaj bańki z liczbami podzielnymi przez 3 lub 5";
+        }
+        else
+        {
+            textUI.text = "ERROR: No scenario has been loaded";
+        }
+       
 
 
         textUI.enabled = true;
@@ -81,6 +94,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    // Scenario control
     void NextScenario()
     {
         if (readyForChangingScenario)

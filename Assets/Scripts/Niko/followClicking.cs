@@ -1,10 +1,4 @@
-﻿/* 
- * Scenario 0 -> check if the number is even
- * Scenario 1 -> check if the number is uneven
- * Scenario 2 -> check if the number is prime number
- */
-
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -29,6 +23,7 @@ public class followClicking : MonoBehaviour
             {
                 bubbleDestroy destScript = rhInfo.collider.GetComponent<bubbleDestroy>();
 
+                // Scenario control
                 if (destScript)
                 {
                     if (scenarioNumber == 0)
@@ -43,6 +38,8 @@ public class followClicking : MonoBehaviour
                     {
                         destScript.RemoveMeScenario2();
                     }
+                    else if (scenarioNumber == 3)
+                        destScript.RemoveMeScenario3();
                     else
                     {
                         Debug.Log("No scenario has been loaded");
