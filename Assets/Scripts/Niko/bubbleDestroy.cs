@@ -132,7 +132,7 @@ public class bubbleDestroy : MonoBehaviour
             int rValue = bM.getrVal();
             if (rValue % 2 == 0)
             {
-                Debug.Log("AUTO-REMOVE FOR: " + rValue + " (PENALTY)");
+                //Debug.Log("AUTO-REMOVE FOR: " + rValue + " (PENALTY)");
                 bChange.changeMaterialDown();
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                     Quaternion.identity);
@@ -141,7 +141,7 @@ public class bubbleDestroy : MonoBehaviour
             }
             else
             {
-                Debug.Log("AUTO-REMOVE FOR: " + rValue + " (OK)");
+                //Debug.Log("AUTO-REMOVE FOR: " + rValue + " (OK)");
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                 Quaternion.identity);
                 Destroy(go, 2.0f);
@@ -162,7 +162,7 @@ public class bubbleDestroy : MonoBehaviour
             int rValue = bM.getrVal();
             if (rValue % 2 != 0)
             {
-                Debug.Log("AUTO-REMOVE FOR: " + rValue + " (PENALTY)");
+                //Debug.Log("AUTO-REMOVE FOR: " + rValue + " (PENALTY)");
                 bChange.changeMaterialDown();
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                     Quaternion.identity);
@@ -171,7 +171,7 @@ public class bubbleDestroy : MonoBehaviour
             }
             else
             {
-                Debug.Log("AUTO-REMOVE FOR: " + rValue + " (OK)");
+                //Debug.Log("AUTO-REMOVE FOR: " + rValue + " (OK)");
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                 Quaternion.identity);
                 Destroy(go, 2.0f);
@@ -192,7 +192,7 @@ public class bubbleDestroy : MonoBehaviour
             int rValue = bM.getrVal();
             if (checkIfPrime(rValue))
             {
-                Debug.Log("AUTO-REMOVE FOR: " + rValue + " (PENALTY)");
+                //Debug.Log("AUTO-REMOVE FOR: " + rValue + " (PENALTY)");
                 bChange.changeMaterialDown();
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                     Quaternion.identity);
@@ -201,7 +201,7 @@ public class bubbleDestroy : MonoBehaviour
             }
             else
             {
-                Debug.Log("AUTO-REMOVE FOR: " + rValue + " (OK)");
+                //Debug.Log("AUTO-REMOVE FOR: " + rValue + " (OK)");
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                 Quaternion.identity);
                 Destroy(go, 2.0f);

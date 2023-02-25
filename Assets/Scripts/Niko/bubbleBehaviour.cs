@@ -39,15 +39,10 @@ public class bubbleBehaviour : MonoBehaviour
             else
                 Debug.Log("Can't activate auto-remove " +
                     "function for given scenario in bubbleBahaviour script");
-           
-            //Destroy(this.gameObject);
         }
     }
 
-    //private void FixedUpdate()
-    //{
 
-    //}
 
     IEnumerator bubbleLifeIndicator()
     {
@@ -60,27 +55,27 @@ public class bubbleBehaviour : MonoBehaviour
         if (!(collision.gameObject == GameObject.Find("SD_Prop_Cauldron_01")))
         {
             float bounce = 3000f; //amount of force to apply
-            //Debug.Log("-------------------------------------------------------");
-            //Debug.Log("Collision: " + collision.contacts[0].normal);
-            //Debug.Log("Bubble value: " + gameObject.GetComponent<bubbleMath>().getrVal());
-            //Debug.Log("Bubble velocity before: " + rb.velocity);
-            //Debug.Log("Force added: " + (collision.contacts[0].normal * bounce));
             rb.AddForce(collision.contacts[0].normal * bounce * Time.deltaTime);
-            //Debug.Log("Bubble velocity after: " + rb.velocity);
         }
-
+        //if (collision.gameObject == GameObject.Find("bubble_colllider (4)"))
+        //{
+        //    Debug.Log("Cell collision for: " + gameObject.GetComponent<bubbleMath>().getrVal());
+        //    //Invoke("checkVelocity", 0.1f);
+        //}
     }
-
 
     //void checkVelocity()
     //{
-    //    if (rb.velocity == Vector3.zero)
+    //    Vector3 vel = rb.velocity;
+    //    float yVel = vel.y;
+    //    //Debug.Log("Y velocity: " + yVel + " | For bubble: " + gameObject.GetComponent<bubbleMath>().getrVal());
+    //    //Debug.Log("Checking velocity for: " + gameObject.GetComponent<bubbleMath>().getrVal());
+    //    if (yVel > -0.000001)
     //    {
-    //        Debug.Log("My Vector3 equals to zero!");
-    //        direction = -direction;
-    //        rb.AddForce(direction * Time.deltaTime * speedModifier);
+    //        Vector3 addYForce = new Vector3(0, -1f, 0);
+    //        rb.AddForce(rb.position + addYForce * Time.deltaTime);
+    //        Debug.Log("Force added for bubble number: " + gameObject.GetComponent<bubbleMath>().getrVal());
     //    }
-    //    timeToWait = 0;
     //}
 
 }
