@@ -6,7 +6,7 @@ public class CameraMovement : MonoBehaviour
 {
     public float speedHorizontal = 1.0f;
     public float speedVertical = 1.0f;
-    float yaw = 0.0f;
+    float yaw = 0.0f;   
     float pitch = 0.0f;
 
     void Start()
