@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5892264032652387099}
   - component: {fileID: 4429613619054371475}
   - component: {fileID: 8248570695673474231}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: bubbleNumber
   m_TagString: Bubble
   m_Icon: {fileID: 0}
@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 2477662968399442138}
   - component: {fileID: 2649469238239808193}
   - component: {fileID: 668013069158608487}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: bubble
   m_TagString: Bubble
   m_Icon: {fileID: 0}

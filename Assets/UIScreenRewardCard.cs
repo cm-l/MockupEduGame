@@ -58,7 +58,7 @@ public class UIScreenRewardCard : MonoBehaviour
 
         //Actually load in the selected scene
         //lower bound inclusive - upper bound EXCLUSIVE
-        int indexScene = Random.Range(0, 4); //TODO fix based on number in build order
+        int indexScene = Random.Range(0, 5); //TODO fix based on number in build order
         SceneManager.LoadScene(indexScene);
     }
 }

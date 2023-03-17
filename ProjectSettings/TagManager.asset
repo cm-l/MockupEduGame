@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Card
   - Death Screen
+  - Bubble
+  - Bottle
   layers:
   - Default
   - TransparentFX
@@ -13,7 +15,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Bubble
   - 
   - 
   - 
