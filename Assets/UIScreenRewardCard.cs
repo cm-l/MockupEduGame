@@ -18,7 +18,7 @@ public class UIScreenRewardCard : MonoBehaviour
 
     //Next enemy encounter is set in the manager singleton to carry over scenes
     public SO_Enemy nextEnemyViaRewards;
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -58,7 +58,7 @@ public class UIScreenRewardCard : MonoBehaviour
 
         //Actually load in the selected scene
         //lower bound inclusive - upper bound EXCLUSIVE
-        int indexScene = Random.Range(0, 3); //TODO fix based on number in build order
+        int indexScene = Random.Range(0, 4); //TODO fix based on number in build order
         SceneManager.LoadScene(indexScene);
     }
 }
