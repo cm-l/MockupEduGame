@@ -8,6 +8,8 @@ TagManager:
   - Death Screen
   - Bubble
   - Bottle
+  - Wrong
+  - Good
   layers:
   - Default
   - TransparentFX
