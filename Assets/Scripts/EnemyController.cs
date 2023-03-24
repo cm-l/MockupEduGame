@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour
     public TextMeshPro phaseText;
     public Renderer rndr;
     public Material[] material;
+    public AudioClip hurtSound;
 
     [SerializeField]
     private float secondsPerDivider = 1f;
@@ -49,6 +50,9 @@ public class EnemyController : MonoBehaviour
                 this.gameObject.SetActive(false);
             else
                 healthBar.GetComponent<HealthBar>().TakeDamage(hp);
+
+            SoundSystemSingleton.Instance.PlaySfxSound(hurtSound);
+
         }
 
         ChangePhase();
