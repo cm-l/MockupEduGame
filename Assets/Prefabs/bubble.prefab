@@ -324,6 +324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ps: {fileID: 181415834428054959, guid: c75bb8699eb064d2b9fb72f048a3a54f, type: 3}
+  popSound: {fileID: 8300000, guid: 1a06bed555c00459c9354b1ca585707f, type: 3}
 --- !u!135 &668013069158608487
 SphereCollider:
   m_ObjectHideFlags: 0

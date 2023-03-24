@@ -9,6 +9,7 @@ public class bubbleDestroy : MonoBehaviour
     public ParticleSystem ps;
     bottleChange bChange;
     bubbleMath bM;
+    [SerializeField] AudioClip popSound;
 
     public void Start()
     {
@@ -47,6 +48,7 @@ public class bubbleDestroy : MonoBehaviour
  
     }
 
+
     //Scenario 1
     public void RemoveMeScenario1()
     {
@@ -60,8 +62,11 @@ public class bubbleDestroy : MonoBehaviour
                 bChange.changeMaterialUp();
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                     Quaternion.identity);
+                SoundSystemSingleton.Instance.PlaySfxSound(popSound);
+
                 Destroy(go, 2.0f);
                 Destroy(this.gameObject);
+
             }
             else
             {
@@ -69,6 +74,8 @@ public class bubbleDestroy : MonoBehaviour
                 bChange.changeMaterialDown();
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                 Quaternion.identity);
+                SoundSystemSingleton.Instance.PlaySfxSound(popSound);
+
                 Destroy(go, 2.0f);
                 Destroy(this.gameObject);
             }
@@ -92,6 +99,8 @@ public class bubbleDestroy : MonoBehaviour
                 bChange.changeMaterialUp();
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                     Quaternion.identity);
+                SoundSystemSingleton.Instance.PlaySfxSound(popSound);
+
                 Destroy(go, 2.0f);
                 Destroy(this.gameObject);
             }
@@ -101,6 +110,8 @@ public class bubbleDestroy : MonoBehaviour
                 bChange.changeMaterialDown();
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                 Quaternion.identity);
+                SoundSystemSingleton.Instance.PlaySfxSound(popSound);
+
                 Destroy(go, 2.0f);
                 Destroy(this.gameObject);
             }
@@ -124,6 +135,8 @@ public class bubbleDestroy : MonoBehaviour
                 bChange.changeMaterialUp();
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                     Quaternion.identity);
+                SoundSystemSingleton.Instance.PlaySfxSound(popSound);
+
                 Destroy(go, 2.0f);
                 Destroy(this.gameObject);
             }
@@ -133,6 +146,8 @@ public class bubbleDestroy : MonoBehaviour
                 bChange.changeMaterialDown();
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                 Quaternion.identity);
+                SoundSystemSingleton.Instance.PlaySfxSound(popSound);
+
                 Destroy(go, 2.0f);
                 Destroy(this.gameObject);
             }
@@ -168,6 +183,8 @@ public class bubbleDestroy : MonoBehaviour
                 bChange.changeMaterialDown();
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                     Quaternion.identity);
+                SoundSystemSingleton.Instance.PlaySfxSound(popSound);
+
                 Destroy(go, 2.0f);
                 Destroy(this.gameObject);
             }
@@ -176,6 +193,8 @@ public class bubbleDestroy : MonoBehaviour
                 //Debug.Log("AUTO-REMOVE FOR: " + rValue + " (OK)");
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                 Quaternion.identity);
+                SoundSystemSingleton.Instance.PlaySfxSound(popSound);
+
                 Destroy(go, 2.0f);
                 Destroy(this.gameObject);
             }
@@ -198,6 +217,8 @@ public class bubbleDestroy : MonoBehaviour
                 bChange.changeMaterialDown();
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                     Quaternion.identity);
+                SoundSystemSingleton.Instance.PlaySfxSound(popSound);
+
                 Destroy(go, 2.0f);
                 Destroy(this.gameObject);
             }
@@ -206,6 +227,8 @@ public class bubbleDestroy : MonoBehaviour
                 //Debug.Log("AUTO-REMOVE FOR: " + rValue + " (OK)");
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                 Quaternion.identity);
+                SoundSystemSingleton.Instance.PlaySfxSound(popSound);
+
                 Destroy(go, 2.0f);
                 Destroy(this.gameObject);
             }
@@ -228,6 +251,8 @@ public class bubbleDestroy : MonoBehaviour
                 bChange.changeMaterialDown();
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                     Quaternion.identity);
+                SoundSystemSingleton.Instance.PlaySfxSound(popSound);
+
                 Destroy(go, 2.0f);
                 Destroy(this.gameObject);
             }
@@ -236,6 +261,8 @@ public class bubbleDestroy : MonoBehaviour
                 //Debug.Log("AUTO-REMOVE FOR: " + rValue + " (OK)");
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                 Quaternion.identity);
+                SoundSystemSingleton.Instance.PlaySfxSound(popSound);
+
                 Destroy(go, 2.0f);
                 Destroy(this.gameObject);
             }
@@ -258,6 +285,8 @@ public class bubbleDestroy : MonoBehaviour
                 bChange.changeMaterialDown();
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                     Quaternion.identity);
+                SoundSystemSingleton.Instance.PlaySfxSound(popSound);
+
                 Destroy(go, 2.0f);
                 Destroy(this.gameObject);
             }
@@ -266,6 +295,8 @@ public class bubbleDestroy : MonoBehaviour
                 Debug.Log("AUTO-REMOVE FOR: " + rValue + " (OK)");
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                 Quaternion.identity);
+                SoundSystemSingleton.Instance.PlaySfxSound(popSound);
+
                 Destroy(go, 2.0f);
                 Destroy(this.gameObject);
             }
