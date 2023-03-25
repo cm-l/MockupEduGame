@@ -231,6 +231,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4733772755456769034, guid: 3ad7a1cffb2556547a8b7e60fd320431, type: 3}
   m_PrefabInstance: {fileID: 2049722231}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4678365
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4678366}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4678366
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4678365}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -11.76615, y: 6.803279, z: 26.17625}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &28757741
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1661,7 +1692,6 @@ MonoBehaviour:
   material:
   - {fileID: 2100000, guid: e37aea283cc97cc4f944f819d0ef8f42, type: 2}
   - {fileID: 2100000, guid: a184004250bb3ff41ae09b99778552a2, type: 2}
-  hurtSound: {fileID: 8300000, guid: d0750883e07cec6498388abffe0cfc38, type: 3}
   secondsPerDivider: 4
 --- !u!4 &335057615
 Transform:
@@ -3977,8 +4007,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26e2a783bd1b09a4ba66231bbb95111d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xDelta: 0
-  yDelta: 0
   orientation: {fileID: 84491094}
 --- !u!1001 &1002441470
 PrefabInstance:
@@ -6148,7 +6176,6 @@ MonoBehaviour:
   material:
   - {fileID: 2100000, guid: e37aea283cc97cc4f944f819d0ef8f42, type: 2}
   - {fileID: 2100000, guid: a184004250bb3ff41ae09b99778552a2, type: 2}
-  hurtSound: {fileID: 8300000, guid: d0750883e07cec6498388abffe0cfc38, type: 3}
   secondsPerDivider: 4
 --- !u!1 &1504427156
 GameObject:
@@ -7260,6 +7287,7 @@ MonoBehaviour:
   playerCamera: {fileID: 963194225}
   currentWeaponGO: {fileID: 0}
   currentEnemy: {fileID: 0}
+  dummyEnemy: {fileID: 0}
   directionIndicator:
   - {fileID: 1067942783}
   - {fileID: 391971847}
@@ -7286,8 +7314,6 @@ MonoBehaviour:
   lowerLimit: 1
   upperLimit: 10
   weaponCoolDown: 0.5
-  currentWeapon: 2
-  currentDamage: 1
 --- !u!4 &1961813185
 Transform:
   m_ObjectHideFlags: 0

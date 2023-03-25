@@ -5,7 +5,7 @@ using System;
 public class WeaponController : MonoBehaviour
 {
     public Camera playerCam;
-    public GameObject playerCamera, currentWeaponGO, currentEnemy;
+    public GameObject playerCamera, currentWeaponGO, currentEnemy, dummyEnemy;
     public GameObject[] directionIndicator, weapon, cooldownIndicator;
     public TextMeshProUGUI multiplier, enemyActionValue, timerText;
 
@@ -14,60 +14,61 @@ public class WeaponController : MonoBehaviour
 
     [SerializeField]
     private float lowerLimit = 0.5f, upperLimit = 0.75f, weaponCoolDown = 0.75f;
-    private float xDelta = 0, yDelta = 0;
-
-    [HideInInspector]
-    public int currentWeapon = 2, currentDamage = 1;
+    private float xDelta, yDelta;
+    private int currentWeapon = 2, currentDamage = 1;
     readonly int[] VALUES = {2, 3, 5, 7};
-    private bool isLookingAtEnemy = false, isInCoolDown = false;
-    Transform enemyParent;
+    private bool isLookingAtEnemy, isInCoolDown;
+    private Transform enemyParent;
 
     void Start()
     {
-        currentEnemy = new GameObject();
-        EnemySelectionHandler();
         currentWeaponGO = weapon[0];
         multiplier.text = currentDamage.ToString();
     }
 
     void Update()
     {
-        EnemySelectionHandler();
-        InputHandler();
-        UIHandler();
+        HandleEnemySelection();
+        HandleInput();
+        HandleEnemyIntel();
     }
 
-    private void InputHandler()
+    private void HandleInput()
     {
         xDelta = playerCamera.GetComponent<CameraController>().xDelta;
         yDelta = playerCamera.GetComponent<CameraController>().yDelta;
-        if (!isInCoolDown)
+
+        if (isInCoolDown == false)
             ChangeWeaponWithCamera(xDelta, yDelta);
 
-        if (Input.GetKeyDown(KeyCode.DownArrow) && !isInCoolDown)
+        if (Input.GetKeyDown(KeyCode.DownArrow) && isInCoolDown == false)
             ChangeWeapon(0);
-        else if (Input.GetKeyDown(KeyCode.LeftArrow) && !isInCoolDown)
+
+        else if (Input.GetKeyDown(KeyCode.LeftArrow) && isInCoolDown == false)
             ChangeWeapon(1);
-        else if (Input.GetKeyDown(KeyCode.RightArrow) && !isInCoolDown)
+
+        else if (Input.GetKeyDown(KeyCode.RightArrow) && isInCoolDown == false)
             ChangeWeapon(2);
-        else if (Input.GetKeyDown(KeyCode.UpArrow) && !isInCoolDown)
+
+        else if (Input.GetKeyDown(KeyCode.UpArrow) && isInCoolDown == false)
             ChangeWeapon(3);
+
         if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Mouse0))
             AttackWrapper(AttackWithWeapon);
+
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+            AttackWrapper(EndCombo);
+
         if (Input.GetKeyDown(KeyCode.R))
         {
             currentDamage = 1;
             multiplier.text = currentDamage.ToString();
         }
-        if (Input.GetKeyDown(KeyCode.Mouse1))
-            AttackWrapper(EndCombo);
     }
 
-    private void EnemySelectionHandler()
+    private void HandleEnemySelection()
     {
-        Ray ray = playerCam.ScreenPointToRay(Input.mousePosition);
-
-        
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
@@ -77,18 +78,24 @@ public class WeaponController : MonoBehaviour
                 isLookingAtEnemy = true;
             }
             else
+            {
+                if (dummyEnemy == null)
+                    dummyEnemy = new GameObject();
+
+                currentEnemy = dummyEnemy;
                 isLookingAtEnemy = false;
+            }
         }
     }
 
-    private void UIHandler()
+    private void HandleEnemyIntel()
     {
         enemyParent = currentEnemy.transform.parent;
 
         if (enemyParent != null)
         {
-            enemyActionValue.text = enemyParent.GetComponent<EnemyController>().GetActionValue().ToString();
-            timerText.text = enemyParent.GetComponent<EnemyController>().GetReactionTime().ToString("F0");
+            enemyActionValue.text = enemyParent.GetComponent<EnemyController>().actionValue.ToString();
+            timerText.text = (enemyParent.GetComponent<EnemyController>().reactionTime - Time.time).ToString("F0");
         }
     }
 
@@ -150,21 +157,20 @@ public class WeaponController : MonoBehaviour
 
     public void AttackWithWeapon()
     {
-        if (isLookingAtEnemy)
+        if (isLookingAtEnemy == true)
         {
             currentDamage *= currentWeapon;
             multiplier.text = currentDamage.ToString();
 
             if (enemyParent != null)
-                if (currentDamage == enemyParent.GetComponent<EnemyController>().GetActionValue())
+                if (currentDamage == enemyParent.GetComponent<EnemyController>().actionValue)
                     AttackWrapper(EndCombo);
-            
         }
     }
 
     public void EndCombo()
     {
-        if (isLookingAtEnemy)
+        if (isLookingAtEnemy == true)
             currentEnemy.transform.parent.GetComponent<EnemyController>().ReceiveCombo(currentDamage);
 
         currentDamage = 1;

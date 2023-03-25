@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    float xSens, ySens, xRotation = 0, yRotation = 0, xMouse, yMouse, previousXRotation = 0, previousYRotation = 0;
-    [HideInInspector]
-    public float xDelta = 0, yDelta = 0;
     public Transform orientation;
 
+    float xSens, ySens, xRotation, yRotation, xMouse, yMouse, previousXRotation, previousYRotation;
+    [HideInInspector] public float xDelta { get; private set; }
+    [HideInInspector] public float yDelta { get ; private set; }
+    
     private void Start()
     {
-        xSens = PlayerPrefs.GetFloat("xSens", 10f);
-        ySens = PlayerPrefs.GetFloat("ySens", 10f);
+        xSens = PlayerPrefs.GetFloat("xSens", 9f);
+        ySens = PlayerPrefs.GetFloat("ySens", 9f);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -21,11 +22,12 @@ public class CameraController : MonoBehaviour
     {
         xMouse = Input.GetAxisRaw("Mouse X") * xSens;
         yMouse = Input.GetAxisRaw("Mouse Y") * ySens;
+        
         xRotation -= yMouse;
         yRotation += xMouse;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
         yRotation = Mathf.Clamp(yRotation, -90f, 90f);
-
+        
         xDelta = previousXRotation - xRotation;
         yDelta = previousYRotation - yRotation;
 

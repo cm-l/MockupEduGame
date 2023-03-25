@@ -7,12 +7,12 @@ public class EnemyController : MonoBehaviour
     public TextMeshPro phaseText;
     public Renderer rndr;
     public Material[] material;
-    public AudioClip hurtSound;
 
-    [SerializeField]
-    private float secondsPerDivider = 1f;
-    private float reactionTime = 0, time = 0, seconds = 0;
-    private int hp = 2, actionValue = 1, previousValue = 1, dividend;
+    [SerializeField] private float secondsPerDivider = 1f;
+    [HideInInspector] public float reactionTime {get; private set; }
+    [HideInInspector] public int actionValue { get; private set; }
+    private float time, seconds;
+    private int hp = 2, previousValue = 1, dividend;
     private bool playerAttackPhase = true;
 
     private void Start()
@@ -24,10 +24,10 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-        TimeHandler();
+        HandleTime();
     }
 
-    private void TimeHandler()
+    private void HandleTime()
     {
         time = Time.time;
 
@@ -40,9 +40,9 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    public void Defend(int damage)
+    public void Defend(int receivedValue)
     {
-        if (damage == actionValue)
+        if (receivedValue == actionValue)
         {
             Debug.Log("Sukces!");
 
@@ -50,9 +50,6 @@ public class EnemyController : MonoBehaviour
                 this.gameObject.SetActive(false);
             else
                 healthBar.GetComponent<HealthBar>().TakeDamage(hp);
-
-            SoundSystemSingleton.Instance.PlaySfxSound(hurtSound);
-
         }
 
         ChangePhase();
@@ -68,14 +65,15 @@ public class EnemyController : MonoBehaviour
 
     public void ChangePhase()
     {
-        previousValue = actionValue;
+        previousValue = actionValue == 0 ? 1 : actionValue;
 
         do
+        {
             actionValue = Random.Range(2, 10) * Random.Range(2, 10);
+        }
         while (actionValue == previousValue);
         
         seconds = 2f;
-
         dividend = actionValue;
 
         for (int div = 2; div <= dividend; div++)
@@ -88,9 +86,8 @@ public class EnemyController : MonoBehaviour
         reactionTime = Time.time + seconds;
         playerAttackPhase = !playerAttackPhase;
 
-        if (playerAttackPhase)
+        if (playerAttackPhase == true)
         {
-            
             phaseText.text = "Atakuj!";
             rndr.material = material[0];
         }
@@ -106,7 +103,7 @@ public class EnemyController : MonoBehaviour
 
     public void ReceiveCombo(int value)
     {
-        if (playerAttackPhase)
+        if (playerAttackPhase == true)
             Defend(value);
         else
             Attack(value);
@@ -115,16 +112,6 @@ public class EnemyController : MonoBehaviour
     public void PlayerDamaged()
     {
         player.GetComponent<PlayerController>().TakeDamage();
-    }
-
-    public float GetReactionTime()
-    {
-        return reactionTime - time;
-    }
-
-    public int GetActionValue()
-    {
-        return actionValue;
     }
 
     public void DisableScroll()

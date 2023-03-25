@@ -10,12 +10,6 @@ public class ArrowScript : MonoBehaviour
         ps.Emit(1);
     }
 
-    void FixedUpdate()
-    {
-     //   if (ps && ps.IsAlive())
-     //      Destroy(gameObject);
-    }
-
     private void OnParticleCollision(GameObject other)
     {
         Destroy(gameObject);

@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class Heart : MonoBehaviour
 {
-    private bool isEmpty = false;
+    private bool isEmpty;
     public Texture[] texture;
     private RawImage img;
 
