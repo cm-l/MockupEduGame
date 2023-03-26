@@ -18,9 +18,4 @@ public class Heart : MonoBehaviour
         isEmpty = state;
         img.texture = texture[state ? 0 : 1];
     }
-
-    public bool IsEmpty()
-    {
-        return isEmpty;
-    }
 }

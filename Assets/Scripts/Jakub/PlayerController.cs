@@ -5,10 +5,12 @@ public class PlayerController : MonoBehaviour
 {
     public GameObject heartImage;
     public GameObject[] hearts;
-    public int hp = 2; // counting from 0
+    [SerializeField] private AudioClip hurtSound;
+    public int hp { get; private set; }
     
     void Start()
     {
+        hp = 2; // counting from 0
         hearts = new GameObject[hp + 1];
 
         for (int i = 0; i < hearts.Length; i++)
@@ -18,11 +20,9 @@ public class PlayerController : MonoBehaviour
     }
 
     public void TakeDamage()
-    {   
+    {
+        SoundSystemSingleton.Instance.PlaySfxSound(hurtSound);
         hearts[hp].GetComponent<Heart>().SetEmpty(true);
         hp -= 1;
-
-        if (hp < 0)
-            SceneManager.LoadScene(1);
     }
 }

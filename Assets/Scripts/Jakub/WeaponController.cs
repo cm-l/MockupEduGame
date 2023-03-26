@@ -1,24 +1,22 @@
 using UnityEngine;
 using TMPro;
 using System;
+using UnityEditor.Experimental.GraphView;
 
 public class WeaponController : MonoBehaviour
 {
     public Camera playerCam;
     public GameObject playerCamera, currentWeaponGO, currentEnemy, dummyEnemy;
     public GameObject[] directionIndicator, weapon, cooldownIndicator;
+    private Transform enemyParent;
     public TextMeshProUGUI multiplier, enemyActionValue, timerText;
+    [SerializeField] private TextMeshProUGUI[] dirTextBelt;
 
-    [SerializeField]
-    private TextMeshProUGUI[] dirTextBelt;
-
-    [SerializeField]
-    private float lowerLimit = 0.5f, upperLimit = 0.75f, weaponCoolDown = 0.75f;
+    [SerializeField] private float lowerLimit = 0.5f, upperLimit = 0.75f, weaponCoolDown = 0.75f;
     private float xDelta, yDelta;
     private int currentWeapon = 2, currentDamage = 1;
-    readonly int[] VALUES = {2, 3, 5, 7};
+    private readonly int[] VALUES = {2, 3, 5, 7};
     private bool isLookingAtEnemy, isInCoolDown;
-    private Transform enemyParent;
 
     void Start()
     {
@@ -28,8 +26,8 @@ public class WeaponController : MonoBehaviour
 
     void Update()
     {
-        HandleEnemySelection();
         HandleInput();
+        HandleEnemySelection();
         HandleEnemyIntel();
     }
 
@@ -43,13 +41,10 @@ public class WeaponController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.DownArrow) && isInCoolDown == false)
             ChangeWeapon(0);
-
         else if (Input.GetKeyDown(KeyCode.LeftArrow) && isInCoolDown == false)
             ChangeWeapon(1);
-
         else if (Input.GetKeyDown(KeyCode.RightArrow) && isInCoolDown == false)
             ChangeWeapon(2);
-
         else if (Input.GetKeyDown(KeyCode.UpArrow) && isInCoolDown == false)
             ChangeWeapon(3);
 
@@ -180,6 +175,6 @@ public class WeaponController : MonoBehaviour
     public void EndCoolDown()
     {
         isInCoolDown = false;
-        cooldownIndicator[Array.IndexOf(VALUES, currentWeapon)].SetActive(false);
+        cooldownIndicator[Array.IndexOf(VALUES, currentWeapon)].SetActive(false); // disable indicator lock after hit
     }
 }

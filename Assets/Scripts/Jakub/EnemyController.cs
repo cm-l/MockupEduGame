@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -7,6 +9,7 @@ public class EnemyController : MonoBehaviour
     public TextMeshPro phaseText;
     public Renderer rndr;
     public Material[] material;
+    public AudioClip hurtSound, attackSound, attackTrumpet, defenceTrumpet;
 
     [SerializeField] private float secondsPerDivider = 1f;
     [HideInInspector] public float reactionTime {get; private set; }
@@ -33,14 +36,14 @@ public class EnemyController : MonoBehaviour
 
         if (time > reactionTime)
         {
-            if (!playerAttackPhase)
+            if (playerAttackPhase == false)
                 PlayerDamaged();
 
             ChangePhase();
         }
     }
 
-    public void Defend(int receivedValue)
+    private void Defend(int receivedValue)
     {
         if (receivedValue == actionValue)
         {
@@ -50,20 +53,49 @@ public class EnemyController : MonoBehaviour
                 this.gameObject.SetActive(false);
             else
                 healthBar.GetComponent<HealthBar>().TakeDamage(hp);
+            
+            PlaySound(hurtSound);
         }
 
         ChangePhase();
     }
 
-    public void Attack(int playerDefense)
+    private void Attack(int playerDefense)
     {
         if (playerDefense != actionValue)
-            PlayerDamaged();
+        {
+           PlayerDamaged();
+           PlaySound(attackSound);
+        }
 
         ChangePhase();
     }
 
-    public void ChangePhase()
+    private void ChangePhase()
+    {
+        CalculateValue();
+        CalculateReactionTime();
+
+        playerAttackPhase = !playerAttackPhase;
+
+        if (playerAttackPhase == true)
+        {
+            phaseText.text = "Atakuj!";
+            rndr.material = material[0];
+            PlaySound(defenceTrumpet);
+        }
+        else
+        {
+            phaseText.text = "Broñ siê!";
+            rndr.material = material[1];
+            PlaySound(attackTrumpet);
+        }
+
+        phaseScroll.SetActive(true);
+        Invoke(nameof(DisableScroll), 1f);
+    }
+
+    private void CalculateValue()
     {
         previousValue = actionValue == 0 ? 1 : actionValue;
 
@@ -72,33 +104,23 @@ public class EnemyController : MonoBehaviour
             actionValue = Random.Range(2, 10) * Random.Range(2, 10);
         }
         while (actionValue == previousValue);
-        
+    }
+
+    private void CalculateReactionTime()
+    {
         seconds = 2f;
         dividend = actionValue;
 
         for (int div = 2; div <= dividend; div++)
+        {
             while (dividend % div == 0)
             {
                 seconds += secondsPerDivider;
                 dividend /= div;
             }
+        }
 
         reactionTime = Time.time + seconds;
-        playerAttackPhase = !playerAttackPhase;
-
-        if (playerAttackPhase == true)
-        {
-            phaseText.text = "Atakuj!";
-            rndr.material = material[0];
-        }
-        else
-        {
-            phaseText.text = "Broñ siê!";
-            rndr.material = material[1];
-        }
-        
-        phaseScroll.SetActive(true);
-        Invoke(nameof(DisableScroll), 1f);
     }
 
     public void ReceiveCombo(int value)
@@ -109,13 +131,19 @@ public class EnemyController : MonoBehaviour
             Attack(value);
     }
 
-    public void PlayerDamaged()
+    private void PlayerDamaged()
     {
         player.GetComponent<PlayerController>().TakeDamage();
     }
 
-    public void DisableScroll()
+    private void DisableScroll()
     {
         phaseScroll.SetActive(false); 
     }
+
+    private void PlaySound(AudioClip sound)
+    {
+        SoundSystemSingleton.Instance.PlaySfxSound(sound);
+    }
+
 }

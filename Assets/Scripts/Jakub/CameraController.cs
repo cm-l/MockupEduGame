@@ -8,12 +8,12 @@ public class CameraController : MonoBehaviour
 
     float xSens, ySens, xRotation, yRotation, xMouse, yMouse, previousXRotation, previousYRotation;
     [HideInInspector] public float xDelta { get; private set; }
-    [HideInInspector] public float yDelta { get ; private set; }
+    [HideInInspector] public float yDelta { get; private set; }
     
     private void Start()
     {
-        xSens = PlayerPrefs.GetFloat("xSens", 9f);
-        ySens = PlayerPrefs.GetFloat("ySens", 9f);
+        xSens = PlayerPrefs.GetFloat("xSens", 10f);
+        ySens = PlayerPrefs.GetFloat("ySens", 10f);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
