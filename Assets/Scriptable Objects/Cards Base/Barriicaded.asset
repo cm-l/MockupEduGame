@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardImage: {fileID: 2100000, guid: 63625c2440d95024599483028c582671, type: 2}
   uniqueActionDescriptor: 
+  uniqueActionSuffix: TESTSGYSGYG
   playSound: {fileID: 8300000, guid: b50885ccad89ce742a6bfd55a07a35de, type: 3}
   damageNumber: 1
   offensiveAction: 0
@@ -22,5 +23,6 @@ MonoBehaviour:
   barricadeAmount: 2
   drawAmount: 0
   sacrificeAmount: 0
+  payAmount: 0
   cost: 0
   rarity: 0
