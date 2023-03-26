@@ -31,6 +31,9 @@ public class DeckTracker : MonoBehaviour
         // end of singleton pattern
     }
 
+    public void buy(SO_Card card) {
+        collectedCards.Add(card);
+    }
 
     // Start is called before the first frame update
     void Start()
