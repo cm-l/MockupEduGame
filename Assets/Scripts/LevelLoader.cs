@@ -10,29 +10,19 @@ public class LevelLoader : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
-        {
-            //LoadNextLevel();
-        }
-
         if(TMPController.lineController == 10){
-            LoadNextLevel();
+            StartCoroutine(LoadNextLevelWithDelay());
+            TMPController.lineController = 0;
         }
     }
 
-    public void LoadNextLevel()
+    IEnumerator LoadNextLevelWithDelay()
     {
-        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
-        TMPController.lineController = 0;
-        
-    }
-
-    IEnumerator LoadLevel(int levelIndex)
-    {
+        // Odtwarzanie animacji przez 2 sekundy
         transition.SetTrigger("Start");
+        yield return new WaitForSeconds(2);
 
-        yield return new WaitForSeconds(transitionTime);
-
-        SceneManager.LoadScene(levelIndex);
+        // Zmiana sceny
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

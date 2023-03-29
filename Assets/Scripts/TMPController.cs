@@ -11,7 +11,7 @@ public class TMPController : MonoBehaviour
     string activeSceneName;
     public static string equationSymbol;
     public static int score = 0;
-    public static float lineController = 0;
+    public static int lineController = 0;
 
     public static string equationText;
 
@@ -51,7 +51,7 @@ public class TMPController : MonoBehaviour
     public static void changeEquation(int number1, int number2)
     {
         equationText = number1 + " " + equationSymbol + " □ = " + number2;
-        lineController += 0.5f;
+        lineController += 1;
         Debug.Log(lineController);
     }
  
