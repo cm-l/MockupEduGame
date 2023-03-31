@@ -108,7 +108,7 @@ public class EnemySpawner : MonoBehaviour {
             textOnMonster = spawnPoints[i].GetComponent<TextMeshPro>();
             if (i == rndCorrectNumIndex) {
                 textOnMonster.gameObject.tag = "Good";
-                textOnMonster.SetText(displayedNumbers[i].ToString() + "!");
+                textOnMonster.SetText(displayedNumbers[i].ToString() ); // usunięte na test: + "!"
             } else {
                 textOnMonster.SetText(displayedNumbers[i].ToString());
             }
