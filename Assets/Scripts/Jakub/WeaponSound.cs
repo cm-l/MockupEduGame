@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class WeaponSound : MonoBehaviour
 {
-    [SerializeField] private AudioClip weaponSound;
+    [SerializeField] private AudioClip attackSound, gearSound;
 
-    public void PlaySound()
+    public void PlayAttackSound()
     {
-        SoundSystemSingleton.Instance.PlaySfxSound(weaponSound);
+        SoundSystemSingleton.Instance.PlaySfxSound(attackSound);
+    }
+
+    public void PlayDrawSound()
+    {
+        SoundSystemSingleton.Instance.PlaySfxSound(gearSound);
     }
 }

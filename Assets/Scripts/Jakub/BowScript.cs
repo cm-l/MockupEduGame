@@ -4,7 +4,7 @@ using UnityEngine;
 public class BowScript : MonoBehaviour
 {
     public GameObject arrow;
-    [SerializeField] private AudioClip loadSound, releaseSound;
+    [SerializeField] private AudioClip loadSound, releaseSound, gearSound;
 
     public void LoadBow()
     {
@@ -19,5 +19,10 @@ public class BowScript : MonoBehaviour
             transform.parent.transform.rotation);
 
         SoundSystemSingleton.Instance.PlaySfxSound(releaseSound);
+    }
+
+    public void TakeBowOut()
+    {
+        SoundSystemSingleton.Instance.PlaySfxSound(gearSound);
     }
 }

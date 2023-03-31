@@ -1,31 +1,33 @@
 using UnityEngine;
 using TMPro;
 using System;
-using UnityEditor.Experimental.GraphView;
 
 public class WeaponController : MonoBehaviour
 {
     public Camera playerCam;
-    public GameObject playerCamera, currentWeaponGO, currentEnemy, dummyEnemy;
+    public GameObject playerCamera, currentEnemy, dummyEnemy;
     public GameObject[] directionIndicator, weapon, cooldownIndicator;
+    public Animator weaponAnimator;
     private Transform enemyParent;
     public TextMeshProUGUI multiplier, enemyActionValue, timerText;
     [SerializeField] private TextMeshProUGUI[] dirTextBelt;
 
-    [SerializeField] private float lowerLimit = 0.5f, upperLimit = 0.75f, weaponCoolDown = 0.75f;
+    [SerializeField] private float lowerLimit = 0.5f, upperLimit = 0.75f, weaponCoolDown = 0.5f;
     private float xDelta, yDelta;
-    private int currentWeapon = 2, currentDamage = 1;
+    private int currentWeapon, previousWeapon, currentDamage = 1, nextDamage;
     private readonly int[] VALUES = {2, 3, 5, 7};
     private bool isLookingAtEnemy, isInCoolDown;
 
     void Start()
     {
-        currentWeaponGO = weapon[0];
+        Debug.Log("Current weapon: " + currentWeapon);
+        ChangeWeapon(0);
         multiplier.text = currentDamage.ToString();
     }
 
     void Update()
     {
+        Debug.Log("Current weapon: " + currentWeapon);
         HandleInput();
         HandleEnemySelection();
         HandleEnemyIntel();
@@ -33,20 +35,23 @@ public class WeaponController : MonoBehaviour
 
     private void HandleInput()
     {
-        xDelta = playerCamera.GetComponent<CameraController>().xDelta;
-        yDelta = playerCamera.GetComponent<CameraController>().yDelta;
 
         if (isInCoolDown == false)
+        {        
+            xDelta = playerCamera.GetComponent<CameraController>().xDelta;
+            yDelta = playerCamera.GetComponent<CameraController>().yDelta;
+
             ChangeWeaponWithCamera(xDelta, yDelta);
 
-        if (Input.GetKeyDown(KeyCode.DownArrow) && isInCoolDown == false)
-            ChangeWeapon(0);
-        else if (Input.GetKeyDown(KeyCode.LeftArrow) && isInCoolDown == false)
-            ChangeWeapon(1);
-        else if (Input.GetKeyDown(KeyCode.RightArrow) && isInCoolDown == false)
-            ChangeWeapon(2);
-        else if (Input.GetKeyDown(KeyCode.UpArrow) && isInCoolDown == false)
-            ChangeWeapon(3);
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+                ChangeWeapon(0);
+            else if (Input.GetKeyDown(KeyCode.LeftArrow))
+                ChangeWeapon(1);
+            else if (Input.GetKeyDown(KeyCode.RightArrow))
+                ChangeWeapon(2);
+            else if (Input.GetKeyDown(KeyCode.UpArrow))
+                ChangeWeapon(3);
+        }
 
         if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Mouse0))
             AttackWrapper(AttackWithWeapon);
@@ -94,29 +99,43 @@ public class WeaponController : MonoBehaviour
         }
     }
 
-    public void ChangeWeapon(int i)
+    private void ChangeWeapon(int weaponIndex)
     {
-        currentWeapon = VALUES[i];
-        for (int j = 0; j < 4; j++)
-        {
-            dirTextBelt[j].color = Color.white;
-            directionIndicator[j].SetActive(false);
-            weapon[j].SetActive(false);
-            // currentWeaponGO.GetComponent<Animator>().SetTrigger("TriggerHide");
+        if ((weaponIndex == currentWeapon) || (isInCoolDown == true))
+            return;
 
-            if (j == i)
-            {
-                dirTextBelt[j].color = Color.red;
-                directionIndicator[j].SetActive(true);
+        isInCoolDown = true;
+        previousWeapon = currentWeapon;
 
-                currentWeaponGO = weapon[j];
-                currentWeaponGO.SetActive(true);
-                // currentWeaponGO.GetComponent<Animator>().SetTrigger("TriggerDraw");
-            }
-        }
+        SwitchAnimator();
+        weaponAnimator.SetTrigger("TriggerHide");        
+        dirTextBelt[previousWeapon].color = Color.white;
+        directionIndicator[previousWeapon].SetActive(false);
+        Invoke(nameof(HideWeapon), weaponCoolDown);
+
+        currentWeapon = weaponIndex;
+        nextDamage = VALUES[weaponIndex];
+
+        dirTextBelt[currentWeapon].color = Color.red;
+        directionIndicator[currentWeapon].SetActive(true);
+        Invoke(nameof(DrawWeapon), weaponCoolDown);
+
+        isInCoolDown = false;
     }
 
-    public void ChangeWeaponWithCamera(float xDelta, float yDelta)
+    private void DrawWeapon()
+    {
+        weapon[currentWeapon].SetActive(true);
+        SwitchAnimator();
+        weaponAnimator.SetTrigger("TriggerDraw");
+    }
+
+    private void HideWeapon()
+    {
+        weapon[previousWeapon].SetActive(false);
+    }
+
+    private void ChangeWeaponWithCamera(float xDelta, float yDelta)
     {
         if ((Math.Abs(xDelta) > lowerLimit && Math.Abs(xDelta) < upperLimit) 
             || (Math.Abs(yDelta) > lowerLimit && Math.Abs(yDelta) < upperLimit))
@@ -139,22 +158,22 @@ public class WeaponController : MonoBehaviour
         }
     }
 
-    public void AttackWrapper(Action action)
+    private void AttackWrapper(Action action)
     {
         isInCoolDown = true;
-        cooldownIndicator[Array.IndexOf(VALUES, currentWeapon)].SetActive(true);
-        currentWeaponGO.GetComponent<Animator>().SetTrigger("TriggerAttack");
+        cooldownIndicator[currentWeapon].SetActive(true);
+        weaponAnimator.SetTrigger("TriggerAttack");
 
         action();
 
         Invoke(nameof(EndCoolDown), weaponCoolDown);
     }
 
-    public void AttackWithWeapon()
+    private void AttackWithWeapon()
     {
         if (isLookingAtEnemy == true)
         {
-            currentDamage *= currentWeapon;
+            currentDamage *= nextDamage;
             multiplier.text = currentDamage.ToString();
 
             if (enemyParent != null)
@@ -163,7 +182,7 @@ public class WeaponController : MonoBehaviour
         }
     }
 
-    public void EndCombo()
+    private void EndCombo()
     {
         if (isLookingAtEnemy == true)
             currentEnemy.transform.parent.GetComponent<EnemyController>().ReceiveCombo(currentDamage);
@@ -172,9 +191,14 @@ public class WeaponController : MonoBehaviour
         multiplier.text = currentDamage.ToString();
     }
 
-    public void EndCoolDown()
+    private void EndCoolDown()
     {
         isInCoolDown = false;
-        cooldownIndicator[Array.IndexOf(VALUES, currentWeapon)].SetActive(false); // disable indicator lock after hit
+        cooldownIndicator[currentWeapon].SetActive(false); // disable indicator lock after hit
+    }
+
+    private void SwitchAnimator()
+    {
+        weaponAnimator = weapon[currentWeapon].GetComponent<Animator>();
     }
 }

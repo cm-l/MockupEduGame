@@ -1676,7 +1676,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -200, y: 62.5}
+  m_AnchoredPosition: {x: -210, y: 62.5}
   m_SizeDelta: {x: 100, y: 125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &509595607
@@ -2264,7 +2264,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dfa648a47bf4c54a8cefc5f9f329151, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponSound: {fileID: 8300000, guid: 1b717115c1dccaa498754ff3fd3a1d17, type: 3}
+  attackSound: {fileID: 8300000, guid: 1b717115c1dccaa498754ff3fd3a1d17, type: 3}
+  gearSound: {fileID: 8300000, guid: 80cd24d56ceff1144ba729303586f7d9, type: 3}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2744,14 +2745,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 797646155}
-  m_LocalRotation: {x: -0, y: 0.70710576, z: -0, w: 0.70710784}
+  m_LocalRotation: {x: -0.18301274, y: -0.6830127, z: 0.6830127, w: -0.18301274}
   m_LocalPosition: {x: -0.25, y: -0.25, z: 0.55}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 963194228}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: -180, z: 30}
 --- !u!64 &797646157
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2848,7 +2849,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dfa648a47bf4c54a8cefc5f9f329151, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponSound: {fileID: 8300000, guid: a22a3f1e4bb2be8419a71db8d95ff852, type: 3}
+  attackSound: {fileID: 8300000, guid: a22a3f1e4bb2be8419a71db8d95ff852, type: 3}
+  gearSound: {fileID: 8300000, guid: 80cd24d56ceff1144ba729303586f7d9, type: 3}
 --- !u!1001 &811122284
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3745,14 +3747,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1127916428}
-  m_LocalRotation: {x: -0.049441993, y: 0.2167688, z: -0.039726187, w: 0.9741605}
-  m_LocalPosition: {x: 0, y: -0.25, z: 0.5}
-  m_LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+  m_LocalRotation: {x: -0.18301266, y: 0.6830127, z: 0.18301266, w: 0.6830127}
+  m_LocalPosition: {x: 0, y: -0.25, z: 0.6}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 963194228}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: -4.537, y: 25.316, z: -5.69}
+  m_LocalEulerAnglesHint: {x: -30, y: 90, z: 0}
 --- !u!64 &1127916430
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3852,6 +3854,7 @@ MonoBehaviour:
   arrow: {fileID: 5966610476544787313, guid: c602cbb4c4a1af146b4d8d7228e01b1c, type: 3}
   loadSound: {fileID: 8300000, guid: d223caec99ff5294b8fde0feef036d3c, type: 3}
   releaseSound: {fileID: 8300000, guid: 5b6acd8e6e4967248945e17970aec40f, type: 3}
+  gearSound: {fileID: 8300000, guid: 80cd24d56ceff1144ba729303586f7d9, type: 3}
 --- !u!1001 &1141153888
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4311,7 +4314,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dfa648a47bf4c54a8cefc5f9f329151, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponSound: {fileID: 8300000, guid: 2bff8695a968cf447977b9897da94ea0, type: 3}
+  attackSound: {fileID: 8300000, guid: 2bff8695a968cf447977b9897da94ea0, type: 3}
+  gearSound: {fileID: 8300000, guid: 80cd24d56ceff1144ba729303586f7d9, type: 3}
 --- !u!4 &1248935442 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4733772755456769034, guid: 3ad7a1cffb2556547a8b7e60fd320431, type: 3}
@@ -4932,7 +4936,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 200, y: 62.5}
+  m_AnchoredPosition: {x: 210, y: 62.5}
   m_SizeDelta: {x: 100, y: 125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1414945840
@@ -6262,7 +6266,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCam: {fileID: 963194227}
   playerCamera: {fileID: 963194225}
-  currentWeaponGO: {fileID: 0}
   currentEnemy: {fileID: 0}
   dummyEnemy: {fileID: 0}
   directionIndicator:
@@ -6280,6 +6283,7 @@ MonoBehaviour:
   - {fileID: 1485034056}
   - {fileID: 1477299520}
   - {fileID: 889739585}
+  weaponAnimator: {fileID: 0}
   multiplier: {fileID: 1742986649}
   enemyActionValue: {fileID: 1268357098}
   timerText: {fileID: 1626409725}
