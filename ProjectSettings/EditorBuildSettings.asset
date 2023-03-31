@@ -23,4 +23,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Shop.unity
     guid: 8019a5dc2a344f74186592be44193572
+  - enabled: 1
+    path: Assets/Scenes/AdditionScene.unity
+    guid: 091c85b5505fb4446895df80972b3b0b
+  - enabled: 1
+    path: Assets/Scenes/SubtractionScene.unity
+    guid: a0ac27b9d77e4c549b37c016b83b086d
+  - enabled: 1
+    path: Assets/Scenes/MultiplicationScene.unity
+    guid: 6cd13a60a4f18bb489e40e0b93fd12d5
+  - enabled: 1
+    path: Assets/Scenes/DivisionScene.unity
+    guid: 45af512210d67354fbf83e9b3d798bdd
+  - enabled: 1
+    path: Assets/Scenes/RunningResults.unity
+    guid: 61491179cc19cef47a13a500977a4446
   m_configObjects: {}

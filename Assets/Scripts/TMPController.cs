@@ -4,55 +4,67 @@ using UnityEngine.SceneManagement;
 using UnityEngine;
 using TMPro;
 
-public class TMPController : MonoBehaviour
-{
-    public static TextMeshProUGUI equationBox;
-    public static TextMeshProUGUI scoreboard;
-    string activeSceneName;
-    public static string equationSymbol;
-    public static int score = 0;
-    public static float lineController = 0;
+public class TMPController : MonoBehaviour {
+    private static TextMeshProUGUI equationBox;
+    private static TextMeshProUGUI scoreboard;
+    private static string equationText;
+    private static string equationSymbol;
 
-    public static string equationText;
+    [SerializeField] private static int score = 0;
+    public static int rowCounter = 0;
 
-    void Start()
-    {
+    // Czy gracz dopiero zaczął 'rundę'?
+    public static bool firstRun = true;
+
+    private static string activeSceneName;
+    void Start() {
         activeSceneName = SceneManager.GetActiveScene().name;
-        switch (activeSceneName)
-        {
+        switch (activeSceneName) {
             case "AdditionScene": equationSymbol = "+"; break;
             case "SubtractionScene": equationSymbol = "-"; break;
-            case "MultiplicationScene": equationSymbol = "*"; break;
+            case "MultiplicationScene": equationSymbol = "×"; break;
             case "DivisionScene": equationSymbol = ":"; break;
             default: Debug.Log("Uh"); break;
         }
 
-
-        // equationSymbol
         equationBox = GameObject.Find("EquationBox").GetComponent<TextMeshProUGUI>();
         scoreboard = GameObject.Find("Scoreboard").GetComponent<TextMeshProUGUI>();
     }
 
-    void Update()
-    {
+    void Update() {
         equationBox.text = equationText;
-        scoreboard.text = "Punkty: " + score.ToString();
+        scoreboard.text = "Score: " + score.ToString();
     }
 
-    public static void addPoint()
-    {
-        score++;
-    }
-
-    public static void substractPoint()
-    {
-        score--;
-    }
-    public static void changeEquation(int number1, int number2)
-    {
+    public static void changeEquation(int number1, int number2) {
         equationText = number1 + " " + equationSymbol + " □ = " + number2;
-        lineController += 0.5f;
-        Debug.Log(lineController);
+        rowCounter += 1;
+        // Debug.Log("Current row: " + rowCounter);
     }
- 
+    
+    public static void addPoint() {
+        score++;
+        switch (activeSceneName) {
+            case "AdditionScene": RunningResults.AdditionScoreUp(); break;
+            case "SubtractionScene": RunningResults.SubtractionScoreUp(); break;
+            case "MultiplicationScene": RunningResults.MultiplicationScoreUp(); break;
+            case "DivisionScene": RunningResults.DivisionScoreUp(); break;
+            default: Debug.Log("Uh"); break;
+        }
+    }
+
+    public static void substractPoint() {
+        score--;
+        switch (activeSceneName) {
+            case "AdditionScene": RunningResults.AdditionScoreDown(); break;
+            case "SubtractionScene": RunningResults.SubtractionScoreDown(); break;
+            case "MultiplicationScene": RunningResults.MultiplicationScoreDown(); break;
+            case "DivisionScene": RunningResults.DivisionScoreDown(); break;
+            default: Debug.Log("Uh"); break;
+        }
+    }
+
+    public static int getScore() {
+        return score;
+    }
 }

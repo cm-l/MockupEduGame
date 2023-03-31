@@ -4,30 +4,20 @@ using UnityEngine;
 
 public class RandomNumber : MonoBehaviour
 {
-    RunningPlayer player;
-    void Start()
-    {
-        player = GameObject.FindObjectOfType<RunningPlayer>();
-    }
-
-    public static int[] AdditionEquation()
-    {
+    public static int[] AdditionEquation() {
         int firstEquationNumber;
         int resultEquationNumber;
-        do
-        {
+        do {
             firstEquationNumber = Random.Range(1, 21);
             resultEquationNumber = Random.Range(1, 21);
-        } while (firstEquationNumber >= resultEquationNumber);
+        } while(firstEquationNumber >= resultEquationNumber);
 
         int secondEquationNumber = resultEquationNumber - firstEquationNumber;
         
         return new []{ firstEquationNumber, secondEquationNumber, resultEquationNumber };
-
     }
 
-    public static int[] SubtractionEquation()
-    {
+    public static int[] SubtractionEquation() {
         int firstEquationNumber;
         int resultEquationNumber;
         do
@@ -39,26 +29,21 @@ public class RandomNumber : MonoBehaviour
         int secondEquationNumber = firstEquationNumber - resultEquationNumber;
 
         return new[] { firstEquationNumber, secondEquationNumber, resultEquationNumber };
-
     }
 
-    public static int[] MultiplicationEquation()
-    {
+    public static int[] MultiplicationEquation() {
         int firstEquationNumber = Random.Range(1, 8);
         int secondEquationNumber = Random.Range(1, 8); ;
         int resultEquationNumber = firstEquationNumber * secondEquationNumber;
 
         return new[] { firstEquationNumber, secondEquationNumber, resultEquationNumber };
-
     }
 
-    public static int[] DivisionEquation() //TODO
-    {
+    public static int[] DivisionEquation() {
         int firstEquationNumber = Random.Range(1, 8);
         int secondEquationNumber = Random.Range(1, 8); ;
         int resultEquationNumber = firstEquationNumber * secondEquationNumber;
 
         return new[] { resultEquationNumber, firstEquationNumber, secondEquationNumber };
-
     }
 }
