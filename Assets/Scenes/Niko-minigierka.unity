@@ -1742,6 +1742,10 @@ PrefabInstance:
       propertyPath: m_ReceiveShadows
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7923245109631585143, guid: a519d78b6d9b146bca24c75041603534, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3452da7d82dee4509859965dc6c29fc3, type: 2}
     - target: {fileID: 8860165540864917540, guid: a519d78b6d9b146bca24c75041603534, type: 3}
       propertyPath: m_Name
       value: Bottle
