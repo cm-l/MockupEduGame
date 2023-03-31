@@ -33,13 +33,13 @@ public class ShopCard : MonoBehaviour
                 {
                     Debug.Log(rhInfo.collider.name + " 00000 " + rhInfo.point);
                     ManagerSingleton.Instance.spendGold(price);
+                    DeckTracker.Instance.buy(card);
              }
             }
             
         }
     }
-
-//skdfjksf
+    
     void PriceSetter() {
         priceText.SetText("$"+price.ToString());
     }
