@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
     {
         // What happens when user wins
         bottleMaterialNumber = bChange.getBottleMaterialNumber();
-        if (bottleMaterialNumber == 6)
+        if (bottleMaterialNumber == 9)
         {
             textUI.text = "Gratulacje!";
             textUI.enabled = true;

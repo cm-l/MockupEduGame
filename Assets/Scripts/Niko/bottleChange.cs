@@ -12,6 +12,9 @@ public class bottleChange : MonoBehaviour
     public Material bottle4;
     public Material bottle5;
     public Material bottle6;
+    public Material bottle7;
+    public Material bottle8;
+    public Material bottle9;
     int bottleMaterialNumber;
 
 
@@ -44,6 +47,15 @@ public class bottleChange : MonoBehaviour
                 break;
             case 6:
                 mr.material = bottle6;
+                break;
+            case 7:
+                mr.material = bottle7;
+                break;
+            case 8:
+                mr.material = bottle8;
+                break;
+            case 9:
+                mr.material = bottle9;
                 break;
             default:
                 Debug.Log("Error in Switch-Case instruction in bottleChange " +
