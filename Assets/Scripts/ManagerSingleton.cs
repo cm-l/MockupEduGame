@@ -35,11 +35,16 @@ public class ManagerSingleton : MonoBehaviour
     // Next encounter (minigame?)
     //encounter int in build order???
 
+
     [Header("\nGame Over Settings")]
     //PLACEHOLDER
     public GameObject deathMessage;
     [SerializeField] private AudioClip deathSfx;
     public bool hasDied = false;
+
+    [Header("\nStatuses")]
+    public Dictionary<string, int> statusesOnPlayer;
+
 
     public static ManagerSingleton Instance { get; private set; }
 

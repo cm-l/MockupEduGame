@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 354c83e016814c34aa8a9468a7607ac4, type: 3}
   m_Name: Health
   m_EditorClassIdentifier: 
-  nameOfPotion: 
-  description: 
-  potionSprite: {fileID: 0}
-  costInShop: 0
+  nameOfPotion: Health Potion
+  description: Restores 8 HP. Tastes like mint and lemongrass.
+  potionSprite: {fileID: 21300000, guid: 7e184369a633f134c97c35f24cec9108, type: 3}
+  costInShop: 150

@@ -133,7 +133,7 @@ public class Card : MonoBehaviour
         gameObject.GetComponent<MeshRenderer>().material = cardScriptableObject.cardImage;
         // to set equation displayed on card:
         //transform.GetChild(0).GetComponent<TextMeshPro>().SetText(cardScriptableObject.equationDisplayed);
-        transform.GetChild(0).GetComponent<TextMeshPro>().SetText(operationTextSetter(cardScriptableObject));
+        transform.GetChild(0).GetComponent<TextMeshPro>().SetText(cardScriptableObject.cardText);
 
         //Set mana/whatever cost on card display
         transform.GetChild(1).GetComponent<TextMeshPro>().SetText(cardScriptableObject.cost.ToString());
@@ -194,27 +194,5 @@ public class Card : MonoBehaviour
         // Like in: Slay the Spire
         gameObject.GetComponent<Destroyable>().RemoveMe();
         firstTurn = false;
-    }
-
-    // Potion effect
-    public void showSolutionToEquation()
-    {
-        var explainerPrefix = "";
-        var explainerSuffix = "";
-
-        switch (cardScriptableObject.offensiveAction)
-        {
-            case (OffensiveAction.dealDamage):
-                explainerPrefix = "+ ";
-                break;
-            case (OffensiveAction.multiplyByNumber):
-                explainerPrefix = "x ";
-                break;
-            case (OffensiveAction.raiseToPowerOfNumber):
-                explainerSuffix = " ^ ";
-                break;
-        }
-
-        transform.GetChild(0).GetComponent<TextMeshPro>().SetText(explainerPrefix + "(" + cardScriptableObject.damageNumber.ToString() + ")" + explainerSuffix);
     }
 }

@@ -613,6 +613,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a07fbe7feb5896a489733b3f1ba6fbcc, type: 2}
   - {fileID: 11400000, guid: 31bf0b7aa9eb52347bdbbd1454ddda75, type: 2}
   - {fileID: 11400000, guid: 72ee9d5d1f459064687469a0d44ac411, type: 2}
+  collectedPotions:
+  - {fileID: 11400000, guid: f9dcc824451de5e46b5207f3d8526914, type: 2}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: f9dcc824451de5e46b5207f3d8526914, type: 2}
   burnedCard: {fileID: 11400000, guid: 92eea3160106a3448b86672ad64558cf, type: 2}
 --- !u!4 &128878589
 Transform:
@@ -2242,17 +2246,6 @@ MonoBehaviour:
   drawingSpeed: 0.72
   easingDrawing: 10
   cardSwish: {fileID: 8300000, guid: 6cd85ba4c0f8df843b36c97ebe4caa4e, type: 3}
---- !u!114 &505732329 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7735600616804263103, guid: 4107b8b0af837e1499026a9010c85b8f, type: 3}
-  m_PrefabInstance: {fileID: 7735600617037363292}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 505732318}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 887518bc2b3b2aa44a37cdd1d2749f25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &505732335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3648,7 +3641,7 @@ RectTransform:
   m_Children:
   - {fileID: 1489514308}
   m_Father: {fileID: 1758865961}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4467,6 +4460,45 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goldAmountText: {fileID: 0}
+--- !u!1 &850439826
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 850439827}
+  m_Layer: 5
+  m_Name: Potions Panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &850439827
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 850439826}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1846955433}
+  - {fileID: 2034544622}
+  - {fileID: 1248198517}
+  m_Father: {fileID: 1758865961}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &952132427
 GameObject:
   m_ObjectHideFlags: 0
@@ -5644,8 +5676,9 @@ GameObject:
   - component: {fileID: 1248198519}
   - component: {fileID: 1248198518}
   - component: {fileID: 1248198521}
+  - component: {fileID: 1248198522}
   m_Layer: 5
-  m_Name: Happy Potion
+  m_Name: 1st Potion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5658,17 +5691,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1248198516}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.3359, y: 1.3359, z: 1.3359}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1758865961}
-  m_RootOrder: 4
+  m_Father: {fileID: 850439827}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 595.5, y: 464}
+  m_AnchoredPosition: {x: 609, y: 464}
   m_SizeDelta: {x: 103.9358, y: 103.9358}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1248198518
@@ -5715,9 +5748,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 25074475}
-        m_TargetAssemblyTypeName: EnemyBehaviuur, Assembly-CSharp
-        m_MethodName: halfWayThere
+      - m_Target: {fileID: 1248198522}
+        m_TargetAssemblyTypeName: PotionLogic, Assembly-CSharp
+        m_MethodName: drinkDown
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5777,10 +5810,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4affe626ef633f54daf980f44e7fa27c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  header: Half-Way Potion
-  content: When used, sets the enemy number to half of what it needs to be for you
-    to win! Tastes like bubblegum and energy drinks.
+  header: 
+  content: 
   hoverDelayTime: 0.99
+--- !u!114 &1248198522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248198516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 681f4664f2a1700478f4131cb183fcc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  potionIndex: 0
+  scriptablePotion: {fileID: 0}
+  emptyPotion: {fileID: 21300000, guid: 0d64d7ad00191764fbd4136125c809a4, type: 3}
 --- !u!1 &1250551966
 GameObject:
   m_ObjectHideFlags: 0
@@ -7839,6 +7886,7 @@ MonoBehaviour:
   card: {fileID: 0}
   ps: {fileID: 8435480755830404877, guid: a742b1bcb2f588a43ac5d1f095f196a9, type: 3}
   enemy: {fileID: 0}
+  specialDo: {fileID: 0}
 --- !u!114 &1610796602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7942,7 +7990,7 @@ RectTransform:
   - {fileID: 1003075055}
   - {fileID: 98997280}
   m_Father: {fileID: 1758865961}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -8105,6 +8153,7 @@ MonoBehaviour:
   card: {fileID: 0}
   ps: {fileID: 8435480755830404877, guid: b6c9ee80eb7455a46bc5bc0c044d5e2a, type: 3}
   enemy: {fileID: 0}
+  specialDo: {fileID: 0}
 --- !u!114 &1648784680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8174,7 +8223,7 @@ RectTransform:
   m_Children:
   - {fileID: 746220618}
   m_Father: {fileID: 1758865961}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -8659,6 +8708,7 @@ MonoBehaviour:
   card: {fileID: 0}
   ps: {fileID: 8435480755830404877, guid: b6c9ee80eb7455a46bc5bc0c044d5e2a, type: 3}
   enemy: {fileID: 0}
+  specialDo: {fileID: 0}
 --- !u!114 &1693060215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9105,10 +9155,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1298590208}
+  - {fileID: 850439827}
   - {fileID: 1662922139}
-  - {fileID: 1846955433}
-  - {fileID: 2034544622}
-  - {fileID: 1248198517}
   - {fileID: 1638068022}
   - {fileID: 784101911}
   m_Father: {fileID: 0}
@@ -9500,8 +9548,9 @@ GameObject:
   - component: {fileID: 1846955434}
   - component: {fileID: 1846955436}
   - component: {fileID: 1846955437}
+  - component: {fileID: 1846955438}
   m_Layer: 5
-  m_Name: Guidance Potion
+  m_Name: 3rd Potion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9514,17 +9563,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1846955432}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.3359, y: 1.3359, z: 1.3359}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1758865961}
-  m_RootOrder: 2
+  m_Father: {fileID: 850439827}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 883, y: 464}
+  m_AnchoredPosition: {x: 863, y: 464}
   m_SizeDelta: {x: 103.9358, y: 103.9358}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1846955434
@@ -9586,9 +9635,9 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 0.84313726}
+    m_NormalColor: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_PressedColor: {r: 0.6784314, g: 0.6784314, b: 0.6784314, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -9609,45 +9658,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1693060212}
-        m_TargetAssemblyTypeName: Card, Assembly-CSharp
-        m_MethodName: showSolutionToEquation
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1648784674}
-        m_TargetAssemblyTypeName: Card, Assembly-CSharp
-        m_MethodName: showSolutionToEquation
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 505732329}
-        m_TargetAssemblyTypeName: Card, Assembly-CSharp
-        m_MethodName: showSolutionToEquation
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1610796599}
-        m_TargetAssemblyTypeName: Card, Assembly-CSharp
-        m_MethodName: showSolutionToEquation
+      - m_Target: {fileID: 1846955438}
+        m_TargetAssemblyTypeName: PotionLogic, Assembly-CSharp
+        m_MethodName: drinkDown
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9669,10 +9682,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4affe626ef633f54daf980f44e7fa27c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  header: Guidance Potion
-  content: When used, solves all the equations displayed on the cards you're currently
-    holding in your hand! Tastes like coffe and cinnamon.
+  header: 
+  content: 
   hoverDelayTime: 0.99
+--- !u!114 &1846955438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846955432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 681f4664f2a1700478f4131cb183fcc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  potionIndex: 2
+  scriptablePotion: {fileID: 0}
+  emptyPotion: {fileID: 21300000, guid: 0d64d7ad00191764fbd4136125c809a4, type: 3}
 --- !u!1 &2034544621
 GameObject:
   m_ObjectHideFlags: 0
@@ -9686,8 +9713,9 @@ GameObject:
   - component: {fileID: 2034544624}
   - component: {fileID: 2034544623}
   - component: {fileID: 2034544626}
+  - component: {fileID: 2034544627}
   m_Layer: 5
-  m_Name: Healthy Potion
+  m_Name: 2nd Potion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9700,17 +9728,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2034544621}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.3359, y: 1.3359, z: 1.3359}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1758865961}
-  m_RootOrder: 3
+  m_Father: {fileID: 850439827}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 733, y: 464}
+  m_AnchoredPosition: {x: 735, y: 464}
   m_SizeDelta: {x: 103.9358, y: 103.9358}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2034544623
@@ -9757,14 +9785,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1501111498}
-        m_TargetAssemblyTypeName: ManagerSingleton, Assembly-CSharp
-        m_MethodName: Heal
-        m_Mode: 3
+      - m_Target: {fileID: 2034544627}
+        m_TargetAssemblyTypeName: PotionLogic, Assembly-CSharp
+        m_MethodName: drinkDown
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 10
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -9819,9 +9847,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4affe626ef633f54daf980f44e7fa27c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  header: Healthy Potion
-  content: When used, restores 5 Health Points to you! Tastes like mint and lemonade.
+  header: 
+  content: 
   hoverDelayTime: 0.99
+--- !u!114 &2034544627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2034544621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 681f4664f2a1700478f4131cb183fcc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  potionIndex: 1
+  scriptablePotion: {fileID: 0}
+  emptyPotion: {fileID: 21300000, guid: 0d64d7ad00191764fbd4136125c809a4, type: 3}
 --- !u!1 &2036439569
 GameObject:
   m_ObjectHideFlags: 0

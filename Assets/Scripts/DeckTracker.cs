@@ -40,6 +40,11 @@ public class DeckTracker : MonoBehaviour
         collectedCards.Add(card);
     }
 
+    public void removePotionAt(int index)
+    {
+        collectedPotions[index] = null;
+    }
+
     // Start is called before the first frame update
     void Start()
     {

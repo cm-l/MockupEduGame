@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static SO_Card;
 
 //TODO zmieniæ nazwê na coœ w stylu Playable, bo u¿ywamy tego do grania kart (co j¹ de facto "niszczy" ale mo¿e siê myliæ)
 public class Destroyable : MonoBehaviour
@@ -8,11 +9,14 @@ public class Destroyable : MonoBehaviour
     public Card card;
     public ParticleSystem ps;
     public EnemyBehaviuur enemy;
+    public SpecialCardAction specialDo;
 
     public void Awake()
     {
         card = gameObject.GetComponent<Card>();
         enemy = GameObject.Find("Enemy").GetComponent<EnemyBehaviuur>();
+
+        specialDo = gameObject.GetComponent<SpecialCardAction>();
     }
 
 
@@ -53,13 +57,18 @@ public class Destroyable : MonoBehaviour
         ManagerSingleton.Instance.ActivateSpecialActionFromCardOnPlayer(card.cardScriptableObject.drawAmount, card.cardScriptableObject.sacrificeAmount, card.cardScriptableObject.payAmount);
 
         //Wywo³anie funkcji unikatowej akcji (jeœli przewiduje j¹ karta)
-        //ManagerSingleton.Instance.funkcjaoileistniejetojestwywolywanawtymmiejscu();
+        try
+        {
+            specialDo.doSpecialAction(card.cardScriptableObject);
+        }
+        catch { }
 
 
 
-        //Usuwanie karty
-        RemoveMe();
-        card.addToDiscardPile();
+            //Usuwanie karty
+            RemoveMe();
+            card.addToDiscardPile();
+        
     }
 
     public void discardThisCard()

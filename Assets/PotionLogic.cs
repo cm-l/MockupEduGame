@@ -26,6 +26,15 @@ public class PotionLogic : MonoBehaviour
         // n-th potion
         scriptablePotion = DeckTracker.Instance.collectedPotions[potionIndex];
 
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        // Keep checking it?
+        // n-th potion
+        scriptablePotion = DeckTracker.Instance.collectedPotions[potionIndex];
+
         if (scriptablePotion != null)
         {
 
@@ -49,13 +58,12 @@ public class PotionLogic : MonoBehaviour
             potionSprite.color = Color.black;
 
         }
-
     }
 
-    // Update is called once per frame
-    void Update()
+    // Remove potion
+    public void drinkDown()
     {
-        
+        DeckTracker.Instance.removePotionAt(potionIndex);
     }
 
     // Effect invoker
