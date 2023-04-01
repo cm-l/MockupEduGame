@@ -2263,6 +2263,18 @@ MonoBehaviour:
     the Enemy's Number by the equation displayed on it and move that card to the
     Discard Pile.
   hoverDelayTime: 0.99
+--- !u!114 &505732341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 505732318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3122d98de0b5173489e4d8565fa2f731, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &533089682
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7747,6 +7759,7 @@ GameObject:
   - component: {fileID: 1610796601}
   - component: {fileID: 1610796602}
   - component: {fileID: 1610796603}
+  - component: {fileID: 1610796604}
   m_Layer: 0
   m_Name: Card Slot 4
   m_TagString: Card
@@ -7924,6 +7937,18 @@ MonoBehaviour:
     the Enemy's Number by the equation displayed on it and move that card to the
     Discard Pile.
   hoverDelayTime: 0.99
+--- !u!114 &1610796604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610796594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3122d98de0b5173489e4d8565fa2f731, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1632220674
 GameObject:
   m_ObjectHideFlags: 0
@@ -8014,6 +8039,7 @@ GameObject:
   - component: {fileID: 1648784679}
   - component: {fileID: 1648784680}
   - component: {fileID: 1648784681}
+  - component: {fileID: 1648784682}
   m_Layer: 0
   m_Name: Card Slot 2
   m_TagString: Card
@@ -8191,6 +8217,18 @@ MonoBehaviour:
     the Enemy's Number by the equation displayed on it and move that card to the
     Discard Pile.
   hoverDelayTime: 0.99
+--- !u!114 &1648784682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1648784672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3122d98de0b5173489e4d8565fa2f731, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1662922138
 GameObject:
   m_ObjectHideFlags: 0
@@ -8569,6 +8607,7 @@ GameObject:
   - component: {fileID: 1693060214}
   - component: {fileID: 1693060215}
   - component: {fileID: 1693060216}
+  - component: {fileID: 1693060217}
   m_Layer: 0
   m_Name: Card Slot 1
   m_TagString: Card
@@ -8746,6 +8785,18 @@ MonoBehaviour:
     the Enemy's Number by the equation displayed on it and move that card to the
     Discard Pile.
   hoverDelayTime: 0.99
+--- !u!114 &1693060217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693060207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3122d98de0b5173489e4d8565fa2f731, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1696170480
 GameObject:
   m_ObjectHideFlags: 0

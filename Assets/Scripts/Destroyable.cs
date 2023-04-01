@@ -57,17 +57,14 @@ public class Destroyable : MonoBehaviour
         ManagerSingleton.Instance.ActivateSpecialActionFromCardOnPlayer(card.cardScriptableObject.drawAmount, card.cardScriptableObject.sacrificeAmount, card.cardScriptableObject.payAmount);
 
         //Wywo³anie funkcji unikatowej akcji (jeœli przewiduje j¹ karta)
-        try
+        if (card.cardScriptableObject.effect.Count > 0 && card.cardScriptableObject.value.Count > 0)
         {
             specialDo.doSpecialAction(card.cardScriptableObject);
         }
-        catch { }
-
-
-
-            //Usuwanie karty
-            RemoveMe();
-            card.addToDiscardPile();
+        
+        //Usuwanie karty
+        RemoveMe();
+        card.addToDiscardPile();
         
     }
 

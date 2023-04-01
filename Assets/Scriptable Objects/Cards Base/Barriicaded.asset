@@ -27,5 +27,7 @@ MonoBehaviour:
   payAmount: 0
   cost: 0
   rarity: 0
-  effect: []
-  value: []
+  effect:
+  - toxic
+  value:
+  - 5
