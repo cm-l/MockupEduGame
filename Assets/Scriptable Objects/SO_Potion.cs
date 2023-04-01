@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,4 +15,9 @@ public class SO_Potion : ScriptableObject
 
     [Header("\nCost in shop")]
     public int costInShop;
+
+    [Header("\nSpecial Effects")]
+    // Define the ""dictionary"" - Unity nie serializuje slownikow xddddd wiec robimy dwie listy super ZNOWU! :DDD
+    public List<string> effect;
+    public List<float> value;
 }

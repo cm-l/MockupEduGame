@@ -187,6 +187,11 @@ public class ManagerSingleton : MonoBehaviour
         manaCurrentPoints -= amount;
     }
 
+    public void addMana(int amount)
+    {
+        manaCurrentPoints += amount;
+    }
+
     public void gainGold(int amount)
     {
         playerGold += amount;

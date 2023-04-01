@@ -10,9 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 354c83e016814c34aa8a9468a7607ac4, type: 3}
-  m_Name: Health
+  m_Name: Test 2
   m_EditorClassIdentifier: 
-  nameOfPotion: Health Potion
-  description: Restores 8 HP. Tastes like mint and lemongrass.
-  potionSprite: {fileID: 21300000, guid: 7e184369a633f134c97c35f24cec9108, type: 3}
-  costInShop: 150
+  nameOfPotion: Debugging Potion 2
+  description: Tests stuff. Tastes like bugs too!
+  potionSprite: {fileID: 21300000, guid: 9b58f9613c822144c85144025ccaa26d, type: 3}
+  costInShop: 60
+  effect:
+  - block
+  value:
+  - 3

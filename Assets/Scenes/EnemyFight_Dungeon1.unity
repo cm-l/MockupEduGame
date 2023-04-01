@@ -313,6 +313,8 @@ MonoBehaviour:
   isEnemyDead: 0
   victorySfx: {fileID: 8300000, guid: 18d1dfc7625c91e499d4c3391bc278e9, type: 3}
   winScreen: {fileID: 1638068021}
+  weaknessMod: 1
+  vulnMod: 1
 --- !u!114 &25074476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5772,6 +5774,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1248198522}
+        m_TargetAssemblyTypeName: PotionLogic, Assembly-CSharp
+        m_MethodName: callPotionBehaviours
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1248198519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5840,6 +5854,7 @@ MonoBehaviour:
   potionIndex: 0
   scriptablePotion: {fileID: 0}
   emptyPotion: {fileID: 21300000, guid: 0d64d7ad00191764fbd4136125c809a4, type: 3}
+  enemy: {fileID: 0}
 --- !u!1 &1250551966
 GameObject:
   m_ObjectHideFlags: 0
@@ -9721,6 +9736,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1846955438}
+        m_TargetAssemblyTypeName: PotionLogic, Assembly-CSharp
+        m_MethodName: callPotionBehaviours
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1846955437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9751,6 +9778,7 @@ MonoBehaviour:
   potionIndex: 2
   scriptablePotion: {fileID: 0}
   emptyPotion: {fileID: 21300000, guid: 0d64d7ad00191764fbd4136125c809a4, type: 3}
+  enemy: {fileID: 0}
 --- !u!1 &2034544621
 GameObject:
   m_ObjectHideFlags: 0
@@ -9848,6 +9876,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2034544627}
+        m_TargetAssemblyTypeName: PotionLogic, Assembly-CSharp
+        m_MethodName: callPotionBehaviours
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2034544624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9916,6 +9956,7 @@ MonoBehaviour:
   potionIndex: 1
   scriptablePotion: {fileID: 0}
   emptyPotion: {fileID: 21300000, guid: 0d64d7ad00191764fbd4136125c809a4, type: 3}
+  enemy: {fileID: 0}
 --- !u!1 &2036439569
 GameObject:
   m_ObjectHideFlags: 0
