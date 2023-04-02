@@ -9,10 +9,10 @@ public class ManagerSingleton : MonoBehaviour
     //Player variables - how much health
     public int playerCurrentHealth;
 
-    //To bêdzie trzeba du¿o testowaæ, wpisujê 30 bo takie jest w Hearthstone i jakoœ dzia³a
+    //To bï¿½dzie trzeba duï¿½o testowaï¿½, wpisujï¿½ 30 bo takie jest w Hearthstone i jakoï¿½ dziaï¿½a
     public int playerMaxHealth = 30;
 
-    //Ile mia³ HP zaczynaj¹c i koñcz¹c turê? Mo¿e potem siê przydaæ do kart/itemów
+    //Ile miaï¿½ HP zaczynajï¿½c i koï¿½czï¿½c turï¿½? Moï¿½e potem siï¿½ przydaï¿½ do kart/itemï¿½w
     public int startedTurnWithHealth;
     public int endedTurnWithHealth;
     public int preBlockHealth;
@@ -26,7 +26,7 @@ public class ManagerSingleton : MonoBehaviour
     public int manaMaxPoints = 3;
 
     //Gold
-    public int playerGold = 40;
+    public int playerGold = 999;
 
     [Header("\nLevel status and scenes")]
     // Next enemy encounter
@@ -70,9 +70,9 @@ public class ManagerSingleton : MonoBehaviour
         //manaCurrentPoints = manaMaxPoints; 
 
 
-        //Ten obiekt zachowuje siê miêdzy scenami: jego "Start" to pierwsza scena
-        //Wiêc ¿eby resetowaæ manê co ka¿dy pojedynek, u¿ywam do tego innego obiektu z metod¹ w starcie
-        //TODO kiedyœ to poprawiæ
+        //Ten obiekt zachowuje siï¿½ miï¿½dzy scenami: jego "Start" to pierwsza scena
+        //Wiï¿½c ï¿½eby resetowaï¿½ manï¿½ co kaï¿½dy pojedynek, uï¿½ywam do tego innego obiektu z metodï¿½ w starcie
+        //TODO kiedyï¿½ to poprawiï¿½
 
 
         //Player starts at full health
@@ -106,7 +106,7 @@ public class ManagerSingleton : MonoBehaviour
         hasDied = true;
 
         //PLACEHOLDER
-        // TO TRZEBA ZMIENIÆ ¯EBY ROBI£O INSTANTIATE(UI JAKIŒ TAM GAME OVER SCREEN)!!!!!!!!!
+        // TO TRZEBA ZMIENIï¿½ ï¿½EBY ROBIï¿½O INSTANTIATE(UI JAKIï¿½ TAM GAME OVER SCREEN)!!!!!!!!!
         //Display the death screen and message
         //deathMessage.SetActive(true);
         //deathMessage.transform.localScale = new Vector3(4, 4, 4);

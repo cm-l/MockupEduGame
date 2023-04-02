@@ -19,7 +19,7 @@ public class ClickAction : MonoBehaviour
         enemy = GameObject.Find("Enemy").GetComponent<EnemyBehaviuur>();
     }
 
-    //TODO przenieœæ klikanie z tej klasy do poszczególnych klas (czyli np. logika klikania w destroyable jest w klasie Destroyable)
+    //TODO przenieï¿½ï¿½ klikanie z tej klasy do poszczegï¿½lnych klas (czyli np. logika klikania w destroyable jest w klasie Destroyable)
     // Update is called once per frame
     void Update()
     {
@@ -53,8 +53,8 @@ public class ClickAction : MonoBehaviour
 
                 // ----------- TURN LOGIC ---------
                 //ON ENDING TURN
-                //TODO caaaaa³¹ tê logikê przenieœæ do osobnej klasy, albo chocia¿ do osobnej funkcji
-                //TODO zmieniæ to co napisa³em bo to nie wygl¹da jak najlepsza metoda na robienie tego
+                //TODO caaaaaï¿½ï¿½ tï¿½ logikï¿½ przenieï¿½ï¿½ do osobnej klasy, albo chociaï¿½ do osobnej funkcji
+                //TODO zmieniï¿½ to co napisaï¿½em bo to nie wyglï¿½da jak najlepsza metoda na robienie tego
                 // to na pewno nie jest najlepsza metoda
                 if (turnButtonAnimation)
                 {

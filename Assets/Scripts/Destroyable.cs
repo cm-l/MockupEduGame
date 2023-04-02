@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//TODO zmieniæ nazwê na coœ w stylu Playable, bo u¿ywamy tego do grania kart (co j¹ de facto "niszczy" ale mo¿e siê myliæ)
+//TODO zmieniï¿½ nazwï¿½ na coï¿½ w stylu Playable, bo uï¿½ywamy tego do grania kart (co jï¿½ de facto "niszczy" ale moï¿½e siï¿½ myliï¿½)
 public class Destroyable : MonoBehaviour
 {
     public Card card;
@@ -16,7 +16,7 @@ public class Destroyable : MonoBehaviour
     }
 
 
-    //TODO mo¿e byæ na PlayMe() albo DiscardMe()
+    //TODO moï¿½e byï¿½ na PlayMe() albo DiscardMe()
     public void RemoveMe() {
         Debug.Log("Destroyable's remove function is called on " + name);
         GameObject go = Instantiate(ps.gameObject, transform.position, Quaternion.identity);
@@ -33,26 +33,26 @@ public class Destroyable : MonoBehaviour
     public void playThisCard()
     {
 
-        //Odg³os
+        //Odgï¿½os
         SoundSystemSingleton.Instance.PlaySfxSound(card.cardScriptableObject.playSound);
 
         card.hasBeenPlayed = true;
-        //Zmiana wartoœci zdrowia przeciwnika (jeœli przewiduje j¹ karta)
+        //Zmiana wartoï¿½ci zdrowia przeciwnika (jeï¿½li przewiduje jï¿½ karta)
         if (card.cardScriptableObject.offensiveAction != OffensiveAction.none)
         {
             enemy.changeValueByCard(card.cardScriptableObject.damageNumber, card.cardScriptableObject.offensiveAction);
         }
 
-        //Zmniejsz iloœæ many gracza o iloœæ many wymaganej do zagrania karty
+        //Zmniejsz iloï¿½ï¿½ many gracza o iloï¿½ï¿½ many wymaganej do zagrania karty
         ManagerSingleton.Instance.consumeMana(card.cardScriptableObject.cost);
 
-        //Zmiana stanu defensywy gracza (jeœli przewiduje j¹ karta)
+        //Zmiana stanu defensywy gracza (jeï¿½li przewiduje jï¿½ karta)
         ManagerSingleton.Instance.ActivateDefensiveActionFromCard(card.cardScriptableObject.barricadeAmount, card.cardScriptableObject.blockAmount, card.cardScriptableObject.healAmount);
 
-        //Wywo³anie funkcji specjalnej akcji (jeœli przewiduje j¹ karta)
+        //Wywoï¿½anie funkcji specjalnej akcji (jeï¿½li przewiduje jï¿½ karta)
         ManagerSingleton.Instance.ActivateSpecialActionFromCardOnPlayer(card.cardScriptableObject.drawAmount, card.cardScriptableObject.sacrificeAmount, card.cardScriptableObject.payAmount);
 
-        //Wywo³anie funkcji unikatowej akcji (jeœli przewiduje j¹ karta)
+        //Wywoï¿½anie funkcji unikatowej akcji (jeï¿½li przewiduje jï¿½ karta)
         //ManagerSingleton.Instance.funkcjaoileistniejetojestwywolywanawtymmiejscu();
 
 
