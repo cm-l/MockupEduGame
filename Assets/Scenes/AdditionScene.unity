@@ -1346,7 +1346,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1394465008}
-  speed: 3.5
+  speed: 5
   transitionSpeed: 10
   goodAnswerSound: {fileID: 8300000, guid: 7e4e317a40a7b2948a5129524c3be3e4, type: 3}
   wrongAnswerSound: {fileID: 8300000, guid: 75a374750d66a2e42931e7f403ef2752, type: 3}
