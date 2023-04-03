@@ -38,4 +38,6 @@ public class TransitionScript : MonoBehaviour {
             SceneManager.LoadSceneAsync("Niko-minigierka");
         }
     }
+
+    
 }

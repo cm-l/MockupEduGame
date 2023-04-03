@@ -62,4 +62,8 @@ public class SoundSystemSingleton : MonoBehaviour
     {
         musicSource.mute = true;
     }
+
+    public void PlayTheMusicAgain() {
+        musicSource.mute = false;
+    }
 }
