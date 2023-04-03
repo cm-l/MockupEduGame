@@ -47,8 +47,6 @@ public class EnemyController : MonoBehaviour
     {
         if (receivedValue == actionValue)
         {
-            Debug.Log("Sukces!");
-
             if (--hp < 0)
                 this.gameObject.SetActive(false);
             else
@@ -80,13 +78,13 @@ public class EnemyController : MonoBehaviour
 
         if (playerAttackPhase == true)
         {
-            phaseText.text = "Atakuj!";
+            phaseText.text = "Attack!";
             rndr.material = material[0];
             PlaySound(defenceTrumpet);
         }
         else
         {
-            phaseText.text = "Broñ siê!";
+            phaseText.text = "Defend!";
             rndr.material = material[1];
             PlaySound(attackTrumpet);
         }

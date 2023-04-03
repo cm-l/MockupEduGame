@@ -20,14 +20,12 @@ public class WeaponController : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("Current weapon: " + currentWeapon);
         ChangeWeapon(0);
         multiplier.text = currentDamage.ToString();
     }
 
     void Update()
     {
-        Debug.Log("Current weapon: " + currentWeapon);
         HandleInput();
         HandleEnemySelection();
         HandleEnemyIntel();
@@ -104,11 +102,13 @@ public class WeaponController : MonoBehaviour
         if ((weaponIndex == currentWeapon) || (isInCoolDown == true))
             return;
 
-        isInCoolDown = true;
+        StartCoolDown();
         previousWeapon = currentWeapon;
+        StartCoolDown();
+        Invoke(nameof(EndCoolDown), weaponCoolDown);
 
         SwitchAnimator();
-        weaponAnimator.SetTrigger("TriggerHide");        
+        weaponAnimator.SetTrigger("TriggerHide");
         dirTextBelt[previousWeapon].color = Color.white;
         directionIndicator[previousWeapon].SetActive(false);
         Invoke(nameof(HideWeapon), weaponCoolDown);
@@ -119,8 +119,6 @@ public class WeaponController : MonoBehaviour
         dirTextBelt[currentWeapon].color = Color.red;
         directionIndicator[currentWeapon].SetActive(true);
         Invoke(nameof(DrawWeapon), weaponCoolDown);
-
-        isInCoolDown = false;
     }
 
     private void DrawWeapon()
@@ -140,7 +138,7 @@ public class WeaponController : MonoBehaviour
         if ((Math.Abs(xDelta) > lowerLimit && Math.Abs(xDelta) < upperLimit) 
             || (Math.Abs(yDelta) > lowerLimit && Math.Abs(yDelta) < upperLimit))
         {
-            Debug.Log("DeltaX: " + Math.Abs(xDelta) + " DeltaY: " + Math.Abs(xDelta));
+            // Debug.Log("DeltaX: " + Math.Abs(xDelta) + " DeltaY: " + Math.Abs(xDelta));
             if (xDelta > yDelta)
             {
                 if (xDelta > -yDelta)
@@ -160,8 +158,10 @@ public class WeaponController : MonoBehaviour
 
     private void AttackWrapper(Action action)
     {
-        isInCoolDown = true;
-        cooldownIndicator[currentWeapon].SetActive(true);
+        if (isInCoolDown == true)
+            return;
+
+        StartCoolDown();
         weaponAnimator.SetTrigger("TriggerAttack");
 
         action();
@@ -178,17 +178,26 @@ public class WeaponController : MonoBehaviour
 
             if (enemyParent != null)
                 if (currentDamage == enemyParent.GetComponent<EnemyController>().actionValue)
-                    AttackWrapper(EndCombo);
+                    EndCombo();
         }
     }
 
     private void EndCombo()
     {
         if (isLookingAtEnemy == true)
+        {
             currentEnemy.transform.parent.GetComponent<EnemyController>().ReceiveCombo(currentDamage);
-
+            HandleEnemyIntel();
+        }
+            
         currentDamage = 1;
         multiplier.text = currentDamage.ToString();
+    }
+
+    private void StartCoolDown()
+    {
+        isInCoolDown = true;
+        cooldownIndicator[currentWeapon].SetActive(true);
     }
 
     private void EndCoolDown()
