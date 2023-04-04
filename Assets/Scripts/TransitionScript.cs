@@ -13,9 +13,16 @@ public class TransitionScript : MonoBehaviour {
     private static float secondThreshhold = firstThreshhold + combatGameChance;
 
     private static float randomNumber;
+    public static bool cameFromAnotherScene = false;
+    [SerializeField] private Canvas menuCanvas;
+    [SerializeField] private Canvas shopGameCanvas;
 
     void Start() {
         randomNumber = UnityEngine.Random.Range(0f, 100f);
+        if(cameFromAnotherScene) {
+            menuCanvas.gameObject.SetActive(false);
+            Invoke("ShowShopGameChoice", 1.2f);
+        }
     }
 
     public static void RandomizeScene() {
@@ -28,5 +35,9 @@ public class TransitionScript : MonoBehaviour {
         else {
             SceneManager.LoadSceneAsync("Niko-minigierka");
         }
+    }
+
+    private void ShowShopGameChoice() {
+        shopGameCanvas.gameObject.SetActive(true);
     }
 }

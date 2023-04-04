@@ -14,21 +14,16 @@ public class TSGroundSpawner : MonoBehaviour {
         
         //SpawnTile();
         InvokeRepeating("SpawnTile", 0.0f, 6.0f);
-        InvokeRepeating("DestroyLastGround", 18f, 18f);
+        InvokeRepeating("DestroyLastGround", 14f, 14f);
     }
     
     // Tworzy klony podłogi
     public void SpawnTile() {
         GameObject temp = Instantiate(groundTile, nextSpawnPoint, Quaternion.identity);
         nextSpawnPoint = temp.transform.GetChild(1).transform.position;
-        //Destroy(temp, 2f);
+       
         instantiatedTiles.Add(temp);
-
-        // Convert the list of instantiated tiles to an array
-        instantiatedTilesArray = instantiatedTiles.ToArray();
-        for(int i = 0; i < instantiatedTilesArray.Length; i++) {
-            Debug.Log(instantiatedTilesArray[i]);
-        }
+        instantiatedTilesArray = instantiatedTiles.ToArray(); 
     }
 
     public void DestroyLastGround() {

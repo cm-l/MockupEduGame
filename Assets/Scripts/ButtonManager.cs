@@ -104,6 +104,16 @@ public class ButtonManager : MonoBehaviour {
         buttonToShow.SetActive(true);
     }
 
+    public void BackToTunnelButton() {
+        SoundSystemSingleton.Instance.PlaySfxSound(buttonClickSfx);
+
+        // Wy³¹czeniu canvasu 'sartowego'
+        TransitionScript.cameFromAnotherScene = true;
+
+        // Powrót do tunelu
+        SceneManager.LoadSceneAsync("TransitionScene");
+    }
+
     // DROPDOWNY
     public void ScreenSizeDropdownChange(int index)
     {
@@ -114,5 +124,6 @@ public class ButtonManager : MonoBehaviour {
             case 2: Settings.ChangeScreenSize(1920, 1080); break;
         }
     }
+
 
 }
