@@ -14,30 +14,19 @@ public class TransitionScript : MonoBehaviour {
 
     private static float randomNumber;
 
-
     void Start() {
         randomNumber = UnityEngine.Random.Range(0f, 100f);
     }
 
-
     public static void RandomizeScene() {
-        Debug.Log(randomNumber.ToString().Substring(0, 5) + "%");
-        if (randomNumber <= firstThreshhold)
-        {
-            Debug.Log("RUNNING");
+        if (randomNumber <= firstThreshhold) {
             SceneManager.LoadSceneAsync("AdditionScene");
         }
-        else if (randomNumber <= secondThreshhold)
-        {
-            Debug.Log("COMBAT");
+        else if (randomNumber <= secondThreshhold) {
             SceneManager.LoadSceneAsync("EnemyFight_Dungeon1");
         }
-        else
-        {
-            Debug.Log("BUBBLE");
+        else {
             SceneManager.LoadSceneAsync("Niko-minigierka");
         }
     }
-
-    
 }
