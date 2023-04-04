@@ -114,14 +114,41 @@ public class ButtonManager : MonoBehaviour {
         SceneManager.LoadSceneAsync("TransitionScene");
     }
 
+    public void PolishButton() {
+        SoundSystemSingleton.Instance.PlaySfxSound(buttonClickSfx);
+
+        // Wy³¹cza siebie
+        buttonToHide.SetActive(false);
+
+        // W³¹cza ButtonOn
+        buttonToShow.SetActive(true);
+        
+        // "Zmienia jêzyk"
+        Settings.SwitchLanguage("english");
+
+    }
+
+    public void EnglishButton() {
+        SoundSystemSingleton.Instance.PlaySfxSound(buttonClickSfx);
+
+        // Wy³¹cza siebie
+        buttonToHide.SetActive(false);
+
+        // W³¹cza ButtonOn
+        buttonToShow.SetActive(true);
+
+        // "Zmienia jêzyk"
+        Settings.SwitchLanguage("polish");
+    }
+
     // DROPDOWNY
     public void ScreenSizeDropdownChange(int index)
     {
         switch (index)
         {
-            case 0: Settings.ChangeScreenSize(800, 600); break;
+            case 0: Settings.ChangeScreenSize(1920, 1080); break;
             case 1: Settings.ChangeScreenSize(1366, 768); break;
-            case 2: Settings.ChangeScreenSize(1920, 1080); break;
+            case 2: Settings.ChangeScreenSize(800, 600); break;
         }
     }
 

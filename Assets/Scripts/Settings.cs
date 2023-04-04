@@ -19,5 +19,9 @@ public class Settings : MonoBehaviour
         Screen.SetResolution(width, height, false);
     }
 
+    // Ta metoda jest na razie bezu¿yteczna i pewnie przez d³u¿szy czas bêdzie
+    public static void SwitchLanguage(string lang) {
+        Debug.Log("Lanuage set to " + lang);
+    }
 
 }

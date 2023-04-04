@@ -6,28 +6,35 @@ public class TSGroundSpawner : MonoBehaviour {
     public GameObject groundTile;
     Vector3 nextSpawnPoint = new Vector3(0, 0, 0);
     private List<GameObject> instantiatedTiles = new List<GameObject>();
-    private GameObject[] instantiatedTilesArray;
-    private int lastDestroyedIndex = 0;
+    private int instantiatedTilesAmount;
 
+    void Awake() {
+        SpawnTile();
+    }
     void Start() {
         TMPController.firstRun = true;
-        
-        //SpawnTile();
-        InvokeRepeating("SpawnTile", 0.0f, 6.0f);
+
+        InvokeRepeating("SpawnTile", 0f, 12f);
         InvokeRepeating("DestroyLastGround", 14f, 14f);
     }
-    
+
     // Tworzy klony podłogi
     public void SpawnTile() {
-        GameObject temp = Instantiate(groundTile, nextSpawnPoint, Quaternion.identity);
-        nextSpawnPoint = temp.transform.GetChild(1).transform.position;
-       
-        instantiatedTiles.Add(temp);
-        instantiatedTilesArray = instantiatedTiles.ToArray(); 
+        if (instantiatedTilesAmount <= 4) {
+            GameObject temp = Instantiate(groundTile, nextSpawnPoint, Quaternion.identity);
+            nextSpawnPoint = temp.transform.GetChild(1).transform.position;
+            instantiatedTiles.Add(temp);
+            instantiatedTilesAmount = instantiatedTiles.Count;
+        }
+
     }
 
     public void DestroyLastGround() {
-        Destroy(instantiatedTilesArray[lastDestroyedIndex], 0f);
-        lastDestroyedIndex++;
+        if (instantiatedTilesAmount > 3) {
+            Destroy(instantiatedTiles[0], 0f);
+            instantiatedTiles.RemoveAt(0);
+            instantiatedTilesAmount = instantiatedTiles.Count;
+
+        }
     }
 }
