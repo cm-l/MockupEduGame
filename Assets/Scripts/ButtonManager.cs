@@ -141,6 +141,18 @@ public class ButtonManager : MonoBehaviour {
         Settings.SwitchLanguage("polish");
     }
 
+    public void ResumeGameButton() {
+        Settings.ResumeGame();
+    }
+
+    public void BackToMenuButton() {
+        // Wy³¹czeniu canvasu 'sartowego'
+        TransitionScript.cameFromAnotherScene = false;
+
+        // Powrót do tunelu
+        SceneManager.LoadSceneAsync("TransitionScene");
+    }
+
     // DROPDOWNY
     public void ScreenSizeDropdownChange(int index)
     {
