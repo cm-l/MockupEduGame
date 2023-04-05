@@ -165,4 +165,22 @@ public class ButtonManager : MonoBehaviour {
     }
 
 
+    // Slidery
+    [SerializeField] private Slider musicVolumeSlider;
+    public void MusicVolumeSlider() {
+        Debug.Log("Music volume value: " + musicVolumeSlider.value);
+    }
+
+    [SerializeField] private Slider soundVolumeSlider;
+    public void SoundVolumeSlider() {
+        Debug.Log("Sound volume value: " + soundVolumeSlider.value);
+    }
+
+    [SerializeField] private Slider mouseSensivitySlider;
+    public void MouseSensivitySlider() {
+        Debug.Log("Mouse sens value: " + mouseSensivitySlider.value);
+    }
+
+
+
 }

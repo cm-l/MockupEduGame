@@ -18,9 +18,7 @@ public class Settings : MonoBehaviour
 
         Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
         SoundSystemSingleton.Instance.PlayMusicSound(gameMusic);
-        Screen.SetResolution(screenWidth, screenHeight, true);
-
-        
+        Screen.SetResolution(screenWidth, screenHeight, true);    
     }
 
 
@@ -58,6 +56,10 @@ public class Settings : MonoBehaviour
 
     public static void ResumeGame() {
         gamePaused = false;
+    }
+
+    public AudioClip GetMusicSource() {
+        return gameMusic;
     }
 
 }
