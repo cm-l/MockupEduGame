@@ -6,7 +6,6 @@ public class followClicking : MonoBehaviour
 {
     public static int scenarioNumber = 0;
 
-
     private void Awake()
     {
         scenarioNumber = Random.Range(0, 4);
@@ -56,20 +55,23 @@ public class followClicking : MonoBehaviour
         }
     }
 
-    public void changeScenario()
-    {
-        scenarioNumber++;
-        Debug.Log("Scenario changed");
-        Debug.Log("Number of scenario: " + scenarioNumber);
-    }
+
+    // PROBABLY NOT NEEDED
+    //public void changeScenario()
+    //{
+    //    scenarioNumber++;
+    //    Debug.Log("Scenario changed");
+    //    Debug.Log("Number of scenario: " + scenarioNumber);
+    //}
 
     public int getScenarioNumber()
     {
         return scenarioNumber;
     }
 
-    public void setBaseScenario()
-    {
-        scenarioNumber = 0;
-    }
+    // PROBABLY NOT NEEDED
+    //public void showMenu()
+    //{
+    //    scenarioNumber = 0;
+    //}
 }

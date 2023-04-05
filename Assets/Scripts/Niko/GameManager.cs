@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
     int maxNumOfScenarios = 3;
     bool readyForChangingScenario;
 
+
+
     void Start()
     {
         bChange = GameObject.FindGameObjectWithTag("Bottle").
@@ -60,14 +62,13 @@ public class GameManager : MonoBehaviour
         {
             textUI.text = "ERROR: No scenario has been loaded";
         }
-       
-
 
         textUI.enabled = true;
         StartCoroutine(disableText());
 
         readyForChangingScenario = true;
     }
+
 
     void Update()
     {
@@ -77,7 +78,9 @@ public class GameManager : MonoBehaviour
         {
             textUI.text = "Gratulacje!";
             textUI.enabled = true;
-            NextScenario();
+
+            // PROBABLY NOT NEEDED
+            //NextScenario();
             Invoke("LoadScene", 3);
         }
     }
@@ -92,28 +95,31 @@ public class GameManager : MonoBehaviour
     void LoadScene()
     {
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(4);
 
         //lower bound inclusive - upper bound EXCLUSIVE
-        int indexScene = UnityEngine.Random.Range(0, 3); //TODO fix based on number in build order
-        SceneManager.LoadScene(indexScene);
+        //int indexScene = UnityEngine.Random.Range(0, 3); //TODO fix based on number in build order
+        //Debug.Log("Next scene number: " + indexScene);
+        //SceneManager.LoadScene(indexScene);
     }
 
     // Scenario control
-    void NextScenario()
-    {
-        if (readyForChangingScenario)
-        {
-            if (scenarioNumber < maxNumOfScenarios)
-            {
-                fClicking.changeScenario();
-            }
-            else
-            {
-                fClicking.setBaseScenario();
-            }
-            readyForChangingScenario = false;
-        }
+    // PROBABLY NOT NEEDED
+    //void NextScenario()
+    //{
+    //    if (readyForChangingScenario)
+    //    {
+    //        if (scenarioNumber < maxNumOfScenarios)
+    //        {
+    //            fClicking.changeScenario();
+    //        }
+    //        else
+    //        {
+    //            fClicking.showMenu();
+    //        }
+    //        readyForChangingScenario = false;
+    //    }
         
-    }
+    //}
 
 }

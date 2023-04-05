@@ -6,7 +6,7 @@ public class bubbleGenerate : MonoBehaviour
 {
     public GameObject bubble;
     public int speedModifier;
-    float secoundToWait = 3f;
+    float timeToWait = 3f;
     Vector3 direction;
     public float dirRangeZ;
     public float dirMaxY;
@@ -14,14 +14,16 @@ public class bubbleGenerate : MonoBehaviour
     void Start()
     {
         StartCoroutine(bubbleCoolDown());
-        secoundToWait = 1.75f;
+        timeToWait = 1.75f;
+        //timeToWait = 0.1f;
+       
     }
 
     public void createBubble()
     {
 
         float x = 12.25f;
-        float y = 3f;
+        float y = 3.5f;
         float z = 8.5f;
 
         // Make position a bit random
@@ -50,7 +52,7 @@ public class bubbleGenerate : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(secoundToWait);
+            yield return new WaitForSeconds(timeToWait);
 
             createBubble();
         }

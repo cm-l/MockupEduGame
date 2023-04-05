@@ -285,7 +285,7 @@ public class bubbleDestroy : MonoBehaviour
             int rValue = bM.getrVal();
             if (((rValue % 3 == 0) || (rValue % 5 == 0)) && (rValue != 0))
             {
-                Debug.Log("AUTO-REMOVE FOR: " + rValue + " (PENALTY)");
+                //Debug.Log("AUTO-REMOVE FOR: " + rValue + " (PENALTY)");
                 bChange.changeMaterialDown();
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                     Quaternion.identity);
@@ -296,7 +296,7 @@ public class bubbleDestroy : MonoBehaviour
             }
             else
             {
-                Debug.Log("AUTO-REMOVE FOR: " + rValue + " (OK)");
+                //Debug.Log("AUTO-REMOVE FOR: " + rValue + " (OK)");
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                 Quaternion.identity);
                 SoundSystemSingleton.Instance.PlaySfxSound(popSound);

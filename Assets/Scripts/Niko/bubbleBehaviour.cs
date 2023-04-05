@@ -23,6 +23,7 @@ public class bubbleBehaviour : MonoBehaviour
         bDestroy = gameObject.GetComponent<bubbleDestroy>();
         Invoke("getBubbleStats", 0.5f);
 
+
     }
 
     void Update()
@@ -48,6 +49,7 @@ public class bubbleBehaviour : MonoBehaviour
     IEnumerator bubbleLifeIndicator()
     {
         yield return new WaitForSeconds(7f);
+        //yield return new WaitForSeconds(1f);
         isBubbleDead = true;
     }
 
@@ -57,6 +59,7 @@ public class bubbleBehaviour : MonoBehaviour
         {
             float bounce = 3000f; //amount of force to apply
             rb.AddForce(collision.contacts[0].normal * bounce * Time.deltaTime);
+            Debug.Log("Collision detected");
         }
         //if (collision.gameObject == GameObject.Find("bubble_colllider (4)"))
         //{
@@ -90,10 +93,10 @@ public class bubbleBehaviour : MonoBehaviour
 
         if (directionY >= 15 || directionZ >= 14 || directionZ <= -14)
         {
-            Debug.Log("======================================================");
-            Debug.Log("Bubble number " + gameObject.GetComponent<bubbleMath>().getrVal() + " has direction idicator: " + directionIndicator);
-            Debug.Log("Its Y direction is " + directionY + " and Z direction is " + directionZ);
-            Debug.Log("======================================================");
+            //Debug.Log("======================================================");
+            //Debug.Log("Bubble number " + gameObject.GetComponent<bubbleMath>().getrVal() + " has direction idicator: " + directionIndicator);
+            //Debug.Log("Its Y direction is " + directionY + " and Z direction is " + directionZ);
+            //Debug.Log("======================================================");
         }
 
 
