@@ -1,5 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
 
 public enum OffensiveAction { dealDamage, multiplyByNumber, raiseToPowerOfNumber, none }
 
@@ -21,6 +22,7 @@ public class SO_Card : ScriptableObject
     public string uniqueActionDescriptor; //for very special cards (changes card text to this)
     public string uniqueActionSuffix; //for somewhat special cards (appends this at the end of card text)
     public AudioClip playSound; //sound when played
+    public string cardText; // what the card says
 
     [Header("\nOffense")]
     public float damageNumber = 0; // n-value
@@ -32,15 +34,22 @@ public class SO_Card : ScriptableObject
     public int blockAmount = 0;
     public int barricadeAmount = 0;
 
-    [Header("\nSpecial")]
+    [Header("\nOther default behaviours")]
     //public SpecialAction specialAction = SpecialAction.none; // op
     public int drawAmount = 0;
     public int sacrificeAmount = 0;
     public int payAmount = 0;
 
 
-    [Header("\nNOT YET IMPLEMENTED\nMaybe will be featured later, maybe not")]
+    [Header("\nMana & Rarity")]
     // maybe it'll be useful sometime
     public int cost; // like mana or something
     public Rarity rarity; // for weighing rewards maybe?
+
+    [Header("\nSpecial Effects")]
+    // Define the ""dictionary"" - Unity nie serializuje slownikow xddddd wiec robimy dwie listy super
+    public List<string> effect;
+    public List<float> value;
+
+
 }

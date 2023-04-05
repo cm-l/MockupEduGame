@@ -16,6 +16,7 @@ MonoBehaviour:
   uniqueActionDescriptor: 
   uniqueActionSuffix: 
   playSound: {fileID: 8300000, guid: 97880d3abdeb7dc47a6695d419b829b8, type: 3}
+  cardText: Heal 4HP and Block 2 Damage.
   damageNumber: 0
   offensiveAction: 3
   healAmount: 4
@@ -23,5 +24,7 @@ MonoBehaviour:
   barricadeAmount: 0
   drawAmount: 0
   sacrificeAmount: 0
+  payAmount: 0
   cost: 1
   rarity: 0
+  specialCardFunctions: []

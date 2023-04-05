@@ -16,6 +16,7 @@ MonoBehaviour:
   uniqueActionDescriptor: 
   uniqueActionSuffix: Halve the enemy's Health points.
   playSound: {fileID: 8300000, guid: ed79c0ef0dc34254e9eda55f95e22744, type: 3}
+  cardText: Halve the enemy health and take 15 damage.
   damageNumber: 0.5
   offensiveAction: 1
   healAmount: 0
@@ -23,5 +24,7 @@ MonoBehaviour:
   barricadeAmount: 0
   drawAmount: 0
   sacrificeAmount: 15
+  payAmount: 0
   cost: 1
   rarity: 0
+  specialCardFunctions: []
