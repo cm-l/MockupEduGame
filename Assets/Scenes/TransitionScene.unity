@@ -1268,8 +1268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd19be917ce1de442ac48d1d3628bd43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  screenWidth: 800
-  screenHeight: 600
+  cursorTexture: {fileID: 0}
   gameMusic: {fileID: 8300000, guid: b21f76351d7669e40bba0f43f08b9293, type: 3}
 --- !u!1001 &560271116
 PrefabInstance:

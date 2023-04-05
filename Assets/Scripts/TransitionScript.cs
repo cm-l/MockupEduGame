@@ -5,20 +5,15 @@ using UnityEngine;
 
 
 public class TransitionScript : MonoBehaviour {
-    private static float runningGameChance = 33.33f;
-    private static float combatGameChance = 33.33f;
-    private static float bubbleGameChance = 33.34f;
-    
-    private static float firstThreshhold = runningGameChance;
-    private static float secondThreshhold = firstThreshhold + combatGameChance;
+    private static List<string> gameScenes = new List<string> { "AdditionScene", "EnemyFight_Dungeon1", "Niko-minigierka" };
+    private static int randomIndex;
+    private static int scenesAmount; 
 
-    private static float randomNumber;
     public static bool cameFromAnotherScene = false;
     [SerializeField] private Canvas menuCanvas;
     [SerializeField] private Canvas shopGameCanvas;
 
     void Start() {
-        randomNumber = UnityEngine.Random.Range(0f, 100f);
         if(cameFromAnotherScene) {
             menuCanvas.gameObject.SetActive(false);
             Invoke("ShowShopGameChoice", 1.2f);
@@ -26,15 +21,10 @@ public class TransitionScript : MonoBehaviour {
     }
 
     public static void RandomizeScene() {
-        if (randomNumber <= firstThreshhold) {
-            SceneManager.LoadSceneAsync("AdditionScene");
-        }
-        else if (randomNumber <= secondThreshhold) {
-            SceneManager.LoadSceneAsync("EnemyFight_Dungeon1");
-        }
-        else {
-            SceneManager.LoadSceneAsync("Niko-minigierka");
-        }
+        scenesAmount = gameScenes.Count;
+        randomIndex = UnityEngine.Random.Range(0, scenesAmount);
+        SceneManager.LoadSceneAsync(gameScenes[randomIndex]);
+        gameScenes.RemoveAt(randomIndex);
     }
 
     private void ShowShopGameChoice() {
