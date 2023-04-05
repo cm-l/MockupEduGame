@@ -45,7 +45,7 @@ public class Card : MonoBehaviour
         // Refer to the discard pile (graveyard)
         discardPile = GameObject.Find("Graveyard").GetComponent<DiscardPile>();
 
-        //Refer to where the card position starts (ju¿ nie pamiêtam po co)
+        //Refer to where the card position starts (juï¿½ nie pamiï¿½tam po co)
         initialPos = transform.position;
 
         // Refer to animation script of card
@@ -120,7 +120,7 @@ public class Card : MonoBehaviour
         }
         catch
         {
-            //TODO zrobiæ coœ z tym!!!!!!!!!! ktoœ m¹drzejszy musi to naprawiæ :(
+            //TODO zrobiï¿½ coï¿½ z tym!!!!!!!!!! ktoï¿½ mï¿½drzejszy musi to naprawiï¿½ :(
             Debug.Log("Card needed at index: " + whichCard);
             Debug.Log("Largest remaining index: (none if -1) " + (deckAvailable.availableCards.Count - 1) + ". Inserting burned card.");
             //Or if there's no more cards in the deck, give the player a "burned" card
