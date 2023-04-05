@@ -275,7 +275,7 @@ Transform:
   m_GameObject: {fileID: 214156597}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.111, y: -0.003, z: 0.076}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1448882582}
@@ -585,10 +585,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e0bc20953f17d746891655913579a81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 11400000, guid: b873aed5d71119241981b9d5950b9eea, type: 2}
+  SOcard: {fileID: 11400000, guid: 1192ccbf7424cc84f810d45c8802c2f4, type: 2}
+  destroyThisCard: {fileID: 326671061}
   priceText: {fileID: 1233701222}
   cardText: {fileID: 1421688973}
   coll: {fileID: 293117198}
+  ps: {fileID: 8435480755830404877, guid: 775bba75a75bc1e44bae9650b53296d3, type: 3}
 --- !u!65 &293117198
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -686,6 +688,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a07fbe7feb5896a489733b3f1ba6fbcc, type: 2}
   - {fileID: 11400000, guid: 31bf0b7aa9eb52347bdbbd1454ddda75, type: 2}
   - {fileID: 11400000, guid: 72ee9d5d1f459064687469a0d44ac411, type: 2}
+  collectedPotions: []
   burnedCard: {fileID: 11400000, guid: 92eea3160106a3448b86672ad64558cf, type: 2}
 --- !u!4 &344610270
 Transform:
@@ -899,7 +902,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 426693428}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -4.9}
+  m_LocalPosition: {x: 0, y: 0, z: -4.948}
   m_LocalScale: {x: 0.1322, y: 0.1322, z: 0.1322}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2711,10 +2714,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e0bc20953f17d746891655913579a81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 11400000, guid: 92eea3160106a3448b86672ad64558cf, type: 2}
+  SOcard: {fileID: 11400000, guid: 69e5ff8e53ba0fd4f8ef4317f30131f5, type: 2}
+  destroyThisCard: {fileID: 276433879}
   priceText: {fileID: 1924322252}
   cardText: {fileID: 426693430}
   coll: {fileID: 1085489979}
+  ps: {fileID: 8435480755830404877, guid: 775bba75a75bc1e44bae9650b53296d3, type: 3}
 --- !u!65 &1085489979
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3308,10 +3313,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e0bc20953f17d746891655913579a81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 11400000, guid: 69e5ff8e53ba0fd4f8ef4317f30131f5, type: 2}
+  SOcard: {fileID: 11400000, guid: fd2cab928e224c94d8b15991ccfb3dde, type: 2}
+  destroyThisCard: {fileID: 1426171192}
   priceText: {fileID: 1000723386}
   cardText: {fileID: 1248234838}
   coll: {fileID: 1402734536}
+  ps: {fileID: 8435480755830404877, guid: 775bba75a75bc1e44bae9650b53296d3, type: 3}
 --- !u!65 &1402734536
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3589,6 +3596,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1448882582}
+  - component: {fileID: 1448882583}
   m_Layer: 0
   m_Name: Shopkeeper
   m_TagString: Untagged
@@ -3604,7 +3612,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1448882581}
   m_LocalRotation: {x: 0, y: -0.258819, z: 0, w: 0.9659259}
-  m_LocalPosition: {x: -1.543, y: 1.44, z: 1.71}
+  m_LocalPosition: {x: -1.67, y: 1.52, z: 1.3}
   m_LocalScale: {x: 2.168143, y: 3.7741187, z: 1.2785}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3612,6 +3620,20 @@ Transform:
   m_Father: {fileID: 2076302162}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: -30, z: 0}
+--- !u!114 &1448882583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448882581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6227c341f03f60540bea3a1b5b32ce56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amplitude: 0.03
+  frequency: 0.7
 --- !u!1 &1497793970
 GameObject:
   m_ObjectHideFlags: 0
