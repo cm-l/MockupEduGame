@@ -104,7 +104,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5e1877d6c065d5f4b988c4442027ddb5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 424ee4aa70218fb4fabdbb76e983d9b9, type: 2}
   m_sharedMaterial: {fileID: -4302446681072683268, guid: 5e1877d6c065d5f4b988c4442027ddb5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -171,7 +171,7 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_renderer: {fileID: 6400925257964164170}
   m_maskType: 0
 --- !u!65 &7591635252066997423
