@@ -102,5 +102,10 @@ public class bubbleBehaviour : MonoBehaviour
 
     }
 
+    public void popBubble()
+    {
+        isBubbleDead = true;
+    }
+
 }
 

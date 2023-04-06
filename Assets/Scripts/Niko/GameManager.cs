@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
     followClicking fClicking;
     int maxNumOfScenarios = 3;
     bool readyForChangingScenario;
+    [SerializeField] private AudioClip gameMusicSound;
+    [SerializeField] private AudioClip successSound;
 
 
 
@@ -64,7 +66,7 @@ public class GameManager : MonoBehaviour
         }
 
         textUI.enabled = true;
-        StartCoroutine(disableText());
+        StartCoroutine(disableTextAndPlayMusic());
 
         readyForChangingScenario = true;
     }
@@ -75,18 +77,15 @@ public class GameManager : MonoBehaviour
         // What happens when user wins
         bottleMaterialNumber = bChange.getBottleMaterialNumber();
 
+
         // Only for tests
-        // TODO delete after
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            LoadScene();
-        }
+        // TODO delete after Z debug
 
-
-        if (bottleMaterialNumber == 9)
+        if (bottleMaterialNumber == 9 || Input.GetKeyDown(KeyCode.Z))
         {
-            textUI.text = "Gratulacje!";
-            textUI.enabled = true;
+     
+            SoundSystemSingleton.Instance.StopTheMusic();
+            EndGame();
 
             // PROBABLY NOT NEEDED
             //NextScenario();
@@ -95,10 +94,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    IEnumerator disableText()
+    IEnumerator disableTextAndPlayMusic()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(4f);
         textUI.enabled = false;
+        SoundSystemSingleton.Instance.PlayMusicSound(gameMusicSound);
 
     }
 
@@ -113,6 +113,31 @@ public class GameManager : MonoBehaviour
         //Debug.Log("Next scene number: " + indexScene);
         //SceneManager.LoadScene(indexScene);
     }
+
+    void EndGame()
+    {
+        GameObject[] bubbles = GameObject.FindGameObjectsWithTag("Bubble");
+        foreach (GameObject bubble in bubbles)
+        {
+            bubble.GetComponentInParent<bubbleBehaviour>().popBubble();
+        }
+        cauldron.GetComponent<bubbleGenerate>().stopGenerating();
+        Invoke("PrepareForSummary", 0.5f);
+    }
+
+    void PrepareForSummary()
+    {
+        textUI.text = "Gratulacje!";
+        textUI.enabled = true;
+        Invoke("PlayEndSound", 0.2f);
+    }
+
+    void PlayEndSound()
+    {
+        SoundSystemSingleton.Instance.PlaySfxSound(successSound);
+
+    }
+
 
     // Scenario control
     // PROBABLY NOT NEEDED
@@ -130,7 +155,7 @@ public class GameManager : MonoBehaviour
     //        }
     //        readyForChangingScenario = false;
     //    }
-        
+
     //}
 
 }

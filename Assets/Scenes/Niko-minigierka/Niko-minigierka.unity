@@ -8595,6 +8595,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c62635a3ea8646038bc8bf7d58d21f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameMusicSound: {fileID: 8300000, guid: c5f3244ac613c344ea10965cfb242c24, type: 3}
+  successSound: {fileID: 8300000, guid: 5a1909b6fd18c4e7c8d2ff6e00d2ba7d, type: 3}
 --- !u!114 &1062707706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12432,6 +12434,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c62635a3ea8646038bc8bf7d58d21f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameMusicSound: {fileID: 0}
+  successSound: {fileID: 0}
 --- !u!1 &1946514369
 GameObject:
   m_ObjectHideFlags: 0
