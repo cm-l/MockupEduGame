@@ -39,7 +39,25 @@ public class ButtonManager : MonoBehaviour {
         // WYœwietlenie potwierdzenia chêci wyjœcia
 
         // Wyjœcie z aplikacji
+        // Application.Quit();
+
+        // Schowanie canvasu menu
+        transform.parent.parent.gameObject.SetActive(false);
+
+        // Pokazanie canvasu potwierdzenia
+        ShowCanvas(choiceCanvas);
+    }
+
+    public void YesLeaveButton() {
         Application.Quit();
+    }
+
+    public void NoLeaveButton() {
+        // Schowanie canvasu potwierdzenia
+        transform.parent.parent.gameObject.SetActive(false);
+
+        // Przywrócenie menu
+        ShowCanvas(choiceCanvas);
     }
 
     public void ShopButton() {
@@ -83,7 +101,6 @@ public class ButtonManager : MonoBehaviour {
     [SerializeField] private GameObject buttonToShow;
     [SerializeField] private GameObject buttonToHide;
     public void MusicOnButton() {
-        Debug.Log("MusicOnButton");
         SoundSystemSingleton.Instance.StopTheMusic();
 
         // Wy³¹cza siebie
@@ -94,8 +111,27 @@ public class ButtonManager : MonoBehaviour {
     }
 
     public void MusicOffButton() {
-        Debug.Log("MusicOffButton");
         SoundSystemSingleton.Instance.PlayTheMusicAgain();
+
+        // Wy³¹cza siebie
+        buttonToHide.SetActive(false);
+
+        // W³¹cza ButtonOn
+        buttonToShow.SetActive(true);
+    }
+
+    public void SoundOnButton() {
+        SoundSystemSingleton.Instance.TurnOffSound();
+
+        // Wy³¹cza siebie
+        buttonToHide.SetActive(false);
+
+        // W³¹cza ButtonOff
+        buttonToShow.SetActive(true);
+    }
+
+    public void SoundOffButton() {
+        SoundSystemSingleton.Instance.TurnOnSound();
 
         // Wy³¹cza siebie
         buttonToHide.SetActive(false);
@@ -169,16 +205,19 @@ public class ButtonManager : MonoBehaviour {
     [SerializeField] private Slider musicVolumeSlider;
     public void MusicVolumeSlider() {
         Debug.Log("Music volume value: " + musicVolumeSlider.value);
+        SoundSystemSingleton.Instance.ChangeMusicVolume(musicVolumeSlider.value);
     }
 
     [SerializeField] private Slider soundVolumeSlider;
     public void SoundVolumeSlider() {
         Debug.Log("Sound volume value: " + soundVolumeSlider.value);
+        SoundSystemSingleton.Instance.ChangeSoundVolume(soundVolumeSlider.value);
     }
 
     [SerializeField] private Slider mouseSensivitySlider;
     public void MouseSensivitySlider() {
         Debug.Log("Mouse sens value: " + mouseSensivitySlider.value);
+        Settings.ChangeMouseSensivity(mouseSensivitySlider.value);
     }
 
 

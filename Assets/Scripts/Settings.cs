@@ -8,7 +8,8 @@ public class Settings : MonoBehaviour
     public static int screenHeight = 1080;
     
     public Texture2D cursorTexture;
-    
+    public static float mouseSensitivity;
+
     private static bool gamePaused;
 
     [SerializeField] private AudioClip gameMusic;
@@ -17,10 +18,14 @@ public class Settings : MonoBehaviour
         gamePaused = false;
 
         Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
+        mouseSensitivity = 1f;
+
         SoundSystemSingleton.Instance.PlayMusicSound(gameMusic);
+        SoundSystemSingleton.Instance.ChangeMusicVolume(0.2f);
+        
         Screen.SetResolution(screenWidth, screenHeight, true);    
     }
-
+    
 
     [SerializeField] private Canvas gamePauseCanvas;
     void Update() {
@@ -37,11 +42,22 @@ public class Settings : MonoBehaviour
             Time.timeScale = 1;
             gamePauseCanvas.gameObject.SetActive(false);
         }
+
+        /*
+        float mouseX = Input.GetAxis("Mouse X");
+        float mouseY = Input.GetAxis("Mouse Y");
+
+        float sensitivityX = mouseX * sensitivity;
+        float sensitivityY = mouseY * sensitivity;
+        */
+    }
+    public static void ChangeMouseSensivity(float mouseSensValue) {
+        mouseSensitivity = mouseSensValue;
     }
 
     public static void ChangeScreenSize(int height, int width) {
         Debug.Log("Changed screen resolution to " + height + " x " + width);
-        Screen.SetResolution(height, width, false);
+        Screen.SetResolution(height, width, true);
     }
 
     // Ta metoda jest na razie bezu¿yteczna i pewnie przez d³u¿szy czas bêdzie
@@ -58,8 +74,5 @@ public class Settings : MonoBehaviour
         gamePaused = false;
     }
 
-    public AudioClip GetMusicSource() {
-        return gameMusic;
-    }
 
 }

@@ -68,4 +68,20 @@ public class SoundSystemSingleton : MonoBehaviour
         musicSource.mute = false;
     }
 
+    public void ChangeMusicVolume(float vol) {
+        musicSource.volume = vol;
+    }
+
+    public void ChangeSoundVolume(float vol) {
+        sfxSource.volume = vol;
+    }
+
+    public void TurnOnSound() {
+        sfxSource.volume = 1f;
+    }
+
+    public void TurnOffSound() {
+        sfxSource.volume = 0f;
+    }
+
 }
