@@ -78,10 +78,8 @@ public class GameManager : MonoBehaviour
         bottleMaterialNumber = bChange.getBottleMaterialNumber();
 
 
-        // Only for tests
-        // TODO delete after Z debug
 
-        if (bottleMaterialNumber == 9 || Input.GetKeyDown(KeyCode.Z))
+        if (bottleMaterialNumber == 9)
         {
      
             SoundSystemSingleton.Instance.StopTheMusic();
