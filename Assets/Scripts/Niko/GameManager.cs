@@ -74,6 +74,15 @@ public class GameManager : MonoBehaviour
     {
         // What happens when user wins
         bottleMaterialNumber = bChange.getBottleMaterialNumber();
+
+        // Only for tests
+        // TODO delete after
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            LoadScene();
+        }
+
+
         if (bottleMaterialNumber == 9)
         {
             textUI.text = "Gratulacje!";
@@ -82,6 +91,7 @@ public class GameManager : MonoBehaviour
             // PROBABLY NOT NEEDED
             //NextScenario();
             Invoke("LoadScene", 3);
+
         }
     }
 
@@ -94,8 +104,9 @@ public class GameManager : MonoBehaviour
 
     void LoadScene()
     {
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        SceneManager.LoadScene(4);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //SceneManager.LoadScene(4);
+        cauldron.GetComponent<Animate>().LoadNextLevel();
 
         //lower bound inclusive - upper bound EXCLUSIVE
         //int indexScene = UnityEngine.Random.Range(0, 3); //TODO fix based on number in build order

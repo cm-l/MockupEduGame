@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Game.unity
     guid: 2a329988471bf4b68ba84cae3bd6b588
   - enabled: 1
-    path: Assets/Scenes/Niko-minigierka/Menu/Menu.unity
+    path: Assets/Scenes/Niko-minigierka/Niko-minigierka.unity
+    guid: 6b821a9e9b01d40e595b2b7d007c65a2
+  - enabled: 1
+    path: Assets/Scenes/Niko-minigierka/Summary/Summary.unity
     guid: 004e30827b90947818407367e42aeda9
   m_configObjects: {}
