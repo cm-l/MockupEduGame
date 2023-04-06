@@ -46,15 +46,15 @@ public class GameManager : MonoBehaviour
         // Choose the right intoduction text for given scenario
         if (scenarioNumber == 0)
         {
-            textUI.text = "Pop the bubbles with even numbers!";
+            textUI.text = "Pop the bubbles with even numbers";
         }
         else if (scenarioNumber == 1)
         {
-            textUI.text = "Pop the bubbles with odd numbers!";
+            textUI.text = "Pop the bubbles with odd numbers";
         }
         else if (scenarioNumber == 2)
         {
-            textUI.text = "Pop the bubbles with prime numbers!";
+            textUI.text = "Pop the bubbles with prime numbers";
         }
         else if (scenarioNumber == 3)
         {
@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            textUI.text = "ERROR: No scenario has been loaded";
+            textUI.text = "ERROR: Any scenario has been loaded";
         }
 
         textUI.enabled = true;
@@ -99,6 +99,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(4f);
         textUI.enabled = false;
         SoundSystemSingleton.Instance.PlayMusicSound(gameMusicSound);
+        GameObject.FindGameObjectWithTag("Bottle").transform.position = new Vector3(17.63f, 4.28f, 10.1f);
 
     }
 
@@ -122,14 +123,14 @@ public class GameManager : MonoBehaviour
             bubble.GetComponentInParent<bubbleBehaviour>().popBubble();
         }
         cauldron.GetComponent<bubbleGenerate>().stopGenerating();
-        Invoke("PrepareForSummary", 0.5f);
+        Invoke("PrepareForSummary", 1f);
     }
 
     void PrepareForSummary()
     {
-        textUI.text = "Gratulacje!";
+        textUI.text = "Congratulations!";
         textUI.enabled = true;
-        Invoke("PlayEndSound", 0.2f);
+        Invoke("PlayEndSound", 0.20f);
     }
 
     void PlayEndSound()
