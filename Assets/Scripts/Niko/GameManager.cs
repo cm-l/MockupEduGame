@@ -8,25 +8,20 @@
  * bubbleDestroy and bubbleBehaviour scripts
  */
 
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     int bottleMaterialNumber;
     int scenarioNumber;
-    bottleChange bChange;
+    BottleChange bChange_N;
     GameObject gmTextUI;
     TextMeshProUGUI textUI;
+    TextMeshProUGUI userTask;
     GameObject cauldron;
-    followClicking fClicking;
-    int maxNumOfScenarios = 3;
-    bool readyForChangingScenario;
+    FollowClicking fClicking;
     [SerializeField] private AudioClip gameMusicSound;
     [SerializeField] private AudioClip successSound;
 
@@ -34,31 +29,38 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        bChange = GameObject.FindGameObjectWithTag("Bottle").
-            GetComponent<bottleChange>();
+        Screen.SetResolution(1920, 1080, true);
+        Application.targetFrameRate = 60;
+        bChange_N = GameObject.FindGameObjectWithTag("Bottle").
+            GetComponent<BottleChange>();
         gmTextUI = GameObject.Find("textUI");
         textUI = gmTextUI.GetComponent<TextMeshProUGUI>();
+        userTask = GameObject.Find("User Task").GetComponent<TextMeshProUGUI>();
+        userTask.enabled = false;
         cauldron = GameObject.Find("SD_Prop_Cauldron_01");
-        fClicking = cauldron.GetComponent<followClicking>();
-        scenarioNumber = fClicking.getScenarioNumber();
-        Debug.Log("Scenario: " + scenarioNumber);
+        fClicking = cauldron.GetComponent<FollowClicking>();
+        scenarioNumber = fClicking.GetScenarioNumber();
 
         // Choose the right intoduction text for given scenario
         if (scenarioNumber == 0)
         {
             textUI.text = "Pop the bubbles with even numbers";
+            userTask.text = "Pop the bubbles with even numbers";
         }
         else if (scenarioNumber == 1)
         {
             textUI.text = "Pop the bubbles with odd numbers";
+            userTask.text = "Pop the bubbles with odd numbers";
         }
         else if (scenarioNumber == 2)
         {
             textUI.text = "Pop the bubbles with prime numbers";
+            userTask.text = "Pop the bubbles with prime numbers";
         }
         else if (scenarioNumber == 3)
         {
             textUI.text = "Pop the bubbles with numbers divisible by 3 or 5";
+            userTask.text = "Pop the bubbles with numbers divisible by 3 or 5";
         }
         else
         {
@@ -66,16 +68,15 @@ public class GameManager : MonoBehaviour
         }
 
         textUI.enabled = true;
-        StartCoroutine(disableTextAndPlayMusic());
+        StartCoroutine(DisableTextAndPlayMusic());
 
-        readyForChangingScenario = true;
     }
 
 
     void Update()
     {
         // What happens when user wins
-        bottleMaterialNumber = bChange.getBottleMaterialNumber();
+        bottleMaterialNumber = bChange_N.GetBottleMaterialNumber();
 
 
 
@@ -85,31 +86,27 @@ public class GameManager : MonoBehaviour
             SoundSystemSingleton.Instance.StopTheMusic();
             EndGame();
 
-            // PROBABLY NOT NEEDED
-            //NextScenario();
             Invoke("LoadScene", 3);
 
         }
     }
 
-    IEnumerator disableTextAndPlayMusic()
+    IEnumerator DisableTextAndPlayMusic()
     {
         yield return new WaitForSeconds(4f);
         textUI.enabled = false;
         SoundSystemSingleton.Instance.PlayMusicSound(gameMusicSound);
         GameObject.FindGameObjectWithTag("Bottle").transform.position = new Vector3(17.63f, 4.28f, 10.1f);
+        userTask.enabled = true;
 
     }
 
     void LoadScene()
     {
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        //SceneManager.LoadScene(4);
         cauldron.GetComponent<Animate>().LoadNextLevel();
 
         //lower bound inclusive - upper bound EXCLUSIVE
         //int indexScene = UnityEngine.Random.Range(0, 3); //TODO fix based on number in build order
-        //Debug.Log("Next scene number: " + indexScene);
         //SceneManager.LoadScene(indexScene);
     }
 
@@ -118,9 +115,9 @@ public class GameManager : MonoBehaviour
         GameObject[] bubbles = GameObject.FindGameObjectsWithTag("Bubble");
         foreach (GameObject bubble in bubbles)
         {
-            bubble.GetComponentInParent<bubbleBehaviour>().popBubble();
+            bubble.GetComponentInParent<BubbleBehaviour>().PopBubble();
         }
-        cauldron.GetComponent<bubbleGenerate>().stopGenerating();
+        cauldron.GetComponent<BubbleGenerate>().StopGenerating();
         Invoke("PrepareForSummary", 1f);
     }
 
@@ -128,33 +125,16 @@ public class GameManager : MonoBehaviour
     {
         textUI.text = "Congratulations!";
         textUI.enabled = true;
-        Invoke("PlayEndSound", 0.20f);
+        userTask.enabled = false;
+        Invoke("PlayEndSoundIN", 0.20f);
     }
 
-    void PlayEndSound()
+    void PlayEndSoundIN()
     {
-        SoundSystemSingleton.Instance.PlaySfxSound(successSound);
-
+        SoundSystemSingleton.Instance.PlayOtherSound(successSound);
     }
 
-
-    // Scenario control
-    // PROBABLY NOT NEEDED
-    //void NextScenario()
-    //{
-    //    if (readyForChangingScenario)
-    //    {
-    //        if (scenarioNumber < maxNumOfScenarios)
-    //        {
-    //            fClicking.changeScenario();
-    //        }
-    //        else
-    //        {
-    //            fClicking.showMenu();
-    //        }
-    //        readyForChangingScenario = false;
-    //    }
-
-    //}
+   
 
 }
+

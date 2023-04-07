@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,7 +6,6 @@ public class Animate : MonoBehaviour
 {
     public Animator transition;
     public float transitionTime = 2f;
-
 
     public void LoadNextLevel()
     {
@@ -23,3 +21,4 @@ public class Animate : MonoBehaviour
         SceneManager.LoadScene(levelIndex);
     }
 }
+

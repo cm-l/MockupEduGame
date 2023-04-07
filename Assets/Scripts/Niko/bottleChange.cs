@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class bottleChange : MonoBehaviour
+public class BottleChange : MonoBehaviour
 {
     GameObject gm;
     MeshRenderer mr;
@@ -17,16 +15,15 @@ public class bottleChange : MonoBehaviour
     public Material bottle9;
     int bottleMaterialNumber;
 
-
     void Start()
     {
-        gm = this.gameObject;
+        gm = gameObject;
         mr = gm.GetComponent<MeshRenderer>();
         bottle = mr.material;
         bottleMaterialNumber = 1;
     }
 
-    public void checkMaterial()
+    public void CheckMaterial()
     {
         switch (bottleMaterialNumber)
         {
@@ -65,12 +62,12 @@ public class bottleChange : MonoBehaviour
     }
 
 
-    public void changeMaterialUp()
+    public void ChangeMaterialUp()
     {
         bottleMaterialNumber++;
     }
 
-    public void changeMaterialDown()
+    public void ChangeMaterialDown()
     {
         if (bottleMaterialNumber > 1)
         {
@@ -78,13 +75,13 @@ public class bottleChange : MonoBehaviour
         }
     }
 
-    public int getBottleMaterialNumber()
+    public int GetBottleMaterialNumber()
     {
         return bottleMaterialNumber;
     }
 
     private void Update()
     {
-        checkMaterial();
+        CheckMaterial();
     }
 }
