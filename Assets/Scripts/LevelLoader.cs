@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour {
-    private int numberOfRowsBeforeChange = 6; // wcze�niej 10!
+    private int numberOfRowsBeforeChange = 10; // wcze�niej 10!
 
     void Update() {
         // Tu nastepuje zmiana sceny na kolejne "dzialanie"
