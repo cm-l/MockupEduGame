@@ -57,11 +57,11 @@ public class WeaponController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse1))
             AttackWrapper(EndCombo);
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            currentDamage = 1;
-            multiplier.text = currentDamage.ToString();
-        }
+        //if (Input.GetKeyDown(KeyCode.R))
+        //{
+        //    currentDamage = 1;
+        //    multiplier.text = currentDamage.ToString();
+        //}
     }
 
     private void HandleEnemySelection()
@@ -174,6 +174,7 @@ public class WeaponController : MonoBehaviour
         if (isLookingAtEnemy == true)
         {
             currentDamage *= nextDamage;
+            Mathf.Clamp(currentDamage, 1, 100);
             multiplier.text = currentDamage.ToString();
 
             if (enemyParent != null)
