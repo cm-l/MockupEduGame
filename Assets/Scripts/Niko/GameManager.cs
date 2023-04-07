@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioClip gameMusicSound;
     [SerializeField] private AudioClip successSound;
     bool inGameMode;
+    float deltaTime;
 
 
 
@@ -80,8 +81,6 @@ public class GameManager : MonoBehaviour
         // What happens when user wins
         bottleMaterialNumber = bChange_N.GetBottleMaterialNumber();
 
-
-
         if (bottleMaterialNumber == 9)
         {
      
@@ -95,6 +94,11 @@ public class GameManager : MonoBehaviour
             
 
         }
+
+        // Check FPS
+        deltaTime += (Time.deltaTime - deltaTime) * 0.1f;
+        float fps = 1.0f / deltaTime;
+        Debug.Log("FPS: " + deltaTime);
     }
 
     IEnumerator DisableTextAndPlayMusic()
