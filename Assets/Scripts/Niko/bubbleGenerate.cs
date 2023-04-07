@@ -4,11 +4,11 @@ using UnityEngine;
 public class BubbleGenerate : MonoBehaviour
 {
     public GameObject bubble;
-    public int speedModifier;
+    public int speedModifier = 150;
     float timeToWait = 4f; // timer to wait for first bubble
     Vector3 direction;
-    public float dirRangeZ;
-    public float dirMaxY;
+    public float dirRangeZ = 15;
+    public float dirMaxY = 16;
     bool generate = true;
 
     void Start()
@@ -65,4 +65,8 @@ public class BubbleGenerate : MonoBehaviour
         generate = false;
     }
 
+    public void BubbleSlowDown()
+    {
+        speedModifier /= 2;
+    }
 }

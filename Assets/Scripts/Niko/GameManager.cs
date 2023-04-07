@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     bool inGameMode;
     int avgFrameRate;
     bool checkFPS;
+    int fpsTarget;
 
 
 
@@ -34,7 +35,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Screen.SetResolution(1920, 1080, true);
-        Application.targetFrameRate = 60;
+        fpsTarget = 60;
+        Application.targetFrameRate = fpsTarget;
         bChange_N = GameObject.FindGameObjectWithTag("Bottle").
             GetComponent<BottleChange>();
         gmTextUI = GameObject.Find("textUI");
@@ -75,6 +77,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(DisableTextAndPlayMusic());
         inGameMode = true;
         checkFPS = true;
+        Invoke("SetSpeedModifier", 4.1f);
     }
 
 
@@ -103,7 +106,6 @@ public class GameManager : MonoBehaviour
             float current = (int)(1f / Time.unscaledDeltaTime); ;
             current = Time.frameCount / Time.time;
             avgFrameRate = (int)current;
-            Debug.Log("FPS: " + avgFrameRate);
             Invoke("StopCheckingFPS", 4f);
         }
 
@@ -151,8 +153,20 @@ public class GameManager : MonoBehaviour
     void StopCheckingFPS()
     {
         checkFPS = false;
-        //Debug.Log("FPS: " + avgFrameRate);
+    }
 
+    void SetSpeedModifier()
+    {
+        if (!checkFPS)
+        {
+            Debug.Log("Setting speed modifier");
+            Debug.Log("FPS:" + avgFrameRate);
+            if (avgFrameRate <= 30)
+            {
+                fpsTarget = 30;
+                gameObject.GetComponent<BubbleGenerate>().BubbleSlowDown();
+            }
+        }
     }
 
 }
