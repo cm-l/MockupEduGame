@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     FollowClicking fClicking;
     [SerializeField] private AudioClip gameMusicSound;
     [SerializeField] private AudioClip successSound;
+    bool inGameMode;
 
 
 
@@ -69,6 +70,7 @@ public class GameManager : MonoBehaviour
 
         textUI.enabled = true;
         StartCoroutine(DisableTextAndPlayMusic());
+        inGameMode = true;
 
     }
 
@@ -84,9 +86,13 @@ public class GameManager : MonoBehaviour
         {
      
             SoundSystemSingleton.Instance.StopTheMusic();
-            EndGame();
-
-            Invoke("LoadScene", 3);
+            if(inGameMode)
+            {
+                EndGame();
+                Invoke("LoadScene", 3);
+                inGameMode = false;
+            }
+            
 
         }
     }
@@ -126,15 +132,9 @@ public class GameManager : MonoBehaviour
         textUI.text = "Congratulations!";
         textUI.enabled = true;
         userTask.enabled = false;
-        Invoke("PlayEndSoundIN", 0.20f);
-    }
-
-    void PlayEndSoundIN()
-    {
         SoundSystemSingleton.Instance.PlayOtherSound(successSound);
     }
 
-   
 
 }
 
