@@ -3,18 +3,19 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class bubbleDestroy : MonoBehaviour
+public class BubbleDestroy : MonoBehaviour
 {
     bool evenScript = true;
     public ParticleSystem ps;
-    bottleChange bChange;
-    bubbleMath bM;
-    [SerializeField] AudioClip popSound;
+    BottleChange bChange;
+    BubbleMath bM;
+    [SerializeField] private AudioClip popSound;
+
 
     public void Start()
     {
         bChange = GameObject.FindGameObjectWithTag("Bottle").
-            GetComponent<bottleChange>();
+            GetComponent<BottleChange>();
     }
 
     //Scenario 0
@@ -22,22 +23,26 @@ public class bubbleDestroy : MonoBehaviour
     {
         if (evenScript)
         {
-            bM = this.GetComponent<bubbleMath>();
-            int rValue = bM.getrVal();
+            bM = this.GetComponent<BubbleMath>();
+            int rValue = bM.GetrVal();
             if (rValue % 2 == 0)
             {
                 Debug.Log("OK " + rValue);
-                bChange.changeMaterialUp();
+                bChange.ChangeMaterialUp();
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                     Quaternion.identity);
+                SoundSystemSingleton.Instance.PlaySfxSound(popSound);
+
                 Destroy(go, 2.0f);
                 Destroy(this.gameObject);
             } else
             {
                 Debug.Log("MISTAKE " + rValue);
-                bChange.changeMaterialDown();
+                bChange.ChangeMaterialDown();
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                 Quaternion.identity);
+                SoundSystemSingleton.Instance.PlaySfxSound(popSound);
+
                 Destroy(go, 2.0f);
                 Destroy(this.gameObject);
             }
@@ -54,12 +59,12 @@ public class bubbleDestroy : MonoBehaviour
     {
         if (evenScript)
         {
-            bM = this.GetComponent<bubbleMath>();
-            int rValue = bM.getrVal();
+            bM = this.GetComponent<BubbleMath>();
+            int rValue = bM.GetrVal();
             if (rValue % 2 != 0)
             {
                 Debug.Log("OK " + rValue);
-                bChange.changeMaterialUp();
+                bChange.ChangeMaterialUp();
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                     Quaternion.identity);
                 SoundSystemSingleton.Instance.PlaySfxSound(popSound);
@@ -71,7 +76,7 @@ public class bubbleDestroy : MonoBehaviour
             else
             {
                 Debug.Log("MISTAKE " + rValue);
-                bChange.changeMaterialDown();
+                bChange.ChangeMaterialDown();
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                 Quaternion.identity);
                 SoundSystemSingleton.Instance.PlaySfxSound(popSound);
@@ -91,12 +96,12 @@ public class bubbleDestroy : MonoBehaviour
     {
         if (evenScript)
         {
-            bM = this.GetComponent<bubbleMath>();
-            int rValue = bM.getrVal();
-            if (checkIfPrime(rValue))
+            bM = this.GetComponent<BubbleMath>();
+            int rValue = bM.GetrVal();
+            if (CheckIfPrime(rValue))
             {
                 Debug.Log("OK " + rValue);
-                bChange.changeMaterialUp();
+                bChange.ChangeMaterialUp();
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                     Quaternion.identity);
                 SoundSystemSingleton.Instance.PlaySfxSound(popSound);
@@ -107,7 +112,7 @@ public class bubbleDestroy : MonoBehaviour
             else
             {
                 Debug.Log("MISTAKE " + rValue);
-                bChange.changeMaterialDown();
+                bChange.ChangeMaterialDown();
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                 Quaternion.identity);
                 SoundSystemSingleton.Instance.PlaySfxSound(popSound);
@@ -127,12 +132,12 @@ public class bubbleDestroy : MonoBehaviour
     {
         if (evenScript)
         {
-            bM = this.GetComponent<bubbleMath>();
-            int rValue = bM.getrVal();
+            bM = this.GetComponent<BubbleMath>();
+            int rValue = bM.GetrVal();
             if (((rValue % 3 == 0) || (rValue % 5 == 0)) && (rValue != 0))
             {
                 Debug.Log("OK " + rValue);
-                bChange.changeMaterialUp();
+                bChange.ChangeMaterialUp();
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                     Quaternion.identity);
                 SoundSystemSingleton.Instance.PlaySfxSound(popSound);
@@ -143,7 +148,7 @@ public class bubbleDestroy : MonoBehaviour
             else
             {
                 Debug.Log("MISTAKE " + rValue);
-                bChange.changeMaterialDown();
+                bChange.ChangeMaterialDown();
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                 Quaternion.identity);
                 SoundSystemSingleton.Instance.PlaySfxSound(popSound);
@@ -158,7 +163,7 @@ public class bubbleDestroy : MonoBehaviour
         }
     }
 
-    bool checkIfPrime(int number)
+    bool CheckIfPrime(int number)
     {
         if (number <= 1) return false;
         if (number == 2) return true;
@@ -170,17 +175,15 @@ public class bubbleDestroy : MonoBehaviour
     }
 
     //AUTO-REMOVE
-
     public void AutoRemoveScenario0()
     {
         if (evenScript)
         {
-            bM = this.GetComponent<bubbleMath>();
-            int rValue = bM.getrVal();
+            bM = this.GetComponent<BubbleMath>();
+            int rValue = bM.GetrVal();
             if (rValue % 2 == 0)
             {
-                //Debug.Log("AUTO-REMOVE FOR: " + rValue + " (PENALTY)");
-                bChange.changeMaterialDown();
+                bChange.ChangeMaterialDown();
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                     Quaternion.identity);
                 SoundSystemSingleton.Instance.PlaySfxSound(popSound);
@@ -190,7 +193,6 @@ public class bubbleDestroy : MonoBehaviour
             }
             else
             {
-                //Debug.Log("AUTO-REMOVE FOR: " + rValue + " (OK)");
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                 Quaternion.identity);
                 SoundSystemSingleton.Instance.PlaySfxSound(popSound);
@@ -209,12 +211,11 @@ public class bubbleDestroy : MonoBehaviour
     {
         if (evenScript)
         {
-            bM = this.GetComponent<bubbleMath>();
-            int rValue = bM.getrVal();
+            bM = this.GetComponent<BubbleMath>();
+            int rValue = bM.GetrVal();
             if (rValue % 2 != 0)
             {
-                //Debug.Log("AUTO-REMOVE FOR: " + rValue + " (PENALTY)");
-                bChange.changeMaterialDown();
+                bChange.ChangeMaterialDown();
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                     Quaternion.identity);
                 SoundSystemSingleton.Instance.PlaySfxSound(popSound);
@@ -224,7 +225,6 @@ public class bubbleDestroy : MonoBehaviour
             }
             else
             {
-                //Debug.Log("AUTO-REMOVE FOR: " + rValue + " (OK)");
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                 Quaternion.identity);
                 SoundSystemSingleton.Instance.PlaySfxSound(popSound);
@@ -243,12 +243,11 @@ public class bubbleDestroy : MonoBehaviour
     {
         if (evenScript)
         {
-            bM = this.GetComponent<bubbleMath>();
-            int rValue = bM.getrVal();
-            if (checkIfPrime(rValue))
+            bM = this.GetComponent<BubbleMath>();
+            int rValue = bM.GetrVal();
+            if (CheckIfPrime(rValue))
             {
-                //Debug.Log("AUTO-REMOVE FOR: " + rValue + " (PENALTY)");
-                bChange.changeMaterialDown();
+                bChange.ChangeMaterialDown();
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                     Quaternion.identity);
                 SoundSystemSingleton.Instance.PlaySfxSound(popSound);
@@ -258,7 +257,6 @@ public class bubbleDestroy : MonoBehaviour
             }
             else
             {
-                //Debug.Log("AUTO-REMOVE FOR: " + rValue + " (OK)");
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                 Quaternion.identity);
                 SoundSystemSingleton.Instance.PlaySfxSound(popSound);
@@ -277,12 +275,11 @@ public class bubbleDestroy : MonoBehaviour
     {
         if (evenScript)
         {
-            bM = this.GetComponent<bubbleMath>();
-            int rValue = bM.getrVal();
+            bM = this.GetComponent<BubbleMath>();
+            int rValue = bM.GetrVal();
             if (((rValue % 3 == 0) || (rValue % 5 == 0)) && (rValue != 0))
             {
-                Debug.Log("AUTO-REMOVE FOR: " + rValue + " (PENALTY)");
-                bChange.changeMaterialDown();
+                bChange.ChangeMaterialDown();
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                     Quaternion.identity);
                 SoundSystemSingleton.Instance.PlaySfxSound(popSound);
@@ -292,7 +289,6 @@ public class bubbleDestroy : MonoBehaviour
             }
             else
             {
-                Debug.Log("AUTO-REMOVE FOR: " + rValue + " (OK)");
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                 Quaternion.identity);
                 SoundSystemSingleton.Instance.PlaySfxSound(popSound);
@@ -306,8 +302,4 @@ public class bubbleDestroy : MonoBehaviour
             Debug.Log("Even Script not activated");
         }
     }
-
-
-
-
 }

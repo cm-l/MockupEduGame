@@ -1,33 +1,24 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class followClicking : MonoBehaviour
+public class FollowClicking : MonoBehaviour
 {
     public static int scenarioNumber = 0;
-
 
     private void Awake()
     {
         scenarioNumber = Random.Range(0, 4);
     }
 
-    private void Start()
-    {
-
-    }
-
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Ray toMouse = UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit rhInfo;
-            bool didHit = Physics.Raycast(toMouse, out rhInfo, 10f);
+            Ray toMouse = Camera.main.ScreenPointToRay(Input.mousePosition);
+            bool didHit = Physics.Raycast(toMouse, out RaycastHit rhInfo, 10f);
 
             if (didHit)
             {
-                bubbleDestroy destScript = rhInfo.collider.GetComponent<bubbleDestroy>();
+                BubbleDestroy destScript = rhInfo.collider.GetComponent<BubbleDestroy>();
 
                 // Scenario control
                 if (destScript)
@@ -56,20 +47,8 @@ public class followClicking : MonoBehaviour
         }
     }
 
-    public void changeScenario()
-    {
-        scenarioNumber++;
-        Debug.Log("Scenario changed");
-        Debug.Log("Number of scenario: " + scenarioNumber);
-    }
-
-    public int getScenarioNumber()
+    public int GetScenarioNumber()
     {
         return scenarioNumber;
-    }
-
-    public void setBaseScenario()
-    {
-        scenarioNumber = 0;
     }
 }
