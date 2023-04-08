@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6078746024834821021}
   - component: {fileID: 6078746024834821020}
   - component: {fileID: 6078746024834821019}
-  - component: {fileID: 6078746024834821018}
   m_Layer: 0
   m_Name: 3lvl Obstacle
   m_TagString: Wrong
@@ -98,15 +97,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.174, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6078746024834821018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6078746024834821017}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63727b56b59f04745a5a99c0de859ccd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
