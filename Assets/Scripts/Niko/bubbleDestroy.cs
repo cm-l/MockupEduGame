@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class BubbleDestroy : MonoBehaviour
+public class bubbleDestroy : MonoBehaviour
 {
     bool evenScript = true;
     public ParticleSystem ps;
-    BottleChange bChange;
-    BubbleMath bM;
+    bottleChange bChange;
+    bubbleMath bM;
     [SerializeField] private AudioClip popSound;
 
 
     public void Start()
     {
         bChange = GameObject.FindGameObjectWithTag("Bottle").
-            GetComponent<BottleChange>();
+            GetComponent<bottleChange>();
     }
 
     //Scenario 0
@@ -23,7 +23,7 @@ public class BubbleDestroy : MonoBehaviour
     {
         if (evenScript)
         {
-            bM = this.GetComponent<BubbleMath>();
+            bM = this.GetComponent<bubbleMath>();
             int rValue = bM.GetrVal();
             if (rValue % 2 == 0)
             {
@@ -59,7 +59,7 @@ public class BubbleDestroy : MonoBehaviour
     {
         if (evenScript)
         {
-            bM = this.GetComponent<BubbleMath>();
+            bM = this.GetComponent<bubbleMath>();
             int rValue = bM.GetrVal();
             if (rValue % 2 != 0)
             {
@@ -96,7 +96,7 @@ public class BubbleDestroy : MonoBehaviour
     {
         if (evenScript)
         {
-            bM = this.GetComponent<BubbleMath>();
+            bM = this.GetComponent<bubbleMath>();
             int rValue = bM.GetrVal();
             if (CheckIfPrime(rValue))
             {
@@ -132,7 +132,7 @@ public class BubbleDestroy : MonoBehaviour
     {
         if (evenScript)
         {
-            bM = this.GetComponent<BubbleMath>();
+            bM = this.GetComponent<bubbleMath>();
             int rValue = bM.GetrVal();
             if (((rValue % 3 == 0) || (rValue % 5 == 0)) && (rValue != 0))
             {
@@ -179,7 +179,7 @@ public class BubbleDestroy : MonoBehaviour
     {
         if (evenScript)
         {
-            bM = this.GetComponent<BubbleMath>();
+            bM = this.GetComponent<bubbleMath>();
             int rValue = bM.GetrVal();
             if (rValue % 2 == 0)
             {
@@ -211,7 +211,7 @@ public class BubbleDestroy : MonoBehaviour
     {
         if (evenScript)
         {
-            bM = this.GetComponent<BubbleMath>();
+            bM = this.GetComponent<bubbleMath>();
             int rValue = bM.GetrVal();
             if (rValue % 2 != 0)
             {
@@ -243,7 +243,7 @@ public class BubbleDestroy : MonoBehaviour
     {
         if (evenScript)
         {
-            bM = this.GetComponent<BubbleMath>();
+            bM = this.GetComponent<bubbleMath>();
             int rValue = bM.GetrVal();
             if (CheckIfPrime(rValue))
             {
@@ -275,7 +275,7 @@ public class BubbleDestroy : MonoBehaviour
     {
         if (evenScript)
         {
-            bM = this.GetComponent<BubbleMath>();
+            bM = this.GetComponent<bubbleMath>();
             int rValue = bM.GetrVal();
             if (((rValue % 3 == 0) || (rValue % 5 == 0)) && (rValue != 0))
             {

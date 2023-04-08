@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class BubbleMath : MonoBehaviour
+public class bubbleMath : MonoBehaviour
 {
     public int rValue;
     public TextMeshPro bubbleValue;

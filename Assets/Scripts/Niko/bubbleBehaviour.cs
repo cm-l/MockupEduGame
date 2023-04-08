@@ -1,13 +1,13 @@
 using System.Collections;
 using UnityEngine;
 
-public class BubbleBehaviour : MonoBehaviour
+public class bubbleBehaviour : MonoBehaviour
 {
     Rigidbody rb;
     bool isBubbleDead;
     public ParticleSystem ps;
-    BubbleDestroy bDestroy;
-    int scenarioNumber = FollowClicking.scenarioNumber;
+    bubbleDestroy bDestroy;
+    int scenarioNumber = followClicking.scenarioNumber;
 
 
     void Start()
@@ -15,7 +15,7 @@ public class BubbleBehaviour : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody>();
         StartCoroutine(BubbleLifeIndicator());
         isBubbleDead = false;        
-        bDestroy = gameObject.GetComponent<BubbleDestroy>();
+        bDestroy = gameObject.GetComponent<bubbleDestroy>();
     }
 
     void Update()

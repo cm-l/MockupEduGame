@@ -1,14 +1,14 @@
 using System.Collections;
 using UnityEngine;
 
-public class BubbleGenerate : MonoBehaviour
+public class bubbleGenerate : MonoBehaviour
 {
     public GameObject bubble;
-    public int speedModifier;
+    public int speedModifier = 150;
     float timeToWait = 4f; // timer to wait for first bubble
     Vector3 direction;
-    public float dirRangeZ;
-    public float dirMaxY;
+    public float dirRangeZ = 15;
+    public float dirMaxY = 16;
     bool generate = true;
 
     void Start()
@@ -34,10 +34,10 @@ public class BubbleGenerate : MonoBehaviour
         direction = new Vector3(0, 0 +
             randDirectionModifierY, 0 + randDirectionModifierZ);
         GameObject bubbleInstantiated = Instantiate(bubble);
-        bubbleInstantiated.AddComponent(typeof(BubbleBehaviour));
+        bubbleInstantiated.AddComponent(typeof(bubbleBehaviour));
         Rigidbody rb = bubbleInstantiated.GetComponent<Rigidbody>();
         rb.AddForce(rb.position + speedModifier * Time.deltaTime * direction);
-        bubbleInstantiated.AddComponent(typeof(BubbleMath));
+        bubbleInstantiated.AddComponent(typeof(bubbleMath));
         bubbleInstantiated.transform.position = new Vector3(x, y, z);
     }
 
@@ -65,4 +65,8 @@ public class BubbleGenerate : MonoBehaviour
         generate = false;
     }
 
+    public void BubbleSlowDown()
+    {
+        speedModifier /= 2;
+    }
 }

@@ -16,31 +16,35 @@ public class GameManager : MonoBehaviour
 {
     int bottleMaterialNumber;
     int scenarioNumber;
-    BottleChange bChange_N;
+    bottleChange bChange_N;
     GameObject gmTextUI;
     TextMeshProUGUI textUI;
     TextMeshProUGUI userTask;
     GameObject cauldron;
-    FollowClicking fClicking;
+    followClicking fClicking;
     [SerializeField] private AudioClip gameMusicSound;
     [SerializeField] private AudioClip successSound;
     bool inGameMode;
-    float deltaTime;
+    int avgFrameRate;
+    bool checkFPS;
+    int fpsTarget;
+
 
 
 
     void Start()
     {
         Screen.SetResolution(1920, 1080, true);
-        Application.targetFrameRate = 60;
+        fpsTarget = 60;
+        Application.targetFrameRate = fpsTarget;
         bChange_N = GameObject.FindGameObjectWithTag("Bottle").
-            GetComponent<BottleChange>();
+            GetComponent<bottleChange>();
         gmTextUI = GameObject.Find("textUI");
         textUI = gmTextUI.GetComponent<TextMeshProUGUI>();
         userTask = GameObject.Find("User Task").GetComponent<TextMeshProUGUI>();
         userTask.enabled = false;
         cauldron = GameObject.Find("SD_Prop_Cauldron_01");
-        fClicking = cauldron.GetComponent<FollowClicking>();
+        fClicking = cauldron.GetComponent<followClicking>();
         scenarioNumber = fClicking.GetScenarioNumber();
 
         // Choose the right intoduction text for given scenario
@@ -72,7 +76,8 @@ public class GameManager : MonoBehaviour
         textUI.enabled = true;
         StartCoroutine(DisableTextAndPlayMusic());
         inGameMode = true;
-
+        checkFPS = true;
+        Invoke("SetSpeedModifier", 4.1f);
     }
 
 
@@ -96,9 +101,15 @@ public class GameManager : MonoBehaviour
         }
 
         // Check FPS
-        deltaTime += (Time.deltaTime - deltaTime) * 0.1f;
-        float fps = 1.0f / deltaTime;
-        Debug.Log("FPS: " + deltaTime);
+        if (checkFPS)
+        {
+            float current = (int)(1f / Time.unscaledDeltaTime); ;
+            current = Time.frameCount / Time.time;
+            avgFrameRate = (int)current;
+            Invoke("StopCheckingFPS", 4f);
+        }
+
+
     }
 
     IEnumerator DisableTextAndPlayMusic()
@@ -125,9 +136,9 @@ public class GameManager : MonoBehaviour
         GameObject[] bubbles = GameObject.FindGameObjectsWithTag("Bubble");
         foreach (GameObject bubble in bubbles)
         {
-            bubble.GetComponentInParent<BubbleBehaviour>().PopBubble();
+            bubble.GetComponentInParent<bubbleBehaviour>().PopBubble();
         }
-        cauldron.GetComponent<BubbleGenerate>().StopGenerating();
+        cauldron.GetComponent<bubbleGenerate>().StopGenerating();
         Invoke("PrepareForSummary", 1f);
     }
 
@@ -139,6 +150,24 @@ public class GameManager : MonoBehaviour
         SoundSystemSingleton.Instance.PlayOtherSound(successSound);
     }
 
+    void StopCheckingFPS()
+    {
+        checkFPS = false;
+    }
+
+    void SetSpeedModifier()
+    {
+        if (!checkFPS)
+        {
+            Debug.Log("Setting speed modifier");
+            Debug.Log("FPS:" + avgFrameRate);
+            if (avgFrameRate <= 30)
+            {
+                fpsTarget = 30;
+                gameObject.GetComponent<bubbleGenerate>().BubbleSlowDown();
+            }
+        }
+    }
 
 }
 

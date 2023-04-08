@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BottleChange : MonoBehaviour
+public class bottleChange : MonoBehaviour
 {
     GameObject gm;
     MeshRenderer mr;
