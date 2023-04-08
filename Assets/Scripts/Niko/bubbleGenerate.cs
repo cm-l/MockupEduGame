@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class BubbleGenerate : MonoBehaviour
+public class bubbleGenerate : MonoBehaviour
 {
     public GameObject bubble;
     public int speedModifier = 150;
@@ -34,10 +34,10 @@ public class BubbleGenerate : MonoBehaviour
         direction = new Vector3(0, 0 +
             randDirectionModifierY, 0 + randDirectionModifierZ);
         GameObject bubbleInstantiated = Instantiate(bubble);
-        bubbleInstantiated.AddComponent(typeof(BubbleBehaviour));
+        bubbleInstantiated.AddComponent(typeof(bubbleBehaviour));
         Rigidbody rb = bubbleInstantiated.GetComponent<Rigidbody>();
         rb.AddForce(rb.position + speedModifier * Time.deltaTime * direction);
-        bubbleInstantiated.AddComponent(typeof(BubbleMath));
+        bubbleInstantiated.AddComponent(typeof(bubbleMath));
         bubbleInstantiated.transform.position = new Vector3(x, y, z);
     }
 

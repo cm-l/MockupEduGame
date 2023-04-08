@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class FollowClicking : MonoBehaviour
+public class followClicking : MonoBehaviour
 {
     public static int scenarioNumber = 0;
 
@@ -18,7 +18,7 @@ public class FollowClicking : MonoBehaviour
 
             if (didHit)
             {
-                BubbleDestroy destScript = rhInfo.collider.GetComponent<BubbleDestroy>();
+                bubbleDestroy destScript = rhInfo.collider.GetComponent<bubbleDestroy>();
 
                 // Scenario control
                 if (destScript)

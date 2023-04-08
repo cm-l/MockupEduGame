@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BillboardScript : MonoBehaviour
+public class billboardScript : MonoBehaviour
 {
     Vector3 cameraPosition;
 
