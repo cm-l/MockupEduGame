@@ -79,6 +79,11 @@ public class ClickAction : MonoBehaviour
                     //Check just how much HP the player ends the turn with
                     ManagerSingleton.Instance.endedTurnWithHealth = ManagerSingleton.Instance.playerCurrentHealth - ManagerSingleton.Instance.playerBlockade;
 
+                    if (enemy.poisonAmount > 0)
+                    {
+                        enemy.takePoisonDamage();
+                    }
+
                     // Engage enemy action
                     // If it is alive
                     if (!enemy.isEnemyDead && hasTheEnemyActed == false)

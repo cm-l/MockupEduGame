@@ -114,6 +114,11 @@ public class PotionLogic : MonoBehaviour
             {
                 blockPotion((int)scriptablePotion.value[i]);
             }
+
+            if (scriptablePotion.effect[i] == "toxic")
+            {
+                toxicPotion((int)scriptablePotion.value[i]);
+            }
         }
     }
 
@@ -158,6 +163,11 @@ public class PotionLogic : MonoBehaviour
 
     public void blockPotion(int block)
     {
-        ManagerSingleton.Instance.Block(block); //BUGGED
+        ManagerSingleton.Instance.Block(block); //BUGGED?
+    }
+
+    public void toxicPotion(int toxin)
+    {
+        enemy.poisonAmount += toxin;
     }
 }
