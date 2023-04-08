@@ -1,6 +1,7 @@
 using UnityEngine;
 
 public class CameraEyes : MonoBehaviour {
+    
     public Transform player;
     Vector3 offset;
 

@@ -1,34 +1,33 @@
-using System.Collections;
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
-public class Settings : MonoBehaviour
-{
+
+public class Settings : MonoBehaviour {
+
     public static int screenWidth = 1920;
     public static int screenHeight = 1080;
-    
-    public Texture2D cursorTexture;
+ 
     public static float mouseSensitivity;
 
     private static bool gamePaused;
 
     [SerializeField] private AudioClip gameMusic;
-    void Start()
-    {
+
+    void Start() {
         gamePaused = false;
 
-        Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
         mouseSensitivity = 1f;
 
         SoundSystemSingleton.Instance.PlayMusicSound(gameMusic);
-        SoundSystemSingleton.Instance.ChangeMusicVolume(0.2f);
+        SoundSystemSingleton.Instance.ChangeMusicVolume(1f);
         
         Screen.SetResolution(screenWidth, screenHeight, true);    
     }
     
-
     [SerializeField] private Canvas gamePauseCanvas;
     void Update() {
+        // <<<<< PAUZOWANIE GRY >>>>>
         if(Input.GetKeyDown(KeyCode.Escape) && gamePaused)
             ResumeGame();
         else if (Input.GetKeyDown(KeyCode.Escape)) 
@@ -43,14 +42,18 @@ public class Settings : MonoBehaviour
             gamePauseCanvas.gameObject.SetActive(false);
         }
 
-        /*
-        float mouseX = Input.GetAxis("Mouse X");
-        float mouseY = Input.GetAxis("Mouse Y");
-
-        float sensitivityX = mouseX * sensitivity;
-        float sensitivityY = mouseY * sensitivity;
-        */
+        // <<<<< ... >>>>>
     }
+
+    // TODO: NAPRAWIƒÜ, ≈ªEBY NIE DA≈ÅO SIƒò ODPALIƒÜ PAUZY W MENU GRY
+    private static void PauseGame() {
+        gamePaused = true;
+    }
+
+    public static void ResumeGame() {
+        gamePaused = false;
+    }
+
     public static void ChangeMouseSensivity(float mouseSensValue) {
         mouseSensitivity = mouseSensValue;
     }
@@ -60,19 +63,8 @@ public class Settings : MonoBehaviour
         Screen.SetResolution(height, width, true);
     }
 
-    // Ta metoda jest na razie bezuøyteczna i pewnie przez d≥uøszy czas bÍdzie
+    // Ta metoda jest na razie bezu≈ºyteczna i pewnie przez d≈Çu≈ºszy czas bƒôdzie
     public static void SwitchLanguage(string lang) {
         Debug.Log("Lanuage set to " + lang);
     }
-
-    // TODO: NAPRAWI∆ ØEBY NIE DA£O SI  ODPALI∆ PAUZY W MENU GRY
-    private static void PauseGame() {
-        gamePaused = true;
-    }
-
-    public static void ResumeGame() {
-        gamePaused = false;
-    }
-
-
 }

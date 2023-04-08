@@ -1,81 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
+using System.Collections;
 using UnityEngine.UI;
+using UnityEngine;
 using TMPro;
 
+
 public class ButtonManager : MonoBehaviour {
+
     [SerializeField] private Canvas choiceCanvas;
     [SerializeField] private AudioClip buttonClickSfx;
 
     public void ShowCanvas(Canvas canvasToShow) {
         canvasToShow.gameObject.SetActive(true);
-    }
-
-    public void PlayButton() {
-        SoundSystemSingleton.Instance.PlaySfxSound(buttonClickSfx);
-
-        // Schowanie canvasu menu
-        transform.parent.parent.gameObject.SetActive(false);
-        
-        // Wyœwietlenie po chwili informacji o mo¿liwoœci pójœcia do sklepu / wylosowania minigierki
-        ShowCanvas(choiceCanvas);
-    }
-
-    public void OptionsButton() {
-        SoundSystemSingleton.Instance.PlaySfxSound(buttonClickSfx);
-
-        // Schowanie canvasu menu
-        transform.parent.parent.gameObject.SetActive(false);
-
-        // Wyœwietlenie canvasu Settings
-        ShowCanvas(choiceCanvas);
-    }
-
-    public void QuitButton() {
-        SoundSystemSingleton.Instance.PlaySfxSound(buttonClickSfx);
-
-        // WYœwietlenie potwierdzenia chêci wyjœcia
-
-        // Wyjœcie z aplikacji
-        // Application.Quit();
-
-        // Schowanie canvasu menu
-        transform.parent.parent.gameObject.SetActive(false);
-
-        // Pokazanie canvasu potwierdzenia
-        ShowCanvas(choiceCanvas);
-    }
-
-    public void YesLeaveButton() {
-        Application.Quit();
-    }
-
-    public void NoLeaveButton() {
-        // Schowanie canvasu potwierdzenia
-        transform.parent.parent.gameObject.SetActive(false);
-
-        // Przywrócenie menu
-        ShowCanvas(choiceCanvas);
-    }
-
-    public void ShopButton() {
-        SoundSystemSingleton.Instance.PlaySfxSound(buttonClickSfx);
-
-        // Schowanie canvasu wyboru sklepu / minigry
-        transform.parent.gameObject.SetActive(false);
-
-        // W³¹czenie animacji i przejœcie do sceny sklepu
-        Invoke("SwitchToShop", 2f);
-    }
-
-    public void GameButton() {
-        SoundSystemSingleton.Instance.PlaySfxSound(buttonClickSfx);
-
-        // Schowanie canvasu wyboru sklepu / minigry
-        transform.parent.gameObject.SetActive(false);
-        Invoke("RandomizeScene", 2f);
     }
 
     public void BackButton() {
@@ -86,10 +23,71 @@ public class ButtonManager : MonoBehaviour {
         ShowCanvas(choiceCanvas);
     }
 
-    private void RandomizeScene() {
+    
+
+    // <<<<< PLAY / OPTIONS / QUIT >>>>>
+    public void PlayButton() {
         SoundSystemSingleton.Instance.PlaySfxSound(buttonClickSfx);
 
-        TransitionScript.RandomizeScene();
+        // Schowanie canvasu menu
+        transform.parent.parent.gameObject.SetActive(false);
+        
+        // WyÅ›wietlenie po chwili informacji o moÅ¼liwoÅ›ci pÃ³jÅ›cia do sklepu / wylosowania minigierki
+        ShowCanvas(choiceCanvas);
+    }
+
+    public void OptionsButton() {
+        SoundSystemSingleton.Instance.PlaySfxSound(buttonClickSfx);
+
+        // Schowanie canvasu menu
+        transform.parent.parent.gameObject.SetActive(false);
+
+        // WyÅ›wietlenie canvasu Options
+        ShowCanvas(choiceCanvas);
+    }
+
+    public void QuitButton() {
+        SoundSystemSingleton.Instance.PlaySfxSound(buttonClickSfx);
+
+        // Schowanie canvasu menu
+        transform.parent.parent.gameObject.SetActive(false);
+
+        // Pokazanie canvasu potwierdzenia wyjÅ›cia z gry
+        ShowCanvas(choiceCanvas);
+    }
+
+    // <<<<< LEAVE CONFIRMATION >>>>>
+    public void YesLeaveButton() {
+        Application.Quit();
+    }
+
+    public void NoLeaveButton() {
+        // Schowanie canvasu potwierdzenia wyjÅ›cia z gry
+        transform.parent.parent.gameObject.SetActive(false);
+
+        // PrzywrÃ³cenie menu
+        ShowCanvas(choiceCanvas);
+    }
+
+    // <<<<< SHOP / ADVENTURE >>>>>
+    public void ShopButton() {
+        SoundSystemSingleton.Instance.PlaySfxSound(buttonClickSfx);
+
+        // Schowanie canvasu wyboru sklepu / minigry
+        transform.parent.gameObject.SetActive(false);
+
+        // WÅ‚Ä…czenie animacji i przejÅ›cie do sceny sklepu
+        Invoke("SwitchToShop", 2f);
+    }
+
+    public void GameButton() {
+        SoundSystemSingleton.Instance.PlaySfxSound(buttonClickSfx);
+
+        // Schowanie canvasu wyboru sklepu / minigry
+        transform.parent.gameObject.SetActive(false);
+
+        // Wylosowanie sceny gry
+        Invoke("RandomizeGameScene", 2f);
     }
 
     private void SwitchToShop() {
@@ -98,68 +96,26 @@ public class ButtonManager : MonoBehaviour {
         SceneManager.LoadSceneAsync("Shop");
     }
 
-    [SerializeField] private GameObject buttonToShow;
-    [SerializeField] private GameObject buttonToHide;
-    public void MusicOnButton() {
-        SoundSystemSingleton.Instance.StopTheMusic();
-
-        // Wy³¹cza siebie
-        buttonToHide.SetActive(false);
-
-        // W³¹cza ButtonOff
-        buttonToShow.SetActive(true);
-    }
-
-    public void MusicOffButton() {
-        SoundSystemSingleton.Instance.PlayTheMusicAgain();
-
-        // Wy³¹cza siebie
-        buttonToHide.SetActive(false);
-
-        // W³¹cza ButtonOn
-        buttonToShow.SetActive(true);
-    }
-
-    public void SoundOnButton() {
-        SoundSystemSingleton.Instance.TurnOffSound();
-
-        // Wy³¹cza siebie
-        buttonToHide.SetActive(false);
-
-        // W³¹cza ButtonOff
-        buttonToShow.SetActive(true);
-    }
-
-    public void SoundOffButton() {
-        SoundSystemSingleton.Instance.TurnOnSound();
-
-        // Wy³¹cza siebie
-        buttonToHide.SetActive(false);
-
-        // W³¹cza ButtonOn
-        buttonToShow.SetActive(true);
-    }
-
-    public void BackToTunnelButton() {
+    private void RandomizeGameScene() {
         SoundSystemSingleton.Instance.PlaySfxSound(buttonClickSfx);
 
-        // Wy³¹czeniu canvasu 'sartowego'
-        TransitionScript.cameFromAnotherScene = true;
-
-        // Powrót do tunelu
-        SceneManager.LoadSceneAsync("TransitionScene");
+        TransitionScript.RandomizeGameScene();
     }
+
+    // <<<<< LANG / SCREEN SIZE / SOUND / MUSIC / MOUSE SENSIVITY >>>>>
+    [SerializeField] private GameObject buttonToShow;
+    [SerializeField] private GameObject buttonToHide;
 
     public void PolishButton() {
         SoundSystemSingleton.Instance.PlaySfxSound(buttonClickSfx);
 
-        // Wy³¹cza siebie
+        // WyÅ‚Ä…cza siebie
         buttonToHide.SetActive(false);
 
-        // W³¹cza ButtonOn
+        // WÅ‚Ä…cza analogiczny, drugi przycisk
         buttonToShow.SetActive(true);
         
-        // "Zmienia jêzyk"
+        // "Zmienia jÄ™zyk"
         Settings.SwitchLanguage("english");
 
     }
@@ -167,59 +123,106 @@ public class ButtonManager : MonoBehaviour {
     public void EnglishButton() {
         SoundSystemSingleton.Instance.PlaySfxSound(buttonClickSfx);
 
-        // Wy³¹cza siebie
+        // WyÅ‚Ä…cza siebie
         buttonToHide.SetActive(false);
 
-        // W³¹cza ButtonOn
+        // WÅ‚Ä…cza analogiczny, drugi przycisk
         buttonToShow.SetActive(true);
 
-        // "Zmienia jêzyk"
+        // "Zmienia jÄ™zyk"
         Settings.SwitchLanguage("polish");
     }
 
-    public void ResumeGameButton() {
-        Settings.ResumeGame();
-    }
-
-    public void BackToMenuButton() {
-        // Wy³¹czeniu canvasu 'sartowego'
-        TransitionScript.cameFromAnotherScene = false;
-
-        // Powrót do tunelu
-        SceneManager.LoadSceneAsync("TransitionScene");
-    }
-
-    // DROPDOWNY
-    public void ScreenSizeDropdownChange(int index)
-    {
-        switch (index)
-        {
+    public void ScreenSizeDropdownChange(int index) {
+        switch (index) {
             case 0: Settings.ChangeScreenSize(1920, 1080); break;
             case 1: Settings.ChangeScreenSize(1366, 768); break;
             case 2: Settings.ChangeScreenSize(800, 600); break;
         }
     }
 
+    public void MusicOnButton() {
+        SoundSystemSingleton.Instance.StopTheMusic();
 
-    // Slidery
+        // WyÅ‚Ä…cza siebie
+        buttonToHide.SetActive(false);
+
+        // WÅ‚Ä…cza analogiczny, drugi przycisk
+        buttonToShow.SetActive(true);
+    }
+
+    public void MusicOffButton() {
+        SoundSystemSingleton.Instance.PlayTheMusicAgain();
+
+        // WyÅ‚Ä…cza siebie
+        buttonToHide.SetActive(false);
+
+        // WÅ‚Ä…cza analogiczny, drugi przycisk
+        buttonToShow.SetActive(true);
+    }
+
+    public void SoundOnButton() {
+        SoundSystemSingleton.Instance.TurnOffSound();
+
+        // WyÅ‚Ä…cza siebie
+        buttonToHide.SetActive(false);
+
+        // WÅ‚Ä…cza analogiczny, drugi przycisk
+        buttonToShow.SetActive(true);
+    }
+
+    public void SoundOffButton() {
+        SoundSystemSingleton.Instance.TurnOnSound();
+
+        // WyÅ‚Ä…cza siebie
+        buttonToHide.SetActive(false);
+
+        // WÅ‚Ä…cza analogiczny, drugi przycisk
+        buttonToShow.SetActive(true);
+    }
+   
     [SerializeField] private Slider musicVolumeSlider;
+
     public void MusicVolumeSlider() {
         Debug.Log("Music volume value: " + musicVolumeSlider.value);
         SoundSystemSingleton.Instance.ChangeMusicVolume(musicVolumeSlider.value);
     }
 
     [SerializeField] private Slider soundVolumeSlider;
+
     public void SoundVolumeSlider() {
         Debug.Log("Sound volume value: " + soundVolumeSlider.value);
         SoundSystemSingleton.Instance.ChangeSoundVolume(soundVolumeSlider.value);
     }
 
     [SerializeField] private Slider mouseSensivitySlider;
+
     public void MouseSensivitySlider() {
         Debug.Log("Mouse sens value: " + mouseSensivitySlider.value);
         Settings.ChangeMouseSensivity(mouseSensivitySlider.value);
     }
 
+    // <<<<< GAME PAUSE >>>>>
+    public void ResumeGameButton() {
+        Settings.ResumeGame();
+    }
 
+    public void BackToMenuButton() {
+        // WyÅ‚Ä…czenie canvasu 'startowego'
+        TransitionScript.cameFromAnotherScene = false;
 
+        // PowrÃ³t do tunelu
+        SceneManager.LoadSceneAsync("TransitionScene");
+    }
+
+    // Metoda do wracanka np. ze sklepu
+    public void BackToTunnelButton() {
+        SoundSystemSingleton.Instance.PlaySfxSound(buttonClickSfx);
+
+        // WyÅ‚Ä…czenie canvasu 'startowego' (play / options / quit)
+        TransitionScript.cameFromAnotherScene = true;
+
+        // PowrÃ³t do tunelu
+        SceneManager.LoadSceneAsync("TransitionScene");
+    } 
 }

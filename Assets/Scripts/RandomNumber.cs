@@ -1,9 +1,9 @@
-using System.Collections;
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
-public class RandomNumber : MonoBehaviour
-{
+public class RandomNumber : MonoBehaviour {
+
     public static int[] AdditionEquation() {
         int firstEquationNumber;
         int resultEquationNumber;
@@ -20,11 +20,10 @@ public class RandomNumber : MonoBehaviour
     public static int[] SubtractionEquation() {
         int firstEquationNumber;
         int resultEquationNumber;
-        do
-        {
+        do {
             firstEquationNumber = Random.Range(1, 21);
             resultEquationNumber = Random.Range(1, 21);
-        } while (firstEquationNumber < resultEquationNumber);
+        } while(firstEquationNumber < resultEquationNumber);
 
         int secondEquationNumber = firstEquationNumber - resultEquationNumber;
 

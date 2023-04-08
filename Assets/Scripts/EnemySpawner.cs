@@ -1,10 +1,11 @@
-using UnityEngine;
-using TMPro;
+using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine.SceneManagement;
+using UnityEngine;
+using TMPro;
 
 public class EnemySpawner : MonoBehaviour {
+    
     private string activeSceneName;
     GroundSpawner groundSpawner;
 
@@ -32,7 +33,6 @@ public class EnemySpawner : MonoBehaviour {
        
     private static GameObject[] spawnPoints = new GameObject[3];
     public void SpawnNumbersAndEnemies() {
-        
         int[] equationNumbers = new int[3];
         
         switch (activeSceneName) {
@@ -99,7 +99,6 @@ public class EnemySpawner : MonoBehaviour {
     public GameObject numberPrefab;
 
     private void SpawnEnemies(GameObject[] spawnPoints, int rndCorrectNumIndex, int[] displayedNumbers) {
-        
         for (int i = 0; i < spawnPoints.Length; i++){
             Transform spawnPoint = transform.GetChild(i + 2).transform;
             Vector3 newPosition = new Vector3(spawnPoint.position.x, spawnPoint.position.y + (float)1.15, spawnPoint.position.z - 0.1f);
@@ -116,6 +115,7 @@ public class EnemySpawner : MonoBehaviour {
             Transform spawnPointEnemy = transform.GetChild(i + 2).transform; // get the child transform at the current index
             Vector3 newPositionEnemy = new Vector3(spawnPointEnemy.position.x, spawnPointEnemy.position.y + (float)1.15, spawnPointEnemy.position.z);
             spawnPoints[i] = Instantiate(obstaclePrefab, newPositionEnemy, Quaternion.Euler(0, 0, 180), transform);
+            
             if (i == rndCorrectNumIndex) {
                 spawnPoints[i].gameObject.tag = "Good";
             }

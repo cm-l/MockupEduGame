@@ -1,10 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
+using System.Collections;
+using UnityEngine;
 
 public class LevelLoader : MonoBehaviour {
-    private int numberOfRowsBeforeChange = 10; // wcze�niej 10!
+    
+    private int numberOfRowsBeforeChange = 10; // Ile szeregów przeciwników
 
     void Update() {
         // Tu nastepuje zmiana sceny na kolejne "dzialanie"
@@ -14,15 +15,15 @@ public class LevelLoader : MonoBehaviour {
         }
     }
 
-    public Animator transition;
-    public float transitionTime = 2f;
+    [SerializeField] private Animator transition;
+    [SerializeField] private int transitionTime = 2;
 
     IEnumerator LoadNextLevelWithDelay() {
-        // Odtwarzanie animacji przez 2 sekundy
+        // Odtwarzanie animacji przez [transitionTime] sekund
         transition.SetTrigger("Start");
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(transitionTime);
 
-        // Zmiana sceny
+        // Zmiana sceny + | - | * | /
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

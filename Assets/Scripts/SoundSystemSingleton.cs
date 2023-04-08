@@ -23,19 +23,6 @@ public class SoundSystemSingleton : MonoBehaviour
         // end of singleton pattern
     }
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void PlaySfxSound(AudioClip clip)
     {
         sfxSource.PlayOneShot(clip);

@@ -17,7 +17,7 @@ public class RunningResults : MonoBehaviour
     [SerializeField] private static int subtractionScore = 0;
     [SerializeField] private static int multiplicationScore = 0;
     [SerializeField] private static int divisionScore = 0;
-    // Start is called before the first frame update
+    
     void Start() {
         additionScoreBox = GameObject.Find("AdditionScoreBox").GetComponent<TextMeshProUGUI>();
         subtractionScoreBox = GameObject.Find("SubtractionScoreBox").GetComponent<TextMeshProUGUI>();

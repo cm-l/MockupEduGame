@@ -1,6 +1,7 @@
 using UnityEngine;
 
 public class GroundSpawner : MonoBehaviour {
+    
     public GameObject groundTile;
     Vector3 nextSpawnPoint = new Vector3(0, 0, 12);
 
@@ -11,10 +12,9 @@ public class GroundSpawner : MonoBehaviour {
             SpawnTile();
     }
     
-    // Tworzy klony pod�ogi
+    // Tworzy klony podłogi
     public void SpawnTile() {
         GameObject temp = Instantiate(groundTile, nextSpawnPoint, Quaternion.identity);
         nextSpawnPoint = temp.transform.GetChild(1).transform.position;
     }
-
 }
