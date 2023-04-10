@@ -40,6 +40,11 @@ public class DeckTracker : MonoBehaviour
         collectedCards.Add(card);
     }
 
+    
+    public void buy(SO_Potion potion) {
+        collectedPotions.Add(potion);
+    }
+
     public void removePotionAt(int index)
     {
         collectedPotions[index] = null;
