@@ -18,7 +18,6 @@ public class ShopPotion : MonoBehaviour
         PriceSetter();
         potionText.SetText(SOPotion.description);
         spriteRenderer.sprite = SOPotion.potionSprite;
-        spriteRenderer.size = new Vector2(10.0f,10.0f);
         
     }
 
@@ -50,6 +49,5 @@ public class ShopPotion : MonoBehaviour
     void PriceSetter() {
         priceText.SetText("$"+SOPotion.costInShop.ToString());
         price = SOPotion.costInShop;
-
     }
 }
