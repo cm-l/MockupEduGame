@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4306983928428967784}
   - component: {fileID: 2329649666658698195}
   m_Layer: 5
-  m_Name: ButtonSwitch
+  m_Name: ButtonSwitch2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
