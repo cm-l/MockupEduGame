@@ -33,7 +33,7 @@ public class ShopPotion : MonoBehaviour
             if (ManagerSingleton.Instance.playerGold >= price) {
              if (didHit)
                 {
-                    Debug.Log(rhInfo.collider.name + " 00000 " + rhInfo.point);
+                    Debug.Log(rhInfo.collider.name + " - " + rhInfo.point);
                     ManagerSingleton.Instance.spendGold(price);
                     DeckTracker.Instance.buy(SOPotion);
                     GameObject go = Instantiate(ps.gameObject, transform.position, Quaternion.identity);
