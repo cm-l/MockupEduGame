@@ -55,6 +55,7 @@ public class ShopCard : MonoBehaviour
         } else { 
             priceText.SetText("$120");
             price = 120;
+
         }
 
     }
