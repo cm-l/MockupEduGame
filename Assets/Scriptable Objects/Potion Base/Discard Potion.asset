@@ -15,7 +15,7 @@ MonoBehaviour:
   nameOfPotion: Discard Potion
   description: This potion discards all cards in your hand and draws you a new hand.
     Tastes like gasoline, yuck!
-  potionSprite: {fileID: 21300000, guid: 5541f9226e5bfad47897449a01520fbd, type: 3}
+  potionSprite: {fileID: 21300000, guid: 16a72c658bc668347b3118803ba42b35, type: 3}
   costInShop: 150
   effect:
   - hand

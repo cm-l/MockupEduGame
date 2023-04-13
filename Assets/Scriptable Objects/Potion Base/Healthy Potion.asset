@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameOfPotion: Healthy Potion
   description: This potion heals you! Is this stuff ambrosia?
-  potionSprite: {fileID: 21300000, guid: 463195ae1504ef44ca962b1943dd8b7f, type: 3}
+  potionSprite: {fileID: 21300000, guid: 173a07169c13f9846a85ed34924de11c, type: 3}
   costInShop: 150
   effect:
   - heal
