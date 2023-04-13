@@ -16,7 +16,6 @@ MonoBehaviour:
   uniqueActionDescriptor: 
   uniqueActionSuffix: That's a lot of damage.
   playSound: {fileID: 0}
-  cardText: Deal 20 damage!
   damageNumber: 20
   offensiveAction: 0
   healAmount: 0
@@ -24,7 +23,5 @@ MonoBehaviour:
   barricadeAmount: 0
   drawAmount: 0
   sacrificeAmount: 0
-  payAmount: 0
   cost: 3
   rarity: 0
-  specialCardFunctions: []

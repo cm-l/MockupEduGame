@@ -16,7 +16,6 @@ MonoBehaviour:
   uniqueActionDescriptor: 
   uniqueActionSuffix: TESTSGYSGYG
   playSound: {fileID: 8300000, guid: b50885ccad89ce742a6bfd55a07a35de, type: 3}
-  cardText: 'This is a test card. : )'
   damageNumber: 1
   offensiveAction: 0
   healAmount: 0
@@ -27,7 +26,3 @@ MonoBehaviour:
   payAmount: 0
   cost: 0
   rarity: 0
-  effect:
-  - toxic
-  value:
-  - 5
