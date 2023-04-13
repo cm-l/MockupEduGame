@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -585,11 +585,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e0bc20953f17d746891655913579a81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 0}
+  SOcard: {fileID: 11400000, guid: 1192ccbf7424cc84f810d45c8802c2f4, type: 2}
+  destroyThisCard: {fileID: 326671061}
   priceText: {fileID: 1233701222}
   cardText: {fileID: 1421688973}
   coll: {fileID: 293117198}
-  price: 5
+  ps: {fileID: 8435480755830404877, guid: 775bba75a75bc1e44bae9650b53296d3, type: 3}
 --- !u!65 &293117198
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -687,6 +688,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a07fbe7feb5896a489733b3f1ba6fbcc, type: 2}
   - {fileID: 11400000, guid: 31bf0b7aa9eb52347bdbbd1454ddda75, type: 2}
   - {fileID: 11400000, guid: 72ee9d5d1f459064687469a0d44ac411, type: 2}
+  collectedPotions: []
   burnedCard: {fileID: 11400000, guid: 92eea3160106a3448b86672ad64558cf, type: 2}
 --- !u!4 &344610270
 Transform:
@@ -3313,11 +3315,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e0bc20953f17d746891655913579a81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 0}
+  SOcard: {fileID: 11400000, guid: fd2cab928e224c94d8b15991ccfb3dde, type: 2}
+  destroyThisCard: {fileID: 1426171192}
   priceText: {fileID: 1000723386}
   cardText: {fileID: 1248234838}
   coll: {fileID: 1402734536}
-  price: 5
+  ps: {fileID: 8435480755830404877, guid: 775bba75a75bc1e44bae9650b53296d3, type: 3}
 --- !u!65 &1402734536
 BoxCollider:
   m_ObjectHideFlags: 0
