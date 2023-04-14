@@ -5,18 +5,19 @@ using TMPro;
 
 public class ShopCard : MonoBehaviour
 {
-
-    public SO_Card card;
+    public SO_Card SOcard;
+    public GameObject destroyThisCard;
     public TextMeshPro priceText;
     public TextMeshPro cardText;
     public Collider coll;
-    public int price = 5;
+    public ParticleSystem ps;
+    private int price;
 
     // Start is called before the first frame update
     void Start()
     {
         PriceSetter();
-        cardText.SetText(card.uniqueActionSuffix);        
+        cardText.SetText(SOcard.uniqueActionSuffix);        
     }
 
     // Update is called once per frame
@@ -33,14 +34,30 @@ public class ShopCard : MonoBehaviour
                 {
                     Debug.Log(rhInfo.collider.name + " 00000 " + rhInfo.point);
                     ManagerSingleton.Instance.spendGold(price);
+                    DeckTracker.Instance.buy(SOcard);
+                    GameObject go = Instantiate(ps.gameObject, transform.position, Quaternion.identity);
+                    Destroy(go, 5.0f);
+                    Destroy(destroyThisCard);
+                  
              }
             }
             
         }
     }
-
-//skdfjksf
+    
     void PriceSetter() {
-        priceText.SetText("$"+price.ToString());
+        if (SOcard.rarity == Rarity.rare) {
+            priceText.SetText("$240");
+            price = 240;
+        } else if (SOcard.rarity == Rarity.special) {
+            priceText.SetText("$500");
+            price = 500;
+        } else { 
+            priceText.SetText("$120");
+            price = 120;
+
+        }
+
     }
+
 }

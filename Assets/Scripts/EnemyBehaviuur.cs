@@ -30,6 +30,13 @@ public class EnemyBehaviuur : MonoBehaviour
     //Damage noise
     private AudioClip damageSfx;
 
+    //Modifiers
+    public float weaknessMod = 1.0f;
+    public float vulnMod = 1.0f;
+
+    //Status effects
+    public int poisonAmount = 0;
+
     private void Awake()
     {
         displayedNumber = transform.GetChild(0).GetComponent<TextMeshPro>();
@@ -124,7 +131,7 @@ public class EnemyBehaviuur : MonoBehaviour
 
     public void enemyActionAttack()
     {
-        ManagerSingleton.Instance.playerCurrentHealth -= damageCapability;
+        ManagerSingleton.Instance.playerCurrentHealth -= Mathf.RoundToInt(damageCapability * weaknessMod);
         SoundSystemSingleton.Instance.PlaySfxSound(damageSfx);
     }
 
@@ -136,5 +143,15 @@ public class EnemyBehaviuur : MonoBehaviour
     public void playEnemyMusicTheme(AudioClip theme)
     {
         SoundSystemSingleton.Instance.PlayMusicSound(theme);
+    }
+
+    public void takeDamage(int amount)
+    {
+        currentNumber -= amount; //TODO add * modifiers
+    }
+
+    public void takePoisonDamage()
+    {
+        currentNumber -= poisonAmount;
     }
 }

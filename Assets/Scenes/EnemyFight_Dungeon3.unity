@@ -313,6 +313,8 @@ MonoBehaviour:
   isEnemyDead: 0
   victorySfx: {fileID: 8300000, guid: 18d1dfc7625c91e499d4c3391bc278e9, type: 3}
   winScreen: {fileID: 1638068021}
+  weaknessMod: 1
+  vulnMod: 1
 --- !u!114 &25074476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -613,6 +615,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a07fbe7feb5896a489733b3f1ba6fbcc, type: 2}
   - {fileID: 11400000, guid: 31bf0b7aa9eb52347bdbbd1454ddda75, type: 2}
   - {fileID: 11400000, guid: 72ee9d5d1f459064687469a0d44ac411, type: 2}
+  collectedPotions: []
   burnedCard: {fileID: 11400000, guid: 92eea3160106a3448b86672ad64558cf, type: 2}
 --- !u!4 &128878589
 Transform:
@@ -3142,7 +3145,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c3a4c7ded977c6241986d33ee3d25449, type: 2}
+  - {fileID: 2100000, guid: 2e4e6666a6c452a4fb2ac12f35638c0a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4573,7 +4576,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 817723818}
   m_LocalRotation: {x: 0.13185546, y: -0.23243754, z: -0.085902095, w: 0.9597957}
-  m_LocalPosition: {x: -0.49503362, y: 1.3525281, z: 0.8926659}
+  m_LocalPosition: {x: -0.473, y: 1.362, z: 0.853}
   m_LocalScale: {x: 0.15263827, y: 0.13765652, z: 0.1303082}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4638,7 +4641,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5ccf847a00ea2014aa6fb65da273e136, type: 2}
+  - {fileID: 2100000, guid: ec8c7618a9c33a14d85f3e274163678e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5148,7 +5151,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 850386133}
   m_LocalRotation: {x: 0.11666981, y: -0.24041885, z: -0.024141498, w: 0.96332973}
-  m_LocalPosition: {x: -0.6536, y: 1.4116, z: 0.801}
+  m_LocalPosition: {x: -0.644, y: 1.416, z: 0.784}
   m_LocalScale: {x: 0.12, y: 0.15, z: 0.15}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9181,6 +9184,7 @@ MonoBehaviour:
   card: {fileID: 0}
   ps: {fileID: 8435480755830404877, guid: a742b1bcb2f588a43ac5d1f095f196a9, type: 3}
   enemy: {fileID: 0}
+  specialDo: {fileID: 0}
 --- !u!114 &1610796602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9452,6 +9456,7 @@ MonoBehaviour:
   card: {fileID: 0}
   ps: {fileID: 8435480755830404877, guid: b6c9ee80eb7455a46bc5bc0c044d5e2a, type: 3}
   enemy: {fileID: 0}
+  specialDo: {fileID: 0}
 --- !u!114 &1648784680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10063,6 +10068,7 @@ MonoBehaviour:
   card: {fileID: 0}
   ps: {fileID: 8435480755830404877, guid: b6c9ee80eb7455a46bc5bc0c044d5e2a, type: 3}
   enemy: {fileID: 0}
+  specialDo: {fileID: 0}
 --- !u!114 &1693060215
 MonoBehaviour:
   m_ObjectHideFlags: 0

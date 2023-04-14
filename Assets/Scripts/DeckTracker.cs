@@ -11,6 +11,9 @@ public class DeckTracker : MonoBehaviour
     //Track the artifacts the player has in their collection
     public List<SO_Artifact> collectedArtifacts;
 
+    // Track collected potions (hard limit?)
+    public List<SO_Potion> collectedPotions;
+
     // The kind of card that is given to the player once they run out of cards
     public SO_Card burnedCard;
 
@@ -31,6 +34,21 @@ public class DeckTracker : MonoBehaviour
         // end of singleton pattern
     }
 
+
+
+    public void buy(SO_Card card) {
+        collectedCards.Add(card);
+    }
+
+    
+    public void buy(SO_Potion potion) {
+        collectedPotions.Add(potion);
+    }
+
+    public void removePotionAt(int index)
+    {
+        collectedPotions[index] = null;
+    }
 
     // Start is called before the first frame update
     void Start()

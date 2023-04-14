@@ -67,4 +67,5 @@ public class DeckAvailable : MonoBehaviour
         // Shuffle deck
         Shuffle<SO_Card>(availableCards);
     }
+
 }

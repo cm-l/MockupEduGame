@@ -32,7 +32,7 @@ public class UIScreenRewardCard : MonoBehaviour
 
         // refer to SO:
         // to set equation displayed on card:
-        transform.GetChild(0).GetComponent<TextMeshProUGUI>().SetText(Card.operationTextSetter(cardScriptableObject));
+        transform.GetChild(0).GetComponent<TextMeshProUGUI>().SetText(cardScriptableObject.cardText);
 
         //Set mana/whatever cost on card display
         transform.GetChild(1).GetComponent<TextMeshProUGUI>().SetText(cardScriptableObject.cost.ToString());

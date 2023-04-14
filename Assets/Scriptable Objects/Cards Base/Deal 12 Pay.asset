@@ -16,6 +16,7 @@ MonoBehaviour:
   uniqueActionDescriptor: 
   uniqueActionSuffix: 
   playSound: {fileID: 8300000, guid: b50885ccad89ce742a6bfd55a07a35de, type: 3}
+  cardText: Deal 12 damage and pay 25 gold.
   damageNumber: 12
   offensiveAction: 0
   healAmount: 0
@@ -26,3 +27,4 @@ MonoBehaviour:
   payAmount: 25
   cost: 2
   rarity: 0
+  specialCardFunctions: []

@@ -1,22 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static SO_Card;
 
-//TODO zmieni� nazw� na co� w stylu Playable, bo u�ywamy tego do grania kart (co j� de facto "niszczy" ale mo�e si� myli�)
+//TODO zmieniďż˝ nazwďż˝ na coďż˝ w stylu Playable, bo uďż˝ywamy tego do grania kart (co jďż˝ de facto "niszczy" ale moďż˝e siďż˝ myliďż˝)
 public class Destroyable : MonoBehaviour
 {
     public Card card;
     public ParticleSystem ps;
     public EnemyBehaviuur enemy;
+    public SpecialCardAction specialDo;
 
     public void Awake()
     {
         card = gameObject.GetComponent<Card>();
         enemy = GameObject.Find("Enemy").GetComponent<EnemyBehaviuur>();
+
+        specialDo = gameObject.GetComponent<SpecialCardAction>();
     }
 
 
-    //TODO mo�e by� na PlayMe() albo DiscardMe()
+    //TODO moďż˝e byďż˝ na PlayMe() albo DiscardMe()
     public void RemoveMe() {
         Debug.Log("Destroyable's remove function is called on " + name);
         GameObject go = Instantiate(ps.gameObject, transform.position, Quaternion.identity);
@@ -33,33 +37,41 @@ public class Destroyable : MonoBehaviour
     public void playThisCard()
     {
 
-        //Odg�os
+        //Odgďż˝os
         SoundSystemSingleton.Instance.PlaySfxSound(card.cardScriptableObject.playSound);
 
         card.hasBeenPlayed = true;
-        //Zmiana warto�ci zdrowia przeciwnika (je�li przewiduje j� karta)
+        //Zmiana wartoďż˝ci zdrowia przeciwnika (jeďż˝li przewiduje jďż˝ karta)
         if (card.cardScriptableObject.offensiveAction != OffensiveAction.none)
         {
             enemy.changeValueByCard(card.cardScriptableObject.damageNumber, card.cardScriptableObject.offensiveAction);
         }
 
-        //Zmniejsz ilo�� many gracza o ilo�� many wymaganej do zagrania karty
+        //Zmniejsz iloďż˝ďż˝ many gracza o iloďż˝ďż˝ many wymaganej do zagrania karty
         ManagerSingleton.Instance.consumeMana(card.cardScriptableObject.cost);
 
-        //Zmiana stanu defensywy gracza (je�li przewiduje j� karta)
+        //Zmiana stanu defensywy gracza (jeďż˝li przewiduje jďż˝ karta)
         ManagerSingleton.Instance.ActivateDefensiveActionFromCard(card.cardScriptableObject.barricadeAmount, card.cardScriptableObject.blockAmount, card.cardScriptableObject.healAmount);
 
-        //Wywo�anie funkcji specjalnej akcji (je�li przewiduje j� karta)
+        //Wywoďż˝anie funkcji specjalnej akcji (jeďż˝li przewiduje jďż˝ karta)
         ManagerSingleton.Instance.ActivateSpecialActionFromCardOnPlayer(card.cardScriptableObject.drawAmount, card.cardScriptableObject.sacrificeAmount, card.cardScriptableObject.payAmount);
 
-        //Wywo�anie funkcji unikatowej akcji (je�li przewiduje j� karta)
+
+        //Wywoďż˝anie funkcji unikatowej akcji (jeďż˝li przewiduje jďż˝ karta)
         //ManagerSingleton.Instance.funkcjaoileistniejetojestwywolywanawtymmiejscu();
 
 
-
+        //Wywołanie funkcji unikatowej akcji (jeśli przewiduje ją karta)
+        if (card.cardScriptableObject.effect.Count > 0 && card.cardScriptableObject.value.Count > 0)
+        {
+            specialDo.doSpecialAction(card.cardScriptableObject);
+        }
+        
+        
         //Usuwanie karty
         RemoveMe();
         card.addToDiscardPile();
+        
     }
 
     public void discardThisCard()

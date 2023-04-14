@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 354c83e016814c34aa8a9468a7607ac4, type: 3}
+  m_Name: Mana Potion
+  m_EditorClassIdentifier: 
+  nameOfPotion: Mana Potion
+  description: This potion gives you more mana. It tastes like a fine... grape juice.
+  potionSprite: {fileID: 21300000, guid: c49c7a1aa8049cf46b71e46393fcf8b5, type: 3}
+  costInShop: 150
+  effect:
+  - mana
+  value:
+  - 1

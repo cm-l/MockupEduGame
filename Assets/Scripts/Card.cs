@@ -45,7 +45,7 @@ public class Card : MonoBehaviour
         // Refer to the discard pile (graveyard)
         discardPile = GameObject.Find("Graveyard").GetComponent<DiscardPile>();
 
-        //Refer to where the card position starts (ju¿ nie pamiêtam po co)
+        //Refer to where the card position starts (juï¿½ nie pamiï¿½tam po co)
         initialPos = transform.position;
 
         // Refer to animation script of card
@@ -120,7 +120,7 @@ public class Card : MonoBehaviour
         }
         catch
         {
-            //TODO zrobiæ coœ z tym!!!!!!!!!! ktoœ m¹drzejszy musi to naprawiæ :(
+            //TODO zrobiï¿½ coï¿½ z tym!!!!!!!!!! ktoï¿½ mï¿½drzejszy musi to naprawiï¿½ :(
             Debug.Log("Card needed at index: " + whichCard);
             Debug.Log("Largest remaining index: (none if -1) " + (deckAvailable.availableCards.Count - 1) + ". Inserting burned card.");
             //Or if there's no more cards in the deck, give the player a "burned" card
@@ -133,7 +133,7 @@ public class Card : MonoBehaviour
         gameObject.GetComponent<MeshRenderer>().material = cardScriptableObject.cardImage;
         // to set equation displayed on card:
         //transform.GetChild(0).GetComponent<TextMeshPro>().SetText(cardScriptableObject.equationDisplayed);
-        transform.GetChild(0).GetComponent<TextMeshPro>().SetText(operationTextSetter(cardScriptableObject));
+        transform.GetChild(0).GetComponent<TextMeshPro>().SetText(cardScriptableObject.cardText);
 
         //Set mana/whatever cost on card display
         transform.GetChild(1).GetComponent<TextMeshPro>().SetText(cardScriptableObject.cost.ToString());
@@ -194,27 +194,5 @@ public class Card : MonoBehaviour
         // Like in: Slay the Spire
         gameObject.GetComponent<Destroyable>().RemoveMe();
         firstTurn = false;
-    }
-
-    // Potion effect
-    public void showSolutionToEquation()
-    {
-        var explainerPrefix = "";
-        var explainerSuffix = "";
-
-        switch (cardScriptableObject.offensiveAction)
-        {
-            case (OffensiveAction.dealDamage):
-                explainerPrefix = "+ ";
-                break;
-            case (OffensiveAction.multiplyByNumber):
-                explainerPrefix = "x ";
-                break;
-            case (OffensiveAction.raiseToPowerOfNumber):
-                explainerSuffix = " ^ ";
-                break;
-        }
-
-        transform.GetChild(0).GetComponent<TextMeshPro>().SetText(explainerPrefix + "(" + cardScriptableObject.damageNumber.ToString() + ")" + explainerSuffix);
     }
 }
