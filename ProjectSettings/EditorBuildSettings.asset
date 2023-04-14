@@ -6,27 +6,36 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/TransitionScene.unity
+    guid: d53c69f4491eeb04581bbfa8a9e37c53
+  - enabled: 1
+    path: Assets/Scenes/EnemyFight_Dungeon1.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
     path: Assets/Scenes/Niko-minigierka/Niko-minigierka.unity
-    guid: 6b821a9e9b01d40e595b2b7d007c65a2
+    guid: a7393997d92f2f346bc344f6d0daaacb
   - enabled: 1
     path: Assets/Scenes/Niko-minigierka/Summary/Summary.unity
     guid: 004e30827b90947818407367e42aeda9
-  - enabled: 0
-    path: Assets/Scenes/EnemyFight_Dungeon1.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 0
-    path: Assets/Scenes/EnemyFight_Dungeon2.unity
-    guid: e77df98db89fa7a47b4365b562b5ce3e
-  - enabled: 0
-    path: Assets/Scenes/EnemyFight_Dungeon3.unity
-    guid: 1f963195bef86424cb1ccfb20377ce4b
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: 2a329988471bf4b68ba84cae3bd6b588
   - enabled: 1
     path: Assets/Scenes/Shop.unity
-    guid: 8019a5dc2a344f74186592be44193572
+    guid: d02799b7a83f42c43ba09397583c634c
+  - enabled: 1
+    path: Assets/Scenes/AdditionScene.unity
+    guid: 091c85b5505fb4446895df80972b3b0b
+  - enabled: 1
+    path: Assets/Scenes/SubtractionScene.unity
+    guid: a0ac27b9d77e4c549b37c016b83b086d
+  - enabled: 1
+    path: Assets/Scenes/MultiplicationScene.unity
+    guid: 6cd13a60a4f18bb489e40e0b93fd12d5
+  - enabled: 1
+    path: Assets/Scenes/DivisionScene.unity
+    guid: 45af512210d67354fbf83e9b3d798bdd
+  - enabled: 1
+    path: Assets/Scenes/RunningResults.unity
+    guid: 61491179cc19cef47a13a500977a4446
   m_configObjects: {}
