@@ -1,38 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
+using System.Collections;
+using UnityEngine;
 
-public class LevelLoader : MonoBehaviour
-{
-    public Animator transition;
-    public float transitionTime = 2f;
+public class LevelLoader : MonoBehaviour {
+    
+    private int numberOfRowsBeforeChange = 10; // Ile szeregów przeciwników
 
-    void Update()
-    {
-        if(Input.GetMouseButtonDown(0))
-        {
-            //LoadNextLevel();
-        }
-
-        if(TMPController.lineController == 10){
-            LoadNextLevel();
+    void Update() {
+        // Tu nastepuje zmiana sceny na kolejne "dzialanie"
+        if(TMPController.rowCounter == numberOfRowsBeforeChange) {
+            StartCoroutine(LoadNextLevelWithDelay());
+            TMPController.rowCounter = 0;
         }
     }
 
-    public void LoadNextLevel()
-    {
-        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
-        TMPController.lineController = 0;
-        
-    }
+    [SerializeField] private Animator transition;
+    [SerializeField] private int transitionTime = 2;
 
-    IEnumerator LoadLevel(int levelIndex)
-    {
+    IEnumerator LoadNextLevelWithDelay() {
+        // Odtwarzanie animacji przez [transitionTime] sekund
         transition.SetTrigger("Start");
-
         yield return new WaitForSeconds(transitionTime);
 
-        SceneManager.LoadScene(levelIndex);
+        // Zmiana sceny + | - | * | /
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
