@@ -28,7 +28,7 @@ public class Settings : MonoBehaviour {
     [SerializeField] private Canvas gamePauseCanvas;
     void Update() {
         // <<<<< PAUZOWANIE GRY >>>>>
-        if(Input.GetKeyDown(KeyCode.Escape) && gamePaused)
+        if (Input.GetKeyDown(KeyCode.Escape) && gamePaused)
             ResumeGame();
         else if (Input.GetKeyDown(KeyCode.Escape)) 
             PauseGame();
