@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 354c83e016814c34aa8a9468a7607ac4, type: 3}
   m_Name: Damage Potion 1
   m_EditorClassIdentifier: 
-  nameOfPotion: Damage Potion
-  description: This potion deals damage. It tastes like tears of your enemies.
+  nameOfPotion: Toxic Potion
+  description: This potion poisons your enemy. Tases like... almonds?
   potionSprite: {fileID: 21300000, guid: 5bf1bf1291469d94092f9ad7b5e9b687, type: 3}
   costInShop: 150
   effect:
-  - harm
+  - toxic
   value:
-  - 20
+  - 6
