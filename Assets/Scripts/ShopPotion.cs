@@ -13,8 +13,10 @@ public class ShopPotion : MonoBehaviour
     public Collider coll;
     public ParticleSystem ps;
     private int price;
+    public List<SO_Potion> listOfAllPotions;
     void Start()
     {
+        SOPotion = listOfAllPotions[Random.Range(0, listOfAllPotions.Count)];
         PriceSetter();
         potionText.SetText(SOPotion.description);
         spriteRenderer.sprite = SOPotion.potionSprite;

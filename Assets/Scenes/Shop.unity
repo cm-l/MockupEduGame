@@ -501,6 +501,7 @@ GameObject:
   - component: {fileID: 293117194}
   - component: {fileID: 293117197}
   - component: {fileID: 293117198}
+  - component: {fileID: 293117199}
   m_Layer: 0
   m_Name: Card
   m_TagString: Untagged
@@ -605,6 +606,14 @@ MonoBehaviour:
   cardText: {fileID: 1421688973}
   coll: {fileID: 293117198}
   ps: {fileID: 8435480755830404877, guid: 775bba75a75bc1e44bae9650b53296d3, type: 3}
+  listOfAllCards:
+  - {fileID: 11400000, guid: 1192ccbf7424cc84f810d45c8802c2f4, type: 2}
+  - {fileID: 11400000, guid: fd2cab928e224c94d8b15991ccfb3dde, type: 2}
+  - {fileID: 11400000, guid: c09d2010e14050346a185ba1d5e2b711, type: 2}
+  - {fileID: 11400000, guid: b873aed5d71119241981b9d5950b9eea, type: 2}
+  - {fileID: 11400000, guid: 69e5ff8e53ba0fd4f8ef4317f30131f5, type: 2}
+  - {fileID: 11400000, guid: 43c137a216d82244488e16c32b6cd2e4, type: 2}
+  - {fileID: 11400000, guid: 92eea3160106a3448b86672ad64558cf, type: 2}
 --- !u!65 &293117198
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -618,6 +627,105 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 6.1232336e-17}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &293117199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293117192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b18d54c83c8b9b459e90d16a28ee025, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardTypes:
+  - {fileID: 11400000, guid: 1192ccbf7424cc84f810d45c8802c2f4, type: 2}
+  - {fileID: 11400000, guid: fd2cab928e224c94d8b15991ccfb3dde, type: 2}
+  - {fileID: 11400000, guid: c09d2010e14050346a185ba1d5e2b711, type: 2}
+  - {fileID: 11400000, guid: fd2cab928e224c94d8b15991ccfb3dde, type: 2}
+  - {fileID: 11400000, guid: b873aed5d71119241981b9d5950b9eea, type: 2}
+  - {fileID: 11400000, guid: 69e5ff8e53ba0fd4f8ef4317f30131f5, type: 2}
+  - {fileID: 11400000, guid: 43c137a216d82244488e16c32b6cd2e4, type: 2}
+  - {fileID: 11400000, guid: 92eea3160106a3448b86672ad64558cf, type: 2}
+  potionTypes: []
+--- !u!1 &297652794
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 297652795}
+  - component: {fileID: 297652797}
+  - component: {fileID: 297652796}
+  m_Layer: 5
+  m_Name: Panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &297652795
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297652794}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.5, y: 0.5, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1605653146}
+  m_Father: {fileID: 899196024}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 1560, y: -850}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &297652796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297652794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 2100000, guid: 8667284c6771b8e4a9395774be462651, type: 2}
+  m_Color: {r: 0.41509432, g: 0.32598665, b: 0.2952652, a: 0.392}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &297652797
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297652794}
+  m_CullTransparentMesh: 1
 --- !u!1 &326671061
 GameObject:
   m_ObjectHideFlags: 0
@@ -2138,7 +2246,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 297652795}
   m_Father: {fileID: 600246161}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2742,6 +2851,7 @@ GameObject:
   - component: {fileID: 1085489979}
   - component: {fileID: 1085489980}
   - component: {fileID: 1085489981}
+  - component: {fileID: 1085489982}
   m_Layer: 0
   m_Name: Potion
   m_TagString: Untagged
@@ -2810,6 +2920,14 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1085489981}
   coll: {fileID: 276433881}
   ps: {fileID: 8435480755830404877, guid: 775bba75a75bc1e44bae9650b53296d3, type: 3}
+  listOfAllPotions:
+  - {fileID: 11400000, guid: 41a1e101fc06b8049923b702ac321fb5, type: 2}
+  - {fileID: 11400000, guid: 692ec50d40fd7f949a89ce42c881228c, type: 2}
+  - {fileID: 11400000, guid: be52684150296cd42ab538037f2f96f9, type: 2}
+  - {fileID: 11400000, guid: 5735703f945aa2f4c8d74b25f617dd23, type: 2}
+  - {fileID: 11400000, guid: e9c131618566d6643a7fa2d1f76c7bb5, type: 2}
+  - {fileID: 11400000, guid: dadea2c8317a9854390df03ba5960144, type: 2}
+  - {fileID: 11400000, guid: 873813b87ab921247802e5c1fd915a8d, type: 2}
 --- !u!212 &1085489981
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2862,6 +2980,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1085489982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1085489973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b18d54c83c8b9b459e90d16a28ee025, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardTypes: []
+  potionTypes:
+  - {fileID: 11400000, guid: 41a1e101fc06b8049923b702ac321fb5, type: 2}
+  - {fileID: 11400000, guid: 692ec50d40fd7f949a89ce42c881228c, type: 2}
+  - {fileID: 11400000, guid: be52684150296cd42ab538037f2f96f9, type: 2}
+  - {fileID: 11400000, guid: 5735703f945aa2f4c8d74b25f617dd23, type: 2}
+  - {fileID: 11400000, guid: e9c131618566d6643a7fa2d1f76c7bb5, type: 2}
+  - {fileID: 11400000, guid: dadea2c8317a9854390df03ba5960144, type: 2}
+  - {fileID: 11400000, guid: 873813b87ab921247802e5c1fd915a8d, type: 2}
 --- !u!1 &1233701220
 GameObject:
   m_ObjectHideFlags: 0
@@ -3344,6 +3483,7 @@ GameObject:
   - component: {fileID: 1402734532}
   - component: {fileID: 1402734535}
   - component: {fileID: 1402734536}
+  - component: {fileID: 1402734537}
   m_Layer: 0
   m_Name: Card (1)
   m_TagString: Untagged
@@ -3448,6 +3588,14 @@ MonoBehaviour:
   cardText: {fileID: 1248234838}
   coll: {fileID: 1402734536}
   ps: {fileID: 8435480755830404877, guid: 775bba75a75bc1e44bae9650b53296d3, type: 3}
+  listOfAllCards:
+  - {fileID: 11400000, guid: 1192ccbf7424cc84f810d45c8802c2f4, type: 2}
+  - {fileID: 11400000, guid: fd2cab928e224c94d8b15991ccfb3dde, type: 2}
+  - {fileID: 11400000, guid: c09d2010e14050346a185ba1d5e2b711, type: 2}
+  - {fileID: 11400000, guid: b873aed5d71119241981b9d5950b9eea, type: 2}
+  - {fileID: 11400000, guid: 69e5ff8e53ba0fd4f8ef4317f30131f5, type: 2}
+  - {fileID: 11400000, guid: 43c137a216d82244488e16c32b6cd2e4, type: 2}
+  - {fileID: 11400000, guid: 92eea3160106a3448b86672ad64558cf, type: 2}
 --- !u!65 &1402734536
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3461,6 +3609,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 6.1232336e-17}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1402734537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1402734530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b18d54c83c8b9b459e90d16a28ee025, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardTypes:
+  - {fileID: 11400000, guid: fd2cab928e224c94d8b15991ccfb3dde, type: 2}
+  - {fileID: 11400000, guid: c09d2010e14050346a185ba1d5e2b711, type: 2}
+  - {fileID: 11400000, guid: 1192ccbf7424cc84f810d45c8802c2f4, type: 2}
+  potionTypes: []
 --- !u!1 &1421688971
 GameObject:
   m_ObjectHideFlags: 0
@@ -3798,6 +3963,156 @@ Transform:
   m_Father: {fileID: 2076302162}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
+--- !u!1 &1605653145
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1605653146}
+  - component: {fileID: 1605653148}
+  - component: {fileID: 1605653147}
+  - component: {fileID: 1605653149}
+  m_Layer: 5
+  m_Name: Back
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1605653146
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605653145}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -5}
+  m_LocalScale: {x: 1, y: 3, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 297652795}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 1.9, y: -46}
+  m_SizeDelta: {x: 200, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1605653147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605653145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: BACK
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: a76be08e68547674098a1355a9f827d6, type: 2}
+  m_sharedMaterial: {fileID: -3658631547711223378, guid: a76be08e68547674098a1355a9f827d6, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4282267761
+  m_fontColor: {r: 0.4433962, g: 0.2191883, b: 0.24346396, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 32
+  m_fontSizeBase: 32
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1605653148
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605653145}
+  m_CullTransparentMesh: 1
+--- !u!114 &1605653149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605653145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b18d54c83c8b9b459e90d16a28ee025, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardTypes: []
+  potionTypes: []
 --- !u!1 &1680582242
 GameObject:
   m_ObjectHideFlags: 0

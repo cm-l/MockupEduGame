@@ -12,10 +12,12 @@ public class ShopCard : MonoBehaviour
     public Collider coll;
     public ParticleSystem ps;
     private int price;
+    public List<SO_Card> listOfAllCards;
 
     // Start is called before the first frame update
     void Start()
     {
+        SOcard = listOfAllCards[Random.Range(0, listOfAllCards.Count)];
         PriceSetter();
         cardText.SetText(SOcard.uniqueActionSuffix);        
     }
