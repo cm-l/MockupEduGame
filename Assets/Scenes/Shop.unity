@@ -606,6 +606,14 @@ MonoBehaviour:
   cardText: {fileID: 1421688973}
   coll: {fileID: 293117198}
   ps: {fileID: 8435480755830404877, guid: 775bba75a75bc1e44bae9650b53296d3, type: 3}
+  listOfAllCards:
+  - {fileID: 11400000, guid: 1192ccbf7424cc84f810d45c8802c2f4, type: 2}
+  - {fileID: 11400000, guid: fd2cab928e224c94d8b15991ccfb3dde, type: 2}
+  - {fileID: 11400000, guid: c09d2010e14050346a185ba1d5e2b711, type: 2}
+  - {fileID: 11400000, guid: b873aed5d71119241981b9d5950b9eea, type: 2}
+  - {fileID: 11400000, guid: 69e5ff8e53ba0fd4f8ef4317f30131f5, type: 2}
+  - {fileID: 11400000, guid: 43c137a216d82244488e16c32b6cd2e4, type: 2}
+  - {fileID: 11400000, guid: 92eea3160106a3448b86672ad64558cf, type: 2}
 --- !u!65 &293117198
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2912,6 +2920,14 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1085489981}
   coll: {fileID: 276433881}
   ps: {fileID: 8435480755830404877, guid: 775bba75a75bc1e44bae9650b53296d3, type: 3}
+  listOfAllPotions:
+  - {fileID: 11400000, guid: 41a1e101fc06b8049923b702ac321fb5, type: 2}
+  - {fileID: 11400000, guid: 692ec50d40fd7f949a89ce42c881228c, type: 2}
+  - {fileID: 11400000, guid: be52684150296cd42ab538037f2f96f9, type: 2}
+  - {fileID: 11400000, guid: 5735703f945aa2f4c8d74b25f617dd23, type: 2}
+  - {fileID: 11400000, guid: e9c131618566d6643a7fa2d1f76c7bb5, type: 2}
+  - {fileID: 11400000, guid: dadea2c8317a9854390df03ba5960144, type: 2}
+  - {fileID: 11400000, guid: 873813b87ab921247802e5c1fd915a8d, type: 2}
 --- !u!212 &1085489981
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3572,6 +3588,14 @@ MonoBehaviour:
   cardText: {fileID: 1248234838}
   coll: {fileID: 1402734536}
   ps: {fileID: 8435480755830404877, guid: 775bba75a75bc1e44bae9650b53296d3, type: 3}
+  listOfAllCards:
+  - {fileID: 11400000, guid: 1192ccbf7424cc84f810d45c8802c2f4, type: 2}
+  - {fileID: 11400000, guid: fd2cab928e224c94d8b15991ccfb3dde, type: 2}
+  - {fileID: 11400000, guid: c09d2010e14050346a185ba1d5e2b711, type: 2}
+  - {fileID: 11400000, guid: b873aed5d71119241981b9d5950b9eea, type: 2}
+  - {fileID: 11400000, guid: 69e5ff8e53ba0fd4f8ef4317f30131f5, type: 2}
+  - {fileID: 11400000, guid: 43c137a216d82244488e16c32b6cd2e4, type: 2}
+  - {fileID: 11400000, guid: 92eea3160106a3448b86672ad64558cf, type: 2}
 --- !u!65 &1402734536
 BoxCollider:
   m_ObjectHideFlags: 0
