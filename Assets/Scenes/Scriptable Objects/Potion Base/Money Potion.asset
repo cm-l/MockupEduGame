@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameOfPotion: Money Potion
   description: This potion makes you rich. Ew, it tastes like nickels.
-  potionSprite: {fileID: 21300000, guid: 31b56d9f8fc10a44dbd9e76cc877c6f9, type: 3}
+  potionSprite: {fileID: 21300000, guid: 8eee9987758177841b5e5275319c7e6a, type: 3}
   costInShop: 150
   effect:
   - gold

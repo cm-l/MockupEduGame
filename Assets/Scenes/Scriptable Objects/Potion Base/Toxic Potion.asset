@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameOfPotion: Toxic Potion
   description: This potion poisons your enemies. It tastes like cherries.
-  potionSprite: {fileID: 21300000, guid: f851c0ac5ae9fcb40bbfa34cba824634, type: 3}
+  potionSprite: {fileID: 21300000, guid: 27873cb99d30f0942a47797870dfa722, type: 3}
   costInShop: 150
   effect:
   - toxic
