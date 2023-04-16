@@ -639,16 +639,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b18d54c83c8b9b459e90d16a28ee025, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardTypes:
-  - {fileID: 11400000, guid: 1192ccbf7424cc84f810d45c8802c2f4, type: 2}
-  - {fileID: 11400000, guid: fd2cab928e224c94d8b15991ccfb3dde, type: 2}
-  - {fileID: 11400000, guid: c09d2010e14050346a185ba1d5e2b711, type: 2}
-  - {fileID: 11400000, guid: fd2cab928e224c94d8b15991ccfb3dde, type: 2}
-  - {fileID: 11400000, guid: b873aed5d71119241981b9d5950b9eea, type: 2}
-  - {fileID: 11400000, guid: 69e5ff8e53ba0fd4f8ef4317f30131f5, type: 2}
-  - {fileID: 11400000, guid: 43c137a216d82244488e16c32b6cd2e4, type: 2}
-  - {fileID: 11400000, guid: 92eea3160106a3448b86672ad64558cf, type: 2}
-  potionTypes: []
 --- !u!1 &297652794
 GameObject:
   m_ObjectHideFlags: 0
@@ -2577,7 +2567,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7.197, y: 1.826}
+  m_AnchoredPosition: {x: 7.197, y: 2}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1000723386
@@ -2868,7 +2858,7 @@ Transform:
   m_GameObject: {fileID: 1085489973}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.928, y: -0.1, z: 0.2}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 276433880}
@@ -2992,15 +2982,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b18d54c83c8b9b459e90d16a28ee025, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardTypes: []
-  potionTypes:
-  - {fileID: 11400000, guid: 41a1e101fc06b8049923b702ac321fb5, type: 2}
-  - {fileID: 11400000, guid: 692ec50d40fd7f949a89ce42c881228c, type: 2}
-  - {fileID: 11400000, guid: be52684150296cd42ab538037f2f96f9, type: 2}
-  - {fileID: 11400000, guid: 5735703f945aa2f4c8d74b25f617dd23, type: 2}
-  - {fileID: 11400000, guid: e9c131618566d6643a7fa2d1f76c7bb5, type: 2}
-  - {fileID: 11400000, guid: dadea2c8317a9854390df03ba5960144, type: 2}
-  - {fileID: 11400000, guid: 873813b87ab921247802e5c1fd915a8d, type: 2}
 --- !u!1 &1233701220
 GameObject:
   m_ObjectHideFlags: 0
@@ -3036,7 +3017,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5.45, y: 1.826}
+  m_AnchoredPosition: {x: 5.45, y: 2}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1233701222
@@ -3621,11 +3602,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b18d54c83c8b9b459e90d16a28ee025, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardTypes:
-  - {fileID: 11400000, guid: fd2cab928e224c94d8b15991ccfb3dde, type: 2}
-  - {fileID: 11400000, guid: c09d2010e14050346a185ba1d5e2b711, type: 2}
-  - {fileID: 11400000, guid: 1192ccbf7424cc84f810d45c8802c2f4, type: 2}
-  potionTypes: []
 --- !u!1 &1421688971
 GameObject:
   m_ObjectHideFlags: 0
@@ -4111,8 +4087,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b18d54c83c8b9b459e90d16a28ee025, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardTypes: []
-  potionTypes: []
 --- !u!1 &1680582242
 GameObject:
   m_ObjectHideFlags: 0
@@ -4646,7 +4620,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.65}
+  m_AnchoredPosition: {x: 0, y: 0.8}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1924322252
