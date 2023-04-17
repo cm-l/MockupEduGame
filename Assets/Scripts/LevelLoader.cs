@@ -6,12 +6,18 @@ using UnityEngine;
 public class LevelLoader : MonoBehaviour {
     
     private int numberOfRowsBeforeChange = 10; // Ile szeregów przeciwników
+    private float timeElapsed;
 
     void Update() {
         // Tu nastepuje zmiana sceny na kolejne "dzialanie"
         if(TMPController.rowCounter == numberOfRowsBeforeChange) {
             StartCoroutine(LoadNextLevelWithDelay());
             TMPController.rowCounter = 0;
+        }
+
+        timeElapsed += Time.deltaTime;
+        if(SceneManager.GetActiveScene().name.Equals("Cutscene") & timeElapsed > 30f){
+            SceneManager.LoadScene("TransitionScene");
         }
     }
 
