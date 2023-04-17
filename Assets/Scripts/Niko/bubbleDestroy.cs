@@ -10,7 +10,7 @@ public class bubbleDestroy : MonoBehaviour
     bottleChange bChange;
     bubbleMath bM;
     [SerializeField] private AudioClip popSound;
-
+   
 
     public void Start()
     {
@@ -28,6 +28,7 @@ public class bubbleDestroy : MonoBehaviour
             if (rValue % 2 == 0)
             {
                 Debug.Log("OK " + rValue);
+                GameManager.ok++;
                 bChange.ChangeMaterialUp();
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                     Quaternion.identity);
@@ -38,6 +39,7 @@ public class bubbleDestroy : MonoBehaviour
             } else
             {
                 Debug.Log("MISTAKE " + rValue);
+                GameManager.mistake++;
                 bChange.ChangeMaterialDown();
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                 Quaternion.identity);
@@ -64,6 +66,7 @@ public class bubbleDestroy : MonoBehaviour
             if (rValue % 2 != 0)
             {
                 Debug.Log("OK " + rValue);
+                GameManager.ok++;
                 bChange.ChangeMaterialUp();
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                     Quaternion.identity);
@@ -76,6 +79,7 @@ public class bubbleDestroy : MonoBehaviour
             else
             {
                 Debug.Log("MISTAKE " + rValue);
+                GameManager.mistake++;
                 bChange.ChangeMaterialDown();
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                 Quaternion.identity);
@@ -101,6 +105,7 @@ public class bubbleDestroy : MonoBehaviour
             if (CheckIfPrime(rValue))
             {
                 Debug.Log("OK " + rValue);
+                GameManager.ok++;
                 bChange.ChangeMaterialUp();
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                     Quaternion.identity);
@@ -112,6 +117,7 @@ public class bubbleDestroy : MonoBehaviour
             else
             {
                 Debug.Log("MISTAKE " + rValue);
+                GameManager.mistake++;
                 bChange.ChangeMaterialDown();
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                 Quaternion.identity);
@@ -137,6 +143,7 @@ public class bubbleDestroy : MonoBehaviour
             if (((rValue % 3 == 0) || (rValue % 5 == 0)) && (rValue != 0))
             {
                 Debug.Log("OK " + rValue);
+                GameManager.ok++;
                 bChange.ChangeMaterialUp();
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                     Quaternion.identity);
@@ -148,6 +155,7 @@ public class bubbleDestroy : MonoBehaviour
             else
             {
                 Debug.Log("MISTAKE " + rValue);
+                GameManager.mistake++;
                 bChange.ChangeMaterialDown();
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                 Quaternion.identity);
@@ -184,6 +192,7 @@ public class bubbleDestroy : MonoBehaviour
             if (rValue % 2 == 0)
             {
                 bChange.ChangeMaterialDown();
+                GameManager.notPopped++;
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                     Quaternion.identity);
                 SoundSystemSingleton.Instance.PlaySfxSound(popSound);
@@ -216,6 +225,7 @@ public class bubbleDestroy : MonoBehaviour
             if (rValue % 2 != 0)
             {
                 bChange.ChangeMaterialDown();
+                GameManager.notPopped++;
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                     Quaternion.identity);
                 SoundSystemSingleton.Instance.PlaySfxSound(popSound);
@@ -248,6 +258,7 @@ public class bubbleDestroy : MonoBehaviour
             if (CheckIfPrime(rValue))
             {
                 bChange.ChangeMaterialDown();
+                GameManager.notPopped++;
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                     Quaternion.identity);
                 SoundSystemSingleton.Instance.PlaySfxSound(popSound);
@@ -280,6 +291,7 @@ public class bubbleDestroy : MonoBehaviour
             if (((rValue % 3 == 0) || (rValue % 5 == 0)) && (rValue != 0))
             {
                 bChange.ChangeMaterialDown();
+                GameManager.notPopped++;
                 GameObject go = Instantiate(ps.gameObject, transform.position,
                     Quaternion.identity);
                 SoundSystemSingleton.Instance.PlaySfxSound(popSound);

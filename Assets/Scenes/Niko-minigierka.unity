@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414726, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731689, g: 0.13414702, b: 0.1210784, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7995,6 +7995,10 @@ PrefabInstance:
     - target: {fileID: 1728985854206762208, guid: 1c1a67ae7b5094307ae762a03335e839, type: 3}
       propertyPath: m_Name
       value: LevelLoader2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1728985854206762208, guid: 1c1a67ae7b5094307ae762a03335e839, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2878805670406468046, guid: 1c1a67ae7b5094307ae762a03335e839, type: 3}
       propertyPath: m_RootOrder

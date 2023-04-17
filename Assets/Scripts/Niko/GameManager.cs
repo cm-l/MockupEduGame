@@ -28,6 +28,9 @@ public class GameManager : MonoBehaviour
     int avgFrameRate;
     bool checkFPS;
     int fpsTarget;
+    public static int ok;
+    public static int mistake;
+    public static int notPopped;
 
 
 
@@ -46,6 +49,11 @@ public class GameManager : MonoBehaviour
         cauldron = GameObject.Find("SD_Prop_Cauldron_01");
         fClicking = cauldron.GetComponent<followClicking>();
         scenarioNumber = fClicking.GetScenarioNumber();
+
+        ok = 0;
+        mistake = 0;
+        notPopped = 0;
+        
 
         // Choose the right intoduction text for given scenario
         if (scenarioNumber == 0)
@@ -70,7 +78,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            textUI.text = "ERROR: Any scenario has been loaded";
+            textUI.text = "ERROR";
         }
 
         textUI.enabled = true;
