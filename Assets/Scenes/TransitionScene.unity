@@ -1787,6 +1787,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameMusic: {fileID: 8300000, guid: b21f76351d7669e40bba0f43f08b9293, type: 3}
   gamePauseCanvas: {fileID: 1346523834}
+  InGameOptionsCanvas: {fileID: 1346523834}
 --- !u!1 &542335288
 GameObject:
   m_ObjectHideFlags: 0
