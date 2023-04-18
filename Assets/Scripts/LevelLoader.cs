@@ -19,10 +19,15 @@ public class LevelLoader : MonoBehaviour {
         if(SceneManager.GetActiveScene().name.Equals("Cutscene") & timeElapsed > 30f){
             SceneManager.LoadScene("TransitionScene");
         }
+
+        if(bottleChange.bottleMaterialNumber == 9 ){
+            //StartCoroutine(LoadNextLevelWithDelay());
+            Invoke("StartCourtineWithDelay", 2f);
+        }
     }
 
     [SerializeField] private Animator transition;
-    [SerializeField] private int transitionTime = 2;
+    [SerializeField] private int transitionTime = 3;
 
     IEnumerator LoadNextLevelWithDelay() {
         // Odtwarzanie animacji przez [transitionTime] sekund
@@ -31,5 +36,9 @@ public class LevelLoader : MonoBehaviour {
 
         // Zmiana sceny + | - | * | /
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void StartCourtineWithDelay(){
+        StartCoroutine(LoadNextLevelWithDelay());
     }
 }

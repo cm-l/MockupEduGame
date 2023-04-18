@@ -13,7 +13,7 @@ public class bottleChange : MonoBehaviour
     public Material bottle7;
     public Material bottle8;
     public Material bottle9;
-    int bottleMaterialNumber;
+    public static int bottleMaterialNumber;
 
     void Start()
     {
