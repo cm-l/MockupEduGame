@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 
 public class Settings : MonoBehaviour {
@@ -11,11 +13,16 @@ public class Settings : MonoBehaviour {
     public static float mouseSensitivity;
 
     private static bool gamePaused;
+    private static bool gamePausePressed;
 
     [SerializeField] private AudioClip gameMusic;
+    private string currentSceneName;
 
     void Start() {
+        currentSceneName = SceneManager.GetActiveScene().name;
+
         gamePaused = false;
+        gamePausePressed = false;
 
         mouseSensitivity = 1f;
 
@@ -26,20 +33,28 @@ public class Settings : MonoBehaviour {
     }
     
     [SerializeField] private Canvas gamePauseCanvas;
+    [SerializeField] private Canvas InGameOptionsCanvas;
+    
+
     void Update() {
         // <<<<< PAUZOWANIE GRY >>>>>
         if (Input.GetKeyDown(KeyCode.Escape) && gamePaused)
             ResumeGame();
-        else if (Input.GetKeyDown(KeyCode.Escape)) 
+        else if (Input.GetKeyDown(KeyCode.Escape) && !string.Equals(currentSceneName, "TransitionScene")) 
             PauseGame();
       
         if (gamePaused) {
             Time.timeScale = 0;
-            gamePauseCanvas.gameObject.SetActive(true);
+            
+            if (gamePausePressed) {
+                gamePausePressed = false;
+                gamePauseCanvas.gameObject.SetActive(true);
+            }
         }
         else {
             Time.timeScale = 1;
             gamePauseCanvas.gameObject.SetActive(false);
+            InGameOptionsCanvas.gameObject.SetActive(false);
         }
 
         // <<<<< ... >>>>>
@@ -48,10 +63,12 @@ public class Settings : MonoBehaviour {
     // TODO: NAPRAWIĆ, ŻEBY NIE DAŁO SIĘ ODPALIĆ PAUZY W MENU GRY
     private static void PauseGame() {
         gamePaused = true;
+        gamePausePressed = true;
     }
 
     public static void ResumeGame() {
         gamePaused = false;
+        gamePausePressed = false;
     }
 
     public static void ChangeMouseSensivity(float mouseSensValue) {
