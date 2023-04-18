@@ -11,7 +11,8 @@ public class LevelLoader : MonoBehaviour {
     void Update() {
         // Tu nastepuje zmiana sceny na kolejne "dzialanie"
         if(TMPController.rowCounter == numberOfRowsBeforeChange) {
-            StartCoroutine(LoadNextLevelWithDelay());
+            //StartCoroutine(LoadNextLevelWithDelay());
+            StartCourtineWithDelay();
             TMPController.rowCounter = 0;
         }
 
