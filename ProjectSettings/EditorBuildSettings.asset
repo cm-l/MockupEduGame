@@ -12,10 +12,10 @@ EditorBuildSettings:
     path: Assets/Scenes/EnemyFight_Dungeon1.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/Niko-minigierka/Niko-minigierka.unity
+    path: Assets/Scenes/Niko-minigierka.unity
     guid: a7393997d92f2f346bc344f6d0daaacb
   - enabled: 1
-    path: Assets/Scenes/Niko-minigierka/Summary/Summary.unity
+    path: Assets/Scenes/Summary.unity
     guid: 004e30827b90947818407367e42aeda9
   - enabled: 1
     path: Assets/Scenes/Game.unity
