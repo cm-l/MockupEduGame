@@ -87,7 +87,13 @@ public class ButtonManager : MonoBehaviour {
         transform.parent.gameObject.SetActive(false);
 
         // Wylosowanie sceny gry
-        Invoke("RandomizeGameScene", 2f);
+        //Invoke("RandomizeGameScene", 2f);
+
+        Invoke("ContinueAdventure", 1.5f);
+    }
+
+    private void ContinueAdventure() {
+        SceneManager.LoadScene("EnemyFight_Dungeon1");
     }
 
     private void SwitchToShop() {
@@ -228,13 +234,24 @@ public class ButtonManager : MonoBehaviour {
     }
 
     // Metoda do wracanka np. ze sklepu
-    public void BackToTunnelButton() {
+    public void BackToMainGameButton() {
         SoundSystemSingleton.Instance.PlaySfxSound(buttonClickSfx);
 
         // Wyłączenie canvasu 'startowego' (play / options / quit)
         TransitionScript.cameFromAnotherScene = true;
 
-        // Powrót do tunelu
-        SceneManager.LoadSceneAsync("TransitionScene");
+        // Dodanie punkciku progresji
+        GameProgression.AddLevelsCompleted();
+        GameProgression.UpdateGameStage();
+        Debug.Log("LevelsCompleted: " + GameProgression.GetLevelsCompleted() + "\n" + "Current stage: " + GameProgression.GetCurrentGameStage());
+        
+        // Powrót do głównej gierki
+        switch(GameProgression.GetCurrentGameStage()) {
+            case 1: SceneManager.LoadSceneAsync("EnemyFight_Dungeon1"); break;
+            case 2: SceneManager.LoadSceneAsync("EnemyFight_Dungeon2"); break;
+            case 3: SceneManager.LoadSceneAsync("EnemyFight_Dungeon3"); break;
+            default: Debug.Log("Uh"); break;
+        }
+        
     } 
 }

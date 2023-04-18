@@ -59,6 +59,10 @@ public class UIScreenRewardCard : MonoBehaviour
         //Actually load in the selected scene
         //lower bound inclusive - upper bound EXCLUSIVE
         int indexScene = Random.Range(0, 5); //TODO fix based on number in build order
-        SceneManager.LoadScene(indexScene);
+        GameProgression.AddLevelsCompleted();
+        GameProgression.UpdateGameStage();
+        TransitionScript.RandomizeGameScene();
+        Debug.Log("LevelsCompleted: " + GameProgression.GetLevelsCompleted() + "\n" + "Current stage: " + GameProgression.GetCurrentGameStage());
+        // SceneManager.LoadScene(indexScene);
     }
 }
