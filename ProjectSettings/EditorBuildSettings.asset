@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Summary.unity
     guid: 004e30827b90947818407367e42aeda9
   - enabled: 1
-    path: Assets/Scenes/Game.unity
+    path: Assets/Scenes/PiJ-minigra.unity
     guid: 2a329988471bf4b68ba84cae3bd6b588
   - enabled: 1
     path: Assets/Scenes/Shop.unity
