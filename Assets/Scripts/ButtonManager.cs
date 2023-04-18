@@ -207,12 +207,24 @@ public class ButtonManager : MonoBehaviour {
         Settings.ResumeGame();
     }
 
+    public void ShowLeaveMinigameConfirmation() {
+        SoundSystemSingleton.Instance.PlaySfxSound(buttonClickSfx);
+
+        ShowCanvas(choiceCanvas);
+    }
+
     public void BackToMenuButton() {
         // Wyłączenie canvasu 'startowego'
         TransitionScript.cameFromAnotherScene = false;
 
         // Powrót do tunelu
         SceneManager.LoadSceneAsync("TransitionScene");
+    }
+
+    public void StayInGameButton() {
+        SoundSystemSingleton.Instance.PlaySfxSound(buttonClickSfx);
+
+        transform.parent.parent.gameObject.SetActive(false);
     }
 
     // Metoda do wracanka np. ze sklepu
