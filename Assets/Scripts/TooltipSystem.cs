@@ -27,7 +27,7 @@ public class TooltipSystem : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
         // end of singleton pattern
     }
 
