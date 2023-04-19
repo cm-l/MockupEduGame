@@ -106,6 +106,7 @@ public class EnemyBehaviuur : MonoBehaviour
         if (operand == OffensiveAction.dealDamage)
         {
             currentNumber = Mathf.RoundToInt(currentNumber - amount);
+            attackedAnimation();
         }
 
         //Mno¿enie/dzielenie
@@ -122,6 +123,16 @@ public class EnemyBehaviuur : MonoBehaviour
 
         //Tu doda siê jak¹œ logikê z dŸwiêkami, animacj¹ (np. jakiœ screenshake?)
         // numberDisplay.getcomponent<anim>().blablablabl
+    }
+
+    public void attackedAnimation()
+    {
+        LeanTween.scale(gameObject, new Vector3(1.64f, 1.64f, 1.64f), 0.2f).setEaseInCubic().setOnComplete(popBackUp);
+    }
+
+    public void popBackUp()
+    {
+        LeanTween.scale(gameObject, new Vector3(2f, 2f, 2f), 0.42f).setEaseOutElastic();
     }
 
     // FUNKCJE ZACHOWAÑ

@@ -1,7 +1,7 @@
+using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 
 
@@ -33,8 +33,8 @@ public class Settings : MonoBehaviour {
     }
     
     [SerializeField] private Canvas gamePauseCanvas;
-    [SerializeField] private Canvas InGameOptionsCanvas;
-    
+    [SerializeField] private Canvas inGameOptionsCanvas;
+    [SerializeField] private Canvas leaveMinigameConfirmationCanvas;
 
     void Update() {
         // <<<<< PAUZOWANIE GRY >>>>>
@@ -54,7 +54,8 @@ public class Settings : MonoBehaviour {
         else {
             Time.timeScale = 1;
             gamePauseCanvas.gameObject.SetActive(false);
-            InGameOptionsCanvas.gameObject.SetActive(false);
+            inGameOptionsCanvas.gameObject.SetActive(false);
+            leaveMinigameConfirmationCanvas.gameObject.SetActive(false);
         }
 
         // <<<<< ... >>>>>

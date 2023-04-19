@@ -1787,6 +1787,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameMusic: {fileID: 8300000, guid: b21f76351d7669e40bba0f43f08b9293, type: 3}
   gamePauseCanvas: {fileID: 1346523834}
+  inGameOptionsCanvas: {fileID: 1346523834}
+  leaveMinigameConfirmationCanvas: {fileID: 1346523834}
 --- !u!1 &542335288
 GameObject:
   m_ObjectHideFlags: 0
@@ -2201,7 +2203,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6910074424397820192, guid: 61c6dfb0e4bac9148ab9076544e69471, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 140
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6910074424397820192, guid: 61c6dfb0e4bac9148ab9076544e69471, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -4044,7 +4046,7 @@ PrefabInstance:
     - target: {fileID: 5932135534628972320, guid: c969abf18a2f8b24b8777c38e3c063c4, type: 3}
       propertyPath: transition
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1634712077}
     - target: {fileID: 5932135534628972320, guid: c969abf18a2f8b24b8777c38e3c063c4, type: 3}
       propertyPath: SceneNameToLoad
       value: AdditionScene
@@ -8161,6 +8163,10 @@ PrefabInstance:
     - target: {fileID: 7966550316194123494, guid: 61c6dfb0e4bac9148ab9076544e69471, type: 3}
       propertyPath: m_Name
       value: ShopButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 7966550316194123494, guid: 61c6dfb0e4bac9148ab9076544e69471, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61c6dfb0e4bac9148ab9076544e69471, type: 3}
