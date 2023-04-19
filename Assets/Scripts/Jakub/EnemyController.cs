@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -47,8 +48,20 @@ public class EnemyController : MonoBehaviour
     {
         if (receivedValue == actionValue)
         {
-            if (--hp < 0)
-                this.gameObject.SetActive(false);
+            if (--hp < 0) {
+                GameProgression.AddLevelsCompleted();
+                GameProgression.UpdateGameStage();
+                Debug.Log("LevelsCompleted: " + GameProgression.GetLevelsCompleted() + "\n" + "Current stage: " + GameProgression.GetCurrentGameStage());
+
+                switch (GameProgression.GetCurrentGameStage()) {
+                    case 1: SceneManager.LoadSceneAsync("EnemyFight_Dungeon1"); break;
+                    case 2: SceneManager.LoadSceneAsync("EnemyFight_Dungeon2"); break;
+                    case 3: SceneManager.LoadSceneAsync("EnemyFight_Dungeon3"); break;
+                    default: Debug.Log("Uh"); break;
+                }
+                // this.gameObject.SetActive(false);
+            }
+
             else
                 healthBar.GetComponent<HealthBar>().TakeDamage(hp);
             
