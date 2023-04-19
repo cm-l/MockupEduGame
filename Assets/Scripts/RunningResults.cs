@@ -38,39 +38,42 @@ public class RunningResults : MonoBehaviour
         }, null, 1000, Timeout.Infinite);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
     public static void AdditionScoreUp() {
         additionScore++;
     }
-    public static void AdditionScoreDown()
-    {
+
+    public static void AdditionScoreDown() {
         additionScore--;
     }
-    public static void SubtractionScoreUp()
-    {
+
+    public static void SubtractionScoreUp() {
         subtractionScore++;
     }
-    public static void SubtractionScoreDown()
-    {
+
+    public static void SubtractionScoreDown() {
         subtractionScore--;
     }
-    public static void MultiplicationScoreUp()
-    {
+
+    public static void MultiplicationScoreUp() {
         multiplicationScore++;
     }
-    public static void MultiplicationScoreDown()
-    {
+
+    public static void MultiplicationScoreDown() {
         multiplicationScore--;
     }
-    public static void DivisionScoreUp()
-    {
+
+    public static void DivisionScoreUp() {
         divisionScore++;
     }
-    public static void DivisionScoreDown()
-    {
+
+    public static void DivisionScoreDown() {
         divisionScore--;
+    }
+
+    public static void ResetAllScores() {
+        additionScore = 0;
+        subtractionScore = 0;
+        multiplicationScore = 0;
+        divisionScore = 0;
     }
 }
