@@ -53,7 +53,7 @@ public class EnemyController : MonoBehaviour
                 Cursor.visible = true;
                 GameProgression.AddLevelsCompleted();
                 GameProgression.UpdateGameStage();
-                Debug.Log("LevelsCompleted: " + GameProgression.GetLevelsCompleted() + "\n" + "Current stage: " + GameProgression.GetCurrentGameStage());
+                Debug.Log("LevelsCompleted: " + GameProgression.GetLevelsCompleted() + "\n  Current stage: " + GameProgression.GetCurrentGameStage());
 
                 switch (GameProgression.GetCurrentGameStage()) {
                     case 1: SceneManager.LoadSceneAsync("EnemyFight_Dungeon1"); break;

@@ -11,12 +11,18 @@ public class TMPController : MonoBehaviour {
     private static string equationSymbol;
 
     [SerializeField] private static int score = 0;
-    public static int rowCounter = 0;
+    public static int rowCounter;
+    
+    void Awake() {
+        rowCounter = 0;
+    }
 
     // Czy gracz dopiero zaczął 'rundę'?
     public static bool firstRun = true;
 
     private static string activeSceneName;
+
+
     void Start() {
         activeSceneName = SceneManager.GetActiveScene().name;
         switch (activeSceneName) {
@@ -66,5 +72,13 @@ public class TMPController : MonoBehaviour {
 
     public static int getScore() {
         return score;
+    }
+
+    public static void ResetScore() {
+        score = 0;
+    }
+
+    public static void ResetRowCounter() {
+        rowCounter = 0;
     }
 }
