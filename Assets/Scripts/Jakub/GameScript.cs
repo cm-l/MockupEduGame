@@ -18,8 +18,21 @@ public class GameScript : MonoBehaviour
 
     void Update()
     {
-        if (player.hp < 0)
-            SceneManager.LoadScene(1);
+        if (player.hp < 0) {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            GameProgression.AddLevelsCompleted();
+            GameProgression.UpdateGameStage();
+            Debug.Log("LevelsCompleted: " + GameProgression.GetLevelsCompleted() + "\n  Current stage: " + GameProgression.GetCurrentGameStage());
+
+            switch (GameProgression.GetCurrentGameStage()) {
+                case 1: SceneManager.LoadSceneAsync("EnemyFight_Dungeon1"); break;
+                case 2: SceneManager.LoadSceneAsync("EnemyFight_Dungeon2"); break;
+                case 3: SceneManager.LoadSceneAsync("EnemyFight_Dungeon3"); break;
+                case 4: SceneManager.LoadSceneAsync("TheEnd"); break;
+                default: Debug.Log("Uh"); break;
+            }
+        }
     }
 
     private void PlaySoundtrack()

@@ -243,13 +243,19 @@ public class ButtonManager : MonoBehaviour {
         // Dodanie punkciku progresji
         GameProgression.AddLevelsCompleted();
         GameProgression.UpdateGameStage();
-        Debug.Log("LevelsCompleted: " + GameProgression.GetLevelsCompleted() + "\n" + "Current stage: " + GameProgression.GetCurrentGameStage());
-        
+        Debug.Log("LevelsCompleted: " + GameProgression.GetLevelsCompleted() + "\n  Current stage: " + GameProgression.GetCurrentGameStage());
+       
+        // Resetowanie RunningGame
+        TMPController.ResetRowCounter();
+        TMPController.ResetScore();
+        RunningResults.ResetAllScores();
+
         // Powrót do głównej gierki
         switch(GameProgression.GetCurrentGameStage()) {
             case 1: SceneManager.LoadSceneAsync("EnemyFight_Dungeon1"); break;
             case 2: SceneManager.LoadSceneAsync("EnemyFight_Dungeon2"); break;
             case 3: SceneManager.LoadSceneAsync("EnemyFight_Dungeon3"); break;
+            case 4: SceneManager.LoadSceneAsync("TheEnd"); break;
             default: Debug.Log("Uh"); break;
         }
         

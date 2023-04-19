@@ -52,7 +52,7 @@ public class TransitionScript : MonoBehaviour {
     private static List<string> GetGameScenes(int currentGameStage) {
         if (currentGameStage == 1) {
             return new List<string> {
-                cardsGameName1, cardsGameName1, cardsGameName1, cardsGameName1, cardsGameName1, cauldronGameName, runningGameName, runningGameName, combatGameName, shopSceneName
+                cardsGameName1, cardsGameName1, cardsGameName1, cardsGameName1, cardsGameName1, cauldronGameName, runningGameName, runningGameName, shopSceneName, combatGameName
             };
         } else if (currentGameStage == 2) {
             return new List<string> {
@@ -64,6 +64,8 @@ public class TransitionScript : MonoBehaviour {
                 cardsGameName3, cardsGameName3, cardsGameName3, cardsGameName3, cardsGameName3, cardsGameName3, cardsGameName3, cardsGameName3, cardsGameName3, cardsGameName3,
                 cardsGameName3, cardsGameName3, cauldronGameName, cauldronGameName, runningGameName, runningGameName, runningGameName, runningGameName, shopSceneName, combatGameName 
             };
+        } else if(currentGameStage == 4) {
+            return new List<string> { "TheEnd" };
         } else {
             return new List<string>();
         }

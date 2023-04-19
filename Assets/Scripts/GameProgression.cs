@@ -6,11 +6,7 @@ public class GameProgression : MonoBehaviour {
 
     [SerializeField] private static int levelsCompleted = 0;
     [SerializeField] private static int currentGameStage = 1;
-
-    void Start() {
-
-    }
-
+    
     public static void AddLevelsCompleted() {
         levelsCompleted++;
     }
@@ -24,7 +20,10 @@ public class GameProgression : MonoBehaviour {
     }
 
     public static void UpdateGameStage() {
-        if (levelsCompleted >= 8)
+        if (levelsCompleted == 12) {
+            currentGameStage = 4;
+        }
+        else if (levelsCompleted >= 8)
             currentGameStage = 3;
         else if (levelsCompleted >= 4)
             currentGameStage = 2;
