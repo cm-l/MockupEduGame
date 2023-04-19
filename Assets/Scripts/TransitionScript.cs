@@ -64,6 +64,8 @@ public class TransitionScript : MonoBehaviour {
                 cardsGameName3, cardsGameName3, cardsGameName3, cardsGameName3, cardsGameName3, cardsGameName3, cardsGameName3, cardsGameName3, cardsGameName3, cardsGameName3,
                 cardsGameName3, cardsGameName3, cauldronGameName, cauldronGameName, runningGameName, runningGameName, runningGameName, runningGameName, shopSceneName, combatGameName 
             };
+        } else if(currentGameStage == 4) {
+            return new List<string> { "TheEnd" };
         } else {
             return new List<string>();
         }
