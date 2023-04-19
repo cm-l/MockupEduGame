@@ -49,6 +49,8 @@ public class EnemyController : MonoBehaviour
         if (receivedValue == actionValue)
         {
             if (--hp < 0) {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
                 GameProgression.AddLevelsCompleted();
                 GameProgression.UpdateGameStage();
                 Debug.Log("LevelsCompleted: " + GameProgression.GetLevelsCompleted() + "\n" + "Current stage: " + GameProgression.GetCurrentGameStage());

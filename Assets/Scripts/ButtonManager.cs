@@ -241,6 +241,7 @@ public class ButtonManager : MonoBehaviour {
         TransitionScript.cameFromAnotherScene = true;
 
         // Dodanie punkciku progresji
+        TMPController.rowCounter = 0;
         GameProgression.AddLevelsCompleted();
         GameProgression.UpdateGameStage();
         Debug.Log("LevelsCompleted: " + GameProgression.GetLevelsCompleted() + "\n" + "Current stage: " + GameProgression.GetCurrentGameStage());
