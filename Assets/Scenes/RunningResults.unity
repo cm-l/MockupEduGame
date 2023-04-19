@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571336, b: 0.3069219, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1611,7 +1611,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2329649666658698195, guid: ec31084d28c62c24290478c078931842, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BackToTunnelButton
+      value: BackToMainGameButton
       objectReference: {fileID: 0}
     - target: {fileID: 2329649666658698195, guid: ec31084d28c62c24290478c078931842, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -2704,6 +2704,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameMusic: {fileID: 0}
   gamePauseCanvas: {fileID: 481178998}
+  inGameOptionsCanvas: {fileID: 481178998}
+  leaveMinigameConfirmationCanvas: {fileID: 481178998}
 --- !u!1001 &1656353681
 PrefabInstance:
   m_ObjectHideFlags: 0
