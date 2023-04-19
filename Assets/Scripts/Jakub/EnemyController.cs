@@ -57,6 +57,7 @@ public class EnemyController : MonoBehaviour
                     case 1: SceneManager.LoadSceneAsync("EnemyFight_Dungeon1"); break;
                     case 2: SceneManager.LoadSceneAsync("EnemyFight_Dungeon2"); break;
                     case 3: SceneManager.LoadSceneAsync("EnemyFight_Dungeon3"); break;
+                    case 4: SceneManager.LoadSceneAsync("TheEnd"); break;
                     default: Debug.Log("Uh"); break;
                 }
                 // this.gameObject.SetActive(false);
