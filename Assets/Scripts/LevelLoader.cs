@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class LevelLoader : MonoBehaviour {
     
-    private int numberOfRowsBeforeChange = 10; // Ile szeregów przeciwników
+    private int numberOfRowsBeforeChange = 5; // Ile szeregów przeciwników
     private float timeElapsed;
 
     void Update() {
@@ -24,6 +24,7 @@ public class LevelLoader : MonoBehaviour {
         if(bottleChange.bottleMaterialNumber == 9 ){
             //StartCoroutine(LoadNextLevelWithDelay());
             Invoke("StartCourtineWithDelay", 2f);
+            bottleChange.bottleMaterialNumber = 0;
         }
     }
 
@@ -35,7 +36,7 @@ public class LevelLoader : MonoBehaviour {
         transition.SetTrigger("Start");
         yield return new WaitForSeconds(transitionTime);
 
-        // Zmiana sceny + | - | * | /
+        // Zmiana sceny
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
