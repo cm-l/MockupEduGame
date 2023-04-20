@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Snake-hard
   m_EditorClassIdentifier: 
   startingNumber: 50
-  damage: 6
+  damage: 8
   enemySpriteMaterial: {fileID: 2100000, guid: ee0f2b1cc39f6914fb0642dbde7c82bc, type: 2}
   enemyMusicTrack: {fileID: 8300000, guid: 7252e6aa55d5a2d4ab5bea1082df5708, type: 3}
   enemyAttackSound: {fileID: 8300000, guid: 76133e6a1bc04d641869b2c4875082ea, type: 3}
   enemyDeathNoise: {fileID: 8300000, guid: 18d1dfc7625c91e499d4c3391bc278e9, type: 3}
-  lowerGoldRange: 80
-  upperGoldRange: 120
+  lowerGoldRange: 90
+  upperGoldRange: 150
