@@ -11,7 +11,7 @@ public class bubbleMath : MonoBehaviour
     void Start()
     {
         currentGameStage = GameProgression.GetCurrentGameStage();
-
+        //currentGameStage = 3;
         rValue = createRValue();
         gmText = gameObject.transform.GetChild(0).gameObject;
         bubbleValue = gmText.GetComponent<TextMeshPro>();
@@ -34,7 +34,7 @@ public class bubbleMath : MonoBehaviour
             maxValue = 99;
         }
 
-        Debug.Log("Current maxValue: " + maxValue);
+        //Debug.Log("Current maxValue: " + maxValue);
 
         return Random.Range(0, maxValue);
     }
