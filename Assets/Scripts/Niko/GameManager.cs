@@ -84,8 +84,8 @@ public class GameManager : MonoBehaviour
         textUI.enabled = true;
         StartCoroutine(DisableTextAndPlayMusic());
         inGameMode = true;
-        checkFPS = true;
-        Invoke("SetSpeedModifier", 4.1f);
+        //checkFPS = true;
+        //Invoke("SetSpeedModifier", 4.1f);
     }
 
 
@@ -93,6 +93,9 @@ public class GameManager : MonoBehaviour
     {
         // What happens when user wins
         bottleMaterialNumber = bChange_N.GetBottleMaterialNumber();
+
+        //Debug.Log("Delta time: " + Time.deltaTime);
+        //Debug.Log("Fixed delta time: " + Time.fixedDeltaTime);
 
         if (bottleMaterialNumber == 9)
         {
@@ -109,13 +112,13 @@ public class GameManager : MonoBehaviour
         }
 
         // Check FPS
-        if (checkFPS)
-        {
-            float current = (int)(1f / Time.unscaledDeltaTime); ;
-            current = Time.frameCount / Time.time;
-            avgFrameRate = (int)current;
-            Invoke("StopCheckingFPS", 4f);
-        }
+        //if (checkFPS)
+        //{
+        //    float current = (int)(1f / Time.unscaledDeltaTime); ;
+        //    current = Time.frameCount / Time.time;
+        //    avgFrameRate = (int)current;
+        //    Invoke("StopCheckingFPS", 4f);
+        //}
 
 
     }
@@ -158,24 +161,24 @@ public class GameManager : MonoBehaviour
         SoundSystemSingleton.Instance.PlayOtherSound(successSound);
     }
 
-    void StopCheckingFPS()
-    {
-        checkFPS = false;
-    }
+    //void StopCheckingFPS()
+    //{
+    //    checkFPS = false;
+    //}
 
-    void SetSpeedModifier()
-    {
-        if (!checkFPS)
-        {
-            Debug.Log("Setting speed modifier");
-            Debug.Log("FPS:" + avgFrameRate);
-            if (avgFrameRate <= 30)
-            {
-                fpsTarget = 30;
-                gameObject.GetComponent<bubbleGenerate>().BubbleSlowDown();
-            }
-        }
-    }
+    //void SetSpeedModifier()
+    //{
+    //    //if (!checkFPS)
+    //    //{
+    //    //    Debug.Log("Setting speed modifier");
+    //    //    Debug.Log("FPS:" + avgFrameRate);
+    //    //    if (avgFrameRate <= 30)
+    //    //    {
+    //    //        fpsTarget = 30;
+    //    //        gameObject.GetComponent<bubbleGenerate>().BubbleSlowDown();
+    //    //    }
+    //    //}
+    //}
 
 }
 

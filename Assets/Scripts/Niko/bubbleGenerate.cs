@@ -4,7 +4,7 @@ using UnityEngine;
 public class bubbleGenerate : MonoBehaviour
 {
     public GameObject bubble;
-    public int speedModifier = 150;
+    public int speedModifier;
     float timeToWait = 4f; // timer to wait for first bubble
     Vector3 direction;
     public float dirRangeZ = 15;
@@ -14,7 +14,8 @@ public class bubbleGenerate : MonoBehaviour
     void Start()
     {
         StartCoroutine(BubbleCoolDown());
-        timeToWait = 1.75f; // timer to wait for 2nd and rest of bubbles 
+        timeToWait = 1.75f; // time to wait for 2nd and rest of bubbles
+        speedModifier = 100;
        
     }
 
@@ -36,7 +37,7 @@ public class bubbleGenerate : MonoBehaviour
         GameObject bubbleInstantiated = Instantiate(bubble);
         bubbleInstantiated.AddComponent(typeof(bubbleBehaviour));
         Rigidbody rb = bubbleInstantiated.GetComponent<Rigidbody>();
-        rb.AddForce(rb.position + speedModifier * Time.deltaTime * direction);
+        rb.AddForce(rb.position + speedModifier * Time.fixedDeltaTime * direction);
         bubbleInstantiated.AddComponent(typeof(bubbleMath));
         bubbleInstantiated.transform.position = new Vector3(x, y, z);
     }
