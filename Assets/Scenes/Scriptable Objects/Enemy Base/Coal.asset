@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c2ad3e46a6545d847820c5ef4761cfd3, type: 3}
-  m_Name: Test Trylobit
+  m_Name: Coal
   m_EditorClassIdentifier: 
-  startingNumber: 21
-  damage: 4
-  enemySpriteMaterial: {fileID: 2100000, guid: bf38ee7bd2f19cd49bfa07e10d9eb02a, type: 2}
-  enemyMusicTrack: {fileID: 8300000, guid: b21f76351d7669e40bba0f43f08b9293, type: 3}
-  enemyAttackSound: {fileID: 8300000, guid: 76133e6a1bc04d641869b2c4875082ea, type: 3}
+  startingNumber: 0
+  damage: 0
+  enemySpriteMaterial: {fileID: 0}
+  enemyMusicTrack: {fileID: 0}
+  enemyAttackSound: {fileID: 0}
   enemyDeathNoise: {fileID: 0}
-  lowerGoldRange: 65
-  upperGoldRange: 75
+  lowerGoldRange: 20
+  upperGoldRange: 70
