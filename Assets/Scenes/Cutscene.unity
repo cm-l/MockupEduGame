@@ -372,7 +372,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4280826711
+    rgba: 2636631
   m_fontColor: {r: 0.34117648, g: 0.23137257, b: 0.15686275, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -808,7 +808,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f787621fbb6b1e44b86f317f3777f661, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bd480ec53cf912044b0edb0c5836d4f5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1099,7 +1099,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: dd909fe10c4525d4fb54f4119859dcbe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: afdc264f3c57bf641ac635dc5d4dec0b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1187,6 +1187,16 @@ PlayableDirector:
     value: {fileID: 1658274525}
   - key: {fileID: 8017534883630583523, guid: 356624fbe07811f41b04fa848c275637, type: 2}
     value: {fileID: 60235841}
+  - key: {fileID: 1317900507954723304, guid: 356624fbe07811f41b04fa848c275637, type: 2}
+    value: {fileID: 60235841}
+  - key: {fileID: -5557972195878743721, guid: 356624fbe07811f41b04fa848c275637, type: 2}
+    value: {fileID: 1752190625}
+  - key: {fileID: 4091990822855904702, guid: 356624fbe07811f41b04fa848c275637, type: 2}
+    value: {fileID: 1857098056}
+  - key: {fileID: 126969054038129813, guid: 356624fbe07811f41b04fa848c275637, type: 2}
+    value: {fileID: 1036795192}
+  - key: {fileID: -549738448768926417, guid: 356624fbe07811f41b04fa848c275637, type: 2}
+    value: {fileID: 1297556640}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &1350821694
