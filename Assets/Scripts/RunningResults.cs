@@ -46,6 +46,9 @@ public class RunningResults : MonoBehaviour {
        
         moneyEarnedBox.text = "You earned $" + moneyEarned + "!";
 
+        // Dodawanie pieniêdzy do karcianki
+        ManagerSingleton.Instance.playerGold += moneyEarned;
+        Debug.Log("Money in game: " + ManagerSingleton.Instance.playerGold);
     }
 
     public static void AdditionScoreUp() {
