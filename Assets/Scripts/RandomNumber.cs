@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 
+
 public class RandomNumber : MonoBehaviour {
 
     private static int additionSubtractionLimiter;
@@ -10,9 +11,9 @@ public class RandomNumber : MonoBehaviour {
 
     private static int GetLimiterForAddSubt() {
         if (GameProgression.GetCurrentGameStage() >= 3) {
-            return 60;
+            return 50;
         } else if (GameProgression.GetCurrentGameStage() == 2) {
-            return 40;
+            return 35;
         } else {
             return 20;
         }

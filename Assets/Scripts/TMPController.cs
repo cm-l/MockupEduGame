@@ -26,7 +26,10 @@ public class TMPController : MonoBehaviour {
     void Start() {
         activeSceneName = SceneManager.GetActiveScene().name;
         switch (activeSceneName) {
-            case "AdditionScene": equationSymbol = "+"; break;
+            case "AdditionScene": equationSymbol = "+";
+                                  rowCounter = 0;
+                                  Debug.Log("Row counter: " + rowCounter);
+                                  break;
             case "SubtractionScene": equationSymbol = "-"; break;
             case "MultiplicationScene": equationSymbol = "×"; break;
             case "DivisionScene": equationSymbol = ":"; break;

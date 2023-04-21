@@ -23,7 +23,6 @@ public class TransitionScript : MonoBehaviour {
     [SerializeField] private Canvas menuCanvas;
     [SerializeField] private Canvas shopGameCanvas;
 
-
     public static bool cameFromAnotherScene = false;
 
     void Start() {
@@ -35,13 +34,8 @@ public class TransitionScript : MonoBehaviour {
 
     public static void RandomizeGameScene() {
         gameScenes = GetGameScenes(GameProgression.GetCurrentGameStage());
-        /*foreach (string k in gameScenes) {
-            Debug.Log(k);
-        }*/
-
         scenesAmount = gameScenes.Count;
         randomIndex = UnityEngine.Random.Range(0, scenesAmount);
-        // Debug.Log(randomIndex);
         SceneManager.LoadSceneAsync(gameScenes[randomIndex]);
     }
 
@@ -65,7 +59,7 @@ public class TransitionScript : MonoBehaviour {
                 cardsGameName3, cardsGameName3, cauldronGameName, cauldronGameName, runningGameName, runningGameName, runningGameName, runningGameName, shopSceneName, combatGameName 
             };
         } else if(currentGameStage == 4) {
-            return new List<string> { "TheEnd" };
+            return new List<string> { "TheEndWin" };
         } else {
             return new List<string>();
         }

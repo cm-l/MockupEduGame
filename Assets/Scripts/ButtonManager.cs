@@ -23,8 +23,6 @@ public class ButtonManager : MonoBehaviour {
         ShowCanvas(choiceCanvas);
     }
 
-    
-
     // <<<<< PLAY / OPTIONS / QUIT >>>>>
     public void PlayButton() {
         SoundSystemSingleton.Instance.PlaySfxSound(buttonClickSfx);
@@ -93,7 +91,12 @@ public class ButtonManager : MonoBehaviour {
     }
 
     private void ContinueAdventure() {
-        SceneManager.LoadScene("EnemyFight_Dungeon1");
+        switch(GameProgression.GetCurrentGameStage()) {
+            case 1: SceneManager.LoadSceneAsync("EnemyFight_Dungeon1"); break;
+            case 2: SceneManager.LoadSceneAsync("EnemyFight_Dungeon2"); break;
+            case 3: SceneManager.LoadSceneAsync("EnemyFight_Dungeon3"); break;
+            default: Debug.Log("Uh"); break;
+        }
     }
 
     private void SwitchToShop() {
@@ -246,7 +249,6 @@ public class ButtonManager : MonoBehaviour {
         Debug.Log("LevelsCompleted: " + GameProgression.GetLevelsCompleted() + "\n  Current stage: " + GameProgression.GetCurrentGameStage());
        
         // Resetowanie RunningGame
-        TMPController.ResetRowCounter();
         TMPController.ResetScore();
         RunningResults.ResetAllScores();
 
@@ -258,6 +260,5 @@ public class ButtonManager : MonoBehaviour {
             case 4: SceneManager.LoadSceneAsync("TheEnd"); break;
             default: Debug.Log("Uh"); break;
         }
-        
     } 
 }
