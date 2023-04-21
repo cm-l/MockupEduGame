@@ -1,30 +1,30 @@
-using System.Collections;
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
-using TMPro;
 using System;
-using System.Threading;
+using TMPro;
 
-public class RunningResults : MonoBehaviour
-{
-    private TextMeshProUGUI additionScoreBox;
-    private TextMeshProUGUI subtractionScoreBox;
-    private TextMeshProUGUI multiplicationScoreBox;
-    private TextMeshProUGUI divisionScoreBox;
-    private TextMeshProUGUI totalPointsScoreBox;
-    private TextMeshProUGUI moneyEarnedBox;
+
+public class RunningResults : MonoBehaviour {
 
     [SerializeField] private static int additionScore = 0;
     [SerializeField] private static int subtractionScore = 0;
     [SerializeField] private static int multiplicationScore = 0;
     [SerializeField] private static int divisionScore = 0;
 
-    [SerializeField] private static int highestPossibleScore = 10;
+    [SerializeField] private static int highestPossibleScore = 40;
     [SerializeField] private static int earnedPoints = 0;
     [SerializeField] private static float percentOfSuccessfulRun = 0f;
 
-    public static int moneyEarned;
-    public static int limitOfMoneyToEarn = 70;
+    [SerializeField] private static int moneyEarned;
+    [SerializeField] private static int limitOfMoneyToEarn = 70;
+    
+    private TextMeshProUGUI additionScoreBox;
+    private TextMeshProUGUI subtractionScoreBox;
+    private TextMeshProUGUI multiplicationScoreBox;
+    private TextMeshProUGUI divisionScoreBox;
+    private TextMeshProUGUI totalPointsScoreBox;
+    private TextMeshProUGUI moneyEarnedBox;
     
     void Start() {
         additionScoreBox = GameObject.Find("AdditionScoreBox").GetComponent<TextMeshProUGUI>();
@@ -89,10 +89,10 @@ public class RunningResults : MonoBehaviour
     }
 
     private static int CalculateMoneyEarned() {
-        if (percentOfSuccessfulRun <= 0)
+        if (percentOfSuccessfulRun <= 0 || float.IsNaN(percentOfSuccessfulRun))
             return 0;
         else
-            return (int) percentOfSuccessfulRun * limitOfMoneyToEarn;
+            return (int)Math.Round(percentOfSuccessfulRun * limitOfMoneyToEarn, MidpointRounding.AwayFromZero);
     }
 
     public static void ResetAllScores() {
