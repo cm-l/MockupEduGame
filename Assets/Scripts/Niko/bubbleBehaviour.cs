@@ -42,12 +42,14 @@ public class bubbleBehaviour : MonoBehaviour
         isBubbleDead = true;
     }
 
+    // Allows the bubbles to react to collisions (ignores cauldron)
     void OnCollisionEnter(Collision collision)
     {
         if (!(collision.gameObject == GameObject.Find("SD_Prop_Cauldron_01")))
         {
-            float bounce = 3000f; //amount of force to apply
-            rb.AddForce(bounce * Time.deltaTime * collision.contacts[0].normal);
+            float bounce = 2000f; //amount of force to apply
+            rb.AddForce(bounce * Time.fixedDeltaTime *
+                collision.contacts[0].normal);
         }
     }
   

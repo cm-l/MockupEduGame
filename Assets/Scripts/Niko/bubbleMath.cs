@@ -11,7 +11,7 @@ public class bubbleMath : MonoBehaviour
     void Start()
     {
         currentGameStage = GameProgression.GetCurrentGameStage();
-        //currentGameStage = 3;
+        //currentGameStage = 2;
         rValue = createRValue();
         gmText = gameObject.transform.GetChild(0).gameObject;
         bubbleValue = gmText.GetComponent<TextMeshPro>();
@@ -28,10 +28,10 @@ public class bubbleMath : MonoBehaviour
             maxValue = 20;
         } else if (currentGameStage == 2)
         {
-            maxValue = 50;
+            maxValue = 30;
         } else
         {
-            maxValue = 99;
+            maxValue = 50;
         }
 
         //Debug.Log("Current maxValue: " + maxValue);
