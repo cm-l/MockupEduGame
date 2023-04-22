@@ -123,6 +123,63 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &44757160
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 44757162}
+  - component: {fileID: 44757161}
+  m_Layer: 0
+  m_Name: TimelineEnd
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!320 &44757161
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44757160}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: c3d1d1ef5a3d99c4e988dc3fb72119e3, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: -6978409157874233235, guid: c3d1d1ef5a3d99c4e988dc3fb72119e3, type: 2}
+    value: {fileID: 836055492}
+  - key: {fileID: -4397898945952497409, guid: c3d1d1ef5a3d99c4e988dc3fb72119e3, type: 2}
+    value: {fileID: 76015832}
+  - key: {fileID: -3250571291928840471, guid: c3d1d1ef5a3d99c4e988dc3fb72119e3, type: 2}
+    value: {fileID: 856924363}
+  - key: {fileID: -2921986611486977939, guid: c3d1d1ef5a3d99c4e988dc3fb72119e3, type: 2}
+    value: {fileID: 1833874628}
+  m_ExposedReferences:
+    m_References: []
+--- !u!4 &44757162
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44757160}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &76015830
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,63 +422,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &119440283
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 119440285}
-  - component: {fileID: 119440284}
-  m_Layer: 0
-  m_Name: Timeline
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!320 &119440284
-PlayableDirector:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 119440283}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 356624fbe07811f41b04fa848c275637, type: 2}
-  m_InitialState: 1
-  m_WrapMode: 2
-  m_DirectorUpdateMode: 1
-  m_InitialTime: 0
-  m_SceneBindings:
-  - key: {fileID: 242924806944284155, guid: 356624fbe07811f41b04fa848c275637, type: 2}
-    value: {fileID: 856924363}
-  - key: {fileID: -9028819347953581028, guid: 356624fbe07811f41b04fa848c275637, type: 2}
-    value: {fileID: 1833874628}
-  - key: {fileID: -5461352960108620042, guid: 356624fbe07811f41b04fa848c275637, type: 2}
-    value: {fileID: 76015832}
-  - key: {fileID: -402265942797439206, guid: 356624fbe07811f41b04fa848c275637, type: 2}
-    value: {fileID: 836055492}
-  m_ExposedReferences:
-    m_References: []
---- !u!4 &119440285
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 119440283}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &606562185
 GameObject:
   m_ObjectHideFlags: 0
@@ -737,7 +737,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 46384e8ed428ddd48b654de7f5116682, type: 3}
+  m_Sprite: {fileID: 21300000, guid: eb1c96bceb84e054d864ea3906cb5830, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

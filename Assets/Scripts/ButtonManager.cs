@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine;
+using System;
 using TMPro;
 
 
@@ -87,7 +88,7 @@ public class ButtonManager : MonoBehaviour {
         // Wylosowanie sceny gry
         //Invoke("RandomizeGameScene", 2f);
 
-        Invoke("ContinueAdventure", 1.5f);
+        Invoke("ContinueAdventure", 2f);
     }
 
     private void ContinueAdventure() {
@@ -253,12 +254,38 @@ public class ButtonManager : MonoBehaviour {
         RunningResults.ResetAllScores();
 
         // Powrót do głównej gierki
-        switch(GameProgression.GetCurrentGameStage()) {
+        Invoke("ChangeScene", 2f);
+    }
+
+    // <<<<< COMBAT GAME >>>>>
+    public void ContinueToCombatButton() {
+        SceneManager.LoadSceneAsync("PiJ-minigra");
+    }
+
+    public void WonGameConfirmationButton() {
+        try {
+            ManagerSingleton.Instance.playerGold += 100;
+            Invoke("ChangeScene", 2f);
+        }
+        catch (NullReferenceException e) {
+            // handle the exception
+            Debug.Log("Najpierw odpal scenę karcianki. (" + e + ")");
+            Invoke("ChangeScene", 2f);
+        }
+
+    }
+
+    public void LostGameConfirmationButton() {
+        Invoke("ChangeScene", 2f);
+    }
+
+    private void ChangeScene() {
+        switch (GameProgression.GetCurrentGameStage()) {
             case 1: SceneManager.LoadSceneAsync("EnemyFight_Dungeon1"); break;
             case 2: SceneManager.LoadSceneAsync("EnemyFight_Dungeon2"); break;
             case 3: SceneManager.LoadSceneAsync("EnemyFight_Dungeon3"); break;
-            case 4: SceneManager.LoadSceneAsync("TheEnd"); break;
+            case 4: SceneManager.LoadSceneAsync("TheEndWin"); break;
             default: Debug.Log("Uh"); break;
         }
-    } 
+    }
 }

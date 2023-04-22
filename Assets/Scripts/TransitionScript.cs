@@ -2,6 +2,9 @@ using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
+using System.Threading;
+using System.Threading.Tasks;
+using System;
 
 
 public class TransitionScript : MonoBehaviour {
@@ -32,11 +35,18 @@ public class TransitionScript : MonoBehaviour {
         }
     }
 
-    public static void RandomizeGameScene() {
+     public static void RandomizeGameScene() {
         gameScenes = GetGameScenes(GameProgression.GetCurrentGameStage());
         scenesAmount = gameScenes.Count;
         randomIndex = UnityEngine.Random.Range(0, scenesAmount);
-        SceneManager.LoadSceneAsync(gameScenes[randomIndex]);
+        float delay = 2f;
+        var mainThread = SynchronizationContext.Current;
+        Task.Delay(TimeSpan.FromSeconds(delay)).ContinueWith(_ =>
+            mainThread.Post(__ => LoadNextScene(gameScenes[randomIndex]), null));
+    }
+
+    public static void LoadNextScene(string sceneName) {
+        SceneManager.LoadSceneAsync(sceneName);
     }
 
     private void ShowShopGameChoice() {
