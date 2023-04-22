@@ -45,32 +45,13 @@ public class EnemyController : MonoBehaviour
             ChangePhase();
         }
     }
-    
-    private bool levelsCompletedAdded = false;
-    public Canvas wonGameConfirmationCanvas;
 
     private void Defend(int receivedValue)
     {
         if (receivedValue == actionValue)
         {
-            if (--hp < 0) {
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-                CameraController.FreezeCamera();
-
-                if (!levelsCompletedAdded) {
-                    GameProgression.AddLevelsCompleted();
-                    GameProgression.UpdateGameStage();
-                    ManagerSingleton.Instance.playerGold += 100;
-                    levelsCompletedAdded = true;
-
-                    Debug.Log("LevelsCompleted: " + GameProgression.GetLevelsCompleted() + "\n  Current stage: " + GameProgression.GetCurrentGameStage());
-                }
-                
-                //ConfirmationBoxes.ShowCanvas(wonGameConfirmationCanvas);
+            if (--hp < 0)
                 this.gameObject.SetActive(false);
-            }
-
             else
                 healthBar.GetComponent<HealthBar>().TakeDamage(hp);
             
@@ -166,7 +147,7 @@ public class EnemyController : MonoBehaviour
         SoundSystemSingleton.Instance.PlaySfxSound(sound);
     }
 
-    public void ShowCanvas(Canvas canvasToShow) {
-        canvasToShow.gameObject.SetActive(true);
+    public int GetEnemyHP() {
+        return hp;
     }
 }

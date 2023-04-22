@@ -11,36 +11,70 @@ public class GameScript : MonoBehaviour
     [SerializeField] private AudioClip soundtrack; 
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private TextMeshProUGUI informationBox;
+    public EnemyController enemy;
 
     void Start()
     {
         player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         PlaySoundtrack();
         Instantiate(enemyPrefab, new Vector3(0f, 3.65f, 3f), Quaternion.identity);
+
+        enemy = GameObject.FindWithTag("Enemy").GetComponent<EnemyController>();
     }
 
+    [SerializeField] public Canvas winGameConfirmationCanvas;
     [SerializeField] public Canvas lostGameConfirmationCanvas;
-    private bool levelsCompletedAdded = false;
+    private bool hasEnded = false;
 
     void Update()
     {
-        if (player.hp < 0) {
+        // Wygrana
+        if (enemy.GetEnemyHP() < 0 && !hasEnded) {
+            hasEnded = true;
+
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             CameraController.FreezeCamera();
 
-            if (!levelsCompletedAdded) {
-                GameProgression.AddLevelsCompleted();
-                GameProgression.UpdateGameStage();
-                ManagerSingleton.Instance.playerGold -= HowMuchMoneyLost();
-                levelsCompletedAdded = true;
-
-
-                Debug.Log("LevelsCompleted: " + GameProgression.GetLevelsCompleted() + "\n  Current stage: " + GameProgression.GetCurrentGameStage());
+            GameProgression.AddLevelsCompleted();
+            GameProgression.UpdateGameStage();
+            
+            try {
+                ManagerSingleton.Instance.playerGold += 100;   
+            } catch (NullReferenceException e) {
+                Debug.Log("Najpierw odpal scenê karcianki. (" + e + ")");
             }
+
+            Debug.Log("LevelsCompleted: " + GameProgression.GetLevelsCompleted() + "\n  Current stage: " + GameProgression.GetCurrentGameStage());
+            ConfirmationBoxes.ShowCanvas(winGameConfirmationCanvas);
+        }
+
+        // Przegrana
+        if (player.hp < 0 && !hasEnded) {
+            hasEnded = true;
+
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            CameraController.FreezeCamera();
+
+            GameProgression.AddLevelsCompleted();
+            GameProgression.UpdateGameStage();
+
+            try {
+                ManagerSingleton.Instance.playerGold -= HowMuchMoneyLost();
+            }
+            catch (NullReferenceException e) {
+                Debug.Log("Najpierw odpal scenê karcianki. (" + e + ")");
+                informationBox.text = "You have lost $" + 0;
+            }
+            
+
+            Debug.Log("LevelsCompleted: " + GameProgression.GetLevelsCompleted() + "\n  Current stage: " + GameProgression.GetCurrentGameStage());
+ 
             informationBox.text = "You have lost $"+ HowMuchMoneyLost();
             ConfirmationBoxes.ShowCanvas(lostGameConfirmationCanvas);
         }
+
     }
 
     private void PlaySoundtrack()
