@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2ad3e46a6545d847820c5ef4761cfd3, type: 3}
+  m_Name: Lizard
+  m_EditorClassIdentifier: 
+  startingNumber: 34
+  damage: 7
+  enemySpriteMaterial: {fileID: 2100000, guid: c5c5cc8d59829ea498f9c3f9cbb6e913, type: 2}
+  enemyMusicTrack: {fileID: 8300000, guid: 7252e6aa55d5a2d4ab5bea1082df5708, type: 3}
+  enemyAttackSound: {fileID: 8300000, guid: dc8d301a4a8fa2148a431079d5bdf345, type: 3}
+  enemyDeathNoise: {fileID: 8300000, guid: 90911066d1d58e34cbb6abe99f136c51, type: 3}
+  lowerGoldRange: 20
+  upperGoldRange: 70
