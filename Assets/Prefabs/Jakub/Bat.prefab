@@ -60,6 +60,7 @@ MonoBehaviour:
   attackTrumpet: {fileID: 8300000, guid: 74e8e39682c6e4b41b3c3f42c3636c46, type: 3}
   defenceTrumpet: {fileID: 8300000, guid: 98672a8323eb6d6438de3dcd417aee44, type: 3}
   secondsPerDivider: 4
+  wonGameConfirmationCanvas: {fileID: 0}
 --- !u!1 &7785427505854517293
 GameObject:
   m_ObjectHideFlags: 0

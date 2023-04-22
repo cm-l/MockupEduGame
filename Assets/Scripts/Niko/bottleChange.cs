@@ -56,7 +56,7 @@ public class bottleChange : MonoBehaviour
                 break;
             default:
                 Debug.Log("Error in Switch-Case instruction in bottleChange " +
-                    "script in changeMaterial() method");break;
+                    "script in CheckMaterial() method");break;
         }
         
     }

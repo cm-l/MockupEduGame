@@ -6,7 +6,8 @@ public class followClicking : MonoBehaviour
 
     private void Awake()
     {
-        scenarioNumber = Random.Range(0, 4);
+        scenarioNumber = Random.Range(0, 5);
+        //scenarioNumber = 4;
     }
 
     void Update()
@@ -36,10 +37,16 @@ public class followClicking : MonoBehaviour
                         destScript.RemoveMeScenario2();
                     }
                     else if (scenarioNumber == 3)
+                    {
                         destScript.RemoveMeScenario3();
+                    }
+                    else if (scenarioNumber == 4)
+                    {
+                        destScript.RemoveMeScenario4();
+                    }
                     else
                     {
-                        Debug.Log("No scenario has been loaded");
+                        Debug.Log("Any scenario has been loaded");
                     }
                 }
             }

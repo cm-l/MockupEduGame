@@ -178,7 +178,7 @@ public class WeaponController : MonoBehaviour
             multiplier.text = currentDamage.ToString();
 
             if (enemyParent != null)
-                if (currentDamage == enemyParent.GetComponent<EnemyController>().actionValue)
+                if (currentDamage >= enemyParent.GetComponent<EnemyController>().actionValue)
                     EndCombo();
         }
     }
