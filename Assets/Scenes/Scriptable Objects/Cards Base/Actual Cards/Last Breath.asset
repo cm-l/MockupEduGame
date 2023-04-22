@@ -10,25 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3038d3c357a08aa4380b013ce8e33d20, type: 3}
-  m_Name: Barriicaded
+  m_Name: Last Breath
   m_EditorClassIdentifier: 
   cardImage: {fileID: 2100000, guid: a6ae85b2555bea740a1b89be5f34494f, type: 2}
-  cardArt: {fileID: 2100000, guid: 5aeca7341ae835c40af4a81d97242002, type: 2}
+  cardArt: {fileID: 0}
   uniqueActionDescriptor: 
-  uniqueActionSuffix: TESTSGYSGYG
-  playSound: {fileID: 8300000, guid: b50885ccad89ce742a6bfd55a07a35de, type: 3}
-  cardText: Test card, please replace later. Thanks!
+  uniqueActionSuffix: 
+  playSound: {fileID: 8300000, guid: 6cd85ba4c0f8df843b36c97ebe4caa4e, type: 3}
+  cardText: Deal 1 Damage.
   damageNumber: 1
   offensiveAction: 0
   healAmount: 0
   blockAmount: 0
-  barricadeAmount: 2
+  barricadeAmount: 0
   drawAmount: 0
   sacrificeAmount: 0
   payAmount: 0
   cost: 0
-  rarity: 0
+  rarity: 2
   effect:
-  - toxic
+  - exhaust
   value:
-  - 5
+  - 99

@@ -77,6 +77,11 @@ public class EnemyBehaviuur : MonoBehaviour
             changeValueByCard(2f, OffensiveAction.multiplyByNumber);
         }
 
+        if (damageCapability < 0)
+        {
+            damageCapability = 0;
+        }
+
         //Victory
         enemyDeath();
 

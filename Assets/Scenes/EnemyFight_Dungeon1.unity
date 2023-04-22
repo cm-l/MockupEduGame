@@ -523,7 +523,6 @@ MonoBehaviour:
   header: Enemy
   content: A formidable foe stands in your way! Reduce their Health Points down to
     0 in order to win.
-  hoverDelayTime: 0.99
 --- !u!111 &25074477
 Animation:
   m_ObjectHideFlags: 0
@@ -1267,22 +1266,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectedCards:
-  - {fileID: 11400000, guid: 1192ccbf7424cc84f810d45c8802c2f4, type: 2}
-  - {fileID: 11400000, guid: c09d2010e14050346a185ba1d5e2b711, type: 2}
-  - {fileID: 11400000, guid: 69e5ff8e53ba0fd4f8ef4317f30131f5, type: 2}
-  - {fileID: 11400000, guid: b873aed5d71119241981b9d5950b9eea, type: 2}
-  - {fileID: 11400000, guid: 69e5ff8e53ba0fd4f8ef4317f30131f5, type: 2}
-  - {fileID: 11400000, guid: c09d2010e14050346a185ba1d5e2b711, type: 2}
-  - {fileID: 11400000, guid: 1192ccbf7424cc84f810d45c8802c2f4, type: 2}
-  - {fileID: 11400000, guid: b873aed5d71119241981b9d5950b9eea, type: 2}
-  - {fileID: 11400000, guid: c09d2010e14050346a185ba1d5e2b711, type: 2}
-  - {fileID: 11400000, guid: 1192ccbf7424cc84f810d45c8802c2f4, type: 2}
-  - {fileID: 11400000, guid: 1192ccbf7424cc84f810d45c8802c2f4, type: 2}
-  - {fileID: 11400000, guid: 1192ccbf7424cc84f810d45c8802c2f4, type: 2}
-  - {fileID: 11400000, guid: 1192ccbf7424cc84f810d45c8802c2f4, type: 2}
-  - {fileID: 11400000, guid: 1192ccbf7424cc84f810d45c8802c2f4, type: 2}
-  - {fileID: 11400000, guid: 1192ccbf7424cc84f810d45c8802c2f4, type: 2}
-  - {fileID: 11400000, guid: 1192ccbf7424cc84f810d45c8802c2f4, type: 2}
+  - {fileID: 11400000, guid: 690b0ec08a55d61428f333da32ef0b73, type: 2}
+  - {fileID: 11400000, guid: fd30524e6948ce74a816bd0f47d39700, type: 2}
+  - {fileID: 11400000, guid: 89775c0feee29114187ab5747920aa14, type: 2}
+  - {fileID: 11400000, guid: bfaf0889f20c873479aa1e166dd1370f, type: 2}
+  - {fileID: 11400000, guid: f36113cde9ea8ac44a048586bab7dfef, type: 2}
+  - {fileID: 11400000, guid: aa75f3f2daec3b74b89fe4209d4a3db9, type: 2}
   collectedArtifacts:
   - {fileID: 11400000, guid: a07fbe7feb5896a489733b3f1ba6fbcc, type: 2}
   - {fileID: 11400000, guid: 31bf0b7aa9eb52347bdbbd1454ddda75, type: 2}
@@ -1353,6 +1342,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3122d98de0b5173489e4d8565fa2f731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  hand: []
+  deckAvailable: {fileID: 0}
+  discardPile: {fileID: 0}
 --- !u!23 &129269944
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3462,6 +3455,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3122d98de0b5173489e4d8565fa2f731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  hand: []
+  deckAvailable: {fileID: 0}
+  discardPile: {fileID: 0}
 --- !u!23 &303059957
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4814,7 +4811,6 @@ MonoBehaviour:
   content: Press this to end your turn! Ending your turn will make the enemy will
     carry out their planned action. It will also make you recieve a fresh hand of
     cards!
-  hoverDelayTime: 0.99
 --- !u!1 &493347756
 GameObject:
   m_ObjectHideFlags: 0
@@ -4903,7 +4899,6 @@ MonoBehaviour:
   content: Those are the cards you have in your hand! Clicking on any will modify
     the Enemy's Number by the equation displayed on it and move that card to the
     Discard Pile.
-  hoverDelayTime: 0.99
 --- !u!114 &505732341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4916,6 +4911,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3122d98de0b5173489e4d8565fa2f731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  hand: []
+  deckAvailable: {fileID: 0}
+  discardPile: {fileID: 0}
 --- !u!1 &531883961
 GameObject:
   m_ObjectHideFlags: 0
@@ -6338,7 +6337,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   header: Your Health Points
   content: Once this number reaches 0, you will lose! Watch out for enemy attacks.
-  hoverDelayTime: 0.99
 --- !u!65 &689943593
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7601,7 +7599,6 @@ MonoBehaviour:
   content: This is the pile of cards that you have already played! If you run out
     of cards in your Deck, then every card from this pile will be reshuffled back
     into your deck.
-  hoverDelayTime: 0.99
 --- !u!65 &807853022
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7680,7 +7677,6 @@ MonoBehaviour:
   header: Your Mana Points
   content: Each card costs a certain amount of Mana Points to play. This is how much
     of those points you have!
-  hoverDelayTime: 0.99
 --- !u!33 &817723823
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -8536,7 +8532,6 @@ MonoBehaviour:
   header: Gold Pouch
   content: The amount of gold you currently have. Spend (or save) it wisely! Not
     subject to inflation.
-  hoverDelayTime: 0.99
 --- !u!33 &850386137
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -10858,6 +10853,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3122d98de0b5173489e4d8565fa2f731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  hand: []
+  deckAvailable: {fileID: 0}
+  discardPile: {fileID: 0}
 --- !u!23 &1179932550
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11517,7 +11516,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   header: 
   content: 
-  hoverDelayTime: 0.99
 --- !u!114 &1248198522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14997,7 +14995,6 @@ MonoBehaviour:
   content: Those are the cards you have in your hand! Clicking on any will modify
     the Enemy's Number by the equation displayed on it and move that card to the
     Discard Pile.
-  hoverDelayTime: 0.99
 --- !u!114 &1610796604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15010,6 +15007,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3122d98de0b5173489e4d8565fa2f731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  hand: []
+  deckAvailable: {fileID: 0}
+  discardPile: {fileID: 0}
 --- !u!1 &1632220674
 GameObject:
   m_ObjectHideFlags: 0
@@ -15279,7 +15280,6 @@ MonoBehaviour:
   content: Those are the cards you have in your hand! Clicking on any will modify
     the Enemy's Number by the equation displayed on it and move that card to the
     Discard Pile.
-  hoverDelayTime: 0.99
 --- !u!114 &1648784682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15292,6 +15292,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3122d98de0b5173489e4d8565fa2f731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  hand: []
+  deckAvailable: {fileID: 0}
+  discardPile: {fileID: 0}
 --- !u!1001 &1649811530
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16009,7 +16013,6 @@ MonoBehaviour:
   content: Those are the cards you have in your hand! Clicking on any will modify
     the Enemy's Number by the equation displayed on it and move that card to the
     Discard Pile.
-  hoverDelayTime: 0.99
 --- !u!114 &1693060217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16022,6 +16025,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3122d98de0b5173489e4d8565fa2f731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  hand: []
+  deckAvailable: {fileID: 0}
+  discardPile: {fileID: 0}
 --- !u!1 &1696170480
 GameObject:
   m_ObjectHideFlags: 0
@@ -16458,6 +16465,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3122d98de0b5173489e4d8565fa2f731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  hand: []
+  deckAvailable: {fileID: 0}
+  discardPile: {fileID: 0}
 --- !u!23 &1725779086
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17572,7 +17583,6 @@ MonoBehaviour:
   header: Deck of Cards
   content: The number on your deck shows how many cards are left in it. Don't worry,
     if you run out, it will be reshuffled with the cards you've already played!
-  hoverDelayTime: 0.99
 --- !u!65 &1809877304
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18056,7 +18066,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   header: 
   content: 
-  hoverDelayTime: 0.99
 --- !u!114 &1846955438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19088,7 +19097,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   header: 
   content: 
-  hoverDelayTime: 0.99
 --- !u!114 &2034544627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20255,7 +20263,6 @@ MonoBehaviour:
   header: Enemy Number
   content: Once this number reaches the Goal Number (in the top left corner) you
     win!
-  hoverDelayTime: 0.99
 --- !u!65 &2094336703
 BoxCollider:
   m_ObjectHideFlags: 0

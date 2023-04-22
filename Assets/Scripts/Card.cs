@@ -187,7 +187,10 @@ public class Card : MonoBehaviour
 
     public void addToDiscardPile()
     {
-        discardPile.discardedCards.Add(cardScriptableObject);
+        if (!cardScriptableObject.effect.Contains("exhaust"))
+        {
+            discardPile.discardedCards.Add(cardScriptableObject);
+        }
     }
 
     public void discardHand()
