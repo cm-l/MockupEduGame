@@ -49,6 +49,7 @@ public class Settings : MonoBehaviour {
             if (gamePausePressed) {
                 gamePausePressed = false;
                 gamePauseCanvas.gameObject.SetActive(true);
+                CameraMovement.FreezeCamera();
             }
         }
         else {
@@ -56,6 +57,7 @@ public class Settings : MonoBehaviour {
             gamePauseCanvas.gameObject.SetActive(false);
             inGameOptionsCanvas.gameObject.SetActive(false);
             leaveMinigameConfirmationCanvas.gameObject.SetActive(false);
+            CameraMovement.UnfreezeCamera();
         }
 
         // <<<<< ... >>>>>
