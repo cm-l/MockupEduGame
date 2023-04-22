@@ -19,7 +19,8 @@ public class EnemyController : MonoBehaviour
     private int hp = 2, previousValue = 1, dividend;
     private bool playerAttackPhase = true;
 
-    [SerializeField] private Canvas wonGameConfirmation;
+    
+
     private void Start()
     {
         rndr.material = material[0];
@@ -44,25 +45,13 @@ public class EnemyController : MonoBehaviour
             ChangePhase();
         }
     }
-    
+
     private void Defend(int receivedValue)
     {
         if (receivedValue == actionValue)
         {
-            if (--hp < 0) {
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-
-                GameProgression.AddLevelsCompleted();
-                GameProgression.UpdateGameStage();
-
-                Debug.Log("LevelsCompleted: " + GameProgression.GetLevelsCompleted() + "\n  Current stage: " + GameProgression.GetCurrentGameStage());
-
-                // Canvas wygranej
-                ShowCanvas(wonGameConfirmation);
-                // this.gameObject.SetActive(false);
-            }
-
+            if (--hp < 0)
+                this.gameObject.SetActive(false);
             else
                 healthBar.GetComponent<HealthBar>().TakeDamage(hp);
             
@@ -158,7 +147,7 @@ public class EnemyController : MonoBehaviour
         SoundSystemSingleton.Instance.PlaySfxSound(sound);
     }
 
-    public void ShowCanvas(Canvas canvasToShow) {
-        canvasToShow.gameObject.SetActive(true);
+    public int GetEnemyHP() {
+        return hp;
     }
 }
