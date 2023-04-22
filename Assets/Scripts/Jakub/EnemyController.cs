@@ -19,7 +19,8 @@ public class EnemyController : MonoBehaviour
     private int hp = 2, previousValue = 1, dividend;
     private bool playerAttackPhase = true;
 
-    [SerializeField] private Canvas wonGameConfirmation;
+    
+
     private void Start()
     {
         rndr.material = material[0];
@@ -45,6 +46,9 @@ public class EnemyController : MonoBehaviour
         }
     }
     
+    private bool levelsCompletedAdded = false;
+    public Canvas wonGameConfirmationCanvas;
+
     private void Defend(int receivedValue)
     {
         if (receivedValue == actionValue)
@@ -52,15 +56,19 @@ public class EnemyController : MonoBehaviour
             if (--hp < 0) {
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
+                CameraController.FreezeCamera();
 
-                GameProgression.AddLevelsCompleted();
-                GameProgression.UpdateGameStage();
+                if (!levelsCompletedAdded) {
+                    GameProgression.AddLevelsCompleted();
+                    GameProgression.UpdateGameStage();
+                    ManagerSingleton.Instance.playerGold += 100;
+                    levelsCompletedAdded = true;
 
-                Debug.Log("LevelsCompleted: " + GameProgression.GetLevelsCompleted() + "\n  Current stage: " + GameProgression.GetCurrentGameStage());
-
-                // Canvas wygranej
-                ShowCanvas(wonGameConfirmation);
-                // this.gameObject.SetActive(false);
+                    Debug.Log("LevelsCompleted: " + GameProgression.GetLevelsCompleted() + "\n  Current stage: " + GameProgression.GetCurrentGameStage());
+                }
+                
+                //ConfirmationBoxes.ShowCanvas(wonGameConfirmationCanvas);
+                this.gameObject.SetActive(false);
             }
 
             else

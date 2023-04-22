@@ -272,21 +272,7 @@ public class ButtonManager : MonoBehaviour {
     }
 
     public void LostGameConfirmationButton() {
-        try {
-
-            if (ManagerSingleton.Instance.playerGold >= 100)
-                ManagerSingleton.Instance.playerGold -= 100;
-            else
-                ManagerSingleton.Instance.playerGold = 0;
-
-            ChangeScene();
-        }
-        catch (NullReferenceException e) {
-            // handle the exception
-            Debug.Log("Najpierw odpal scenę karcianki. (" + e + ")");
-            ChangeScene();
-        }
-        
+        ChangeScene();
     }
 
     private void ChangeScene() {

@@ -288,7 +288,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundtrack: {fileID: 8300000, guid: aa77ef8fa4ec23e428c5315eb13bfd17, type: 3}
   enemyPrefab: {fileID: 7785427505589990400, guid: ea2e722a208e3d943b24bc964c1ae7a8, type: 3}
-  lostGameConfirmation: {fileID: 1016648634}
+  informationBox: {fileID: 458255904}
+  lostGameConfirmationCanvas: {fileID: 1016648634}
 --- !u!1001 &10194675
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2594,6 +2595,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4733772755456769034, guid: 3ad7a1cffb2556547a8b7e60fd320431, type: 3}
   m_PrefabInstance: {fileID: 2089020131}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &458255904 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3595750215482631738, guid: d4d9b47398329af4e88a84ff0e6b09ce, type: 3}
+  m_PrefabInstance: {fileID: 1714699372}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &476048546
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6759,7 +6771,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1083130451}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
@@ -9611,8 +9623,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -312, y: -216}
-  m_SizeDelta: {x: 120, y: 120}
+  m_AnchoredPosition: {x: -300, y: -135}
+  m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1555184214
 MonoBehaviour:
@@ -10134,7 +10146,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3595750216466454264, guid: d4d9b47398329af4e88a84ff0e6b09ce, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3595750216466454268, guid: d4d9b47398329af4e88a84ff0e6b09ce, type: 3}
       propertyPath: m_Pivot.x
@@ -12547,11 +12559,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3595750216466454268, guid: d4d9b47398329af4e88a84ff0e6b09ce, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -27.857735
+      value: -1917.2019
       objectReference: {fileID: 0}
     - target: {fileID: 3595750216466454268, guid: d4d9b47398329af4e88a84ff0e6b09ce, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -15.992845
+      value: -542.3885
       objectReference: {fileID: 0}
     - target: {fileID: 3595750216466454268, guid: d4d9b47398329af4e88a84ff0e6b09ce, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -12567,7 +12579,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3595750216972159163, guid: d4d9b47398329af4e88a84ff0e6b09ce, type: 3}
       propertyPath: m_text
-      value: Congratulations
+      value: Congrats!
       objectReference: {fileID: 0}
     - target: {fileID: 3595750216972159163, guid: d4d9b47398329af4e88a84ff0e6b09ce, type: 3}
       propertyPath: m_fontStyle

@@ -46,7 +46,7 @@ public class TransitionScript : MonoBehaviour {
     private static List<string> GetGameScenes(int currentGameStage) {
         if (currentGameStage == 1) {
             return new List<string> {
-                /*cardsGameName1, cardsGameName1, cardsGameName1, cardsGameName1, cardsGameName1, cauldronGameName, runningGameName, runningGameName, */shopSceneName, combatGameName
+                cardsGameName1, cardsGameName1, cardsGameName1, cardsGameName1, cardsGameName1, cauldronGameName, runningGameName, runningGameName, shopSceneName, combatGameName
             };
         } else if (currentGameStage == 2) {
             return new List<string> {
