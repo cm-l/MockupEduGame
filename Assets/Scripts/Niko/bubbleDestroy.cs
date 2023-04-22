@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -23,32 +24,17 @@ public class bubbleDestroy : MonoBehaviour
     {
         if (evenScript)
         {
-            bM = this.GetComponent<bubbleMath>();
-            int rValue = bM.GetrVal();
+            int rValue = prepareRValueForChecking();
             if (rValue % 2 == 0)
             {
-                Debug.Log("OK " + rValue);
-                GameManager.ok++;
-                bChange.ChangeMaterialUp();
-                GameObject go = Instantiate(ps.gameObject, transform.position,
-                    Quaternion.identity);
-                SoundSystemSingleton.Instance.PlaySfxSound(popSound);
-
-                Destroy(go, 2.0f);
-                Destroy(this.gameObject);
-            } else
-            {
-                Debug.Log("MISTAKE " + rValue);
-                GameManager.mistake++;
-                bChange.ChangeMaterialDown();
-                GameObject go = Instantiate(ps.gameObject, transform.position,
-                Quaternion.identity);
-                SoundSystemSingleton.Instance.PlaySfxSound(popSound);
-
-                Destroy(go, 2.0f);
-                Destroy(this.gameObject);
+                PerformActionsForPoppedCorrectly(rValue);
             }
-        } else
+            else
+            {
+                PerformActionsForPoppedIncorrectly(rValue);
+            }
+        }
+        else
         {
             Debug.Log("Even Script not activated");
         }
@@ -61,32 +47,14 @@ public class bubbleDestroy : MonoBehaviour
     {
         if (evenScript)
         {
-            bM = this.GetComponent<bubbleMath>();
-            int rValue = bM.GetrVal();
+            int rValue = prepareRValueForChecking();
             if (rValue % 2 != 0)
             {
-                Debug.Log("OK " + rValue);
-                GameManager.ok++;
-                bChange.ChangeMaterialUp();
-                GameObject go = Instantiate(ps.gameObject, transform.position,
-                    Quaternion.identity);
-                SoundSystemSingleton.Instance.PlaySfxSound(popSound);
-
-                Destroy(go, 2.0f);
-                Destroy(this.gameObject);
-
+                PerformActionsForPoppedCorrectly(rValue);
             }
             else
             {
-                Debug.Log("MISTAKE " + rValue);
-                GameManager.mistake++;
-                bChange.ChangeMaterialDown();
-                GameObject go = Instantiate(ps.gameObject, transform.position,
-                Quaternion.identity);
-                SoundSystemSingleton.Instance.PlaySfxSound(popSound);
-
-                Destroy(go, 2.0f);
-                Destroy(this.gameObject);
+                PerformActionsForPoppedIncorrectly(rValue);
             }
         }
         else
@@ -100,31 +68,14 @@ public class bubbleDestroy : MonoBehaviour
     {
         if (evenScript)
         {
-            bM = this.GetComponent<bubbleMath>();
-            int rValue = bM.GetrVal();
+            int rValue = prepareRValueForChecking();
             if (CheckIfPrime(rValue))
             {
-                Debug.Log("OK " + rValue);
-                GameManager.ok++;
-                bChange.ChangeMaterialUp();
-                GameObject go = Instantiate(ps.gameObject, transform.position,
-                    Quaternion.identity);
-                SoundSystemSingleton.Instance.PlaySfxSound(popSound);
-
-                Destroy(go, 2.0f);
-                Destroy(this.gameObject);
+                PerformActionsForPoppedCorrectly(rValue);
             }
             else
             {
-                Debug.Log("MISTAKE " + rValue);
-                GameManager.mistake++;
-                bChange.ChangeMaterialDown();
-                GameObject go = Instantiate(ps.gameObject, transform.position,
-                Quaternion.identity);
-                SoundSystemSingleton.Instance.PlaySfxSound(popSound);
-
-                Destroy(go, 2.0f);
-                Destroy(this.gameObject);
+                PerformActionsForPoppedIncorrectly(rValue);
             }
         }
         else
@@ -138,37 +89,205 @@ public class bubbleDestroy : MonoBehaviour
     {
         if (evenScript)
         {
-            bM = this.GetComponent<bubbleMath>();
-            int rValue = bM.GetrVal();
+            int rValue = prepareRValueForChecking();
             if (((rValue % 3 == 0) || (rValue % 5 == 0)) && (rValue != 0))
             {
-                Debug.Log("OK " + rValue);
-                GameManager.ok++;
-                bChange.ChangeMaterialUp();
-                GameObject go = Instantiate(ps.gameObject, transform.position,
-                    Quaternion.identity);
-                SoundSystemSingleton.Instance.PlaySfxSound(popSound);
-
-                Destroy(go, 2.0f);
-                Destroy(this.gameObject);
+                PerformActionsForPoppedCorrectly(rValue);
             }
             else
             {
-                Debug.Log("MISTAKE " + rValue);
-                GameManager.mistake++;
-                bChange.ChangeMaterialDown();
-                GameObject go = Instantiate(ps.gameObject, transform.position,
-                Quaternion.identity);
-                SoundSystemSingleton.Instance.PlaySfxSound(popSound);
-
-                Destroy(go, 2.0f);
-                Destroy(this.gameObject);
+                PerformActionsForPoppedIncorrectly(rValue);
             }
         }
         else
         {
             Debug.Log("Even Script not activated");
         }
+    }
+
+    // Scenario 4
+    public void RemoveMeScenario4()
+    {
+        if (evenScript)
+        {
+            int rValue = prepareRValueForChecking();
+            if (CheckIfComposite(rValue))
+            {
+                PerformActionsForPoppedCorrectly(rValue);
+            }
+            else
+            {
+                PerformActionsForPoppedIncorrectly(rValue);
+            }
+        }
+        else
+        {
+            Debug.Log("Even Script not activated");
+        }
+    }
+
+    //AUTO-REMOVE
+    public void AutoRemoveScenario0()
+    {
+        if (evenScript)
+        {
+            int rValue = prepareRValueForChecking();
+            if (rValue % 2 == 0)
+            {
+                PerformActionsForNotPoppedInTime(rValue);
+
+            }
+            else
+            {
+                PopTheBubbleWithoutConsequences();
+            }
+        }
+        else
+        {
+            Debug.Log("Even Script not activated");
+        }
+    }
+
+
+    public void AutoRemoveScenario1()
+    {
+        if (evenScript)
+        {
+            int rValue = prepareRValueForChecking();
+            if (rValue % 2 != 0)
+            {
+                PerformActionsForNotPoppedInTime(rValue);
+
+            }
+            else
+            {
+                PopTheBubbleWithoutConsequences();
+            }
+        }
+        else
+        {
+            Debug.Log("Even Script not activated");
+        }
+    }
+
+
+    public void AutoRemoveScenario2()
+    {
+        if (evenScript)
+        {
+            int rValue = prepareRValueForChecking();
+            if (CheckIfPrime(rValue))
+            {
+                PerformActionsForNotPoppedInTime(rValue);
+            }
+            else
+            {
+                PopTheBubbleWithoutConsequences();
+            }
+        }
+        else
+        {
+            Debug.Log("Even Script not activated");
+        }
+    }
+
+    public void AutoRemoveScenario3()
+    {
+        if (evenScript)
+        {
+            int rValue = prepareRValueForChecking();
+            if (((rValue % 3 == 0) || (rValue % 5 == 0)) && (rValue != 0))
+            {
+                PerformActionsForNotPoppedInTime(rValue);
+
+            }
+            else
+            {
+                PopTheBubbleWithoutConsequences();
+            }
+        }
+        else
+        {
+            Debug.Log("Even Script not activated");
+        }
+    }
+
+
+    public void AutoRemoveScenario4()
+    {
+        if (evenScript)
+        {
+            int rValue = prepareRValueForChecking();
+            if (CheckIfComposite(rValue))
+            {
+                PerformActionsForNotPoppedInTime(rValue);
+
+            }
+            else
+            {
+                PopTheBubbleWithoutConsequences();
+            }
+        }
+        else
+        {
+            Debug.Log("Even Script not activated");
+        }
+    }
+
+
+
+    private void PerformActionsForPoppedCorrectly(int rValue)
+    {
+        Debug.Log("OK " + rValue);
+        GameManager.ok++;
+        bChange.ChangeMaterialUp();
+        GameObject go = Instantiate(ps.gameObject, transform.position,
+            Quaternion.identity);
+        SoundSystemSingleton.Instance.PlaySfxSound(popSound);
+
+        Destroy(go, 2.0f);
+        Destroy(this.gameObject);
+    }
+
+    private void PerformActionsForPoppedIncorrectly(int rValue)
+    {
+        Debug.Log("MISTAKE " + rValue);
+        GameManager.mistake++;
+        bChange.ChangeMaterialDown();
+        GameObject go = Instantiate(ps.gameObject, transform.position,
+        Quaternion.identity);
+        SoundSystemSingleton.Instance.PlaySfxSound(popSound);
+
+        Destroy(go, 2.0f);
+        Destroy(this.gameObject);
+    }
+
+    private int prepareRValueForChecking()
+    {
+        bM = this.GetComponent<bubbleMath>();
+        int rValue = bM.GetrVal();
+        return rValue;
+    }
+    private void PerformActionsForNotPoppedInTime(int rValue)
+    {
+        bChange.ChangeMaterialDown();
+        GameManager.notPopped++;
+        GameObject go = Instantiate(ps.gameObject, transform.position,
+            Quaternion.identity);
+        SoundSystemSingleton.Instance.PlaySfxSound(popSound);
+        Debug.Log("Not in time: " + rValue);
+        Destroy(go, 2.0f);
+        Destroy(this.gameObject);
+    }
+
+    private void PopTheBubbleWithoutConsequences()
+    {
+        GameObject go = Instantiate(ps.gameObject, transform.position,
+        Quaternion.identity);
+        SoundSystemSingleton.Instance.PlaySfxSound(popSound);
+
+        Destroy(go, 2.0f);
+        Destroy(this.gameObject);
     }
 
     bool CheckIfPrime(int number)
@@ -182,136 +301,14 @@ public class bubbleDestroy : MonoBehaviour
         return true;
     }
 
-    //AUTO-REMOVE
-    public void AutoRemoveScenario0()
+    bool CheckIfComposite(int number)
     {
-        if (evenScript)
+        bool isComposite = !CheckIfPrime(number);
+        if (number == 0 || number == 1)
         {
-            bM = this.GetComponent<bubbleMath>();
-            int rValue = bM.GetrVal();
-            if (rValue % 2 == 0)
-            {
-                bChange.ChangeMaterialDown();
-                GameManager.notPopped++;
-                GameObject go = Instantiate(ps.gameObject, transform.position,
-                    Quaternion.identity);
-                SoundSystemSingleton.Instance.PlaySfxSound(popSound);
-
-                Destroy(go, 2.0f);
-                Destroy(this.gameObject);
-            }
-            else
-            {
-                GameObject go = Instantiate(ps.gameObject, transform.position,
-                Quaternion.identity);
-                SoundSystemSingleton.Instance.PlaySfxSound(popSound);
-
-                Destroy(go, 2.0f);
-                Destroy(this.gameObject);
-            }
+            isComposite = false;
         }
-        else
-        {
-            Debug.Log("Even Script not activated");
-        }
+        return isComposite;
     }
 
-    public void AutoRemoveScenario1()
-    {
-        if (evenScript)
-        {
-            bM = this.GetComponent<bubbleMath>();
-            int rValue = bM.GetrVal();
-            if (rValue % 2 != 0)
-            {
-                bChange.ChangeMaterialDown();
-                GameManager.notPopped++;
-                GameObject go = Instantiate(ps.gameObject, transform.position,
-                    Quaternion.identity);
-                SoundSystemSingleton.Instance.PlaySfxSound(popSound);
-
-                Destroy(go, 2.0f);
-                Destroy(this.gameObject);
-            }
-            else
-            {
-                GameObject go = Instantiate(ps.gameObject, transform.position,
-                Quaternion.identity);
-                SoundSystemSingleton.Instance.PlaySfxSound(popSound);
-
-                Destroy(go, 2.0f);
-                Destroy(this.gameObject);
-            }
-        }
-        else
-        {
-            Debug.Log("Even Script not activated");
-        }
-    }
-
-    public void AutoRemoveScenario2()
-    {
-        if (evenScript)
-        {
-            bM = this.GetComponent<bubbleMath>();
-            int rValue = bM.GetrVal();
-            if (CheckIfPrime(rValue))
-            {
-                bChange.ChangeMaterialDown();
-                GameManager.notPopped++;
-                GameObject go = Instantiate(ps.gameObject, transform.position,
-                    Quaternion.identity);
-                SoundSystemSingleton.Instance.PlaySfxSound(popSound);
-
-                Destroy(go, 2.0f);
-                Destroy(this.gameObject);
-            }
-            else
-            {
-                GameObject go = Instantiate(ps.gameObject, transform.position,
-                Quaternion.identity);
-                SoundSystemSingleton.Instance.PlaySfxSound(popSound);
-
-                Destroy(go, 2.0f);
-                Destroy(this.gameObject);
-            }
-        }
-        else
-        {
-            Debug.Log("Even Script not activated");
-        }
-    }
-
-    public void AutoRemoveScenario3()
-    {
-        if (evenScript)
-        {
-            bM = this.GetComponent<bubbleMath>();
-            int rValue = bM.GetrVal();
-            if (((rValue % 3 == 0) || (rValue % 5 == 0)) && (rValue != 0))
-            {
-                bChange.ChangeMaterialDown();
-                GameManager.notPopped++;
-                GameObject go = Instantiate(ps.gameObject, transform.position,
-                    Quaternion.identity);
-                SoundSystemSingleton.Instance.PlaySfxSound(popSound);
-
-                Destroy(go, 2.0f);
-                Destroy(this.gameObject);
-            }
-            else
-            {
-                GameObject go = Instantiate(ps.gameObject, transform.position,
-                Quaternion.identity);
-                SoundSystemSingleton.Instance.PlaySfxSound(popSound);
-
-                Destroy(go, 2.0f);
-                Destroy(this.gameObject);
-            }
-        }
-        else
-        {
-            Debug.Log("Even Script not activated");
-        }
-    }
 }

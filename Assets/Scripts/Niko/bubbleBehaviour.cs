@@ -30,6 +30,9 @@ public class bubbleBehaviour : MonoBehaviour
                 bDestroy.AutoRemoveScenario2();
             else if (scenarioNumber == 3)
                 bDestroy.AutoRemoveScenario3();
+            else if (scenarioNumber == 4)
+                bDestroy.AutoRemoveScenario4();
+
             else
                 Debug.Log("Can't activate auto-remove " +
                     "function for given scenario in bubbleBahaviour script");

@@ -76,6 +76,11 @@ public class GameManager : MonoBehaviour
             textUI.text = "Pop the bubbles with numbers divisible by 3 or 5";
             userTask.text = "Pop the bubbles with numbers divisible by 3 or 5";
         }
+        else if (scenarioNumber == 4)
+        {
+            textUI.text = "Pop the bubbles with composite numbers";
+            userTask.text = "Pop the bubbles with composite numbers";
+        }
         else
         {
             textUI.text = "ERROR";
@@ -121,6 +126,7 @@ public class GameManager : MonoBehaviour
         //}
 
 
+
     }
 
     IEnumerator DisableTextAndPlayMusic()
@@ -136,10 +142,6 @@ public class GameManager : MonoBehaviour
     void LoadScene()
     {
         cauldron.GetComponent<Animate>().LoadNextLevel();
-
-        //lower bound inclusive - upper bound EXCLUSIVE
-        //int indexScene = UnityEngine.Random.Range(0, 3); //TODO fix based on number in build order
-        //SceneManager.LoadScene(indexScene);
     }
 
     void EndGame()

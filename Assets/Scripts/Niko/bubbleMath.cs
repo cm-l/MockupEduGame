@@ -11,7 +11,7 @@ public class bubbleMath : MonoBehaviour
     void Start()
     {
         currentGameStage = GameProgression.GetCurrentGameStage();
-        //currentGameStage = 2;
+        //currentGameStage = 3;
         rValue = createRValue();
         gmText = gameObject.transform.GetChild(0).gameObject;
         bubbleValue = gmText.GetComponent<TextMeshPro>();
