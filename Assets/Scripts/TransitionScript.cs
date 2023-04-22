@@ -14,7 +14,7 @@ public class TransitionScript : MonoBehaviour {
     private static string cardsGameName3 = "EnemyFight_Dungeon3";
 
     private static string runningGameName = "AdditionScene";
-    private static string combatGameName = "PiJ-minigraIntro";
+    private static string combatGameName = "PiJ-minigra";
     private static string cauldronGameName = "Niko-minigierka";
     private static string shopSceneName = "Shop";
 
@@ -56,18 +56,17 @@ public class TransitionScript : MonoBehaviour {
     private static List<string> GetGameScenes(int currentGameStage) {
         if (currentGameStage == 1) {
             return new List<string> {
-                cardsGameName1, cardsGameName1, cardsGameName1, cardsGameName1, cardsGameName1, cardsGameName1, cardsGameName1, runningGameName, runningGameName, runningGameName,
-                runningGameName, runningGameName, combatGameName, combatGameName, combatGameName, cauldronGameName, cauldronGameName, cauldronGameName, shopSceneName, shopSceneName
+                cardsGameName1, cardsGameName1, cardsGameName1, cardsGameName1, cardsGameName1, cauldronGameName, runningGameName, runningGameName, shopSceneName, combatGameName
             };
         } else if (currentGameStage == 2) {
             return new List<string> {
-                cardsGameName2, cardsGameName2, cardsGameName2, cardsGameName2, cardsGameName2, cardsGameName2, cardsGameName2, runningGameName, runningGameName, runningGameName,
-                runningGameName, runningGameName, combatGameName, combatGameName, combatGameName, cauldronGameName, cauldronGameName, cauldronGameName, shopSceneName, shopSceneName
+                cardsGameName2, cardsGameName2, cardsGameName2, cardsGameName2, cardsGameName2, cardsGameName2, cardsGameName2, cardsGameName2, cauldronGameName, cauldronGameName,
+                cauldronGameName, cauldronGameName, runningGameName, runningGameName, shopSceneName, shopSceneName, shopSceneName, combatGameName, combatGameName, combatGameName
             };
         } else if (currentGameStage == 3) {
             return new List<string> {
-               cardsGameName3, cardsGameName3, cardsGameName3, cardsGameName3, cardsGameName3, cardsGameName3, cardsGameName3, runningGameName, runningGameName, runningGameName,
-                runningGameName, runningGameName, combatGameName, combatGameName, combatGameName, cauldronGameName, cauldronGameName, cauldronGameName, shopSceneName, shopSceneName
+                cardsGameName3, cardsGameName3, cardsGameName3, cardsGameName3, cardsGameName3, cardsGameName3, cardsGameName3, cardsGameName3, cardsGameName3, cardsGameName3,
+                cardsGameName3, cardsGameName3, cauldronGameName, cauldronGameName, runningGameName, runningGameName, runningGameName, runningGameName, shopSceneName, combatGameName 
             };
         } else if(currentGameStage == 4) {
             return new List<string> { "TheEndWin" };

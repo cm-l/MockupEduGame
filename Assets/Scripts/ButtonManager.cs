@@ -88,7 +88,7 @@ public class ButtonManager : MonoBehaviour {
         // Wylosowanie sceny gry
         //Invoke("RandomizeGameScene", 2f);
 
-        Invoke("ContinueAdventure", 3f);
+        Invoke("ContinueAdventure", 2f);
     }
 
     private void ContinueAdventure() {
@@ -254,7 +254,7 @@ public class ButtonManager : MonoBehaviour {
         RunningResults.ResetAllScores();
 
         // Powrót do głównej gierki
-        ChangeScene();
+        Invoke("ChangeScene", 2f);
     }
 
     // <<<<< COMBAT GAME >>>>>
@@ -265,18 +265,18 @@ public class ButtonManager : MonoBehaviour {
     public void WonGameConfirmationButton() {
         try {
             ManagerSingleton.Instance.playerGold += 100;
-            ChangeScene();
+            Invoke("ChangeScene", 2f);
         }
         catch (NullReferenceException e) {
             // handle the exception
             Debug.Log("Najpierw odpal scenę karcianki. (" + e + ")");
-            ChangeScene();
+            Invoke("ChangeScene", 2f);
         }
 
     }
 
     public void LostGameConfirmationButton() {
-        ChangeScene();
+        Invoke("ChangeScene", 2f);
     }
 
     private void ChangeScene() {

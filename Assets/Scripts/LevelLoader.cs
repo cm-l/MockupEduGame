@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class LevelLoader : MonoBehaviour {
     
-    private int numberOfRowsBeforeChange = 3; // Ile szeregów przeciwników
+    private int numberOfRowsBeforeChange = 10; // Ile szeregów przeciwników
     private float timeElapsed;
 
     void Update() {
