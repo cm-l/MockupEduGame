@@ -79,8 +79,8 @@ public class EnemyBehaviuur : MonoBehaviour
 
         //Victory
         enemyDeath();
-
-
+        if (isEnemyDead)
+            CameraMovement.FreezeCamera();
     }
 
 
@@ -92,11 +92,14 @@ public class EnemyBehaviuur : MonoBehaviour
             SoundSystemSingleton.Instance.PlaySfxSound(victorySfx);
             isEnemyDead = true;
 
+
             //Rewards show
             winScreen.SetActive(true);
+            
 
             //Gain gold
             ManagerSingleton.Instance.gainGold(Random.Range(enemyScriptableObject.lowerGoldRange, enemyScriptableObject.upperGoldRange));
+
         }
     }
 
