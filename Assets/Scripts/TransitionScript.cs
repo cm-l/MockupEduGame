@@ -11,7 +11,7 @@ public class TransitionScript : MonoBehaviour {
     private static string cardsGameName3 = "EnemyFight_Dungeon3";
 
     private static string runningGameName = "AdditionScene";
-    private static string combatGameName = "PiJ-minigra";
+    private static string combatGameName = "PiJ-minigraIntro";
     private static string cauldronGameName = "Niko-minigierka";
     private static string shopSceneName = "Shop";
 

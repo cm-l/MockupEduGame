@@ -289,6 +289,8 @@ MonoBehaviour:
   soundtrack: {fileID: 8300000, guid: aa77ef8fa4ec23e428c5315eb13bfd17, type: 3}
   enemyPrefab: {fileID: 7785427505589990400, guid: ea2e722a208e3d943b24bc964c1ae7a8, type: 3}
   informationBox: {fileID: 458255904}
+  enemy: {fileID: 0}
+  winGameConfirmationCanvas: {fileID: 1546249946}
   lostGameConfirmationCanvas: {fileID: 1016648634}
 --- !u!1001 &10194675
 PrefabInstance:
@@ -5017,8 +5019,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -312, y: -216}
-  m_SizeDelta: {x: 120, y: 120}
+  m_AnchoredPosition: {x: -300, y: -135}
+  m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &806205364
 MonoBehaviour:
@@ -9588,6 +9590,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4733772755456769034, guid: 3ad7a1cffb2556547a8b7e60fd320431, type: 3}
   m_PrefabInstance: {fileID: 1730432154}
   m_PrefabAsset: {fileID: 0}
+--- !u!223 &1546249946 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 3595750216466454269, guid: d4d9b47398329af4e88a84ff0e6b09ce, type: 3}
+  m_PrefabInstance: {fileID: 3595750216454330667}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1555184212
 GameObject:
   m_ObjectHideFlags: 0
@@ -10118,11 +10125,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3595750215482631738, guid: d4d9b47398329af4e88a84ff0e6b09ce, type: 3}
       propertyPath: m_text
-      value: You lost $[placeholder]
+      value: You lost $999
       objectReference: {fileID: 0}
     - target: {fileID: 3595750215482631738, guid: d4d9b47398329af4e88a84ff0e6b09ce, type: 3}
       propertyPath: m_fontSize
-      value: 60
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 3595750215482631738, guid: d4d9b47398329af4e88a84ff0e6b09ce, type: 3}
       propertyPath: m_margin.z
@@ -10130,7 +10137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3595750215482631738, guid: d4d9b47398329af4e88a84ff0e6b09ce, type: 3}
       propertyPath: m_fontSizeBase
-      value: 60
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 3595750215482631738, guid: d4d9b47398329af4e88a84ff0e6b09ce, type: 3}
       propertyPath: m_HorizontalAlignment
@@ -10140,13 +10147,21 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -15
       objectReference: {fileID: 0}
+    - target: {fileID: 3595750216012781036, guid: d4d9b47398329af4e88a84ff0e6b09ce, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3595750216012781036, guid: d4d9b47398329af4e88a84ff0e6b09ce, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3595750216466454264, guid: d4d9b47398329af4e88a84ff0e6b09ce, type: 3}
       propertyPath: m_Name
       value: LostGameConfirmationCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 3595750216466454264, guid: d4d9b47398329af4e88a84ff0e6b09ce, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3595750216466454268, guid: d4d9b47398329af4e88a84ff0e6b09ce, type: 3}
       propertyPath: m_Pivot.x
@@ -10232,13 +10247,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3595750216972159140, guid: d4d9b47398329af4e88a84ff0e6b09ce, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 131
+      objectReference: {fileID: 0}
     - target: {fileID: 3595750216972159163, guid: d4d9b47398329af4e88a84ff0e6b09ce, type: 3}
       propertyPath: m_text
-      value: Unfortunately
+      value: You lost
+      objectReference: {fileID: 0}
+    - target: {fileID: 3595750216972159163, guid: d4d9b47398329af4e88a84ff0e6b09ce, type: 3}
+      propertyPath: m_fontSize
+      value: 110
       objectReference: {fileID: 0}
     - target: {fileID: 3595750216972159163, guid: d4d9b47398329af4e88a84ff0e6b09ce, type: 3}
       propertyPath: m_fontStyle
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3595750216972159163, guid: d4d9b47398329af4e88a84ff0e6b09ce, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 110
+      objectReference: {fileID: 0}
+    - target: {fileID: 3595750216972159163, guid: d4d9b47398329af4e88a84ff0e6b09ce, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4d9b47398329af4e88a84ff0e6b09ce, type: 3}
@@ -12467,7 +12498,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3595750215482631738, guid: d4d9b47398329af4e88a84ff0e6b09ce, type: 3}
       propertyPath: m_fontSize
-      value: 60
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 3595750215482631738, guid: d4d9b47398329af4e88a84ff0e6b09ce, type: 3}
       propertyPath: m_margin.z
@@ -12475,7 +12506,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3595750215482631738, guid: d4d9b47398329af4e88a84ff0e6b09ce, type: 3}
       propertyPath: m_fontSizeBase
-      value: 60
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 3595750215482631738, guid: d4d9b47398329af4e88a84ff0e6b09ce, type: 3}
       propertyPath: m_HorizontalAlignment
@@ -12483,7 +12514,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3595750215482631739, guid: d4d9b47398329af4e88a84ff0e6b09ce, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -15
+      value: -33
       objectReference: {fileID: 0}
     - target: {fileID: 3595750216466454264, guid: d4d9b47398329af4e88a84ff0e6b09ce, type: 3}
       propertyPath: m_Name
@@ -12547,23 +12578,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3595750216466454268, guid: d4d9b47398329af4e88a84ff0e6b09ce, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3595750216466454268, guid: d4d9b47398329af4e88a84ff0e6b09ce, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3595750216466454268, guid: d4d9b47398329af4e88a84ff0e6b09ce, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3595750216466454268, guid: d4d9b47398329af4e88a84ff0e6b09ce, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -1917.2019
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3595750216466454268, guid: d4d9b47398329af4e88a84ff0e6b09ce, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -542.3885
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3595750216466454268, guid: d4d9b47398329af4e88a84ff0e6b09ce, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -12577,13 +12608,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3595750216972159140, guid: d4d9b47398329af4e88a84ff0e6b09ce, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -171
+      objectReference: {fileID: 0}
+    - target: {fileID: 3595750216972159140, guid: d4d9b47398329af4e88a84ff0e6b09ce, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 3595750216972159141, guid: d4d9b47398329af4e88a84ff0e6b09ce, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3595750216972159163, guid: d4d9b47398329af4e88a84ff0e6b09ce, type: 3}
       propertyPath: m_text
-      value: Congrats!
+      value: You won
+      objectReference: {fileID: 0}
+    - target: {fileID: 3595750216972159163, guid: d4d9b47398329af4e88a84ff0e6b09ce, type: 3}
+      propertyPath: m_fontSize
+      value: 110
       objectReference: {fileID: 0}
     - target: {fileID: 3595750216972159163, guid: d4d9b47398329af4e88a84ff0e6b09ce, type: 3}
       propertyPath: m_fontStyle
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3595750216972159163, guid: d4d9b47398329af4e88a84ff0e6b09ce, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 110
+      objectReference: {fileID: 0}
+    - target: {fileID: 3595750216972159163, guid: d4d9b47398329af4e88a84ff0e6b09ce, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4d9b47398329af4e88a84ff0e6b09ce, type: 3}
