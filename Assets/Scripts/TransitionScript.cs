@@ -39,7 +39,7 @@ public class TransitionScript : MonoBehaviour {
         gameScenes = GetGameScenes(GameProgression.GetCurrentGameStage());
         scenesAmount = gameScenes.Count;
         randomIndex = UnityEngine.Random.Range(0, scenesAmount);
-        float delay = 0.1f;
+        float delay = 1f;
         var mainThread = SynchronizationContext.Current;
         Task.Delay(TimeSpan.FromSeconds(delay)).ContinueWith(_ =>
             mainThread.Post(__ => LoadNextScene(gameScenes[randomIndex]), null));
