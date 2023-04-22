@@ -19,6 +19,7 @@ public class EnemyController : MonoBehaviour
     private int hp = 2, previousValue = 1, dividend;
     private bool playerAttackPhase = true;
 
+    [SerializeField] private Canvas wonGameConfirmation;
     private void Start()
     {
         rndr.material = material[0];
@@ -43,7 +44,7 @@ public class EnemyController : MonoBehaviour
             ChangePhase();
         }
     }
-
+    
     private void Defend(int receivedValue)
     {
         if (receivedValue == actionValue)
@@ -51,17 +52,14 @@ public class EnemyController : MonoBehaviour
             if (--hp < 0) {
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
+
                 GameProgression.AddLevelsCompleted();
                 GameProgression.UpdateGameStage();
+
                 Debug.Log("LevelsCompleted: " + GameProgression.GetLevelsCompleted() + "\n  Current stage: " + GameProgression.GetCurrentGameStage());
 
-                switch (GameProgression.GetCurrentGameStage()) {
-                    case 1: SceneManager.LoadSceneAsync("EnemyFight_Dungeon1"); break;
-                    case 2: SceneManager.LoadSceneAsync("EnemyFight_Dungeon2"); break;
-                    case 3: SceneManager.LoadSceneAsync("EnemyFight_Dungeon3"); break;
-                    case 4: SceneManager.LoadSceneAsync("TheEnd"); break;
-                    default: Debug.Log("Uh"); break;
-                }
+                // Canvas wygranej
+                ShowCanvas(wonGameConfirmation);
                 // this.gameObject.SetActive(false);
             }
 
@@ -160,4 +158,7 @@ public class EnemyController : MonoBehaviour
         SoundSystemSingleton.Instance.PlaySfxSound(sound);
     }
 
+    public void ShowCanvas(Canvas canvasToShow) {
+        canvasToShow.gameObject.SetActive(true);
+    }
 }

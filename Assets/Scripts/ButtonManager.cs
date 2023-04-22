@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine;
+using System;
 using TMPro;
 
 
@@ -253,12 +254,48 @@ public class ButtonManager : MonoBehaviour {
         RunningResults.ResetAllScores();
 
         // Powrót do głównej gierki
-        switch(GameProgression.GetCurrentGameStage()) {
+        ChangeScene();
+    }
+
+    // <<<<< COMBAT GAME >>>>>
+    public void WonGameConfirmationButton() {
+        try {
+            ManagerSingleton.Instance.playerGold += 100;
+            ChangeScene();
+        }
+        catch (NullReferenceException e) {
+            // handle the exception
+            Debug.Log("Najpierw odpal scenę karcianki. (" + e + ")");
+            ChangeScene();
+        }
+
+    }
+
+    public void LostGameConfirmationButton() {
+        try {
+
+            if (ManagerSingleton.Instance.playerGold >= 100)
+                ManagerSingleton.Instance.playerGold -= 100;
+            else
+                ManagerSingleton.Instance.playerGold = 0;
+
+            ChangeScene();
+        }
+        catch (NullReferenceException e) {
+            // handle the exception
+            Debug.Log("Najpierw odpal scenę karcianki. (" + e + ")");
+            ChangeScene();
+        }
+        
+    }
+
+    private void ChangeScene() {
+        switch (GameProgression.GetCurrentGameStage()) {
             case 1: SceneManager.LoadSceneAsync("EnemyFight_Dungeon1"); break;
             case 2: SceneManager.LoadSceneAsync("EnemyFight_Dungeon2"); break;
             case 3: SceneManager.LoadSceneAsync("EnemyFight_Dungeon3"); break;
-            case 4: SceneManager.LoadSceneAsync("TheEnd"); break;
+            case 4: SceneManager.LoadSceneAsync("TheEndWin"); break;
             default: Debug.Log("Uh"); break;
         }
-    } 
+    }
 }
