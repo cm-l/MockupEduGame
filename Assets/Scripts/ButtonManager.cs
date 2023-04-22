@@ -88,7 +88,7 @@ public class ButtonManager : MonoBehaviour {
         // Wylosowanie sceny gry
         //Invoke("RandomizeGameScene", 2f);
 
-        Invoke("ContinueAdventure", 1.5f);
+        Invoke("ContinueAdventure", 3f);
     }
 
     private void ContinueAdventure() {
