@@ -48,9 +48,12 @@ public class TooltipSystem : MonoBehaviour
     public static void Show(string content, string header = "")
     {
         //Debug.Log("Shown.");
-        easyIn();
-        Instance.tooltip.SetTip(content, header);
-        Instance.tooltip.gameObject.SetActive(true);
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            easyIn();
+            Instance.tooltip.SetTip(content, header);
+            Instance.tooltip.gameObject.SetActive(true);
+        }
     }
 
     public static void Hide()

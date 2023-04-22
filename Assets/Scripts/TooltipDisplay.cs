@@ -15,7 +15,7 @@ public class TooltipDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     private static LTDescr delay;
 
     //Delay time
-    public float hoverDelayTime = 0.99f;
+    private float hoverDelayTime = 0.12f;
 
     //Using UI Event Systems (for UI canvas elements)
     public void OnPointerEnter(PointerEventData eventData)

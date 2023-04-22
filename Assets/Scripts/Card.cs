@@ -137,6 +137,8 @@ public class Card : MonoBehaviour
 
         //Set mana/whatever cost on card display
         transform.GetChild(1).GetComponent<TextMeshPro>().SetText(cardScriptableObject.cost.ToString());
+
+        transform.GetChild(2).GetComponent<TextMeshPro>().SetText(cardScriptableObject.name);
     }
 
     //TODO watch out for that STATIC declaration and possible remove in the future
