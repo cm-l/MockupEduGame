@@ -258,6 +258,10 @@ public class ButtonManager : MonoBehaviour {
     }
 
     // <<<<< COMBAT GAME >>>>>
+    public void ContinueToCombatButton() {
+        SceneManager.LoadSceneAsync("PiJ-minigra");
+    }
+
     public void WonGameConfirmationButton() {
         try {
             ManagerSingleton.Instance.playerGold += 100;

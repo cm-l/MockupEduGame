@@ -65,13 +65,13 @@ public class GameScript : MonoBehaviour
             }
             catch (NullReferenceException e) {
                 Debug.Log("Najpierw odpal scenê karcianki. (" + e + ")");
-                informationBox.text = "You have lost $" + 0;
+                informationBox.text = "You lost $" + 0;
             }
             
 
             Debug.Log("LevelsCompleted: " + GameProgression.GetLevelsCompleted() + "\n  Current stage: " + GameProgression.GetCurrentGameStage());
  
-            informationBox.text = "You have lost $"+ HowMuchMoneyLost();
+            informationBox.text = "You lost $"+ HowMuchMoneyLost();
             ConfirmationBoxes.ShowCanvas(lostGameConfirmationCanvas);
         }
 
