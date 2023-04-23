@@ -27,8 +27,8 @@ public class UIScreenRewardCard : MonoBehaviour
         cardScriptableObject = cardRewardPool[randomIndexInList];
 
         //Select random enemy from enemy pool
-        int randomIndexInEnemyPool = Random.Range(0, enemyEncounterPool.Count);
-        nextEnemyViaRewards = enemyEncounterPool[randomIndexInEnemyPool];
+        //int randomIndexInEnemyPool = Random.Range(0, enemyEncounterPool.Count);
+        //nextEnemyViaRewards = enemyEncounterPool[randomIndexInEnemyPool];
 
         // refer to SO:
         // to set equation displayed on card:
@@ -36,6 +36,9 @@ public class UIScreenRewardCard : MonoBehaviour
 
         //Set mana/whatever cost on card display
         transform.GetChild(1).GetComponent<TextMeshProUGUI>().SetText(cardScriptableObject.cost.ToString());
+
+        //Set name
+        transform.GetChild(2).GetComponent<TextMeshProUGUI>().SetText(cardScriptableObject.name);
     }
 
     // Update is called once per frame
@@ -51,8 +54,6 @@ public class UIScreenRewardCard : MonoBehaviour
 
     public void headInThisDirection()
     {
-        Debug.Log("You decided to go towards " + nextEnemyViaRewards.name);
-        ManagerSingleton.Instance.nextEncounteredEnemy = nextEnemyViaRewards;
 
         //Make an animation of fading out happen - fading in happens on start of other scene
 

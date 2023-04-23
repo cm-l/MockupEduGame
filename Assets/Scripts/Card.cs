@@ -139,6 +139,9 @@ public class Card : MonoBehaviour
         transform.GetChild(1).GetComponent<TextMeshPro>().SetText(cardScriptableObject.cost.ToString());
 
         transform.GetChild(2).GetComponent<TextMeshPro>().SetText(cardScriptableObject.name);
+
+        //Set art
+        transform.GetChild(3).GetComponent<MeshRenderer>().material = cardScriptableObject.cardArt;
     }
 
     //TODO watch out for that STATIC declaration and possible remove in the future
@@ -187,7 +190,10 @@ public class Card : MonoBehaviour
 
     public void addToDiscardPile()
     {
-        discardPile.discardedCards.Add(cardScriptableObject);
+        if (!cardScriptableObject.effect.Contains("exhaust") && !cardScriptableObject.effect.Contains("release"))
+        {
+            discardPile.discardedCards.Add(cardScriptableObject);
+        }
     }
 
     public void discardHand()

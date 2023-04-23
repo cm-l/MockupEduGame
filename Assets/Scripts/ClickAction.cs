@@ -58,6 +58,7 @@ public class ClickAction : MonoBehaviour
                 // to na pewno nie jest najlepsza metoda
                 if (turnButtonAnimation)
                 {
+                    Debug.Log("buttoned");
                     //BUTTON ANIMATION
                     turnButtonAnimation.clickedOnAnimation();
                     //Give back all the mana the player can have
@@ -66,8 +67,17 @@ public class ClickAction : MonoBehaviour
                     //CARD LOGIC
                     for (int i = 0; i < cardSlots.Count; i++)
                     {
-                        cardSlots[i].GetComponent<Destroyable>().discardThisCard();
-                        cardSlots[i].GetComponent<Card>().dealHand();
+                        if (!cardSlots[i].GetComponent<Card>().cardScriptableObject.effect.Contains("retain"))
+                        {
+                            cardSlots[i].GetComponent<Destroyable>().discardThisCard();
+                            cardSlots[i].GetComponent<Card>().dealHand();
+                        } else
+                        {
+                            if (cardSlots[i].GetComponent<Card>().hasBeenPlayed)
+                            {
+                                cardSlots[i].GetComponent<Card>().dealHand();
+                            }
+                        }
                     }
 
                     //IF DECK IS EMPTY -> REFILL USING CARDS FROM DISCARD PILE

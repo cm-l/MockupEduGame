@@ -48,11 +48,11 @@ public class BubbleStatsScript : MonoBehaviour {
         moneyEarned = CalculateMoneyEarned();
         moneyEarnedBox.text = "You earned $" + moneyEarned + "!";
 
-        // Dodawanie pieniêdzy do karcianki
+        // Dodawanie pieniï¿½dzy do karcianki
         try {
             ManagerSingleton.Instance.playerGold += moneyEarned;    
         } catch (NullReferenceException e) {
-            Debug.Log("Najpierw odpal karciankê, to wtedy kasa siê doda poprawnie.\n" + e);
+            Debug.Log("Najpierw odpal karciankï¿½, to wtedy kasa siï¿½ doda poprawnie.\n" + e);
         }
     }
 
