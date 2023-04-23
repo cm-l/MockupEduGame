@@ -58,6 +58,7 @@ public class ClickAction : MonoBehaviour
                 // to na pewno nie jest najlepsza metoda
                 if (turnButtonAnimation)
                 {
+                    Debug.Log("buttoned");
                     //BUTTON ANIMATION
                     turnButtonAnimation.clickedOnAnimation();
                     //Give back all the mana the player can have
