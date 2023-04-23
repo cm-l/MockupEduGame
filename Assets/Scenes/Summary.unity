@@ -2352,7 +2352,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cursorTexture: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
-  gameMusic: {fileID: 0}
+  gameMusic: {fileID: 8300000, guid: e43d1bb718e4de74cba12730590ec5fb, type: 3}
   gamePauseCanvas: {fileID: 1274652904}
   inGameOptionsCanvas: {fileID: 1274652904}
   leaveMinigameConfirmationCanvas: {fileID: 1274652904}
