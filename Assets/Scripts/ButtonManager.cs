@@ -257,7 +257,6 @@ public class ButtonManager : MonoBehaviour {
         // Resetowanie RunningGame
         TMPController.ResetScore();
         RunningResults.ResetAllScores();
-        SceneManager.LoadScene("Niko-minigierka");
 
         // Powrót do głównej gierki
         Invoke("ChangeScene", 2f);
