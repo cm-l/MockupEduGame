@@ -2024,7 +2024,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6323029006050478460, guid: ec31084d28c62c24290478c078931842, type: 3}
       propertyPath: m_text
-      value: PL
+      value: ENG
       objectReference: {fileID: 0}
     - target: {fileID: 6323029006050478460, guid: ec31084d28c62c24290478c078931842, type: 3}
       propertyPath: m_fontSize
@@ -8095,6 +8095,10 @@ PrefabInstance:
     - target: {fileID: 7753013813428632940, guid: 8f6c3de5cbda7734fb294c1124b7ca40, type: 3}
       propertyPath: m_Name
       value: MouseSensivityButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753013813428632940, guid: 8f6c3de5cbda7734fb294c1124b7ca40, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f6c3de5cbda7734fb294c1124b7ca40, type: 3}
