@@ -11,12 +11,14 @@ public class bubbleDestroy : MonoBehaviour
     bottleChange bChange;
     bubbleMath bM;
     [SerializeField] private AudioClip popSound;
+    private bool readyForChecking;
    
 
     public void Start()
     {
         bChange = GameObject.FindGameObjectWithTag("Bottle").
             GetComponent<bottleChange>();
+        readyForChecking = true;
     }
 
     //Scenario 0
@@ -270,12 +272,15 @@ public class bubbleDestroy : MonoBehaviour
     }
     private void PerformActionsForNotPoppedInTime(int rValue)
     {
-        bChange.ChangeMaterialDown();
-        GameManager.notPopped++;
+        if (readyForChecking)
+        {
+            bChange.ChangeMaterialDown();
+            GameManager.notPopped++;
+            Debug.Log("Not in time: " + rValue);
+        }
         GameObject go = Instantiate(ps.gameObject, transform.position,
             Quaternion.identity);
         SoundSystemSingleton.Instance.PlaySfxSound(popSound);
-        Debug.Log("Not in time: " + rValue);
         Destroy(go, 2.0f);
         Destroy(this.gameObject);
     }
@@ -285,7 +290,6 @@ public class bubbleDestroy : MonoBehaviour
         GameObject go = Instantiate(ps.gameObject, transform.position,
         Quaternion.identity);
         SoundSystemSingleton.Instance.PlaySfxSound(popSound);
-
         Destroy(go, 2.0f);
         Destroy(this.gameObject);
     }
@@ -309,6 +313,12 @@ public class bubbleDestroy : MonoBehaviour
             isComposite = false;
         }
         return isComposite;
+    }
+
+    public void StopCheckingNumbers()
+    {
+        readyForChecking = false;
+        Debug.Log("Bubble checking stopped");
     }
 
 }
