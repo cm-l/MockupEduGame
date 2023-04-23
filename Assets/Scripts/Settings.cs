@@ -4,7 +4,6 @@ using System.Collections;
 using UnityEngine;
 
 
-
 public class Settings : MonoBehaviour {
 
     public static int screenWidth = 1920;
@@ -21,9 +20,12 @@ public class Settings : MonoBehaviour {
     private string currentSceneName;
 
     void Start() {
+        gamePaused = false;
+        gamePausePressed = false;
+
         if (cursorTexture == null) {
-            Cursor.SetCursor(null, cursorHotspot, CursorMode.Auto);
             cursorHotspot = new Vector2(0, 0);
+            Cursor.SetCursor(null, cursorHotspot, CursorMode.Auto);
 
         } else {
             Cursor.SetCursor(cursorTexture, cursorHotspot, CursorMode.Auto);
@@ -31,15 +33,12 @@ public class Settings : MonoBehaviour {
 
         currentSceneName = SceneManager.GetActiveScene().name;
 
-        gamePaused = false;
-        gamePausePressed = false;
-
         mouseSensitivity = 10f;
 
-        //if (gameMusic != null) {
+        if (gameMusic != null) {
             SoundSystemSingleton.Instance.PlayMusicSound(gameMusic);
             SoundSystemSingleton.Instance.ChangeMusicVolume(1f);
-        //}
+        }
         
         Screen.SetResolution(screenWidth, screenHeight, true);    
     }
@@ -72,8 +71,7 @@ public class Settings : MonoBehaviour {
                 // Nietoperz
                 //CameraController.FreezeCamera();
             }
-        }
-        else {
+        } else {
             Time.timeScale = 1;
             gamePauseCanvas.gameObject.SetActive(false);
             inGameOptionsCanvas.gameObject.SetActive(false);
@@ -90,11 +88,8 @@ public class Settings : MonoBehaviour {
                 Cursor.visible = false;
             }
         }
-
-        // <<<<< ... >>>>>
     }
 
-    // TODO: NAPRAWIĆ, ŻEBY NIE DAŁO SIĘ ODPALIĆ PAUZY W MENU GRY
     private static void PauseGame() {
         gamePaused = true;
         gamePausePressed = true;
@@ -114,10 +109,10 @@ public class Settings : MonoBehaviour {
         Screen.SetResolution(height, width, true);
     }
 
-    // Ta metoda jest na razie bezużyteczna i pewnie przez dłuższy czas będzie
     public static void SwitchLanguage(string lang) {
         Debug.Log("Lanuage set to " + lang);
     }
+
     private bool checkIfInScenesWithoutCursor() {
         string[] scenes = {
             "AdditionScene", "SubtractionScene", "MultiplicationSceneDivisionScene", "DivisionScene", "PiJ-minigra"

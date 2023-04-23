@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 
+
 public class TSGroundSpawner : MonoBehaviour {
     
     public GameObject groundTile;
@@ -12,6 +13,7 @@ public class TSGroundSpawner : MonoBehaviour {
     void Awake() {
         SpawnTile();
     }
+
     void Start() {
         TMPController.firstRun = true;
 
@@ -35,7 +37,6 @@ public class TSGroundSpawner : MonoBehaviour {
             Destroy(instantiatedTiles[0], 0f);
             instantiatedTiles.RemoveAt(0);
             instantiatedTilesAmount = instantiatedTiles.Count;
-
         }
     }
 }

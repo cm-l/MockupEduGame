@@ -214,6 +214,8 @@ public class ButtonManager : MonoBehaviour {
 
     // <<<<< GAME PAUSE >>>>>
     public void ResumeGameButton() {
+        SoundSystemSingleton.Instance.PlaySfxSound(buttonClickSfx);
+
         Settings.ResumeGame();
     }
 
@@ -224,6 +226,8 @@ public class ButtonManager : MonoBehaviour {
     }
 
     public void BackToMenuButton() {
+        SoundSystemSingleton.Instance.PlaySfxSound(buttonClickSfx);
+
         // Wyłączenie canvasu 'startowego'
         TransitionScript.cameFromAnotherScene = false;
 
@@ -239,6 +243,7 @@ public class ButtonManager : MonoBehaviour {
 
     // Metoda do wracanka np. ze sklepu
     public static bool pointsAdded = false;
+
     public void BackToMainGameButton() {
         SoundSystemSingleton.Instance.PlaySfxSound(buttonClickSfx);
 
@@ -264,6 +269,8 @@ public class ButtonManager : MonoBehaviour {
 
     // <<<<< COMBAT GAME >>>>>
     public void ContinueToCombatButton() {
+        SoundSystemSingleton.Instance.PlaySfxSound(buttonClickSfx);
+
         SceneManager.LoadSceneAsync("PiJ-minigra");
     }
 
@@ -296,7 +303,8 @@ public class ButtonManager : MonoBehaviour {
 
     // <<<<< Final scene >>>>>
     public void PlayAgainButton() {
-        Debug.Log("Click");
+        SoundSystemSingleton.Instance.PlaySfxSound(buttonClickSfx);
+
         GameProgression.ResetLevelsCompleted();
         GameProgression.ResetCurrentStage();
         TMPController.ResetScore();

@@ -1,8 +1,10 @@
-using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine;
 using TMPro;
 
+
 public class RunningPlayer : MonoBehaviour {
+    
     public Rigidbody rb;
 
     [SerializeField] private float speed = 0.5f;
@@ -25,6 +27,7 @@ public class RunningPlayer : MonoBehaviour {
 
     [SerializeField] private AudioClip goodAnswerSound;
     [SerializeField] private AudioClip wrongAnswerSound;
+
     private void OnCollisionEnter(Collision other) {
         if (other.gameObject.CompareTag("Good")) {
             TMPController.addPoint();

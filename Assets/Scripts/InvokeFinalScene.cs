@@ -1,12 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
+using System.Collections;
+using UnityEngine;
+
 
 public class InvokeFinalScene : MonoBehaviour {
  
-    void Start()
-    {
+    void Start() {
         Invoke("TurnOnLastScene", 14f);
     }
 
