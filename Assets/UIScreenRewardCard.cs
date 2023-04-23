@@ -66,4 +66,9 @@ public class UIScreenRewardCard : MonoBehaviour
         Debug.Log("LevelsCompleted: " + GameProgression.GetLevelsCompleted() + "\n" + "Current stage: " + GameProgression.GetCurrentGameStage());
         // SceneManager.LoadScene(indexScene);
     }
+
+    public void removeChoicePanel()
+    {
+        transform.parent.gameObject.SetActive(false);
+    }
 }
