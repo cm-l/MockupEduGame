@@ -68,25 +68,6 @@ public class ManagerSingleton : MonoBehaviour
 
         // Grab death message panel
         deathMessage = GameObject.FindGameObjectWithTag("Death Screen");
-
-        // Set pool of enemies
-
-        try
-        {
-            if (GameProgression.GetLevelsCompleted() <= 3)
-            {
-                nextEncounteredEnemy = encounterableEnemies_First[(int)Random.Range(0, encounterableEnemies_First.Count)];
-
-            }
-            else if (GameProgression.GetLevelsCompleted() <= 6)
-            {
-                nextEncounteredEnemy = encounterableEnemies_Second[(int)Random.Range(0, encounterableEnemies_Second.Count)];
-            }
-            else if (GameProgression.GetLevelsCompleted() <= 9)
-            {
-                nextEncounteredEnemy = encounterableEnemies_Second[(int)Random.Range(0, encounterableEnemies_Second.Count)];
-            }
-        } catch { }
     }
 
 

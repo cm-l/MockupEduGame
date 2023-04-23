@@ -1270,19 +1270,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 606f96e63ed1dcb49a9c26eae7d580ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectedCards:
-  - {fileID: 11400000, guid: 690b0ec08a55d61428f333da32ef0b73, type: 2}
-  - {fileID: 11400000, guid: fd30524e6948ce74a816bd0f47d39700, type: 2}
-  - {fileID: 11400000, guid: 89775c0feee29114187ab5747920aa14, type: 2}
-  - {fileID: 11400000, guid: bfaf0889f20c873479aa1e166dd1370f, type: 2}
-  - {fileID: 11400000, guid: f36113cde9ea8ac44a048586bab7dfef, type: 2}
-  - {fileID: 11400000, guid: aa75f3f2daec3b74b89fe4209d4a3db9, type: 2}
+  collectedCards: []
   collectedArtifacts: []
   collectedPotions:
   - {fileID: 11400000, guid: 13ec485c8847b8f43a3c22466714d77c, type: 2}
   - {fileID: 11400000, guid: be52684150296cd42ab538037f2f96f9, type: 2}
   - {fileID: 11400000, guid: 873813b87ab921247802e5c1fd915a8d, type: 2}
   burnedCard: {fileID: 11400000, guid: 92eea3160106a3448b86672ad64558cf, type: 2}
+  defaultCardSet:
+  - {fileID: 11400000, guid: c09d2010e14050346a185ba1d5e2b711, type: 2}
+  - {fileID: 11400000, guid: a3de1a85f3e57c843b136f93316096f9, type: 2}
+  - {fileID: 11400000, guid: 19d86e14494b38246b261a0b66cfdcc8, type: 2}
 --- !u!4 &128878589
 Transform:
   m_ObjectHideFlags: 0
@@ -5885,7 +5883,7 @@ RectTransform:
   m_GameObject: {fileID: 637851048}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0442, y: 1.0442, z: 1.0442}
+  m_LocalScale: {x: 3.6101124, y: 3.6101124, z: 3.6101124}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1638068022}
@@ -8306,6 +8304,18 @@ MonoBehaviour:
       - m_Target: {fileID: 838156741}
         m_TargetAssemblyTypeName: UIScreenCard, Assembly-CSharp
         m_MethodName: headInThisDirection
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 838156741}
+        m_TargetAssemblyTypeName: UIScreenRewardCard, Assembly-CSharp
+        m_MethodName: removeChoicePanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12752,7 +12762,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.118750006, y: 0.8631481}
   m_AnchorMax: {x: 0.118750006, y: 0.8631481}
-  m_AnchoredPosition: {x: 316, y: 7.7911377}
+  m_AnchoredPosition: {x: 316, y: 7.7910156}
   m_SizeDelta: {x: 442.4891, y: 228.5179}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1298590209
@@ -16260,7 +16270,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1662922139
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16279,7 +16289,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.39007568, y: 0.011047363}
+  m_AnchoredPosition: {x: -0.38964844, y: 0.011230469}
   m_SizeDelta: {x: -1279.3, y: -719.73}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1662922140
@@ -16884,6 +16894,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1706766922}
+        m_TargetAssemblyTypeName: UIScreenRewardCard, Assembly-CSharp
+        m_MethodName: removeChoicePanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &1717568576 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6592402673751233207, guid: 8f6c3de5cbda7734fb294c1124b7ca40, type: 3}
@@ -17315,10 +17337,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -17338,7 +17360,7 @@ Canvas:
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -20509,6 +20531,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2075332634}
         m_TargetAssemblyTypeName: UIScreenCard, Assembly-CSharp
         m_MethodName: headInThisDirection
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2075332634}
+        m_TargetAssemblyTypeName: UIScreenRewardCard, Assembly-CSharp
+        m_MethodName: removeChoicePanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

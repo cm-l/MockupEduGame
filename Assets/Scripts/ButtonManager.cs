@@ -304,6 +304,10 @@ public class ButtonManager : MonoBehaviour {
 
         try {
             ManagerSingleton.Instance.playerGold = 100;
+
+            //Resetuj deck
+            DeckTracker.Instance.collectedCards.Clear();
+            DeckTracker.Instance.collectedCards = DeckTracker.Instance.defaultCardSet;
         }
         catch (NullReferenceException e) {
             Debug.Log("Najpierw odpal scenę karcianki. (" + e + ")");

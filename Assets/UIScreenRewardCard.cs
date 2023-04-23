@@ -70,5 +70,25 @@ public class UIScreenRewardCard : MonoBehaviour
     public void removeChoicePanel()
     {
         transform.parent.gameObject.SetActive(false);
+
+        // Set pool of enemies
+
+        try
+        {
+            if (GameProgression.GetCurrentGameStage() == 1)
+            {
+                ManagerSingleton.Instance.nextEncounteredEnemy = ManagerSingleton.Instance.encounterableEnemies_First[(int)Random.Range(0, ManagerSingleton.Instance.encounterableEnemies_First.Count)];
+
+            }
+            else if (GameProgression.GetCurrentGameStage() == 2)
+            {
+                ManagerSingleton.Instance.nextEncounteredEnemy = ManagerSingleton.Instance.encounterableEnemies_Second[(int)Random.Range(0, ManagerSingleton.Instance.encounterableEnemies_Second.Count)];
+            }
+            else if (GameProgression.GetCurrentGameStage() == 3)
+            {
+                ManagerSingleton.Instance.nextEncounteredEnemy = ManagerSingleton.Instance.encounterableEnemies_Second[(int)Random.Range(0, ManagerSingleton.Instance.encounterableEnemies_Second.Count)];
+            }
+        }
+        catch { }
     }
 }

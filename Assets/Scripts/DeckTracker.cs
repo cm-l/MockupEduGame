@@ -17,6 +17,9 @@ public class DeckTracker : MonoBehaviour
     // The kind of card that is given to the player once they run out of cards
     public SO_Card burnedCard;
 
+    //Track cards the player has in their collection
+    public List<SO_Card> defaultCardSet;
+
     //Singleton
     public static DeckTracker Instance { get; private set; }
 
@@ -32,7 +35,10 @@ public class DeckTracker : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
         // end of singleton pattern
+
+        DeckTracker.Instance.collectedCards = DeckTracker.Instance.defaultCardSet;
     }
+
 
 
 
@@ -50,11 +56,6 @@ public class DeckTracker : MonoBehaviour
         collectedPotions[index] = null;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
