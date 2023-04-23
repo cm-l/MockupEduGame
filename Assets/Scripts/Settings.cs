@@ -36,8 +36,10 @@ public class Settings : MonoBehaviour {
 
         mouseSensitivity = 10f;
 
-        SoundSystemSingleton.Instance.PlayMusicSound(gameMusic);
-        SoundSystemSingleton.Instance.ChangeMusicVolume(1f);
+        if (gameMusic != null) {
+            SoundSystemSingleton.Instance.PlayMusicSound(gameMusic);
+            SoundSystemSingleton.Instance.ChangeMusicVolume(1f);
+        }
         
         Screen.SetResolution(screenWidth, screenHeight, true);    
     }
@@ -59,10 +61,16 @@ public class Settings : MonoBehaviour {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
 
+
             if (gamePausePressed) {
                 gamePausePressed = false;
                 gamePauseCanvas.gameObject.SetActive(true);
+                
+                // Karty
                 CameraMovement.FreezeCamera();
+                
+                // Nietoperz
+                //CameraController.FreezeCamera();
             }
         }
         else {
@@ -70,7 +78,12 @@ public class Settings : MonoBehaviour {
             gamePauseCanvas.gameObject.SetActive(false);
             inGameOptionsCanvas.gameObject.SetActive(false);
             leaveMinigameConfirmationCanvas.gameObject.SetActive(false);
+            
+            // Karty
             CameraMovement.UnfreezeCamera();
+
+            // Nietoperz
+            //CameraController.UnfreezeCamera();
 
             if (checkIfInScenesWithoutCursor()) {
                 Cursor.lockState = CursorLockMode.None;
