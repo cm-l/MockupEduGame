@@ -24,6 +24,9 @@ public class TMPController : MonoBehaviour {
 
 
     void Start() {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
         activeSceneName = SceneManager.GetActiveScene().name;
         switch (activeSceneName) {
             case "AdditionScene": equationSymbol = "+";

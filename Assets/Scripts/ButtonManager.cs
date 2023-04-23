@@ -293,4 +293,25 @@ public class ButtonManager : MonoBehaviour {
             default: Debug.Log("Uh"); break;
         }
     }
+
+    // <<<<< Final scene >>>>>
+    public void PlayAgainButton() {
+        Debug.Log("Click");
+        GameProgression.ResetLevelsCompleted();
+        GameProgression.ResetCurrentStage();
+        TMPController.ResetScore();
+        RunningResults.ResetAllScores();
+
+        try {
+            ManagerSingleton.Instance.playerGold = 100;
+        }
+        catch (NullReferenceException e) {
+            Debug.Log("Najpierw odpal scenę karcianki. (" + e + ")");
+        }
+        SceneManager.LoadScene("TransitionScene");
+    }
+
+    public void QuitGame() {
+        Application.Quit();
+    }
 }

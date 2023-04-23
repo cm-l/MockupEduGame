@@ -1859,7 +1859,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 285.3, y: -38.9}
+  m_AnchoredPosition: {x: 330, y: -38.9}
   m_SizeDelta: {x: 100, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1219673663
@@ -2917,6 +2917,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd19be917ce1de442ac48d1d3628bd43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cursorTexture: {fileID: 0}
+  cursorHotspot: {x: 0, y: 0}
   gameMusic: {fileID: 0}
   gamePauseCanvas: {fileID: 481178998}
   inGameOptionsCanvas: {fileID: 481178998}
