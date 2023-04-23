@@ -55,7 +55,10 @@ public class Settings : MonoBehaviour {
       
         if (gamePaused) {
             Time.timeScale = 0;
-            
+
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+
             if (gamePausePressed) {
                 gamePausePressed = false;
                 gamePauseCanvas.gameObject.SetActive(true);
@@ -68,6 +71,11 @@ public class Settings : MonoBehaviour {
             inGameOptionsCanvas.gameObject.SetActive(false);
             leaveMinigameConfirmationCanvas.gameObject.SetActive(false);
             CameraMovement.UnfreezeCamera();
+
+            if (checkIfInScenesWithoutCursor()) {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = false;
+            }
         }
 
         // <<<<< ... >>>>>
@@ -96,5 +104,17 @@ public class Settings : MonoBehaviour {
     // Ta metoda jest na razie bezużyteczna i pewnie przez dłuższy czas będzie
     public static void SwitchLanguage(string lang) {
         Debug.Log("Lanuage set to " + lang);
+    }
+    private bool checkIfInScenesWithoutCursor() {
+        string[] scenes = {
+            "AdditionScene", "SubtractionScene", "MultiplicationSceneDivisionScene", "DivisionScene", "PiJ-minigra"
+        };
+
+        foreach(string s in scenes) {
+            if (currentSceneName == s)
+                return true;
+        }
+
+        return false;
     }
 }

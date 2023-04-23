@@ -14,15 +14,6 @@ public class RunningPlayer : MonoBehaviour {
             currentLane--;
         else if (Input.GetKeyDown(KeyCode.RightArrow) && currentLane < lanes.Length - 1)
             currentLane++;
-
-        /*if (Input.GetKeyDown(KeyCode.Escape))
-            ButtonManager.PauseGame();
-
-        if (ButtonManager.gamePaused) {
-            Time.timeScale = 0;
-            Debug.Log("To tez dziala");
-        } else
-            Time.timeScale = 1;*/
     }
 
     [SerializeField] private float transitionSpeed = 8f;

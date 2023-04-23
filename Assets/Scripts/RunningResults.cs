@@ -27,6 +27,8 @@ public class RunningResults : MonoBehaviour {
     private TextMeshProUGUI moneyEarnedBox;
     
     void Start() {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         ButtonManager.pointsAdded = false;
 
         additionScoreBox = GameObject.Find("AdditionScoreBox").GetComponent<TextMeshProUGUI>();

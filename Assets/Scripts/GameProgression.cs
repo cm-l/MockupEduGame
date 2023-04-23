@@ -31,4 +31,12 @@ public class GameProgression : MonoBehaviour {
         else
             currentGameStage = 1;
     }
+
+    public static void ResetLevelsCompleted() {
+        levelsCompleted = 0;
+    }
+
+    public static void ResetCurrentStage() {
+        currentGameStage = 1;
+    }
 }
