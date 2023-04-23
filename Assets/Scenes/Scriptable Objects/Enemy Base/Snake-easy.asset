@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Snake-easy
   m_EditorClassIdentifier: 
   startingNumber: 36
-  damage: 5
+  damage: 3
   enemySpriteMaterial: {fileID: 2100000, guid: 3cba59efbe46b6a4394d3fabae8b4e13, type: 2}
   enemyMusicTrack: {fileID: 8300000, guid: 7252e6aa55d5a2d4ab5bea1082df5708, type: 3}
   enemyAttackSound: {fileID: 8300000, guid: 76133e6a1bc04d641869b2c4875082ea, type: 3}
