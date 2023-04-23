@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GameProgression : MonoBehaviour {
 
-    [SerializeField] private static int levelsCompleted = 0;
+    [SerializeField] private static int levelsCompleted = 11;
     [SerializeField] private static int currentGameStage = 1;
     
     public static void AddLevelsCompleted() {
