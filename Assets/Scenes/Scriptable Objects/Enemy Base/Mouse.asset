@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2ad3e46a6545d847820c5ef4761cfd3, type: 3}
   m_Name: Mouse
   m_EditorClassIdentifier: 
-  startingNumber: 0
-  damage: 0
-  enemySpriteMaterial: {fileID: 0}
+  startingNumber: 24
+  damage: 4
+  enemySpriteMaterial: {fileID: 2100000, guid: 382f6be819fecdd4eb24a3db524d7883, type: 2}
   enemyMusicTrack: {fileID: 0}
-  enemyAttackSound: {fileID: 0}
-  enemyDeathNoise: {fileID: 0}
-  lowerGoldRange: 20
-  upperGoldRange: 70
+  enemyAttackSound: {fileID: 8300000, guid: 34afa047c4716924a9202a23009862d7, type: 3}
+  enemyDeathNoise: {fileID: 8300000, guid: 79b74e9edf745b14491f7023d56a3a3a, type: 3}
+  lowerGoldRange: 70
+  upperGoldRange: 110

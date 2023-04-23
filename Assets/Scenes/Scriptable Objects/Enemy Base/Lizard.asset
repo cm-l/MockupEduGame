@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2ad3e46a6545d847820c5ef4761cfd3, type: 3}
   m_Name: Lizard
   m_EditorClassIdentifier: 
-  startingNumber: 0
-  damage: 0
-  enemySpriteMaterial: {fileID: 0}
+  startingNumber: 42
+  damage: 7
+  enemySpriteMaterial: {fileID: 2100000, guid: c5c5cc8d59829ea498f9c3f9cbb6e913, type: 2}
   enemyMusicTrack: {fileID: 0}
-  enemyAttackSound: {fileID: 0}
-  enemyDeathNoise: {fileID: 0}
-  lowerGoldRange: 20
-  upperGoldRange: 70
+  enemyAttackSound: {fileID: 8300000, guid: ec8c27cafb354234f9672ed2725b9ec3, type: 3}
+  enemyDeathNoise: {fileID: 8300000, guid: 79b74e9edf745b14491f7023d56a3a3a, type: 3}
+  lowerGoldRange: 80
+  upperGoldRange: 120
