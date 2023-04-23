@@ -24,6 +24,8 @@ public class BubbleStatsScript : MonoBehaviour {
     private TextMeshProUGUI moneyEarnedBox;
 
     void Start() {
+        ButtonManager.pointsAdded = false;
+
         poppedCorrectly = GameManager.ok;
         poppedMistakenly = GameManager.mistake;
         poppedNotInTime = GameManager.notPopped;
@@ -47,16 +49,11 @@ public class BubbleStatsScript : MonoBehaviour {
         moneyEarnedBox.text = "You earned $" + moneyEarned + "!";
 
         // Dodawanie pieni�dzy do karcianki
-        try
-        {
-            ManagerSingleton.Instance.playerGold += moneyEarned;
-            Debug.Log("Money in game: " + ManagerSingleton.Instance.playerGold);
+        try {
+            ManagerSingleton.Instance.playerGold += moneyEarned;    
+        } catch (NullReferenceException e) {
+            Debug.Log("Najpierw odpal karciank�, to wtedy kasa si� doda poprawnie.\n" + e);
         }
-        catch (Exception e)
-        {
-            Debug.Log("Karcianka nie została " +
-                "uruchomiona jako pierwsza. Błąd: " + e);
-        } 
     }
 
     private static int CalculateMoneyEarned() {

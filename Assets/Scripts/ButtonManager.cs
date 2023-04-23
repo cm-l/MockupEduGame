@@ -238,6 +238,7 @@ public class ButtonManager : MonoBehaviour {
     }
 
     // Metoda do wracanka np. ze sklepu
+    public static bool pointsAdded = false;
     public void BackToMainGameButton() {
         SoundSystemSingleton.Instance.PlaySfxSound(buttonClickSfx);
 
@@ -245,13 +246,18 @@ public class ButtonManager : MonoBehaviour {
         TransitionScript.cameFromAnotherScene = true;
 
         // Dodanie punkciku progresji
-        GameProgression.AddLevelsCompleted();
-        GameProgression.UpdateGameStage();
-        Debug.Log("LevelsCompleted: " + GameProgression.GetLevelsCompleted() + "\n  Current stage: " + GameProgression.GetCurrentGameStage());
+        if (!pointsAdded) {
+            GameProgression.AddLevelsCompleted();
+            GameProgression.UpdateGameStage();
+            Debug.Log("LevelsCompleted: " + GameProgression.GetLevelsCompleted() + "\n  Current stage: " + GameProgression.GetCurrentGameStage());
+
+            pointsAdded = true;
+        }
        
         // Resetowanie RunningGame
         TMPController.ResetScore();
         RunningResults.ResetAllScores();
+        SceneManager.LoadScene("Niko-minigierka");
 
         // Powrót do głównej gierki
         Invoke("ChangeScene", 2f);
