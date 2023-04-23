@@ -9211,6 +9211,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd19be917ce1de442ac48d1d3628bd43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cursorTexture: {fileID: 2800000, guid: 16f25120d5547434eafc2f720a69398f, type: 3}
+  cursorHotspot: {x: 0, y: 0}
   gameMusic: {fileID: 0}
   gamePauseCanvas: {fileID: 1969239093}
   inGameOptionsCanvas: {fileID: 2079419023}

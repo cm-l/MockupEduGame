@@ -11,6 +11,8 @@ public class Settings : MonoBehaviour {
     public static int screenHeight = 1080;
  
     public static float mouseSensitivity;
+    [SerializeField] private Texture2D cursorTexture;
+    [SerializeField] private Vector2 cursorHotspot;
 
     private static bool gamePaused;
     private static bool gamePausePressed;
@@ -19,6 +21,14 @@ public class Settings : MonoBehaviour {
     private string currentSceneName;
 
     void Start() {
+        if (cursorTexture == null) {
+            Cursor.SetCursor(null, cursorHotspot, CursorMode.Auto);
+            cursorHotspot = new Vector2(0, 0);
+
+        } else {
+            Cursor.SetCursor(cursorTexture, cursorHotspot, CursorMode.Auto);
+        }
+
         currentSceneName = SceneManager.GetActiveScene().name;
 
         gamePaused = false;
