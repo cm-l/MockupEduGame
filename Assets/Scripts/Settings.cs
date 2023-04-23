@@ -24,7 +24,7 @@ public class Settings : MonoBehaviour {
         gamePaused = false;
         gamePausePressed = false;
 
-        mouseSensitivity = 1f;
+        mouseSensitivity = 10f;
 
         SoundSystemSingleton.Instance.PlayMusicSound(gameMusic);
         SoundSystemSingleton.Instance.ChangeMusicVolume(1f);
