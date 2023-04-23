@@ -435,7 +435,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   choiceCanvas: {fileID: 0}
-  buttonClickSfx: {fileID: 0}
+  buttonClickSfx: {fileID: 8300000, guid: 7edfa8e2674e41847be86f4642a1b686, type: 3}
   buttonToShow: {fileID: 0}
   buttonToHide: {fileID: 0}
   musicVolumeSlider: {fileID: 0}

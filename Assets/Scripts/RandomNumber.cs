@@ -11,9 +11,9 @@ public class RandomNumber : MonoBehaviour {
 
     private static int GetLimiterForAddSubt() {
         if (GameProgression.GetCurrentGameStage() >= 3) {
-            return 50;
+            return 40;
         } else if (GameProgression.GetCurrentGameStage() == 2) {
-            return 35;
+            return 30;
         } else {
             return 20;
         }
@@ -64,7 +64,7 @@ public class RandomNumber : MonoBehaviour {
         do {
             firstEquationNumber = Random.Range(1, additionSubtractionLimiter + 1);
             resultEquationNumber = Random.Range(1, additionSubtractionLimiter + 1);
-        } while(firstEquationNumber < resultEquationNumber);
+        } while(firstEquationNumber <= resultEquationNumber);
 
         int secondEquationNumber = firstEquationNumber - resultEquationNumber;
 

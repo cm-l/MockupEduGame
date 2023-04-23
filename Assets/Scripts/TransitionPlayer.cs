@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 
+
 public class TransitionPlayer : MonoBehaviour {
     
     [SerializeField] private Rigidbody rb;

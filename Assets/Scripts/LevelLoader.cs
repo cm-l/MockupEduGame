@@ -9,20 +9,20 @@ public class LevelLoader : MonoBehaviour {
     private float timeElapsed;
 
     void Update() {
+        timeElapsed += Time.deltaTime;
+        if (SceneManager.GetActiveScene().name.Equals("Cutscene") & timeElapsed > 30f){
+            SceneManager.LoadScene("TransitionScene");
+        }
+
+        // <<<<< Running Game >>>>>
         // Tu nastepuje zmiana sceny na kolejne "dzialanie"
-        if(TMPController.rowCounter == numberOfRowsBeforeChange) {
-            //StartCoroutine(LoadNextLevelWithDelay());
+        if (TMPController.rowCounter == numberOfRowsBeforeChange) {
             StartCourtineWithDelay();
             TMPController.rowCounter = 0;
         }
 
-        timeElapsed += Time.deltaTime;
-        if(SceneManager.GetActiveScene().name.Equals("Cutscene") & timeElapsed > 30f){
-            SceneManager.LoadScene("TransitionScene");
-        }
-
-        if(bottleChange.bottleMaterialNumber == 9 ){
-            //StartCoroutine(LoadNextLevelWithDelay());
+        // <<<<< Cauldron Game >>>>>
+        if (bottleChange.bottleMaterialNumber == 9 ){
             Invoke("StartCourtineWithDelay", 2f);
             bottleChange.bottleMaterialNumber = 0;
         }

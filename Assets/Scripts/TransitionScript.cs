@@ -1,18 +1,15 @@
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
-using System.Collections;
-using UnityEngine;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Collections;
+using System.Threading;
+using UnityEngine;
 using System;
 
 
 public class TransitionScript : MonoBehaviour {
 
-    private static string cardsGameName1 = "EnemyFight_Dungeon1";
-    private static string cardsGameName2 = "EnemyFight_Dungeon1";
-    private static string cardsGameName3 = "EnemyFight_Dungeon1";
-
+    private static string cardsGameName = "EnemyFight_Dungeon1";
     private static string runningGameName = "AdditionScene";
     private static string combatGameName = "PiJ-minigraIntro";
     private static string cauldronGameName = "Niko-minigierka";
@@ -35,10 +32,11 @@ public class TransitionScript : MonoBehaviour {
         }
     }
 
-     public static void RandomizeGameScene() {
+    public static void RandomizeGameScene() {
         gameScenes = GetGameScenes(GameProgression.GetCurrentGameStage());
         scenesAmount = gameScenes.Count;
         randomIndex = UnityEngine.Random.Range(0, scenesAmount);
+
         float delay = 2f;
         var mainThread = SynchronizationContext.Current;
         Task.Delay(TimeSpan.FromSeconds(delay)).ContinueWith(_ =>
@@ -56,17 +54,18 @@ public class TransitionScript : MonoBehaviour {
     private static List<string> GetGameScenes(int currentGameStage) {
         if (currentGameStage == 1) {
             return new List<string> {
-                cardsGameName1, cardsGameName1, cardsGameName1, cardsGameName1, cardsGameName1, cauldronGameName, runningGameName, runningGameName, shopSceneName, combatGameName
+                cardsGameName, cardsGameName, cardsGameName, cardsGameName, cardsGameName, cardsGameName, cardsGameName, runningGameName, runningGameName, runningGameName,
+                runningGameName, runningGameName, combatGameName, combatGameName, combatGameName, cauldronGameName, cauldronGameName, cauldronGameName,  shopSceneName, shopSceneName
             };
         } else if (currentGameStage == 2) {
             return new List<string> {
-                cardsGameName2, cardsGameName2, cardsGameName2, cardsGameName2, cardsGameName2, cardsGameName2, cardsGameName2, cardsGameName2, cauldronGameName, cauldronGameName,
-                cauldronGameName, cauldronGameName, runningGameName, runningGameName, shopSceneName, shopSceneName, shopSceneName, combatGameName, combatGameName, combatGameName
+                cardsGameName, cardsGameName, cardsGameName, cardsGameName, cardsGameName, cardsGameName, cardsGameName, runningGameName, runningGameName, runningGameName,
+                runningGameName, runningGameName, combatGameName, combatGameName, combatGameName, cauldronGameName, cauldronGameName, cauldronGameName,  shopSceneName, shopSceneName
             };
         } else if (currentGameStage == 3) {
             return new List<string> {
-                cardsGameName3, cardsGameName3, cardsGameName3, cardsGameName3, cardsGameName3, cardsGameName3, cardsGameName3, cardsGameName3, cardsGameName3, cardsGameName3,
-                cardsGameName3, cardsGameName3, cauldronGameName, cauldronGameName, runningGameName, runningGameName, runningGameName, runningGameName, shopSceneName, combatGameName 
+                cardsGameName, cardsGameName, cardsGameName, cardsGameName, cardsGameName, cardsGameName, cardsGameName, runningGameName, runningGameName, runningGameName,
+                runningGameName, runningGameName, combatGameName, combatGameName, combatGameName, cauldronGameName, cauldronGameName, cauldronGameName,  shopSceneName, shopSceneName
             };
         } else if(currentGameStage == 4) {
             return new List<string> { "TheEndWin" };
