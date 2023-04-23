@@ -26,6 +26,7 @@ public class EnemyBehaviuur : MonoBehaviour
     //Win noise and screen
     [SerializeField] private AudioClip victorySfx;
     public GameObject winScreen;
+    public GameObject raycastShield;
 
     //Damage noise
     private AudioClip damageSfx;
@@ -33,6 +34,12 @@ public class EnemyBehaviuur : MonoBehaviour
     //Modifiers
     public float weaknessMod = 1.0f;
     public float vulnMod = 1.0f;
+
+    //Status effects
+    public int poisonAmount = 0;
+
+    //Decors
+    public List<GameObject> decors;
 
     private void Awake()
     {
@@ -60,6 +67,9 @@ public class EnemyBehaviuur : MonoBehaviour
 
         //Set the sprite to scriptable object sprite
         gameObject.GetComponent<MeshRenderer>().material = enemyScriptableObject.enemySpriteMaterial;
+
+        //Set stage decor
+        decors[enemyScriptableObject.stageDecor].SetActive(true);
     }
 
     // Update is called once per frame
@@ -74,10 +84,15 @@ public class EnemyBehaviuur : MonoBehaviour
             changeValueByCard(2f, OffensiveAction.multiplyByNumber);
         }
 
+        if (damageCapability < 0)
+        {
+            damageCapability = 0;
+        }
+
         //Victory
         enemyDeath();
-
-
+        if (isEnemyDead)
+            CameraMovement.FreezeCamera();
     }
 
 
@@ -89,11 +104,16 @@ public class EnemyBehaviuur : MonoBehaviour
             SoundSystemSingleton.Instance.PlaySfxSound(victorySfx);
             isEnemyDead = true;
 
+
             //Rewards show
             winScreen.SetActive(true);
+            //Block raycasting
+            raycastShield.SetActive(true);
+            
 
             //Gain gold
             ManagerSingleton.Instance.gainGold(Random.Range(enemyScriptableObject.lowerGoldRange, enemyScriptableObject.upperGoldRange));
+
         }
     }
 
@@ -103,6 +123,7 @@ public class EnemyBehaviuur : MonoBehaviour
         if (operand == OffensiveAction.dealDamage)
         {
             currentNumber = Mathf.RoundToInt(currentNumber - amount);
+            attackedAnimation();
         }
 
         //Mno¿enie/dzielenie
@@ -119,6 +140,16 @@ public class EnemyBehaviuur : MonoBehaviour
 
         //Tu doda siê jak¹œ logikê z dŸwiêkami, animacj¹ (np. jakiœ screenshake?)
         // numberDisplay.getcomponent<anim>().blablablabl
+    }
+
+    public void attackedAnimation()
+    {
+        LeanTween.scale(gameObject, new Vector3(1.64f, 1.64f, 1.64f), 0.2f).setEaseInCubic().setOnComplete(popBackUp);
+    }
+
+    public void popBackUp()
+    {
+        LeanTween.scale(gameObject, new Vector3(2f, 2f, 2f), 0.42f).setEaseOutElastic();
     }
 
     // FUNKCJE ZACHOWAÑ
@@ -145,5 +176,10 @@ public class EnemyBehaviuur : MonoBehaviour
     public void takeDamage(int amount)
     {
         currentNumber -= amount; //TODO add * modifiers
+    }
+
+    public void takePoisonDamage()
+    {
+        currentNumber -= poisonAmount;
     }
 }

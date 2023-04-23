@@ -7,6 +7,8 @@ public class SO_Enemy : ScriptableObject
     public int startingNumber;
     public int damage;
 
+    public int stageDecor;
+
 
     [Header("\nVisuals")]
     public Material enemySpriteMaterial;

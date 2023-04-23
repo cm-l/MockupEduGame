@@ -12,9 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3038d3c357a08aa4380b013ce8e33d20, type: 3}
   m_Name: Empty
   m_EditorClassIdentifier: 
+  cardImage: {fileID: 2100000, guid: a6ae85b2555bea740a1b89be5f34494f, type: 2}
+  uniqueActionDescriptor: 
+  uniqueActionSuffix: 
+  playSound: {fileID: 0}
+  cardText: 
   damageNumber: 5
-  operation: 0
-  equationDisplayed: '(15 : 3)'
-  cardImage: {fileID: 2100000, guid: 9e689b34592d85846a8f32b488afa4ca, type: 2}
+  offensiveAction: 0
+  healAmount: 0
+  blockAmount: 0
+  barricadeAmount: 0
+  drawAmount: 0
+  sacrificeAmount: 0
+  payAmount: 0
   cost: 0
   rarity: 0
+  effect: []
+  value: []

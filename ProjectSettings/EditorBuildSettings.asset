@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Cutscene.unity
+    guid: ece3856a122756a468d8d1bd6c351b2f
+  - enabled: 1
+    path: Assets/Scenes/TransitionScene.unity
+    guid: d53c69f4491eeb04581bbfa8a9e37c53
+  - enabled: 1
     path: Assets/Scenes/EnemyFight_Dungeon1.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
@@ -16,11 +22,41 @@ EditorBuildSettings:
     guid: 1f963195bef86424cb1ccfb20377ce4b
   - enabled: 1
     path: Assets/Scenes/Niko-minigierka.unity
-    guid: 17ac05bbb0e4347f2a3a9ce3c72d3b55
+    guid: a7393997d92f2f346bc344f6d0daaacb
   - enabled: 1
-    path: Assets/Scenes/Game.unity
+    path: Assets/Scenes/Summary.unity
+    guid: 004e30827b90947818407367e42aeda9
+  - enabled: 1
+    path: Assets/Scenes/PiJ-minigraIntro.unity
+    guid: 09ed297f9e81a9a44823fdbbe0f8f353
+  - enabled: 1
+    path: Assets/Scenes/PiJ-minigra.unity
     guid: 2a329988471bf4b68ba84cae3bd6b588
   - enabled: 1
     path: Assets/Scenes/Shop.unity
-    guid: 8019a5dc2a344f74186592be44193572
+    guid: d02799b7a83f42c43ba09397583c634c
+  - enabled: 1
+    path: Assets/Scenes/AdditionScene.unity
+    guid: 091c85b5505fb4446895df80972b3b0b
+  - enabled: 1
+    path: Assets/Scenes/SubtractionScene.unity
+    guid: a0ac27b9d77e4c549b37c016b83b086d
+  - enabled: 1
+    path: Assets/Scenes/MultiplicationScene.unity
+    guid: 6cd13a60a4f18bb489e40e0b93fd12d5
+  - enabled: 1
+    path: Assets/Scenes/DivisionScene.unity
+    guid: 45af512210d67354fbf83e9b3d798bdd
+  - enabled: 1
+    path: Assets/Scenes/RunningResults.unity
+    guid: 61491179cc19cef47a13a500977a4446
+  - enabled: 1
+    path: Assets/Scenes/TheEnd.unity
+    guid: f43434a09ed444dbab7a2c0f81e1d88b
+  - enabled: 1
+    path: Assets/Scenes/TheEndLose.unity
+    guid: 31a4f0bfdf48e2d4c8ec51b4fa244b76
+  - enabled: 1
+    path: Assets/Scenes/TheEndWin.unity
+    guid: 5f93b038d7938534ca14a9cd98c850d3
   m_configObjects: {}

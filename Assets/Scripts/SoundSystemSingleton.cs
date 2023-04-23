@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SoundSystemSingleton : MonoBehaviour
 {
@@ -20,19 +21,6 @@ public class SoundSystemSingleton : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
         // end of singleton pattern
-    }
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public void PlaySfxSound(AudioClip clip)
@@ -61,5 +49,25 @@ public class SoundSystemSingleton : MonoBehaviour
     public void StopTheMusic()
     {
         musicSource.mute = true;
+    }
+
+    public void PlayTheMusicAgain() {
+        musicSource.mute = false;
+    }
+
+    public void ChangeMusicVolume(float vol) {
+        musicSource.volume = vol;
+    }
+
+    public void ChangeSoundVolume(float vol) {
+        sfxSource.volume = vol;
+    }
+
+    public void TurnOnSound() {
+        sfxSource.volume = 1f;
+    }
+
+    public void TurnOffSound() {
+        sfxSource.volume = 0f;
     }
 }

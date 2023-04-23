@@ -1,29 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class followClicking : MonoBehaviour
 {
     public static int scenarioNumber = 0;
 
-
     private void Awake()
     {
-        scenarioNumber = Random.Range(0, 4);
-    }
-
-    private void Start()
-    {
-
+        scenarioNumber = Random.Range(0, 5);
+        //scenarioNumber = 4;
     }
 
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Ray toMouse = UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit rhInfo;
-            bool didHit = Physics.Raycast(toMouse, out rhInfo, 10f);
+            Ray toMouse = Camera.main.ScreenPointToRay(Input.mousePosition);
+            bool didHit = Physics.Raycast(toMouse, out RaycastHit rhInfo, 10f);
 
             if (didHit)
             {
@@ -45,10 +37,16 @@ public class followClicking : MonoBehaviour
                         destScript.RemoveMeScenario2();
                     }
                     else if (scenarioNumber == 3)
+                    {
                         destScript.RemoveMeScenario3();
+                    }
+                    else if (scenarioNumber == 4)
+                    {
+                        destScript.RemoveMeScenario4();
+                    }
                     else
                     {
-                        Debug.Log("No scenario has been loaded");
+                        Debug.Log("Any scenario has been loaded");
                     }
                 }
             }
@@ -56,20 +54,8 @@ public class followClicking : MonoBehaviour
         }
     }
 
-    public void changeScenario()
-    {
-        scenarioNumber++;
-        Debug.Log("Scenario changed");
-        Debug.Log("Number of scenario: " + scenarioNumber);
-    }
-
-    public int getScenarioNumber()
+    public int GetScenarioNumber()
     {
         return scenarioNumber;
-    }
-
-    public void setBaseScenario()
-    {
-        scenarioNumber = 0;
     }
 }

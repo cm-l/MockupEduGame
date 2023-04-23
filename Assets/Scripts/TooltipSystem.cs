@@ -27,7 +27,7 @@ public class TooltipSystem : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
         // end of singleton pattern
     }
 
@@ -48,9 +48,12 @@ public class TooltipSystem : MonoBehaviour
     public static void Show(string content, string header = "")
     {
         //Debug.Log("Shown.");
-        easyIn();
-        Instance.tooltip.SetTip(content, header);
-        Instance.tooltip.gameObject.SetActive(true);
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            easyIn();
+            Instance.tooltip.SetTip(content, header);
+            Instance.tooltip.gameObject.SetActive(true);
+        }
     }
 
     public static void Hide()

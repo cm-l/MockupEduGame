@@ -74,9 +74,9 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 0.52156866, b: 0.42352942, a: 1}
-  m_Intensity: 3
-  m_Range: 6
+  m_Color: {r: 1, g: 0.44705883, b: 0.42352942, a: 1}
+  m_Intensity: 4
+  m_Range: 8
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -364,8 +364,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8651ad264075cf94983e98e0abc3b259, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 751111287744720247, guid: 0dd0907face7cde4aab3b4ba0b03784e, type: 3}
-  resultNum: 0
   obstaclePrefab: {fileID: 6078746024834821017, guid: 1c054e8093578634497b1b7f1d5aad21, type: 3}
   numberPrefab: {fileID: 8921612120258132450, guid: 0dd0907face7cde4aab3b4ba0b03784e, type: 3}
 --- !u!1 &6779667304987990317
@@ -411,8 +409,8 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 0.52156866, b: 0.42352942, a: 1}
-  m_Intensity: 3
+  m_Color: {r: 1, g: 0.44705883, b: 0.42352942, a: 1}
+  m_Intensity: 4
   m_Range: 6
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -505,8 +503,8 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 0.52156866, b: 0.42352942, a: 1}
-  m_Intensity: 3
+  m_Color: {r: 1, g: 0.44705883, b: 0.42352942, a: 1}
+  m_Intensity: 4
   m_Range: 6
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -599,9 +597,9 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 0.5185187, b: 0.42138356, a: 1}
-  m_Intensity: 3
-  m_Range: 6
+  m_Color: {r: 1, g: 0.44578305, b: 0.42138356, a: 1}
+  m_Intensity: 4
+  m_Range: 8
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10

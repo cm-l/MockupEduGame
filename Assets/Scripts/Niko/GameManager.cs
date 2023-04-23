@@ -8,112 +8,180 @@
  * bubbleDestroy and bubbleBehaviour scripts
  */
 
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     int bottleMaterialNumber;
     int scenarioNumber;
-    bottleChange bChange;
+    bottleChange bChange_N;
     GameObject gmTextUI;
     TextMeshProUGUI textUI;
+    TextMeshProUGUI userTask;
     GameObject cauldron;
     followClicking fClicking;
-    int maxNumOfScenarios = 3;
-    bool readyForChangingScenario;
+    [SerializeField] private AudioClip gameMusicSound;
+    [SerializeField] private AudioClip successSound;
+    bool inGameMode;
+    int avgFrameRate;
+    bool checkFPS;
+    int fpsTarget;
+    public static int ok;
+    public static int mistake;
+    public static int notPopped;
+
+
+
 
     void Start()
     {
-        bChange = GameObject.FindGameObjectWithTag("Bottle").
+        Screen.SetResolution(1920, 1080, true);
+        fpsTarget = 60;
+        Application.targetFrameRate = fpsTarget;
+        bChange_N = GameObject.FindGameObjectWithTag("Bottle").
             GetComponent<bottleChange>();
         gmTextUI = GameObject.Find("textUI");
         textUI = gmTextUI.GetComponent<TextMeshProUGUI>();
+        userTask = GameObject.Find("User Task").GetComponent<TextMeshProUGUI>();
+        userTask.enabled = false;
         cauldron = GameObject.Find("SD_Prop_Cauldron_01");
         fClicking = cauldron.GetComponent<followClicking>();
-        scenarioNumber = fClicking.getScenarioNumber();
-        Debug.Log("Scenario: " + scenarioNumber);
+        scenarioNumber = fClicking.GetScenarioNumber();
+
+        ok = 0;
+        mistake = 0;
+        notPopped = 0;
+        
 
         // Choose the right intoduction text for given scenario
         if (scenarioNumber == 0)
         {
-            textUI.text = "Pop the bubbles with even numbers!";
+            textUI.text = "Pop the bubbles with even numbers";
+            userTask.text = "Pop the bubbles with even numbers";
         }
         else if (scenarioNumber == 1)
         {
-            textUI.text = "Pop the bubbles with odd numbers!";
+            textUI.text = "Pop the bubbles with odd numbers";
+            userTask.text = "Pop the bubbles with odd numbers";
         }
         else if (scenarioNumber == 2)
         {
-            textUI.text = "Pop the bubbles with prime numbers!";
+            textUI.text = "Pop the bubbles with prime numbers";
+            userTask.text = "Pop the bubbles with prime numbers";
         }
         else if (scenarioNumber == 3)
         {
             textUI.text = "Pop the bubbles with numbers divisible by 3 or 5";
+            userTask.text = "Pop the bubbles with numbers divisible by 3 or 5";
+        }
+        else if (scenarioNumber == 4)
+        {
+            textUI.text = "Pop the bubbles with composite numbers";
+            userTask.text = "Pop the bubbles with composite numbers";
         }
         else
         {
-            textUI.text = "ERROR: No scenario has been loaded";
+            textUI.text = "ERROR";
         }
-       
-
 
         textUI.enabled = true;
-        StartCoroutine(disableText());
-
-        readyForChangingScenario = true;
+        StartCoroutine(DisableTextAndPlayMusic());
+        inGameMode = true;
+        //checkFPS = true;
+        //Invoke("SetSpeedModifier", 4.1f);
     }
+
 
     void Update()
     {
         // What happens when user wins
-        bottleMaterialNumber = bChange.getBottleMaterialNumber();
-        if (bottleMaterialNumber == 6)
+        bottleMaterialNumber = bChange_N.GetBottleMaterialNumber();
+
+        //Debug.Log("Delta time: " + Time.deltaTime);
+        //Debug.Log("Fixed delta time: " + Time.fixedDeltaTime);
+
+        if (bottleMaterialNumber == 9)
         {
-            textUI.text = "Gratulacje!";
-            textUI.enabled = true;
-            NextScenario();
-            Invoke("LoadScene", 3);
+     
+            SoundSystemSingleton.Instance.StopTheMusic();
+            if(inGameMode)
+            {
+                EndGame();
+                Invoke("LoadScene", 3);
+                inGameMode = false;
+            }
+            
+
         }
+
+        // Check FPS
+        //if (checkFPS)
+        //{
+        //    float current = (int)(1f / Time.unscaledDeltaTime); ;
+        //    current = Time.frameCount / Time.time;
+        //    avgFrameRate = (int)current;
+        //    Invoke("StopCheckingFPS", 4f);
+        //}
+
+
+
     }
 
-    IEnumerator disableText()
+    IEnumerator DisableTextAndPlayMusic()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(4f);
         textUI.enabled = false;
+        SoundSystemSingleton.Instance.PlayMusicSound(gameMusicSound);
+        GameObject.FindGameObjectWithTag("Bottle").transform.position = new Vector3(17.63f, 4.28f, 10.1f);
+        userTask.enabled = true;
 
     }
 
     void LoadScene()
     {
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-
-        //lower bound inclusive - upper bound EXCLUSIVE
-        int indexScene = UnityEngine.Random.Range(0, 3); //TODO fix based on number in build order
-        SceneManager.LoadScene(indexScene);
+        cauldron.GetComponent<Animate>().LoadNextLevel();
     }
 
-    // Scenario control
-    void NextScenario()
+    void EndGame()
     {
-        if (readyForChangingScenario)
+        GameObject[] bubbles = GameObject.FindGameObjectsWithTag("Bubble");
+        foreach (GameObject bubble in bubbles)
         {
-            if (scenarioNumber < maxNumOfScenarios)
-            {
-                fClicking.changeScenario();
-            }
-            else
-            {
-                fClicking.setBaseScenario();
-            }
-            readyForChangingScenario = false;
+            bubble.GetComponentInParent<bubbleDestroy>().StopCheckingNumbers();
+            bubble.GetComponentInParent<bubbleBehaviour>().PopBubble();
         }
-        
+        cauldron.GetComponent<bubbleGenerate>().StopGenerating();
+        Invoke("PrepareForSummary", 1f);
     }
+
+    void PrepareForSummary()
+    {
+        textUI.text = "Congratulations!";
+        textUI.enabled = true;
+        userTask.enabled = false;
+        SoundSystemSingleton.Instance.PlayOtherSound(successSound);
+    }
+
+    //void StopCheckingFPS()
+    //{
+    //    checkFPS = false;
+    //}
+
+    //void SetSpeedModifier()
+    //{
+    //    //if (!checkFPS)
+    //    //{
+    //    //    Debug.Log("Setting speed modifier");
+    //    //    Debug.Log("FPS:" + avgFrameRate);
+    //    //    if (avgFrameRate <= 30)
+    //    //    {
+    //    //        fpsTarget = 30;
+    //    //        gameObject.GetComponent<bubbleGenerate>().BubbleSlowDown();
+    //    //    }
+    //    //}
+    //}
 
 }
+

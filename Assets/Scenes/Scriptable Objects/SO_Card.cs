@@ -19,6 +19,7 @@ public class SO_Card : ScriptableObject
     [Header("\nDefining attributes")]
     //public string equationDisplayed = ""; // what the card displays: e.g., a card that adds 3 might show + (2 + 5 - 4)
     public Material cardImage; // visuals of card 
+    public Material cardArt; //art of card
     public string uniqueActionDescriptor; //for very special cards (changes card text to this)
     public string uniqueActionSuffix; //for somewhat special cards (appends this at the end of card text)
     public AudioClip playSound; //sound when played

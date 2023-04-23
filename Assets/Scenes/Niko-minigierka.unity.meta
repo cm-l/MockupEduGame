@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: 17ac05bbb0e4347f2a3a9ce3c72d3b55
+<<<<<<<< HEAD:Assets/Scenes/Lobby.unity.meta
+guid: a7393997d92f2f346bc344f6d0daaacb
+========
+guid: 6b821a9e9b01d40e595b2b7d007c65a2
+>>>>>>>> 0620e02861769750d418b1b6b01d975b75407f95:Assets/Scenes/Niko-minigierka/Niko-minigierka.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
