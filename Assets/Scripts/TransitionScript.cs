@@ -10,8 +10,8 @@ using System;
 public class TransitionScript : MonoBehaviour {
 
     private static string cardsGameName1 = "EnemyFight_Dungeon1";
-    private static string cardsGameName2 = "EnemyFight_Dungeon2";
-    private static string cardsGameName3 = "EnemyFight_Dungeon3";
+    private static string cardsGameName2 = "EnemyFight_Dungeon1";
+    private static string cardsGameName3 = "EnemyFight_Dungeon1";
 
     private static string runningGameName = "AdditionScene";
     private static string combatGameName = "PiJ-minigra";

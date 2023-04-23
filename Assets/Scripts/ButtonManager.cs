@@ -94,8 +94,8 @@ public class ButtonManager : MonoBehaviour {
     private void ContinueAdventure() {
         switch(GameProgression.GetCurrentGameStage()) {
             case 1: SceneManager.LoadSceneAsync("EnemyFight_Dungeon1"); break;
-            case 2: SceneManager.LoadSceneAsync("EnemyFight_Dungeon2"); break;
-            case 3: SceneManager.LoadSceneAsync("EnemyFight_Dungeon3"); break;
+            case 2: SceneManager.LoadSceneAsync("EnemyFight_Dungeon1"); break;
+            case 3: SceneManager.LoadSceneAsync("EnemyFight_Dungeon1"); break;
             default: Debug.Log("Uh"); break;
         }
     }
@@ -282,8 +282,8 @@ public class ButtonManager : MonoBehaviour {
     private void ChangeScene() {
         switch (GameProgression.GetCurrentGameStage()) {
             case 1: SceneManager.LoadSceneAsync("EnemyFight_Dungeon1"); break;
-            case 2: SceneManager.LoadSceneAsync("EnemyFight_Dungeon2"); break;
-            case 3: SceneManager.LoadSceneAsync("EnemyFight_Dungeon3"); break;
+            case 2: SceneManager.LoadSceneAsync("EnemyFight_Dungeon1"); break;
+            case 3: SceneManager.LoadSceneAsync("EnemyFight_Dungeon1"); break;
             case 4: SceneManager.LoadSceneAsync("TheEndWin"); break;
             default: Debug.Log("Uh"); break;
         }
