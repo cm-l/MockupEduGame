@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameOfPotion: Blocking Potion
   description: This potion applies block. It tastes like gooseberry.
-  potionSprite: {fileID: 21300000, guid: e075691cc086dcd42a4598c669650cce, type: 3}
+  potionSprite: {fileID: 21300000, guid: c19ff28f184667d4aabccdd56e75bbc3, type: 3}
   costInShop: 150
   effect:
   - block
