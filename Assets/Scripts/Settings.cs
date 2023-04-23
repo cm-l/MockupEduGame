@@ -36,10 +36,10 @@ public class Settings : MonoBehaviour {
 
         mouseSensitivity = 10f;
 
-        if (gameMusic != null) {
+        //if (gameMusic != null) {
             SoundSystemSingleton.Instance.PlayMusicSound(gameMusic);
             SoundSystemSingleton.Instance.ChangeMusicVolume(1f);
-        }
+        //}
         
         Screen.SetResolution(screenWidth, screenHeight, true);    
     }

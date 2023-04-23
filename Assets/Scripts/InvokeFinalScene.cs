@@ -7,7 +7,7 @@ public class InvokeFinalScene : MonoBehaviour {
  
     void Start()
     {
-        Invoke("TurnOnLastScene", 15f);
+        Invoke("TurnOnLastScene", 14f);
     }
 
     private void TurnOnLastScene() {

@@ -221,7 +221,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!224 &18163650
 RectTransform:
@@ -2526,6 +2526,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd19be917ce1de442ac48d1d3628bd43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cursorTexture: {fileID: 0}
+  cursorHotspot: {x: 0, y: 0}
   gameMusic: {fileID: 8300000, guid: c0f5786f639278d479c9da914217fdad, type: 3}
   gamePauseCanvas: {fileID: 1308631875}
   inGameOptionsCanvas: {fileID: 18163649}
