@@ -12812,7 +12812,7 @@ MonoBehaviour:
   manaCurrentPoints: 0
   manaMaxPoints: 3
   playerGold: 400
-  nextEncounteredEnemy: {fileID: 11400000, guid: de8af4e206115ed4d8709f1c1000f94a, type: 2}
+  nextEncounteredEnemy: {fileID: 11400000, guid: 3cb98c6325afb4545acb17c6345c8e35, type: 2}
   deathMessage: {fileID: 0}
   deathSfx: {fileID: 8300000, guid: fa56e739488186a4782181bad1cfa431, type: 3}
   hasDied: 0
