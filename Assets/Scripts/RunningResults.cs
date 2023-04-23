@@ -27,6 +27,8 @@ public class RunningResults : MonoBehaviour {
     private TextMeshProUGUI moneyEarnedBox;
     
     void Start() {
+        ButtonManager.pointsAdded = false;
+
         additionScoreBox = GameObject.Find("AdditionScoreBox").GetComponent<TextMeshProUGUI>();
         subtractionScoreBox = GameObject.Find("SubtractionScoreBox").GetComponent<TextMeshProUGUI>();
         multiplicationScoreBox = GameObject.Find("MultiplicationScoreBox").GetComponent<TextMeshProUGUI>();
@@ -47,8 +49,12 @@ public class RunningResults : MonoBehaviour {
         moneyEarnedBox.text = "You earned $" + moneyEarned + "!";
 
         // Dodawanie pieniêdzy do karcianki
-        ManagerSingleton.Instance.playerGold += moneyEarned;
-        Debug.Log("Money in game: " + ManagerSingleton.Instance.playerGold);
+        try {
+            ManagerSingleton.Instance.playerGold += moneyEarned;
+        }
+        catch (NullReferenceException e) {
+            Debug.Log("Najpierw odpal karciankê, to wtedy kasa siê doda poprawnie.\n" + e);
+        }
     }
 
     public static void AdditionScoreUp() {
