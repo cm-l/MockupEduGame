@@ -149,6 +149,7 @@ public class GameManager : MonoBehaviour
         GameObject[] bubbles = GameObject.FindGameObjectsWithTag("Bubble");
         foreach (GameObject bubble in bubbles)
         {
+            bubble.GetComponentInParent<bubbleDestroy>().StopCheckingNumbers();
             bubble.GetComponentInParent<bubbleBehaviour>().PopBubble();
         }
         cauldron.GetComponent<bubbleGenerate>().StopGenerating();

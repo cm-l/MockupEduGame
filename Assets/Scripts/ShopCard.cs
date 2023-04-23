@@ -14,12 +14,14 @@ public class ShopCard : MonoBehaviour
     private int price;
     public List<SO_Card> listOfAllCards;
 
+
     // Start is called before the first frame update
     void Start()
     {
         SOcard = listOfAllCards[Random.Range(0, listOfAllCards.Count)];
         PriceSetter();
-        cardText.SetText(SOcard.uniqueActionSuffix);        
+        //cardText.SetText(SOcard.uniqueActionSuffix);
+        
     }
 
     // Update is called once per frame

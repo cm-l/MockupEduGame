@@ -45,6 +45,11 @@ public class ManagerSingleton : MonoBehaviour
     [Header("\nStatuses")]
     public Dictionary<string, int> statusesOnPlayer;
 
+    [Header("\nEncounter Pools")]
+    public List<SO_Enemy> encounterableEnemies_First;
+    public List<SO_Enemy> encounterableEnemies_Second;
+    public List<SO_Enemy> encounterableEnemies_Third;
+
 
     public static ManagerSingleton Instance { get; private set; }
 
@@ -63,12 +68,31 @@ public class ManagerSingleton : MonoBehaviour
 
         // Grab death message panel
         deathMessage = GameObject.FindGameObjectWithTag("Death Screen");
+
+        // Set pool of enemies
+
+        try
+        {
+            if (GameProgression.GetLevelsCompleted() <= 3)
+            {
+                nextEncounteredEnemy = encounterableEnemies_First[(int)Random.Range(0, encounterableEnemies_First.Count)];
+
+            }
+            else if (GameProgression.GetLevelsCompleted() <= 6)
+            {
+                nextEncounteredEnemy = encounterableEnemies_Second[(int)Random.Range(0, encounterableEnemies_Second.Count)];
+            }
+            else if (GameProgression.GetLevelsCompleted() <= 9)
+            {
+                nextEncounteredEnemy = encounterableEnemies_Second[(int)Random.Range(0, encounterableEnemies_Second.Count)];
+            }
+        } catch { }
     }
 
 
 
-    // Start is called before the first frame update
-    void Start()
+        // Start is called before the first frame update
+        void Start()
     {
         //And at full mana
         //DEPRECATED this is now handled by the refiller object
@@ -201,4 +225,5 @@ public class ManagerSingleton : MonoBehaviour
     {
         playerGold -= amount;
     }
+
 }

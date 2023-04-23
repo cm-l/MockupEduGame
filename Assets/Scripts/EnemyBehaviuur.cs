@@ -26,6 +26,7 @@ public class EnemyBehaviuur : MonoBehaviour
     //Win noise and screen
     [SerializeField] private AudioClip victorySfx;
     public GameObject winScreen;
+    public GameObject raycastShield;
 
     //Damage noise
     private AudioClip damageSfx;
@@ -36,6 +37,9 @@ public class EnemyBehaviuur : MonoBehaviour
 
     //Status effects
     public int poisonAmount = 0;
+
+    //Decors
+    public List<GameObject> decors;
 
     private void Awake()
     {
@@ -63,6 +67,9 @@ public class EnemyBehaviuur : MonoBehaviour
 
         //Set the sprite to scriptable object sprite
         gameObject.GetComponent<MeshRenderer>().material = enemyScriptableObject.enemySpriteMaterial;
+
+        //Set stage decor
+        decors[enemyScriptableObject.stageDecor].SetActive(true);
     }
 
     // Update is called once per frame
@@ -75,6 +82,11 @@ public class EnemyBehaviuur : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.L))
         {
             changeValueByCard(2f, OffensiveAction.multiplyByNumber);
+        }
+
+        if (damageCapability < 0)
+        {
+            damageCapability = 0;
         }
 
         //Victory
@@ -95,6 +107,8 @@ public class EnemyBehaviuur : MonoBehaviour
 
             //Rewards show
             winScreen.SetActive(true);
+            //Block raycasting
+            raycastShield.SetActive(true);
             
 
             //Gain gold

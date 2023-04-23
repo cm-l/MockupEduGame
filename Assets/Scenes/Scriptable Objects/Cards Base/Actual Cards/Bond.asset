@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3038d3c357a08aa4380b013ce8e33d20, type: 3}
+  m_Name: Bond
+  m_EditorClassIdentifier: 
+  cardImage: {fileID: 2100000, guid: a6ae85b2555bea740a1b89be5f34494f, type: 2}
+  cardArt: {fileID: 2100000, guid: 96d2e2bfeee7fcb43a9272b831a36919, type: 2}
+  uniqueActionDescriptor: 
+  uniqueActionSuffix: 
+  playSound: {fileID: 8300000, guid: d223caec99ff5294b8fde0feef036d3c, type: 3}
+  cardText: Pay 20 gold and deal 15 damage
+  damageNumber: 15
+  offensiveAction: 0
+  healAmount: 0
+  blockAmount: 0
+  barricadeAmount: 0
+  drawAmount: 0
+  sacrificeAmount: 0
+  payAmount: 20
+  cost: 0
+  rarity: 0
+  effect: []
+  value: []

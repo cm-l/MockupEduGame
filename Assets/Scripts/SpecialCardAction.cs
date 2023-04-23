@@ -5,42 +5,136 @@ using UnityEngine.Events;
 
 public class SpecialCardAction : MonoBehaviour
 {
- public void doSpecialAction(SO_Card socard)
+    private TooltipDisplay tooltip;
+    [SerializeField] EnemyBehaviuur enemy;
+    [SerializeField] List<Card> hand;
+    public DeckAvailable deckAvailable;
+    public DiscardPile discardPile;
+
+    private void Awake()
+    {
+
+        // Refer to the Deck of available cards
+        deckAvailable = GameObject.Find("Deck Object").GetComponent<DeckAvailable>();
+
+        // Refer to the discard pile (graveyard)
+        discardPile = GameObject.Find("Graveyard").GetComponent<DiscardPile>();
+
+        // Grabbing references
+        tooltip = gameObject.GetComponent<TooltipDisplay>();
+        enemy = GameObject.Find("Enemy").GetComponent<EnemyBehaviuur>();
+
+        hand.Add(GameObject.Find("Card Slot 1").GetComponent<Card>());
+        hand.Add(GameObject.Find("Card Slot 2").GetComponent<Card>());
+        hand.Add(GameObject.Find("Card Slot 3").GetComponent<Card>());
+        hand.Add(GameObject.Find("Card Slot 4").GetComponent<Card>());
+        // ...
+    }
+
+    public void doSpecialAction(SO_Card socard)
     {
 
         for (int i = 0; i < socard.effect.Count; i++)
         {
-            if (socard.effect[i] == "toxic")
+            if (socard.effect[i] == "exhaust")
             {
-                applyToxic(socard.value[i]);
+                
+                exhaustEffect((int)socard.value[i], socard);
+            }
+
+            if (socard.effect[i] == "mana")
+            {
+                manaEffect((int)socard.value[i]);
+            }
+
+            if (socard.effect[i] == "gold")
+            {
+                goldEffect((int)socard.value[i]);
+            }
+            if (socard.effect[i] == "block")
+            {
+                
             }
 
             if (socard.effect[i] == "weak")
             {
-                applyWeak(socard.value[i]);
+                weakEffect(socard.value[i]);
             }
 
-            if (socard.effect[i] == "fragile")
+            if (socard.effect[i] == "hand")
             {
-                applyFragile(socard.value[i]);
+                handEffect((int)socard.value[i]);
+            }
+
+            if (socard.effect[i] == "block")
+            {
+                blockEffect((int)socard.value[i]);
+            }
+
+            if (socard.effect[i] == "toxic")
+            {
+                toxicEffect((int)socard.value[i]);
+            }
+            if (socard.effect[i] == "release")
+            {
+                releaseEffect((int)socard.value[i], socard);
+            }
+            if (socard.effect[i] == "retain")
+            {
+                Debug.Log("To gdzie indziej jest obsluzone :)");
             }
         }
 
         Debug.Log("Yeah");
     }
 
-    public void applyToxic(float value)
+    // BEHAVIOURS
+    public void exhaustEffect(int filler, SO_Card socard)
     {
-        Debug.Log("Applied toxic for " + value);
+        Debug.Log("Spaghetti code :D To obsluzone jest gdzie indziej");
     }
 
-    public void applyFragile(float value)
+    public void manaEffect(int mana)
     {
-        Debug.Log("Applied fragile for " + value);
+        ManagerSingleton.Instance.addMana(mana);
     }
 
-    public void applyWeak(float value)
+    public void goldEffect(int gold)
     {
-        Debug.Log("Applied weak for " + value);
+        ManagerSingleton.Instance.gainGold(gold);
+    }
+
+    public void releaseEffect(int filler, SO_Card socard)
+    {
+        var toRemove = DeckTracker.Instance.collectedCards.LastIndexOf(socard);
+        DeckTracker.Instance.collectedCards.RemoveAt(toRemove);
+    }
+
+    public void weakEffect(float weak)
+    {
+        enemy.weaknessMod -= weak;
+    }
+
+    public void handEffect(int filler)
+    {
+        for (int i = 0; i < hand.Count; i++)
+        {
+            //throw away
+            hand[i].discardHand();
+            hand[i].addToDiscardPile();
+
+            //redraw
+            hand[i].dealHand();
+        }
+    }
+
+    public void blockEffect(int block)
+    {
+        enemy.damageCapability -= block;
+    }
+
+    public void toxicEffect(int toxin)
+    {
+        enemy.poisonAmount += toxin;
     }
 }
