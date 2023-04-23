@@ -36,7 +36,11 @@ public class DeckTracker : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         // end of singleton pattern
 
-        DeckTracker.Instance.collectedCards = DeckTracker.Instance.defaultCardSet;
+        collectedCards.Clear();
+        for (int i = 0; i < defaultCardSet.Count; i++)
+        {
+            collectedCards.Add(defaultCardSet[i]);
+        }
     }
 
 

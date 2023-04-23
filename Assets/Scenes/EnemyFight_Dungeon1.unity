@@ -1278,9 +1278,21 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 873813b87ab921247802e5c1fd915a8d, type: 2}
   burnedCard: {fileID: 11400000, guid: 92eea3160106a3448b86672ad64558cf, type: 2}
   defaultCardSet:
-  - {fileID: 11400000, guid: c09d2010e14050346a185ba1d5e2b711, type: 2}
-  - {fileID: 11400000, guid: a3de1a85f3e57c843b136f93316096f9, type: 2}
-  - {fileID: 11400000, guid: 19d86e14494b38246b261a0b66cfdcc8, type: 2}
+  - {fileID: 11400000, guid: 89775c0feee29114187ab5747920aa14, type: 2}
+  - {fileID: 11400000, guid: 89775c0feee29114187ab5747920aa14, type: 2}
+  - {fileID: 11400000, guid: 89775c0feee29114187ab5747920aa14, type: 2}
+  - {fileID: 11400000, guid: 89775c0feee29114187ab5747920aa14, type: 2}
+  - {fileID: 11400000, guid: 89775c0feee29114187ab5747920aa14, type: 2}
+  - {fileID: 11400000, guid: 89775c0feee29114187ab5747920aa14, type: 2}
+  - {fileID: 11400000, guid: 89775c0feee29114187ab5747920aa14, type: 2}
+  - {fileID: 11400000, guid: 89775c0feee29114187ab5747920aa14, type: 2}
+  - {fileID: 11400000, guid: 89775c0feee29114187ab5747920aa14, type: 2}
+  - {fileID: 11400000, guid: 89775c0feee29114187ab5747920aa14, type: 2}
+  - {fileID: 11400000, guid: 89775c0feee29114187ab5747920aa14, type: 2}
+  - {fileID: 11400000, guid: 89775c0feee29114187ab5747920aa14, type: 2}
+  - {fileID: 11400000, guid: 89775c0feee29114187ab5747920aa14, type: 2}
+  - {fileID: 11400000, guid: 89775c0feee29114187ab5747920aa14, type: 2}
+  - {fileID: 11400000, guid: 89775c0feee29114187ab5747920aa14, type: 2}
 --- !u!4 &128878589
 Transform:
   m_ObjectHideFlags: 0
@@ -14782,19 +14794,24 @@ MonoBehaviour:
   manaCurrentPoints: 0
   manaMaxPoints: 3
   playerGold: 40
-  nextEncounteredEnemy: {fileID: 11400000, guid: 05c35ba404432e64bbba269441c21eba, type: 2}
+  nextEncounteredEnemy: {fileID: 11400000, guid: b552bd781e6095848ab3693d5ee80d98, type: 2}
   deathMessage: {fileID: 1662922138}
   deathSfx: {fileID: 8300000, guid: fa56e739488186a4782181bad1cfa431, type: 3}
   hasDied: 0
   encounterableEnemies_First:
   - {fileID: 11400000, guid: b552bd781e6095848ab3693d5ee80d98, type: 2}
-  - {fileID: 11400000, guid: 05c35ba404432e64bbba269441c21eba, type: 2}
+  - {fileID: 11400000, guid: b552bd781e6095848ab3693d5ee80d98, type: 2}
   - {fileID: 11400000, guid: b552bd781e6095848ab3693d5ee80d98, type: 2}
   encounterableEnemies_Second:
-  - {fileID: 11400000, guid: 9e24dcff176288547b41710911ae1c3d, type: 2}
+  - {fileID: 11400000, guid: 9ba8018d6346ff64b8a3a3a8d8fd1812, type: 2}
+  - {fileID: 11400000, guid: 9ba8018d6346ff64b8a3a3a8d8fd1812, type: 2}
   - {fileID: 11400000, guid: 9ba8018d6346ff64b8a3a3a8d8fd1812, type: 2}
   encounterableEnemies_Third:
   - {fileID: 11400000, guid: 3cb98c6325afb4545acb17c6345c8e35, type: 2}
+  - {fileID: 11400000, guid: 3cb98c6325afb4545acb17c6345c8e35, type: 2}
+  - {fileID: 11400000, guid: 3cb98c6325afb4545acb17c6345c8e35, type: 2}
+  singletonCompleted: 0
+  gameStage: 0
 --- !u!4 &1501111499
 Transform:
   m_ObjectHideFlags: 0

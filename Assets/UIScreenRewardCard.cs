@@ -86,7 +86,7 @@ public class UIScreenRewardCard : MonoBehaviour
             }
             else if (GameProgression.GetCurrentGameStage() == 3)
             {
-                ManagerSingleton.Instance.nextEncounteredEnemy = ManagerSingleton.Instance.encounterableEnemies_Second[(int)Random.Range(0, ManagerSingleton.Instance.encounterableEnemies_Second.Count)];
+                ManagerSingleton.Instance.nextEncounteredEnemy = ManagerSingleton.Instance.encounterableEnemies_Third[(int)Random.Range(0, ManagerSingleton.Instance.encounterableEnemies_Third.Count)];
             }
         }
         catch { }

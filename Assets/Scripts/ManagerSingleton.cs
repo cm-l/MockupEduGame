@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ManagerSingleton : MonoBehaviour
 {
@@ -49,6 +50,9 @@ public class ManagerSingleton : MonoBehaviour
     public List<SO_Enemy> encounterableEnemies_First;
     public List<SO_Enemy> encounterableEnemies_Second;
     public List<SO_Enemy> encounterableEnemies_Third;
+
+    public int singletonCompleted;
+    public int gameStage;
 
 
     public static ManagerSingleton Instance { get; private set; }
@@ -102,6 +106,10 @@ public class ManagerSingleton : MonoBehaviour
         {
             playerDeath();
         }
+
+        // Stage logic
+        singletonCompleted = GameProgression.GetLevelsCompleted();
+        gameStage = GameProgression.GetCurrentGameStage();
     }
 
 
@@ -124,8 +132,10 @@ public class ManagerSingleton : MonoBehaviour
         //Play death sound effect
         SoundSystemSingleton.Instance.PlaySfxSound(deathSfx);
 
+        SceneManager.LoadSceneAsync("TheEndLose");
+
         //Make the music go down in pitch maybe?
-        SoundSystemSingleton.Instance.ChangeMusicPitch(0.36f);
+        //SoundSystemSingleton.Instance.ChangeMusicPitch(0.36f);
     }
 
     public void Heal(int healedAmount)

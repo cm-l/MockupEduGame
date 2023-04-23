@@ -307,7 +307,24 @@ public class ButtonManager : MonoBehaviour {
 
             //Resetuj deck
             DeckTracker.Instance.collectedCards.Clear();
-            DeckTracker.Instance.collectedCards = DeckTracker.Instance.defaultCardSet;
+            for (int i = 0; i < DeckTracker.Instance.defaultCardSet.Count; i++)
+            {
+                DeckTracker.Instance.collectedCards.Add(DeckTracker.Instance.defaultCardSet[i]);
+            }
+
+            // i potki
+            DeckTracker.Instance.collectedPotions.Clear();
+
+            // Renew health and stats
+            //Player starts at full health
+            ManagerSingleton.Instance.playerCurrentHealth = ManagerSingleton.Instance.playerMaxHealth;
+
+            ManagerSingleton.Instance.startedTurnWithHealth = ManagerSingleton.Instance.playerCurrentHealth;
+
+            ManagerSingleton.Instance.preBlockHealth = ManagerSingleton.Instance.playerCurrentHealth;
+
+            //Ustaw pierwszy encounter
+            ManagerSingleton.Instance.nextEncounteredEnemy = ManagerSingleton.Instance.encounterableEnemies_First[0];
         }
         catch (NullReferenceException e) {
             Debug.Log("Najpierw odpal scenę karcianki. (" + e + ")");

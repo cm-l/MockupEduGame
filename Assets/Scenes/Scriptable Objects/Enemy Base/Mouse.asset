@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingNumber: 24
   damage: 4
-  stageDecor: 1
+  stageDecor: 0
   enemySpriteMaterial: {fileID: 2100000, guid: 382f6be819fecdd4eb24a3db524d7883, type: 2}
   enemyMusicTrack: {fileID: 0}
   enemyAttackSound: {fileID: 8300000, guid: 34afa047c4716924a9202a23009862d7, type: 3}

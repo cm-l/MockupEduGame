@@ -32,8 +32,11 @@ public class PotionLogic : MonoBehaviour
     void Start()
     {
 
-        // n-th potion
-        scriptablePotion = DeckTracker.Instance.collectedPotions[potionIndex];
+        try
+        {
+            // n-th potion
+            scriptablePotion = DeckTracker.Instance.collectedPotions[potionIndex];
+        } catch { }
 
     }
 
@@ -42,7 +45,10 @@ public class PotionLogic : MonoBehaviour
     {
         // Keep checking it?
         // n-th potion
-        scriptablePotion = DeckTracker.Instance.collectedPotions[potionIndex];
+        try
+        {
+            scriptablePotion = DeckTracker.Instance.collectedPotions[potionIndex];
+        } catch { }
 
         if (scriptablePotion != null)
         {
