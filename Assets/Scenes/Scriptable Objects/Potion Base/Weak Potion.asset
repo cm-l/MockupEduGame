@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameOfPotion: Weak Potion
   description: This potion weakens your enemies. It has a citrus scent.
-  potionSprite: {fileID: 21300000, guid: de0701badb696e44bbb31b46c0f7ce6d, type: 3}
+  potionSprite: {fileID: 21300000, guid: 2211beba49ea7704281e2133a26bd98c, type: 3}
   costInShop: 150
   effect:
   - weak
