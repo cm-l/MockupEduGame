@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2ad3e46a6545d847820c5ef4761cfd3, type: 3}
   m_Name: Coal
   m_EditorClassIdentifier: 
-  startingNumber: 48
-  damage: 9
-  enemySpriteMaterial: {fileID: 2100000, guid: 66a1d9191797f8046b89f64e4a285a41, type: 2}
-  enemyMusicTrack: {fileID: 8300000, guid: 7252e6aa55d5a2d4ab5bea1082df5708, type: 3}
-  enemyAttackSound: {fileID: 8300000, guid: 82c4904a62015024fb32ce492fd32c63, type: 3}
-  enemyDeathNoise: {fileID: 8300000, guid: 90911066d1d58e34cbb6abe99f136c51, type: 3}
+  startingNumber: 0
+  damage: 0
+  enemySpriteMaterial: {fileID: 0}
+  enemyMusicTrack: {fileID: 0}
+  enemyAttackSound: {fileID: 0}
+  enemyDeathNoise: {fileID: 0}
   lowerGoldRange: 20
   upperGoldRange: 70
