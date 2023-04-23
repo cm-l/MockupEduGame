@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2ad3e46a6545d847820c5ef4761cfd3, type: 3}
   m_Name: Mouse
   m_EditorClassIdentifier: 
-  startingNumber: 0
-  damage: 0
-  enemySpriteMaterial: {fileID: 0}
+  startingNumber: 25
+  damage: 8
+  stageDecor: 0
+  enemySpriteMaterial: {fileID: 2100000, guid: 382f6be819fecdd4eb24a3db524d7883, type: 2}
   enemyMusicTrack: {fileID: 0}
   enemyAttackSound: {fileID: 0}
   enemyDeathNoise: {fileID: 0}

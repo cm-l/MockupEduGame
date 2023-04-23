@@ -29,6 +29,6 @@ MonoBehaviour:
   cost: 0
   rarity: 0
   effect:
-  - toxic
+  - release
   value:
-  - 5
+  - 99

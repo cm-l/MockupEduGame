@@ -75,6 +75,14 @@ public class SpecialCardAction : MonoBehaviour
             {
                 toxicEffect((int)socard.value[i]);
             }
+            if (socard.effect[i] == "release")
+            {
+                releaseEffect((int)socard.value[i], socard);
+            }
+            if (socard.effect[i] == "retain")
+            {
+                Debug.Log("To gdzie indziej jest obsluzone :)");
+            }
         }
 
         Debug.Log("Yeah");
@@ -83,7 +91,7 @@ public class SpecialCardAction : MonoBehaviour
     // BEHAVIOURS
     public void exhaustEffect(int filler, SO_Card socard)
     {
-        Debug.Log("Spaghetti code :D");
+        Debug.Log("Spaghetti code :D To obsluzone jest gdzie indziej");
     }
 
     public void manaEffect(int mana)
@@ -96,10 +104,11 @@ public class SpecialCardAction : MonoBehaviour
         ManagerSingleton.Instance.gainGold(gold);
     }
 
-    //public void harmEffect(int damage)
-    //{
-    //    enemy.takeDamage(damage);
-    //}
+    public void releaseEffect(int filler, SO_Card socard)
+    {
+        var toRemove = DeckTracker.Instance.collectedCards.LastIndexOf(socard);
+        DeckTracker.Instance.collectedCards.RemoveAt(toRemove);
+    }
 
     public void weakEffect(float weak)
     {

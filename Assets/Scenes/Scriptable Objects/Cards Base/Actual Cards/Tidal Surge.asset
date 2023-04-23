@@ -28,5 +28,9 @@ MonoBehaviour:
   payAmount: 0
   cost: 0
   rarity: 0
-  effect: []
-  value: []
+  effect:
+  - mana
+  - retain
+  value:
+  - 1
+  - 99
