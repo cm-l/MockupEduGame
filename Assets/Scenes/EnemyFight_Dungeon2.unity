@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -390,9 +390,11 @@ MonoBehaviour:
   isEnemyDead: 0
   victorySfx: {fileID: 8300000, guid: 18d1dfc7625c91e499d4c3391bc278e9, type: 3}
   winScreen: {fileID: 1638068021}
+  raycastShield: {fileID: 0}
   weaknessMod: 1
   vulnMod: 1
   poisonAmount: 0
+  decors: []
 --- !u!114 &25074476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,7 +410,6 @@ MonoBehaviour:
   header: Enemy
   content: A formidable foe stands in your way! Reduce their Health Points down to
     0 in order to win.
-  hoverDelayTime: 0.99
 --- !u!1 &33324003
 GameObject:
   m_ObjectHideFlags: 0
@@ -4481,7 +4482,6 @@ MonoBehaviour:
   content: Press this to end your turn! Ending your turn will make the enemy will
     carry out their planned action. It will also make you recieve a fresh hand of
     cards!
-  hoverDelayTime: 0.99
 --- !u!1 &505732318 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7735600616804263042, guid: 4107b8b0af837e1499026a9010c85b8f, type: 3}
@@ -4539,7 +4539,6 @@ MonoBehaviour:
   content: Those are the cards you have in your hand! Clicking on any will modify
     the Enemy's Number by the equation displayed on it and move that card to the
     Discard Pile.
-  hoverDelayTime: 0.99
 --- !u!1 &511478061
 GameObject:
   m_ObjectHideFlags: 0
@@ -5278,7 +5277,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   header: Your Health Points
   content: Once this number reaches 0, you will lose! Watch out for enemy attacks.
-  hoverDelayTime: 0.99
 --- !u!65 &689943593
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6884,7 +6882,6 @@ MonoBehaviour:
   content: This is the pile of cards that you have already played! If you run out
     of cards in your Deck, then every card from this pile will be reshuffled back
     into your deck.
-  hoverDelayTime: 0.99
 --- !u!65 &807853022
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7153,7 +7150,6 @@ MonoBehaviour:
   header: Your Mana Points
   content: Each card costs a certain amount of Mana Points to play. This is how much
     of those points you have!
-  hoverDelayTime: 0.99
 --- !u!33 &817723823
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -7638,7 +7634,6 @@ MonoBehaviour:
   header: Gold Pouch
   content: The amount of gold you currently have. Spend (or save) it wisely! Not
     subject to inflation.
-  hoverDelayTime: 0.99
 --- !u!33 &850386137
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -8239,6 +8234,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd19be917ce1de442ac48d1d3628bd43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cursorTexture: {fileID: 2800000, guid: 16f25120d5547434eafc2f720a69398f, type: 3}
+  cursorHotspot: {x: 0, y: 0}
   gameMusic: {fileID: 0}
   gamePauseCanvas: {fileID: 478865370}
   inGameOptionsCanvas: {fileID: 810940688}
@@ -10224,7 +10221,6 @@ MonoBehaviour:
   header: Half-Way Potion
   content: When used, sets the enemy number to half of what it needs to be for you
     to win! Tastes like bubblegum and energy drinks.
-  hoverDelayTime: 0.99
 --- !u!1 &1250551966
 GameObject:
   m_ObjectHideFlags: 0
@@ -12253,6 +12249,9 @@ MonoBehaviour:
   deathMessage: {fileID: 1662922138}
   deathSfx: {fileID: 8300000, guid: fa56e739488186a4782181bad1cfa431, type: 3}
   hasDied: 0
+  encounterableEnemies_First: []
+  encounterableEnemies_Second: []
+  encounterableEnemies_Third: []
 --- !u!4 &1501111499
 Transform:
   m_ObjectHideFlags: 0
@@ -13028,7 +13027,6 @@ MonoBehaviour:
   content: Those are the cards you have in your hand! Clicking on any will modify
     the Enemy's Number by the equation displayed on it and move that card to the
     Discard Pile.
-  hoverDelayTime: 0.99
 --- !u!1 &1632220674
 GameObject:
   m_ObjectHideFlags: 0
@@ -13300,7 +13298,6 @@ MonoBehaviour:
   content: Those are the cards you have in your hand! Clicking on any will modify
     the Enemy's Number by the equation displayed on it and move that card to the
     Discard Pile.
-  hoverDelayTime: 0.99
 --- !u!1 &1662922138
 GameObject:
   m_ObjectHideFlags: 0
@@ -14188,7 +14185,6 @@ MonoBehaviour:
   content: Those are the cards you have in your hand! Clicking on any will modify
     the Enemy's Number by the equation displayed on it and move that card to the
     Discard Pile.
-  hoverDelayTime: 0.99
 --- !u!1 &1696170480
 GameObject:
   m_ObjectHideFlags: 0
@@ -15352,7 +15348,6 @@ MonoBehaviour:
   header: Deck of Cards
   content: The number on your deck shows how many cards are left in it. Don't worry,
     if you run out, it will be reshuffled with the cards you've already played!
-  hoverDelayTime: 0.99
 --- !u!65 &1809877304
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16069,7 +16064,6 @@ MonoBehaviour:
   header: Guidance Potion
   content: When used, solves all the equations displayed on the cards you're currently
     holding in your hand! Tastes like coffe and cinnamon.
-  hoverDelayTime: 0.99
 --- !u!4 &1853731613 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6592402673751233207, guid: 8f6c3de5cbda7734fb294c1124b7ca40, type: 3}
@@ -16705,7 +16699,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   header: Healthy Potion
   content: When used, restores 5 Health Points to you! Tastes like mint and lemonade.
-  hoverDelayTime: 0.99
 --- !u!1 &2036439569
 GameObject:
   m_ObjectHideFlags: 0
@@ -17387,7 +17380,6 @@ MonoBehaviour:
   header: Enemy Number
   content: Once this number reaches the Goal Number (in the top left corner) you
     win!
-  hoverDelayTime: 0.99
 --- !u!65 &2094336703
 BoxCollider:
   m_ObjectHideFlags: 0
