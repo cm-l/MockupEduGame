@@ -50,17 +50,42 @@ public class ShopCard : MonoBehaviour
     }
     
     void PriceSetter() {
-        if (SOcard.rarity == Rarity.rare) {
-            priceText.SetText("$240");
-            price = 240;
-        } else if (SOcard.rarity == Rarity.special) {
-            priceText.SetText("$500");
-            price = 500;
-        } else { 
-            priceText.SetText("$120");
-            price = 120;
+        switch (SOcard.rarity) {
+            case Rarity.common:
+                priceText.SetText("$120");
+                price = 120;
+                break;
 
+            case Rarity.rare:
+                priceText.SetText("$240");
+                price = 240;
+                break;
+
+            case Rarity.epic:
+                priceText.SetText("$500");
+                price = 500;
+                break;
+
+            case Rarity.legendary:
+                priceText.SetText("$750");
+                price = 750;
+                break;
         }
+
+
+
+
+        // if (SOcard.rarity == Rarity.rare) {
+        //     priceText.SetText("$240");
+        //     price = 240;
+        // } else if (SOcard.rarity == Rarity.special) {
+        //     priceText.SetText("$500");
+        //     price = 500;
+        // } else { 
+        //     priceText.SetText("$120");
+        //     price = 120;
+
+        // }
 
     }
 
