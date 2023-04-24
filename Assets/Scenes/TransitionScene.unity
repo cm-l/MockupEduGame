@@ -3857,7 +3857,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 68, y: 292}
+  m_AnchoredPosition: {x: 68, y: 322}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &872333388
@@ -3909,8 +3909,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 90
-  m_fontSizeBase: 90
+  m_fontSize: 85
+  m_fontSizeBase: 85
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7008,7 +7008,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -36, y: -192}
+  m_AnchoredPosition: {x: -36, y: -127}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1514972183
@@ -7031,11 +7031,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Give the main charactera a sigh of relief and help him pass the test by
-    passing levels in a card game interspersed with mathematical mini-games. \n\nDefeat
-    the monster in the card game, guess the correct number in the equation, shoot
-    down the correct bubbles and by multiplication defeat the monster in the dungeon!\n\nHave
-    fun!"
+  m_text: "Help the main character breathe a sigh of relief! Improve his mathematical
+    skills, by helping him win in many different mathematical mini-games, so he can
+    finally face the most dangerous opponent: the Unsolvable Math Test! \r\n\nDefeat
+    powerful monsters in a game of cards, guess the correct numbers while running
+    for your life through a dangerous dungeon, brew magical potions by popping the
+    correct bubbles and slay even more scary monsters by harnessing the power of
+    multiplication! \r\n\nHave fun!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: da87ad973481153479dcbdd6c890c741, type: 2}
   m_sharedMaterial: {fileID: -3799717648688900735, guid: da87ad973481153479dcbdd6c890c741, type: 2}
@@ -7069,7 +7071,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 8
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -7712,7 +7714,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -271, y: -284}
+  m_AnchoredPosition: {x: -271, y: -363}
   m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1729508825
