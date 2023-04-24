@@ -57,10 +57,10 @@ public class DeckAvailable : MonoBehaviour
 
         for (int i = 0; i < discarded.discardedCards.Count; i++)
         {
-            if (discarded.discardedCards[i].rarity != Rarity.special)
-            {
+            //if (discarded.discardedCards[i].rarity != Rarity.special)
+            //{
                 availableCards.Add(discarded.discardedCards[i]);
-            }
+            //}
         }
         // Empty the discard pile
         discarded.discardedCards.Clear();
