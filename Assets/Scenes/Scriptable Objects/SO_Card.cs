@@ -4,10 +4,7 @@ using UnityEngine.Events;
 
 public enum OffensiveAction { dealDamage, multiplyByNumber, raiseToPowerOfNumber, none }
 
-public enum Rarity { standard, common, rare, epic, legendary }
-//the cost of a card depends on its rarity
-//common - 120, rare - 240, epic - 500, legendary - 700
-//standard cards cannot be bought in the shop - they are only available in the starter deck
+public enum Rarity { common, rare, special }
 
 public enum DefensiveAction { heal, block, barricade, none }
 
