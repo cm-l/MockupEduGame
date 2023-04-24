@@ -55,6 +55,10 @@ public class DeckTracker : MonoBehaviour
         collectedPotions.Add(potion);
     }
 
+    public void removeFromDeck(SO_Card card) {
+        collectedCards.Remove(card);
+    }
+
     public void removePotionAt(int index)
     {
         collectedPotions[index] = null;
