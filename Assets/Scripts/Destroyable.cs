@@ -32,6 +32,7 @@ public class Destroyable : MonoBehaviour
         // Not actually deleting anything, just move it away
         card.dnPos = new Vector3(100, 100, 100);
         transform.position = new Vector3(0, -75, 0);
+        DeckTracker.Instance.removeFromDeck(card.cardScriptableObject);
     }
 
     public void playThisCard()
