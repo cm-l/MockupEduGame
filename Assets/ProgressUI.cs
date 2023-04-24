@@ -11,11 +11,16 @@ public class ProgressUI : MonoBehaviour {
     void Awake() {
         gameStageValue = GameObject.Find("GameStageValue").GetComponent<TextMeshProUGUI>();
         levelTextValue = GameObject.Find("LevelValue").GetComponent<TextMeshProUGUI>();
-    }
 
-    // Update is called once per frame
-    void Update() {
-        gameStageValue.text = GameProgression.GetCurrentGameStage().ToString();
-        levelTextValue.text = (GameProgression.GetLevelsCompleted() + 1).ToString();
+        if (GameProgression.GetCurrentGameStage() == 4)
+            gameStageValue.text = "3";
+        else
+            gameStageValue.text = GameProgression.GetCurrentGameStage().ToString();
+
+
+        if (GameProgression.GetLevelsCompleted() == 12)
+            levelTextValue.text = "12/12";
+        else
+            levelTextValue.text = (GameProgression.GetLevelsCompleted() + 1).ToString() + "/12";
     }
 }

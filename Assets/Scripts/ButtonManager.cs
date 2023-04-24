@@ -320,6 +320,17 @@ public class ButtonManager : MonoBehaviour {
         }
     }
 
+    // <<<<< Shop >>>>>
+    public void LeaveShopButton() {
+        SoundSystemSingleton.Instance.PlaySfxSound(buttonClickSfx);
+
+        // Wyłączenie canvasu 'startowego' (play / options / quit)
+        TransitionScript.cameFromAnotherScene = true;
+
+        // Powrót do głównej gierki
+        Invoke("ChangeScene", 2f);
+    }
+
     // <<<<< Final scene >>>>>
     public void PlayAgainButton() {
         SoundSystemSingleton.Instance.PlaySfxSound(buttonClickSfx);

@@ -10509,7 +10509,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1605653151}
         m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
-        m_MethodName: BackToMainGameButton
+        m_MethodName: LeaveShopButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
