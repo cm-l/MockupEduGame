@@ -16,7 +16,7 @@ MonoBehaviour:
   cardArt: {fileID: 2100000, guid: 5aeca7341ae835c40af4a81d97242002, type: 2}
   uniqueActionDescriptor: 
   uniqueActionSuffix: suffixtest
-  playSound: {fileID: 8300000, guid: 7d2773e24d1ce4ab499111b6f563e5b0, type: 3}
+  playSound: {fileID: 8300000, guid: d32aaffe3bb909d4daccd74bd00a2ee8, type: 3}
   cardText: Heal 6HP and remove from play
   damageNumber: 0
   offensiveAction: 0
