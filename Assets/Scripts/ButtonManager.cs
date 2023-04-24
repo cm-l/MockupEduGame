@@ -24,6 +24,15 @@ public class ButtonManager : MonoBehaviour {
         ShowCanvas(choiceCanvas);
     }
 
+    // Na szybko dla canvasów HowToPlay
+    public void BackButtonHTP() {
+        SoundSystemSingleton.Instance.PlaySfxSound(buttonClickSfx);
+
+        transform.parent.parent.gameObject.SetActive(false);
+
+        ShowCanvas(choiceCanvas);
+    }
+
     // <<<<< PLAY / OPTIONS / QUIT >>>>>
     public void PlayButton() {
         SoundSystemSingleton.Instance.PlaySfxSound(buttonClickSfx);
@@ -31,6 +40,16 @@ public class ButtonManager : MonoBehaviour {
         // Schowanie canvasu menu
         transform.parent.parent.gameObject.SetActive(false);
         
+        // Wyświetlenie po chwili informacji o możliwości pójścia do sklepu / wylosowania minigierki
+        ShowCanvas(choiceCanvas);
+    }
+
+    public void HowToPlayButton() {
+        SoundSystemSingleton.Instance.PlaySfxSound(buttonClickSfx);
+
+        // Schowanie canvasu menu
+        transform.parent.parent.gameObject.SetActive(false);
+
         // Wyświetlenie po chwili informacji o możliwości pójścia do sklepu / wylosowania minigierki
         ShowCanvas(choiceCanvas);
     }
