@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2ad3e46a6545d847820c5ef4761cfd3, type: 3}
   m_Name: Coal
   m_EditorClassIdentifier: 
-  startingNumber: 50
+  startingNumber: 67
   damage: 9
   stageDecor: 2
   enemySpriteMaterial: {fileID: 2100000, guid: 66a1d9191797f8046b89f64e4a285a41, type: 2}

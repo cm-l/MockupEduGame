@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2ad3e46a6545d847820c5ef4761cfd3, type: 3}
   m_Name: Fire
   m_EditorClassIdentifier: 
-  startingNumber: 48
+  startingNumber: 71
   damage: 8
-  stageDecor: 3
+  stageDecor: 2
   enemySpriteMaterial: {fileID: 2100000, guid: 62b8a2a06b354d04897a6fe1c29e202c, type: 2}
   enemyMusicTrack: {fileID: 0}
   enemyAttackSound: {fileID: 0}

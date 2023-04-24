@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2ad3e46a6545d847820c5ef4761cfd3, type: 3}
   m_Name: Lizard
   m_EditorClassIdentifier: 
-  startingNumber: 42
+  startingNumber: 66
   damage: 7
   stageDecor: 2
   enemySpriteMaterial: {fileID: 2100000, guid: c5c5cc8d59829ea498f9c3f9cbb6e913, type: 2}

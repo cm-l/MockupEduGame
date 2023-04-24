@@ -1277,26 +1277,23 @@ MonoBehaviour:
   collectedCards: []
   collectedArtifacts: []
   collectedPotions:
-  - {fileID: 11400000, guid: 13ec485c8847b8f43a3c22466714d77c, type: 2}
+  - {fileID: 0}
   - {fileID: 11400000, guid: be52684150296cd42ab538037f2f96f9, type: 2}
   - {fileID: 11400000, guid: 873813b87ab921247802e5c1fd915a8d, type: 2}
   burnedCard: {fileID: 11400000, guid: 92eea3160106a3448b86672ad64558cf, type: 2}
   defaultCardSet:
-  - {fileID: 11400000, guid: 89775c0feee29114187ab5747920aa14, type: 2}
-  - {fileID: 11400000, guid: 89775c0feee29114187ab5747920aa14, type: 2}
-  - {fileID: 11400000, guid: 89775c0feee29114187ab5747920aa14, type: 2}
-  - {fileID: 11400000, guid: 89775c0feee29114187ab5747920aa14, type: 2}
-  - {fileID: 11400000, guid: 89775c0feee29114187ab5747920aa14, type: 2}
-  - {fileID: 11400000, guid: 89775c0feee29114187ab5747920aa14, type: 2}
-  - {fileID: 11400000, guid: 89775c0feee29114187ab5747920aa14, type: 2}
-  - {fileID: 11400000, guid: 89775c0feee29114187ab5747920aa14, type: 2}
-  - {fileID: 11400000, guid: 89775c0feee29114187ab5747920aa14, type: 2}
-  - {fileID: 11400000, guid: 89775c0feee29114187ab5747920aa14, type: 2}
-  - {fileID: 11400000, guid: 89775c0feee29114187ab5747920aa14, type: 2}
-  - {fileID: 11400000, guid: 89775c0feee29114187ab5747920aa14, type: 2}
-  - {fileID: 11400000, guid: 89775c0feee29114187ab5747920aa14, type: 2}
-  - {fileID: 11400000, guid: 89775c0feee29114187ab5747920aa14, type: 2}
-  - {fileID: 11400000, guid: 89775c0feee29114187ab5747920aa14, type: 2}
+  - {fileID: 11400000, guid: 73eb967723aca824cada0edf4dfa3cc5, type: 2}
+  - {fileID: 11400000, guid: db54eb42e764ecf41b4f03e0604377a8, type: 2}
+  - {fileID: 11400000, guid: 73eb967723aca824cada0edf4dfa3cc5, type: 2}
+  - {fileID: 11400000, guid: db54eb42e764ecf41b4f03e0604377a8, type: 2}
+  - {fileID: 11400000, guid: 73eb967723aca824cada0edf4dfa3cc5, type: 2}
+  - {fileID: 11400000, guid: db54eb42e764ecf41b4f03e0604377a8, type: 2}
+  - {fileID: 11400000, guid: db54eb42e764ecf41b4f03e0604377a8, type: 2}
+  - {fileID: 11400000, guid: 2728caa52b4c93b4c8917aa053552292, type: 2}
+  - {fileID: 11400000, guid: 2728caa52b4c93b4c8917aa053552292, type: 2}
+  - {fileID: 11400000, guid: 20e27ef123afdfa4781a9f92f4776195, type: 2}
+  - {fileID: 11400000, guid: 20e27ef123afdfa4781a9f92f4776195, type: 2}
+  - {fileID: 11400000, guid: db54eb42e764ecf41b4f03e0604377a8, type: 2}
 --- !u!4 &128878589
 Transform:
   m_ObjectHideFlags: 0
@@ -8315,9 +8312,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 92eea3160106a3448b86672ad64558cf, type: 2}
   - {fileID: 11400000, guid: fd2cab928e224c94d8b15991ccfb3dde, type: 2}
   enemyEncounterPool:
-  - {fileID: 11400000, guid: de8af4e206115ed4d8709f1c1000f94a, type: 2}
-  - {fileID: 11400000, guid: dfeb40ef2a1bdff4c9418e637bdc16a4, type: 2}
-  - {fileID: 11400000, guid: 21ef5d9c3155a8d42acff5dbc7ea98e1, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   cardScriptableObject: {fileID: 0}
   nextEnemyViaRewards: {fileID: 0}
 --- !u!114 &838156742
@@ -9764,6 +9761,7 @@ GameObject:
   - component: {fileID: 1032415804}
   - component: {fileID: 1032415806}
   - component: {fileID: 1032415805}
+  - component: {fileID: 1032415807}
   m_Layer: 0
   m_Name: Damage Text
   m_TagString: Untagged
@@ -9779,7 +9777,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1032415803}
   m_LocalRotation: {x: -0.021893635, y: -0.0030901872, z: -0.008862421, w: 0.99971634}
-  m_LocalPosition: {x: 0, y: 0, z: -0.1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.101}
   m_LocalScale: {x: 0.028792933, y: 0.07198233, z: 0.07198233}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -9788,7 +9786,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: -2.512, y: -0.332, z: -1.009}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.045, y: 0.623}
+  m_AnchoredPosition: {x: -0.3019, y: 0.63}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1032415805
@@ -9811,17 +9809,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'DMG: 123!!'
+  m_text: 'Enemy DMG:'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: da87ad973481153479dcbdd6c890c741, type: 2}
-  m_sharedMaterial: {fileID: -3799717648688900735, guid: da87ad973481153479dcbdd6c890c741, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 578240ea4cfe53f45a9e0eebe06daece, type: 2}
+  m_sharedMaterial: {fileID: -4302446681072683268, guid: 578240ea4cfe53f45a9e0eebe06daece, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278195404
-  m_fontColor: {r: 0.8018868, g: 0.07939472, b: 0, a: 1}
+    rgba: 4286414205
+  m_fontColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -9838,13 +9836,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20.77
-  m_fontSizeBase: 20.77
+  m_fontSize: 30.54
+  m_fontSizeBase: 30.54
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 33
+  m_fontStyle: 17
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -9903,7 +9901,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -3799717648688900735, guid: da87ad973481153479dcbdd6c890c741, type: 2}
+  - {fileID: -4302446681072683268, guid: 578240ea4cfe53f45a9e0eebe06daece, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9925,6 +9923,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1032415807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032415803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bdb916b00c4e284682211dd149d3054, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageIndicator: {fileID: 0}
+  enemyBhv: {fileID: 0}
 --- !u!4 &1047244339 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 416452, guid: f3be1ef107933d34d9ca25815249a775, type: 3}
@@ -11295,7 +11307,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 61fa6249e001710418ca64e1ab42ba3c, type: 2}
+  - {fileID: 2100000, guid: 5fc54e51f97ef3942b932577d8530775, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14897,20 +14909,20 @@ MonoBehaviour:
   playerGold: 40
   nextEncounteredEnemy: {fileID: 11400000, guid: b552bd781e6095848ab3693d5ee80d98, type: 2}
   deathMessage: {fileID: 1662922138}
-  deathSfx: {fileID: 8300000, guid: fa56e739488186a4782181bad1cfa431, type: 3}
+  deathSfx: {fileID: 8300000, guid: c9ad8f04b2061d940b4344a2466147d1, type: 3}
   hasDied: 0
   encounterableEnemies_First:
   - {fileID: 11400000, guid: b552bd781e6095848ab3693d5ee80d98, type: 2}
-  - {fileID: 11400000, guid: b552bd781e6095848ab3693d5ee80d98, type: 2}
-  - {fileID: 11400000, guid: b552bd781e6095848ab3693d5ee80d98, type: 2}
+  - {fileID: 11400000, guid: 05c35ba404432e64bbba269441c21eba, type: 2}
+  - {fileID: 11400000, guid: 05c35ba404432e64bbba269441c21eba, type: 2}
   encounterableEnemies_Second:
   - {fileID: 11400000, guid: 9ba8018d6346ff64b8a3a3a8d8fd1812, type: 2}
-  - {fileID: 11400000, guid: 9ba8018d6346ff64b8a3a3a8d8fd1812, type: 2}
+  - {fileID: 11400000, guid: 16ae3605285c9a747849afaef0259d7a, type: 2}
   - {fileID: 11400000, guid: 9ba8018d6346ff64b8a3a3a8d8fd1812, type: 2}
   encounterableEnemies_Third:
   - {fileID: 11400000, guid: 3cb98c6325afb4545acb17c6345c8e35, type: 2}
-  - {fileID: 11400000, guid: 3cb98c6325afb4545acb17c6345c8e35, type: 2}
-  - {fileID: 11400000, guid: 3cb98c6325afb4545acb17c6345c8e35, type: 2}
+  - {fileID: 11400000, guid: 9e24dcff176288547b41710911ae1c3d, type: 2}
+  - {fileID: 11400000, guid: 3827c820a9d152f40afb9d4d604b9e43, type: 2}
   singletonCompleted: 0
   gameStage: 0
 --- !u!4 &1501111499
@@ -20547,9 +20559,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 92eea3160106a3448b86672ad64558cf, type: 2}
   - {fileID: 11400000, guid: fd2cab928e224c94d8b15991ccfb3dde, type: 2}
   enemyEncounterPool:
-  - {fileID: 11400000, guid: de8af4e206115ed4d8709f1c1000f94a, type: 2}
-  - {fileID: 11400000, guid: dfeb40ef2a1bdff4c9418e637bdc16a4, type: 2}
-  - {fileID: 11400000, guid: 21ef5d9c3155a8d42acff5dbc7ea98e1, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   cardScriptableObject: {fileID: 0}
   nextEnemyViaRewards: {fileID: 0}
 --- !u!114 &2075332635

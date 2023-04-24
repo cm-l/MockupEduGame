@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2ad3e46a6545d847820c5ef4761cfd3, type: 3}
   m_Name: Snake-hard
   m_EditorClassIdentifier: 
-  startingNumber: 40
-  damage: 6
+  startingNumber: 64
+  damage: 7
   stageDecor: 1
   enemySpriteMaterial: {fileID: 2100000, guid: ee0f2b1cc39f6914fb0642dbde7c82bc, type: 2}
-  enemyMusicTrack: {fileID: 8300000, guid: 7252e6aa55d5a2d4ab5bea1082df5708, type: 3}
+  enemyMusicTrack: {fileID: 0}
   enemyAttackSound: {fileID: 8300000, guid: bc442016a3eda254e95097857cef952c, type: 3}
   enemyDeathNoise: {fileID: 8300000, guid: 79b74e9edf745b14491f7023d56a3a3a, type: 3}
   lowerGoldRange: 80

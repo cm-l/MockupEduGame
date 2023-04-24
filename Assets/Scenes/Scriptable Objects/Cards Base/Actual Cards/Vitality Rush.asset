@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Vitality Rush
   m_EditorClassIdentifier: 
   cardImage: {fileID: 2100000, guid: a6ae85b2555bea740a1b89be5f34494f, type: 2}
-  cardArt: {fileID: 2100000, guid: 24272b3503bf857479ee0f6601510fdc, type: 2}
+  cardArt: {fileID: 2100000, guid: ebb42d9b108a79c44951e284a7b4b1ff, type: 2}
   uniqueActionDescriptor: 
   uniqueActionSuffix: 
   playSound: {fileID: 8300000, guid: d32aaffe3bb909d4daccd74bd00a2ee8, type: 3}
