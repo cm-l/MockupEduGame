@@ -16,7 +16,7 @@ MonoBehaviour:
   cardArt: {fileID: 0}
   uniqueActionDescriptor: 
   uniqueActionSuffix: 
-  playSound: {fileID: 8300000, guid: 6cd85ba4c0f8df843b36c97ebe4caa4e, type: 3}
+  playSound: {fileID: 8300000, guid: d32aaffe3bb909d4daccd74bd00a2ee8, type: 3}
   cardText: Deal 1 Damage.
   damageNumber: 1
   offensiveAction: 0

@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3038d3c357a08aa4380b013ce8e33d20, type: 3}
-  m_Name: Ember
+  m_Name: Incinirate
   m_EditorClassIdentifier: 
   cardImage: {fileID: 2100000, guid: a6ae85b2555bea740a1b89be5f34494f, type: 2}
-  cardArt: {fileID: 2100000, guid: 96d2e2bfeee7fcb43a9272b831a36919, type: 2}
+  cardArt: {fileID: 2100000, guid: 24272b3503bf857479ee0f6601510fdc, type: 2}
   uniqueActionDescriptor: 
   uniqueActionSuffix: 
   playSound: {fileID: 8300000, guid: d32aaffe3bb909d4daccd74bd00a2ee8, type: 3}
-  cardText: Apply Weak and deal 6 damage
-  damageNumber: 6
+  cardText: 'Deal 30 damage. '
+  damageNumber: 30
   offensiveAction: 0
   healAmount: 0
   blockAmount: 0
@@ -27,8 +27,6 @@ MonoBehaviour:
   sacrificeAmount: 0
   payAmount: 0
   cost: 0
-  rarity: 0
-  effect:
-  - weak
-  value:
-  - 0.25
+  rarity: 1
+  effect: []
+  value: []
