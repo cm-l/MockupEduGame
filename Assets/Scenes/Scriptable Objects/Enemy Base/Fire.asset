@@ -16,7 +16,7 @@ MonoBehaviour:
   damage: 8
   stageDecor: 2
   enemySpriteMaterial: {fileID: 2100000, guid: 62b8a2a06b354d04897a6fe1c29e202c, type: 2}
-  enemyMusicTrack: {fileID: 0}
+  enemyMusicTrack: {fileID: 8300000, guid: bb9fa59988abec448be9a36aa23ae337, type: 3}
   enemyAttackSound: {fileID: 0}
   enemyDeathNoise: {fileID: 0}
   lowerGoldRange: 20

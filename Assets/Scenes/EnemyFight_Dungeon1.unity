@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571336, b: 0.3069219, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1277,23 +1277,22 @@ MonoBehaviour:
   collectedCards: []
   collectedArtifacts: []
   collectedPotions:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 5735703f945aa2f4c8d74b25f617dd23, type: 2}
   - {fileID: 11400000, guid: be52684150296cd42ab538037f2f96f9, type: 2}
-  - {fileID: 11400000, guid: 873813b87ab921247802e5c1fd915a8d, type: 2}
   burnedCard: {fileID: 11400000, guid: 92eea3160106a3448b86672ad64558cf, type: 2}
   defaultCardSet:
-  - {fileID: 11400000, guid: 73eb967723aca824cada0edf4dfa3cc5, type: 2}
+  - {fileID: 11400000, guid: 1c9a71050b1235d45beec17cbacd466b, type: 2}
+  - {fileID: 11400000, guid: 5337358345249ab4f912b2657ec677d4, type: 2}
+  - {fileID: 11400000, guid: 20c88143e18cb194aa8c287cc560b680, type: 2}
   - {fileID: 11400000, guid: db54eb42e764ecf41b4f03e0604377a8, type: 2}
-  - {fileID: 11400000, guid: 73eb967723aca824cada0edf4dfa3cc5, type: 2}
+  - {fileID: 11400000, guid: 8edbd67b257b5a64c8ae2e0f1f3743dd, type: 2}
+  - {fileID: 11400000, guid: aa75f3f2daec3b74b89fe4209d4a3db9, type: 2}
+  - {fileID: 11400000, guid: f36113cde9ea8ac44a048586bab7dfef, type: 2}
+  - {fileID: 11400000, guid: 91258c57b7dcdf14c9a027e24123cb45, type: 2}
+  - {fileID: 11400000, guid: 19d86e14494b38246b261a0b66cfdcc8, type: 2}
+  - {fileID: 11400000, guid: 03f001e73c99c23418399e3e0bb93f7a, type: 2}
   - {fileID: 11400000, guid: db54eb42e764ecf41b4f03e0604377a8, type: 2}
-  - {fileID: 11400000, guid: 73eb967723aca824cada0edf4dfa3cc5, type: 2}
-  - {fileID: 11400000, guid: db54eb42e764ecf41b4f03e0604377a8, type: 2}
-  - {fileID: 11400000, guid: db54eb42e764ecf41b4f03e0604377a8, type: 2}
-  - {fileID: 11400000, guid: 2728caa52b4c93b4c8917aa053552292, type: 2}
-  - {fileID: 11400000, guid: 2728caa52b4c93b4c8917aa053552292, type: 2}
-  - {fileID: 11400000, guid: 20e27ef123afdfa4781a9f92f4776195, type: 2}
-  - {fileID: 11400000, guid: 20e27ef123afdfa4781a9f92f4776195, type: 2}
-  - {fileID: 11400000, guid: db54eb42e764ecf41b4f03e0604377a8, type: 2}
+  - {fileID: 11400000, guid: fd30524e6948ce74a816bd0f47d39700, type: 2}
 --- !u!4 &128878589
 Transform:
   m_ObjectHideFlags: 0

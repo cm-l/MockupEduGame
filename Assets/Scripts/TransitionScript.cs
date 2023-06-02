@@ -21,21 +21,21 @@ public class TransitionScript : MonoBehaviour {
     private static int runningGameProbabilityS1 = 20;
     private static int combatGameProbabilityS1 = 20;
     private static int cauldronGameProbabilityS1 = 20;
-    private static int shopProbabilityS1 = 20;
+    private static int shopProbabilityS1 = 0;
 
     // Stage 2.
     private static int cardsGameProbabilityS2 = 20;
     private static int runningGameProbabilityS2 = 20;
     private static int combatGameProbabilityS2 = 20;
     private static int cauldronGameProbabilityS2 = 20;
-    private static int shopProbabilityS2 = 20;
+    private static int shopProbabilityS2 = 0;
 
     // Stage 3.
     private static int cardsGameProbabilityS3 = 20;
     private static int runningGameProbabilityS3 = 20;
     private static int combatGameProbabilityS3 = 20;
     private static int cauldronGameProbabilityS3 = 20;
-    private static int shopProbabilityS3 = 20;
+    private static int shopProbabilityS3 = 0;
 
     private static List<string> gameScenes;
 

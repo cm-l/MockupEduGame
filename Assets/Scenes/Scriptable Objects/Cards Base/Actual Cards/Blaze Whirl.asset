@@ -26,7 +26,7 @@ MonoBehaviour:
   drawAmount: 0
   sacrificeAmount: 0
   payAmount: 0
-  cost: 0
+  cost: 2
   rarity: 1
   effect: []
   value: []
