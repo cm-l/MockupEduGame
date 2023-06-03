@@ -72,9 +72,17 @@ public class Settings : MonoBehaviour {
                 
                 // Karty
                 CameraMovement.FreezeCamera();
-                
+
                 // Nietoperz
                 //CameraController.FreezeCamera();
+
+                //Bubbles
+                if (GameObject.Find("SD_Prop_Cauldron_01") != null)
+                {
+                    GameObject.Find("SD_Prop_Cauldron_01").
+                        GetComponent<followClicking>().enabled = false;
+                }
+
             }
         } else {
             Time.timeScale = 1;
@@ -91,6 +99,13 @@ public class Settings : MonoBehaviour {
             if (checkIfInScenesWithoutCursor()) {
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = false;
+            }
+
+            //Bubbles
+            if (GameObject.Find("SD_Prop_Cauldron_01") != null)
+            {
+                GameObject.Find("SD_Prop_Cauldron_01").
+                    GetComponent<followClicking>().enabled = true;
             }
         }
 
