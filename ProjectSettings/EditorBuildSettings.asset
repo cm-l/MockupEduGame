@@ -32,7 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PiJ-minigra.unity
     guid: 2a329988471bf4b68ba84cae3bd6b588
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Shop.unity
     guid: d02799b7a83f42c43ba09397583c634c
   - enabled: 1

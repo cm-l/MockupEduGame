@@ -19,6 +19,8 @@ public class Settings : MonoBehaviour {
     [SerializeField] private AudioClip gameMusic;
     private string currentSceneName;
 
+    [SerializeField] private static Canvas changeSceneHelpCanvas;
+
     void Start() {
         gamePaused = false;
         gamePausePressed = false;
@@ -40,7 +42,10 @@ public class Settings : MonoBehaviour {
             SoundSystemSingleton.Instance.ChangeMusicVolume(1f);
         }
         
-        Screen.SetResolution(screenWidth, screenHeight, true);    
+        Screen.SetResolution(screenWidth, screenHeight, true);
+
+        changeSceneHelpCanvas = GameObject.Find("ChangeSceneHelp").GetComponent<Canvas>();
+        changeSceneHelpCanvas.enabled = false;  
     }
     
     [SerializeField] private Canvas gamePauseCanvas;
@@ -105,6 +110,14 @@ public class Settings : MonoBehaviour {
         else if (Input.GetKeyDown(KeyCode.Alpha5)) {
             // ChangeScene("Shop");
         }
+
+        if (Input.GetKeyDown(KeyCode.H)) {
+            if (changeSceneHelpCanvas.enabled == true)
+                changeSceneHelpCanvas.enabled = false;
+            else
+                changeSceneHelpCanvas.enabled = true;
+        }
+
     }
 
     private void ChangeScene(string scene) {
