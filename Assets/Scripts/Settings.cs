@@ -88,6 +88,27 @@ public class Settings : MonoBehaviour {
                 Cursor.visible = false;
             }
         }
+
+        // Zmiana scen przyciskami
+        if (Input.GetKeyDown(KeyCode.Alpha1)) {
+            ChangeScene("EnemyFight_Dungeon1");
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2)) {
+            ChangeScene("Niko-minigierka");
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3)) {
+            ChangeScene("PiJ-minigraIntro");
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha4)) {
+            ChangeScene("AdditionScene");
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha5)) {
+            // ChangeScene("Shop");
+        }
+    }
+
+    private void ChangeScene(string scene) {
+        SceneManager.LoadScene(scene);
     }
 
     private static void PauseGame() {
